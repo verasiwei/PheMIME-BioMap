@@ -1,0 +1,11 @@
+#visualization-container {
+  background-color: #F2F3F6;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none; /* Initially hidden */
+  }
