@@ -5,10 +5,10 @@ account: siwei
 server: prod.tbilab.org
 hostUrl: https://prod.tbilab.org/__api__
 appId: 590
-bundleId: 2447
+bundleId: 2448
 url: https://prod.tbilab.org/content/a9c9961e-c4b3-4b4e-92a0-85bdb2fe9838/
-when: 1697301905.34327
-lastSyncTime: 1697301905.34329
+when: 1697309481.09974
+lastSyncTime: 1697309481.09975
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: helpers/biSBM.R|helpers/clean_up_data.R|helpers/run_setup_data.R|helpers/setup_data_survival.R|helpers/survival_analysis.R|vumc_cox_metabolomics/vumc_cox_metabolomics1.rds|vumc_cox_metabolomics/vumc_cox_metabolomics2.rds|vumc_cox_metabolomics/vumc_cox_metabolomics3.rds|vumc_cox_metabolomics/vumc_cox_metabolomics4.rds|vumc_cox_proteomics/vumc_cox_proteomics1.rds|vumc_cox_proteomics/vumc_cox_proteomics2.rds|vumc_cox_proteomics/vumc_cox_proteomics3.rds|vumc_cox_proteomics/vumc_cox_proteomics4.rds|vumc_cox_transcriptomics
+ignoredFiles: helpers/biSBM.R|helpers/clean_up_data.R|helpers/run_setup_data.R|helpers/setup_data_survival.R|helpers/survival_analysis.R

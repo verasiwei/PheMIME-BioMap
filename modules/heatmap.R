@@ -74,42 +74,63 @@ heatmapServer = function(id,current_description,visualize_network,current_instit
                      mutate(text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2))) %>%
                      arrange(rows,desc(hazard_ratio))
                    heatmap_dat$cols = factor(heatmap_dat$cols,levels = unique(heatmap_dat$cols))
-     
-                   heatmap_gene = heatmap_dat %>% filter(connection_type=="gene")
-                   heatmap_protein = heatmap_dat %>% filter(connection_type=="protein")
-                   heatmap_metabolite = heatmap_dat %>% filter(connection_type=="metabolite")
-                   heatmap_phecode = heatmap_dat %>% filter(connection_type=="phecode")
                    
-                   if(nrow(heatmap_gene)!=0){
-                     heatmap_gene = heatmap_gene
-                   } else{
+                   
+                   ### if user select molecular-level nodes
+                   if(sum(current_description() %in% nodes$node[nodes$type=="phecode"]==FALSE)>=1){
+                     
+                     type = unique(heatmap_dat$connection_type)
+                     heatmap_phecode = heatmap_dat %>% filter(connection_type==type)
+                     if(nrow(heatmap_phecode)!=0){
+                       heatmap_phecode = heatmap_phecode
+                     } else{
+                       heatmap_phecode = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
+                         mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="phecode",
+                                text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
+                     }
+                     
                      heatmap_gene = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
                        mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="gene",
                               text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
-                   }
-                   
-                   if(nrow(heatmap_protein)!=0){
-                     heatmap_protein = heatmap_protein
-                   } else{
                      heatmap_protein = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
                        mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="protein",
                               text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
-                   }
-                   
-                   if(nrow(heatmap_metabolite)!=0){
-                     heatmap_metabolite = heatmap_metabolite
-                   } else{
                      heatmap_metabolite = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
                        mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="metabolite",
                               text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
-                   }
-                   
-                   if(nrow(heatmap_phecode)!=0){
-                     heatmap_phecode = heatmap_phecode
-                   } else{
+                     
+                   } else {
+                     heatmap_gene = heatmap_dat %>% filter(connection_type=="gene")
+                     heatmap_protein = heatmap_dat %>% filter(connection_type=="protein")
+                     heatmap_metabolite = heatmap_dat %>% filter(connection_type=="metabolite")
                      heatmap_phecode = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
                        mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="phecode",
                               text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
+                     
+                     if(nrow(heatmap_gene)!=0){
+                       heatmap_gene = heatmap_gene
+                     } else{
+                       heatmap_gene = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
+                         mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="gene",
+                                text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
+                     }
+                     
+                     if(nrow(heatmap_protein)!=0){
+                       heatmap_protein = heatmap_protein
+                     } else{
+                       heatmap_protein = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
+                         mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="protein",
+                                text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
+                     }
+                     
+                     if(nrow(heatmap_metabolite)!=0){
+                       heatmap_metabolite = heatmap_metabolite
+                     } else{
+                       heatmap_metabolite = data.frame(cbind(rows=current_description(),cols="No connection",hazard_ratio=0)) %>% 
+                         mutate(hazard_ratio=as.numeric(hazard_ratio),connection_type="metabolite",
+                                text=paste0("x: ",rows,"\n","y: ", cols, "\n", "hazard ratio: ", round(hazard_ratio,2)))
+                     }
+                     
                    }
                    
                    data_for_heatmap_gene(heatmap_gene)
