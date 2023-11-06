@@ -1,0 +1,39 @@
+phecode,description,covariate,OR,pvalue,pvalue_adj,group
+070.20,Viral hepatitis B,overlap v617f aUPD,4.59730008903135,0.00224528092251008,1,infectious diseases
+117.40,Aspergillosis,GGCC/TCTT,2.03988231452571,0.000605067438946505,1,infectious diseases
+145.40,Cancer of the gums,overlap v617f aUPD,11.6178999759572,6.29645662137968e-05,1,neoplasms
+165.10,Cancer of bronchus; lung,other aUPD,1.14585845475431,0.00150826337107823,1,neoplasms
+187.10,Malignant neoplasm of unspecified male genital organ,other aUPD,3.16456538490996,0.00037551055630225,1,neoplasms
+259.20,Carcinoid syndrome,overlap v617f aUPD,8.215065004968,0.00413990666333319,1,endocrine/metabolic
+281.12,Other vitamin B12 deficiency anemia,GGCC/GGCC,1.71345394553543,0.000762275737369755,1,hematopoietic
+281.12,Other vitamin B12 deficiency anemia,overlap v617f aUPD,2.90742189528356,0.00398435097630745,1,hematopoietic
+286.60,Defibrination syndrome,other aUPD,0.464393909760045,0.00402298741955387,1,hematopoietic
+335.00,Multiple sclerosis,other aUPD,0.808394229543603,0.000540306668643242,1,neurological
+346.00,Abnormal findings on study of brain and/or nervous system,overlap v617f aUPD,37.0829428569284,0.000575971429229938,1,neurological
+348.90,Other conditions of brain, NOS,overlap v617f aUPD,0.241115192863535,0.00392428373209086,1,neurological
+425.10,Primary/intrinsic cardiomyopathies,other aUPD,1.15911739446134,0.000724410271488729,1,circulatory system
+428.20,Heart failure NOS,other aUPD,1.1431085315461,0.00407299792637139,1,circulatory system
+473.10,Chronic laryngitis,other aUPD,0.553706788400272,0.0002848879646139,1,respiratory
+512.20,Painful respiration,GGCC/TCTT,1.26030090372792,0.0025849976592246,1,respiratory
+555.10,Regional enteritis,GGCC/TCTT,1.18357596819416,0.000262340483084156,1,digestive
+558.00,Noninfectious gastroenteritis,GGCC/TCTT,1.13783765535903,0.00440254582920252,1,digestive
+560.40,Other intestinal obstruction,GGCC/TCTT,1.20886681307281,0.000695692853142194,1,digestive
+614.33,Pelvic inflammatory disease, NOS,overlap v617f aUPD,8.70432254853807,0.00340913517085772,1,genitourinary
+618.00,Genital prolapse,overlap v617f aUPD,8.94797173703772,0.000854777808374951,1,genitourinary
+621.00,Endometrial hyperplasia,GGCC/GGCC,0.170287680204391,0.00330839864293009,1,genitourinary
+626.10,Irregular menstrual cycle/bleeding,overlap v617f aUPD,5.14119834213552,0.00125699073743168,1,genitourinary
+653.00,Problems associated with amniotic cavity and membranes,other aUPD,1.27763841146315,0.00135476288301295,1,pregnancy complications
+654.10,Abnormality of organs and soft tissues of pelvis complicating pregnancy, childbirth, or the puerperium,GGCC/TCTT,0.500081310478439,0.00174003685252944,1,pregnancy complications
+656.30,Endocrine and metabolic disturbances of fetus and newborn,overlap v617f aUPD,6.49364944605667,0.000127199597753536,1,pregnancy complications
+726.40,Calcaneal spur; Exostosis NOS,other aUPD,0.589035174065172,0.00269662489569999,1,musculoskeletal
+731.00,Osteitis deformans and osteopathies associated with other disorders classified elsewhere,other aUPD,2.04423330635417,0.00269257423390867,1,musculoskeletal
+731.10,Osteitis deformans [Paget's disease of bone],other aUPD,3.84552244230494,0.00313301677200395,1,musculoskeletal
+756.00,Other congenital musculoskeletal anomalies,other aUPD,2.03988438871629,0.00270894007776201,1,congenital anomalies
+759.10,Anomalies of endocrine glands, congenital,overlap v617f aUPD,14.1748807482084,0.00441017349339701,1,congenital anomalies
+803.20,Fracture of radius and ulna,other aUPD,0.833789460942466,0.00395264331998413,1,injuries & poisonings
+805.00,Fracture of vertebral column without mention of spinal cord injury,GGCC/TCTT,0.831782338320176,0.00203332958514746,1,injuries & poisonings
+809.00,Fracture of unspecified bones,GGCC/TCTT,0.857579462261915,0.00417335061701907,1,injuries & poisonings
+960.10,Adverse effects of antibacterials (not penicillins),overlap v617f aUPD,100.887947375102,0.00413885442555839,1,injuries & poisonings
+965.00,Poisoning by analgesics, antipyretics, and antirheumatics,GGCC/TCTT,1.67014311236445,0.00300822493783659,1,injuries & poisonings
+980.00,Encounter for long-term (current) use of antibiotics,other aUPD,1.16342267606165,0.00273157861264695,1,infectious diseases
+983.00,Toxic effect of corrosive aromatics, acids, and caustic alkalis,GGCC/GGCC,25.3016751134244,0.000637147583016806,1,injuries & poisonings

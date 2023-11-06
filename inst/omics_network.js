@@ -1,5 +1,4 @@
 svg.selectAll("*").remove();
-//d3.select("g").style("color","#F2F3F6");
 svg.style('background-color', "#F2F3F6");
 const padding = 20;
 const X = d3.scaleLinear()
@@ -16,36 +15,41 @@ const node_types = unique(nodes.map(d => d.type));
 const num_types = node_types.length;
 
 type_to_prop = {
-  gene:  {r:7, opacity: 1, color: "#689030"},
-  protein: {r:7, opacity: 1, color: "#5E738F"},
-  metabolite: {r:7, opacity: 1, color: "#AD6F3B"},
-  phecode: {r:10, opacity: 1, color: "#673770"}
+  gene:  {r:5, opacity: 1, color: "#689030"},
+  protein: {r:5, opacity: 1, color: "#5E738F"},
+  metabolite: {r:5, opacity: 1, color: "#AD6F3B"},
+  phecode: {r:7, opacity: 1, color: "#673770"}
 };
 
+
+///begin to force-directed simulation
 const simulation = d3.forceSimulation(nodes)
   .force(
     "link", 
     d3.forceLink(links)
       .id(d => d.id)
-      .distance(700)
+      .distance(100)
+      .strength(0.8) // Increase the strength to make it stable
       //.iterations(2)
   )
   .force(
     "collision", 
     d3.forceCollide()
-      .radius(d => type_to_prop[d.type].r)
-      //.iterations(2)
+      .radius(d => type_to_prop[d.type].r+2)
+      .iterations(2)
    )
   .force(
     "charge", 
     d3.forceManyBody()
-     .strength(-200)
+     .strength(-8)
   ) 
-  //.alphaDecay(0.001)
-  //.alphaTarget(0.1)
-  //.tick(100)
   .on("tick", ticked);
+// Run the simulation for a few iterations to stabilize the positions
+for (let i = 0; i < 300; i++) {
+  simulation.tick();
+}
 
+///create the network
 const link = svg.append("g")
    .attr("stroke", "#999")
    .attr("stroke-opacity", 0.1)
@@ -64,33 +68,35 @@ const node = svg.append("g")
     .attr("fill", d => type_to_prop[d.type].color)
     .attr('fill-opacity', d => type_to_prop[d.type].opacity)
     .call(drag(simulation));
+// Define the size of pre-selected and non-selected nodes
+const selectedNodeSize = 15; // Adjust the size for pre-selected nodes
+// Add a CSS class for pre-selected nodes
+node.filter(d => d.selected === 'yes')
+  .classed('pre-selected-node', true)
+  .attr('r', selectedNodeSize)
 
-// Add CSS styles for the "hovered" class
-
+/// Add CSS styles for the "hovered" class
 const hoverStyles = {
   cursor: 'pointer', // Change cursor to a hand
-  r: 15, // Increase node size on hover
+  r: selectedNodeSize, // Increase node size on hover
 };
-
 const unhoverStyles = {
   cursor: 'default', // Reset cursor
   r: d => type_to_prop[d.type].r, // Reset node size
 };
-
 // Add event listeners to show and hide the table on hover
 node.on('mouseover', function(d){
-  const isPreSelected = d.selected === 'yes';
-  const isSelected = selectedNodes.has(d);
+  //const isPreSelected = d.selected === 'yes';
+  //const isSelected = selectedNodes.has(d);
   
-  if (!isPreSelected && !isSelected) {
   d3.select(this)
     .classed('hovered', true) // Add the "hovered" class
     .style('cursor', 'pointer') // Change cursor to a hand
     .attr('r', hoverStyles.r); // Apply hover styles
-  }
+    
   // Show the table and populate it with node information
   tooltipDiv.transition()
-    .duration(200)
+    //.duration(200)
     .style("opacity", 1);
   tooltipDiv.html(generateTable(d))
     .style("left", (d3.event.pageX + 10) + "px")
@@ -98,17 +104,23 @@ node.on('mouseover', function(d){
 })
 .on('mouseout', function(d){
   const isPreSelected = d.selected === 'yes';
-  const isSelected = selectedNodes.has(d);
   
-  if (!isPreSelected && !isSelected) {
+  if (!isPreSelected) {
   d3.select(this)
     .classed('hovered', false) // Remove the "hovered" class
     .style('cursor', 'default') // Reset cursor
     .attr('r', unhoverStyles.r); // Reset node size
   }
+  if (isPreSelected) {
+  d3.select(this)
+    .classed('hovered', false) // Remove the "hovered" class
+    .style('cursor', 'default') // Reset cursor
+    .attr('r', selectedNodeSize); // Reset node size
+  }
+  
   // Hide the table when the mouse moves away
   tooltipDiv.transition()
-    .duration(500)
+    //.duration(500)
     .style("opacity", 0);
 });
 
@@ -117,7 +129,7 @@ function ticked(){
   X.domain(d3.extent(nodes, d => d.x));
   Y.domain(d3.extent(nodes, d => d.y));
   
-   link
+  link
       .attr("x1", d => X(d.source.x))
       .attr("y1", d => Y(d.source.y))
       .attr("x2", d => X(d.target.x))
@@ -165,7 +177,6 @@ function unique(vec){
 const tooltipDiv = d3.select("body").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
-
 // Function to generate the HTML table for a node with styles
 function generateTable(node) {
   return `
@@ -185,23 +196,24 @@ function generateTable(node) {
     </table>
   `;
 }
-
+// Function to generate a simplified HTML tooltip with only the ID
+function generateSimplifiedTooltip(node) {
+  return `
+    <div style="font-size: 12px; padding: 4px; background-color: white; border: 1px solid #ddd;">
+      <strong>ID:</strong> ${node.id}
+    </div>
+  `;
+}
 ///add isolate and return
-
 // Create a group for buttons
 const buttonGroup = svg.append("g")
   //.attr("transform", `translate(${width - 150}, 10)`);
-
 // Determine the width of the SVG container
 const svgWidth = width; // You may need to adjust this based on your actual container width
 const svgHeight = height;
-
 // Calculate the x-positions for the buttons to center them
 const isolateButtonX = svgWidth - 130;
 const isolateButtonY = svgHeight - 40;
-const heatmapButtonX = svgWidth - 260; // Adjust this position to place it to the right
-
-
 // Create the Isolate button
 buttonGroup.append("rect")
   .attr("x", isolateButtonX)
@@ -213,7 +225,6 @@ buttonGroup.append("rect")
   .style("fill", "#D3D3D3")
   .style("cursor", "pointer")
   .on("click", isolateSelectedNode);
-
 buttonGroup.append("text")
   .attr("x", isolateButtonX + 60)
   .attr("y", isolateButtonY + 15)
@@ -224,28 +235,69 @@ buttonGroup.append("text")
   .style("pointer-events", "none")
   .text("Sub-network");
 
-// Create the "Show Heatmap" button
-//buttonGroup.append("rect")
-//  .attr("x", heatmapButtonX)
-//  .attr("y", isolateButtonY) // Use the same Y-coordinate to align with "Sub-network" button
-//  .attr("width", 120)
-//  .attr("height", 30)
-//  .attr("rx", 5)
-//  .attr("ry", 5)
-//  .style("fill", "#D3D3D3")
-//  .style("cursor", "pointer")
-//  .on("click", showHeatmap);
+///change the node size of user pre-selected nodes
+//const preSelectedNodes = nodes.filter(d => d.selected === 'yes');
+// Create a set to keep track of selected nodes
+const selectedNodes = new Set(); //does not include pre-selected nodes
+// Filter nodes that are pre-selected
+//const userPreSelectedNodes = new Set(preSelectedNodes); //include pre-selected nodes
+// Set the size of pre-selected nodes
+node
+  .filter(d => d.selected === 'yes')
+  .attr('r', selectedNodeSize)
+  .attr("fill",d => type_to_prop[d.type].color);
+// Set the size of non-selected nodes to their original size
+node
+  .filter(d => d.selected !== 'yes')
+  .attr('r', d => type_to_prop[d.type].r)
+  .attr("fill",d => type_to_prop[d.type].color);
+  
+///begin to define the actions when click the node
+node.on('click', function (clickedNode) {
+  // Check if the clicked node is user pre-selected
+  // Toggle the selection state of the clicked node
+  if (selectedNodes.has(clickedNode)) {
+    selectedNodes.delete(clickedNode); //if click again, return to the previous state
+  } else {
+    selectedNodes.add(clickedNode);
+  }
 
-//buttonGroup.append("text")
-//  .attr("x", heatmapButtonX + 60)
-//  .attr("y", isolateButtonY + 15) // Use the same Y-coordinate to align with "Sub-network" button
-//  .attr("text-anchor", "middle")
-//  .attr("dy", "0.35em")
-//  .style("fill", "black")
-//  .style("font-size", "1.5rem")
-//  .style("pointer-events", "none")
-//  .text("Show Heatmap");
+  // Change the color of selected nodes to red
+  node.filter(d => selectedNodes.has(d))
+    .attr('fill', 'red');
+  // Change the color of unselected nodes to their original color
+  node.filter(d => !selectedNodes.has(d))
+    .attr('fill', d => type_to_prop[d.type].color);
 
+  // Highlight shared edges and change the color of unconnected nodes to grey
+  link.attr('stroke', '#999'); // Reset all edges to their original color
+  if (selectedNodes.size > 0) {
+    link.filter(d => selectedNodes.has(d.source) && selectedNodes.has(d.target))
+      .attr('stroke', "#DA5724");
+    // Find nodes that are connected to all selected nodes
+    const nodesConnectedToAllSelected = nodes.filter(node => isNodeConnectedToAllSelectedNodes(node));
+    // Change the color of the edges connected to all selected nodes to blue
+    link.filter(d => {
+      const sourceConnectedToAll = isNodeConnectedToAllSelectedNodes(d.source);
+      const targetConnectedToAll = isNodeConnectedToAllSelectedNodes(d.target);
+      return (selectedNodes.has(d.source) && targetConnectedToAll) || (sourceConnectedToAll && selectedNodes.has(d.target));
+    }).attr('stroke', "#DA5724"); // Change to your desired color
+
+    // Change unconnected nodes to the desired grey color
+    node.filter(d => !selectedNodes.has(d) && !isNodeConnectedToAllSelectedNodes(d))
+      .attr('fill', '#888');
+  }
+  
+  // Send the clicked node ID to your Shiny module using the module's namespace (ns)
+  sendClickedNodeToShiny(selectedNodes);
+
+  
+});
+
+// Create tooltips for pre-selected nodes that are always visible
+
+///=======================functions===================
+///===================================================
 function isolateSelectedNode() {
   // Check if a node is selected
   if (selectedNodes.size === 0) {
@@ -293,79 +345,6 @@ function isolateSelectedNode() {
   // Update the color of pre-selected nodes after the isolation operation
   //updatePreSelectedNodesColor();
 }
-
-///change the node size of user pre-selected nodes
-// Create a set to keep track of selected nodes
-const selectedNodes = new Set();
-// Define the size of pre-selected and non-selected nodes
-const selectedNodeSize = 15; // Adjust the size for pre-selected nodes
-// Filter nodes that are pre-selected
-const preSelectedNodes = nodes.filter(d => d.selected === 'yes');
-// Set the size of pre-selected nodes
-node
-  .filter(d => d.selected === 'yes')
-  .attr('r', selectedNodeSize)
-  .attr("fill","#fff700");
-// Set the size of non-selected nodes to their original size
-node
-  .filter(d => d.selected !== 'yes')
-  .attr('r', d => type_to_prop[d.type].r);
-
-//function updatePreSelectedNodesColor() {
-//  node
-//    .filter(d => d.selected === 'yes')
-//    .attr("fill", "#fff700");
-//}
-  
-///begin to define the actions when click the node
-const userPreSelectedNodes = new Set(preSelectedNodes);
-node.on('click', function (clickedNode) {
-  // Check if the clicked node is user pre-selected
-  const isUserPreSelected = userPreSelectedNodes.has(clickedNode);
-  
-  // Toggle the selection state of the clicked node
-  if (selectedNodes.has(clickedNode)) {
-    selectedNodes.delete(clickedNode);
-    //d3.select(this).classed("clicked", false); // Add a class for clicked nodes
-  } else {
-    selectedNodes.add(clickedNode);
-    //d3.select(this).classed("clicked", true); // Add a class for clicked nodes
-  }
-
-  // Change the color of selected nodes to a custom color
-  //node.attr('fill', d => (selectedNodes.has(d) ? 'red' : type_to_prop[d.type].color));
-  // Change the color of selected nodes to red
-  node.filter(d => selectedNodes.has(d))
-    .attr('fill', 'red');
-  // Change the color of user pre-selected nodes to #fff700
-  node.filter(d => userPreSelectedNodes.has(d))
-    .attr('fill', '#fff700');
-  // Change the color of unselected nodes to their original color
-  node.filter(d => !selectedNodes.has(d) && !userPreSelectedNodes.has(d))
-    .attr('fill', d => type_to_prop[d.type].color);
-
-  // Highlight shared edges and change the color of unconnected nodes to grey
-  link.attr('stroke', '#999'); // Reset all edges to their original color
-  if (selectedNodes.size > 0) {
-    link.filter(d => selectedNodes.has(d.source) && selectedNodes.has(d.target))
-      .attr('stroke', "#DA5724");
-    // Find nodes that are connected to all selected nodes
-    const nodesConnectedToAllSelected = nodes.filter(node => isNodeConnectedToAllSelectedNodes(node));
-    // Change the color of the edges connected to all selected nodes to blue
-    link.filter(d => {
-      const sourceConnectedToAll = isNodeConnectedToAllSelectedNodes(d.source);
-      const targetConnectedToAll = isNodeConnectedToAllSelectedNodes(d.target);
-      return (selectedNodes.has(d.source) && targetConnectedToAll) || (sourceConnectedToAll && selectedNodes.has(d.target));
-    }).attr('stroke', "#DA5724"); // Change to your desired color
-
-    // Change unconnected nodes to the desired grey color
-    node.filter(d => !selectedNodes.has(d) && !isNodeConnectedToAllSelectedNodes(d))
-      .attr('fill', '#888'); 
-    
-    // Update the color of pre-selected nodes after the isolation operation
-    //updatePreSelectedNodesColor();
-  }
-});
 
 // Function to check if a node is connected to all selected nodes
 function isNodeConnectedToAllSelectedNodes(nodeToCheck) {

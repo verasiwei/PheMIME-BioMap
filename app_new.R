@@ -3,9 +3,14 @@ source("modules/load_library.R")
 source("modules/helpers_func.R")
 source("modules/data_loading.R")
 source("modules/multipartite_network_vis.R")
-source("modules/heatmap.R")
+# source("modules/heatmap.R")
 # molecular_nodes = unique(nodes$node)
-starting_code <- c("296.20")
+starting_code <- c("250.20","272.10")
+# starting_code <- c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
+starting_description = c("Type 2 diabetes","Hyperlipidemia")
+# starting_description = c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
+starting_row = c(257,346)
+# starting_row = c(672,673,674,675)
 # Used in data table to both select correct row and navigate table to that row
 start_index <- which(phecodes$code %in% starting_code)
 
@@ -51,10 +56,12 @@ ui = dashboardPage(
       column(width=12,
              box(width=12,
                  status="warning",solidHeader = FALSE,
-                 title = strong("Select Institution",style="font-size: 1.7rem;color:black;float:left"),
+                 # title = strong("Select Institution",style="font-size: 1.7rem;color:black;float:left"),
                  ##select institution
-                 selectInput("institution", label = NULL,
+                 selectInput("institution", label = strong("Select Institution",style="font-size: 1.7rem;color:black;float:left"),
                              choices = list("UKB"="ukb","VUMC"="vumc")),
+                 # hr(),
+                 # fileInput("upload",label=strong("Upload your Phewas result",style="font-size: 1.7rem;color:black;float:left"),accept = c(".csv")),
                  hr(),
                  ##select phecode/molecular centric
                  div(strong("Interactive Data Selection",style="font-size: 1.7rem;color:black")),
@@ -84,14 +91,14 @@ ui = dashboardPage(
     fluidRow(
       
       ##network visualization
-      column(width=8,
+      column(width=12,
              multipartite_network("network_vis")
              )
-      ,
-      ##heatmap between selection of nodes
-      column(width=4,
-             heatmap("heatmap_selections")
-             )
+      # ,
+      # ##heatmap between selection of nodes
+      # column(width=4,
+      #        heatmap("heatmap_selections")
+      #        )
     ),
     
     tags$head(
@@ -175,9 +182,20 @@ ui = dashboardPage(
 server <- function(input, output, session) {
   current_institution <- reactive({input$institution})
   current_data <- reactiveVal("Phecode")
-  current_phecode <- reactiveVal(c("250.20","272.10"))
-  current_description <- reactiveVal(c("Type 2 diabetes","Hyperlipidemia"))
-  current_row <- reactiveVal(c(113,144))
+  current_phecode <- reactiveVal(starting_code)
+  current_description <- reactiveVal(starting_description)
+  current_row <- reactiveVal(starting_row)
+ 
+  # upload_data <- reactive({
+  #   req(input$upload)
+  #   ext <- tools::file_ext(input$upload$name)
+  #   switch(ext,
+  #                      csv = vroom::vroom(input$upload$datapath,col_types=cols(OR=col_double(),pvalue=col_double()), delim = ","),
+  #                      validate("Invalid file; Please upload a .csv file")
+  #   )
+  # })
+  # upload_data_yes <- reactive({input$upload})
+  
   observeEvent(input$data_selection_rows_selected,{
     current_data(c("Phecode","Gene","Protein","Metabolite")[input$data_selection_rows_selected])
   })
@@ -315,7 +333,7 @@ server <- function(input, output, session) {
     )},server = FALSE)
   
   multipartite_networkServer("network_vis",molecular,pvalue,update_network,reset_network,current_description,visualize_network,current_institution,current_data)
-  heatmapServer("heatmap_selections",current_description,visualize_network,current_institution)
+  # heatmapServer("heatmap_selections",current_description,visualize_network,current_institution)
 }
 
 shinyApp(ui, server)

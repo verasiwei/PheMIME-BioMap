@@ -13,6 +13,7 @@ library(heatmaply)
 library(d3heatmap)
 library(hrbrthemes)
 library(plotly)
+library(UpSetR)
 # library(phewasHelper)
 normalize_phecodes = function (codes) 
 {

@@ -8,11 +8,11 @@ tidy_connect = readRDS("data/all_res.rds")
 vumc_res = readRDS("data/vumc_phewas_res.rds")
 ukbb_res = readRDS("data/omicspred_phewas_res.rds")
 data_network_initial = readRDS("data/data_network_initial.rds")
-data_heatmap_initial = readRDS("data/data_heatmap_initial.rds")
-data_heatmap_gene_initial = readRDS("data/data_heatmap_gene_initial.rds")
-data_heatmap_protein_initial = readRDS("data/data_heatmap_protein_initial.rds")
-data_heatmap_metabolite_initial = readRDS("data/data_heatmap_metabolite_initial.rds")
-data_heatmap_phecode_initial = readRDS("data/data_heatmap_phecode_initial.rds")
+# data_heatmap_initial = readRDS("data/data_heatmap_initial.rds")
+# data_heatmap_gene_initial = readRDS("data/data_heatmap_gene_initial.rds")
+# data_heatmap_protein_initial = readRDS("data/data_heatmap_protein_initial.rds")
+# data_heatmap_metabolite_initial = readRDS("data/data_heatmap_metabolite_initial.rds")
+# data_heatmap_phecode_initial = readRDS("data/data_heatmap_phecode_initial.rds")
 # data_network_depression = readRDS("data/data_network_depression.rds")
 # res_cluster = readRDS("data/res_cluster.rds")
 # vumc_res = readRDS("data/vumc_res.rds")
@@ -27,6 +27,10 @@ phecodes <- phecode_def %>% dplyr::select(phecode,description) %>%
   join_phecode_info(cols_to_join = c("description", "category")) %>%
   rename(Description=description) %>%
   filter(phecode %in% phecode_in)
+# # #jak2
+phecodes = bind_rows(phecodes,data.frame(phecode=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
+                                         Description=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
+                                         category=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")))
 
 nodes = ukbb_res %>%
   dplyr::select(node = Description,type=Type) %>%
@@ -41,6 +45,14 @@ nodes = ukbb_res %>%
               distinct(node,.keep_all = T)) %>%
   # filter(!is.na(node)) %>%
   distinct(node,.keep_all = T)
+
+##jak2
+phe.result = readRDS("data/phe_res_jak2.rds")
+nodes = bind_rows(nodes,phe.result %>%
+                    dplyr::select(node=description) %>% mutate(type="phecode")) %>%
+  distinct(node,.keep_all = T)
+nodes = bind_rows(nodes,data.frame(node=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
+                                   type=rep("phecode",4)))
   
 phecodes = phecodes %>%
   rename(code=phecode)
