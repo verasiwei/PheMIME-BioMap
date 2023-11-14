@@ -28,9 +28,9 @@ phecodes <- phecode_def %>% dplyr::select(phecode,description) %>%
   rename(Description=description) %>%
   filter(phecode %in% phecode_in)
 # # #jak2
-phecodes = bind_rows(phecodes,data.frame(phecode=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
-                                         Description=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
-                                         category=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")))
+# phecodes = bind_rows(phecodes,data.frame(phecode=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
+#                                          Description=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
+#                                          category=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")))
 
 nodes = ukbb_res %>%
   dplyr::select(node = Description,type=Type) %>%
@@ -47,12 +47,12 @@ nodes = ukbb_res %>%
   distinct(node,.keep_all = T)
 
 ##jak2
-phe.result = readRDS("data/phe_res_jak2.rds")
-nodes = bind_rows(nodes,phe.result %>%
-                    dplyr::select(node=description) %>% mutate(type="phecode")) %>%
-  distinct(node,.keep_all = T)
-nodes = bind_rows(nodes,data.frame(node=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
-                                   type=rep("phecode",4)))
+# phe.result = readRDS("data/phe_res_jak2.rds")
+# nodes = bind_rows(nodes,phe.result %>%
+#                     dplyr::select(node=description) %>% mutate(type="phecode")) %>%
+#   distinct(node,.keep_all = T)
+# nodes = bind_rows(nodes,data.frame(node=c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT"),
+#                                    type=rep("phecode",4)))
   
 phecodes = phecodes %>%
   rename(code=phecode)

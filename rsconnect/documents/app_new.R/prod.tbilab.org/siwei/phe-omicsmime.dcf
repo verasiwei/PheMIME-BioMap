@@ -1,0 +1,13 @@
+name: phe-omicsmime
+title: Phe-OmicsMIME
+username: siwei
+account: siwei
+server: prod.tbilab.org
+hostUrl: https://prod.tbilab.org/__api__
+appId: 606
+bundleId: 2485
+url: https://prod.tbilab.org/content/ffa276d5-0de9-4b3e-8220-1977b771fa81/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .here|app_new_new.R|helpers

@@ -1,181 +1,200 @@
+starting_code <- c("250.20","250.70","272.10","278.10","401.10","594.10","296.20")
+# starting_code <- c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
+starting_description = c("Type 2 diabetes", "Diabetic retinopathy", "Hyperlipidemia", "Obesity", "Essential hypertension", "Calculus of kidney", "Depression")
+# starting_description = c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
+starting_row = c(113,122,144,164,206,292,465)
+# starting_row = c(672,673,674,675)
+# Used in data table to both select correct row and navigate table to that row
+start_index <- which(phecodes$code %in% starting_code)
 data_loading_UI <- function(id) {
   ns <- NS(id)
-  tagList(
+  
     fluidPage(
-      sidebarLayout(
-        sidebarPanel(
-          uiOutput(ns('preloaded_data')),
-          actionButton(ns('preLoadedData'), 'Use preloaded UK Biobank or VUMC data'),
+      
+      useShinydashboard(),
+      # use a gradient in background
+      setBackgroundColor(
+        color = c("#F2F3F6"),
+        gradient = "linear",
+        direction = "bottom"
+      ),
+      titlePanel(
+        title = "Phe-Omics Multimorbidity Explorer"
+      ),
+      
+        sidebarLayout(
+          sidebarPanel(
+            style = "background-color: white;height:90vh",
+            
+          selectInput(ns("institution"),label = strong("Selecting Institution",style="font-size: 2rem;color:black;float:left"),
+                      choices = list("UKB"="ukb","VUMC"="vumc")),
           hr(),
-          h3('Load your data'),
-          fileInput(ns("phewas"), "Phewas summary statistics file",
-                    accept = ACCEPTED_FORMATS
-                    
-          ),
-          shinyjs::hidden(
-            actionButton(ns("goToApp"), "Enter App")
+          ##select phecode/molecular centric
+          # div(strong("Exploring Disease Phenotype or Biomolecules?",style="font-size: 2rem;color:black")),
+          # DTOutput(ns("data_selection")),
+          selectInput(ns("data_selection"),label = strong("Exploring Disease Phenotypes or Biomolecules?",style="font-size: 2rem;color:black;float:left"),
+                      choices = list("Phenotype"="phecode","Gene"="gene","Protein"="protein","Metabolite"="metabolite")),
+          div("Current selections:",style = "font-size:1.7rem;color: black;
+                                                padding-left: 10px;
+                                                display: flex;align-items:
+                                                center;justify-content: space-evenly;"),
+          div(span(textOutput(ns("current_code_label"),inline = TRUE),style = "font-size:1.7rem;color:black;"),
+              style = "padding-left: 10px;
+                     display: flex;align-items:
+                     center;justify-content: space-evenly;"),
+          hr(),
+          div(actionButton(ns("reset_selection"), "Reset Selection",style="float:right;background-color: #D3D3D3;display: inline-block; margin-left: 15px;"),
+          actionButton(ns("visualize"), "Visualize Multipartite Network",style="float:right;background-color: #D3D3D3;display: inline-block; ")
           )
+          
+        ),
+        
+        mainPanel(style = "background-color: white;height:90vh;",
+          div(strong("Select Disease Phenotype or Biomolecule of Interest"),style="padding-top: 20px;font-size: 2rem;color:black;float:left"),
+          DTOutput(ns("code_selection")),
+          hr(),
+          actionButton(ns("bring_top"), "Bring Selected Rows Top",style="float:right;background-color: #D3D3D3;")
         )
-        # ,
-        # mainPanel(
-        #   includeMarkdown(here("www/data_instructions.md"))
-        # )
-      )
+        ) #full panel
     )
-  )
 }
 
 data_loading <- function(input, output, session) {
-  #----------------------------------------------------------------
-  # Reactive Values based upon user input
-  #----------------------------------------------------------------
-  print('running loading module!')
+  current_institution <- reactive({input$institution})
+  # current_data <- reactiveVal("Phecode")
+  current_phecode <- reactiveVal(starting_code)
+  current_description <- reactiveVal(starting_description)
+  current_row <- reactiveVal(starting_row)
+  dat <- reactiveValues(table_data = all_dat %>% filter(group=="phecode"))
+  
   app_data <- reactiveValues(
-    tidy_connect = NULL
+    current_phecode = NULL,
+    current_description = NULL,
+    current_institution = NULL,
+    # current_data = NULL,
+    visualize_network = FALSE
   )
-
-  ## upload UK Biobank Data
-  preloaded_data <- list.files(here('data/preloaded'), pattern = 'rs')
-
-  output$preloaded_data <- renderUI({
-    selectInput(session$ns("dataset_selection"), "Select a pre-loaded dataset:",
-                preloaded_snps
+  
+  ## select data centric of interest
+  # output$data_selection <- renderDT({
+  #   dat_sel = data.frame(Category = c("Phecode","Gene","Protein","Metabolite"))
+  #   datatable(dat_sel,
+  #             rownames = FALSE,colnames = "",
+  #             options = list(dom="t"),
+  #             # caption = strong("Interactive Data Selection",style="font-size: 1.7rem;"),
+  #             selection = list(mode = "single",selected=c(1)))
+  # },server = FALSE)
+  
+  observeEvent(input$data_selection,{
+    if(identical(input$data_selection,"phecode")){
+      dat$table_data = all_dat %>% filter(group=="phecode")
+    } else if(identical(input$data_selection,"gene")){
+      dat$table_data = all_dat %>% filter(group=="gene")
+    } else if(identical(input$data_selection,"protein")){
+      dat$table_data = all_dat %>% filter(group=="protein")
+    } else if(identical(input$data_selection,"metabolite")){
+      dat$table_data = all_dat %>% filter(group=="metabolite")
+    }
+  })
+  
+  ## user select specific phenotypes/biomolecules
+  output$code_selection <- renderDT({
+    
+    datatable(dat$table_data,
+              # caption = "Select Disease Phenotype or Biomolecule of Interest",
+              # rownames = FALSE,
+              #options = list(displayStart = start_index - 2),
+              options = list(
+                scrollX = "300px",
+                scrollY = "300px",
+                pageLength = 30, lengthChange = FALSE
+              ),    
+              selection = list(mode = 'multiple',selected=current_row())
     )
+    },server = TRUE)
+  
+  # observeEvent(input$data_selection_rows_selected,{
+  #   current_data(c("Phecode","Gene","Protein","Metabolite")[input$data_selection_rows_selected])
+  # })
+  
+  observeEvent(input$code_selection_rows_selected,{
+  
+      # current_row(input$code_selection_rows_selected)
+      current_description(dat$table_data$Description[input$code_selection_rows_selected])
+      current_phecode(dat$table_data$code[input$code_selection_rows_selected])
+    
   })
+  
+  observeEvent(input$bring_top,{
+    
+    selected_rows <- input$code_selection_rows_selected
+    
+    row_order <- order(
+      seq_along(dat$table_data[[1]]) %in% selected_rows,
+      decreasing = TRUE
+    )
+    dat$table_data <- dat$table_data[row_order,]
+    
+    proxy <- DT::dataTableProxy("code_selection")
+    DT::replaceData(proxy,dat$table_data)
+    DT::selectRows(proxy,seq_along(selected_rows))
 
-  observeEvent(input$genome, {
-
-    tryCatch({
-      good_genome_file <- read_csv(input$genome$datapath) %>%
-        checkGenomeFile()
-
-      app_data$snp_name <- good_genome_file$snp_name
-      app_data$genome_raw <- good_genome_file$data
-    },
-    error = function(message){
-      print(message)
-      showModal(modalDialog(
-        p("There's something wrong with the format of your genome data. Make sure the file has two columns. One with the title IID with unique id and one with the title of your snp containing copies of the minor allele."),
-        strong('Error message:'),
-        code(message),
-        title = "Data format problem",
-        easyClose = TRUE
-      ))
-    })
   })
-
-  observeEvent(input$phewas, {
-
-    tryCatch({
-      app_data$phewas_raw <- read_csv(input$phewas$datapath) %>% checkPhewasFile()
-    },
-    error = function(message){
-      print(message)
-      showModal(modalDialog(
-        p("There's something wrong with the format of your results data."),
-        strong('Error message:'),
-        code(message),
-        title = "Data format problem",
-        easyClose = TRUE
-      ))
-    })
+  
+  ##after user select specific code table
+  code_id <- reactive(glue("{current_phecode()}:", "{current_description()}\n"))
+  output$current_code_label <- renderText(glue("{code_id()}"))
+  # visualize_network <- reactive({input$visualize})
+  observeEvent(input$visualize, {
+    # removeModal()
+    app_data$current_phecode = current_phecode()
+    app_data$current_description = current_description()
+    app_data$current_institution = current_institution()
+    # app_data$current_data = current_data()
+    app_data$visualize_network = TRUE
   })
-
-  observeEvent(input$phenome, {
-    tryCatch({
-      app_data$phenome_raw <- read_csv(input$phenome$datapath) %>% checkPhenomeFile()
-    },
-    error = function(message){
-      print(message)
-      showModal(modalDialog(
-        p("There's something wrong with the format of your phenome data."),
-        strong('Error message:'),
-        code(message),
-        title = "Data format problem",
-        easyClose = TRUE
-      ))
-    })
-  })
-  #----------------------------------------------------------------
-  # Data Loading Logic
-  #----------------------------------------------------------------
-  # Watches for all files to be loaded and then triggers.
-  observe({
-    req(app_data$phewas_raw, app_data$genome_raw, app_data$phenome_raw)
-
-    withProgress(message = 'Loading data', value = 0, {
-      # read files into R's memory
-      incProgress(1/4, detail = "Reading in uploaded files")
-
-      phenome <- app_data$phenome_raw
-      genome  <- app_data$genome_raw
-      phewas  <- app_data$phewas_raw
-
-      # first spread the phenome data to a wide format
-      incProgress(2/4, detail = "Processing phenome data")
-      individual_data <- phenome %>%
-        mutate(value = 1) %>%
-        spread(code, value, fill = 0)
-
-      # Next merge with genome data
-      incProgress(3/4, detail = "Merging phenome and genome data")
-      individual_data <- individual_data %>%
-        left_join(genome, by = 'IID') %>%
-        mutate(snp = ifelse(is.na(snp), 0, snp))
-
-      # These are codes that are not shared between the phewas and phenome data. We will remove them
-      # from either.
-      phenome_cols <- colnames(individual_data)
-      bad_codes <- setdiff(phenome_cols %>% head(-1) %>% tail(-1), unique(phewas$code))
-      app_data$phewas_data <- phewas %>% # remove bad codes from phewas
-        filter(!(code %in% bad_codes))
-
-      # remove bad codes from individual data
-      app_data$individual_data<- individual_data[,-which(phenome_cols %in% bad_codes)]
-
-      # Color palette for phecode categories
-      app_data$category_colors <- makeDescriptionPalette(app_data$phewas_data)
-
-      # Sending to app
-      incProgress(4/4, detail = "Sending to application!")
-
-      # shinyjs::show("goToApp")
-      app_data$data_loaded <- TRUE
-    }) # end progress messages
-  })
-
-  observeEvent(input$goToApp,{
-    app_data$data_loaded <- TRUE
-  })
-
-  observeEvent(input$preLoadedData,{
-    base_dir <- glue('data/preloaded/{input$dataset_selection}') %>% here()
-
-    app_data$phewas_raw <- glue('{base_dir}/phewas_results.csv') %>% read_csv()
-    app_data$phenome_raw <-  here('data/preloaded/id_to_code.csv') %>% read_csv()
-
-
-    genome_file <- glue('{base_dir}/id_to_snp.csv') %>%
-      read_csv() %>%
-      checkGenomeFile()
-    app_data$snp_name <- genome_file$snp_name
-    app_data$genome_raw <- genome_file$data
+  #reset selections if user select reset
+  observeEvent(input$reset_selection,{
+    current_description(NULL)
+    current_phecode(NULL)
+    output$code_selection <- renderDT({
+      if(identical(input$data_selection,"phecode")){
+        dat$table_data = all_dat %>% filter(group=="phecode")
+      } else if(identical(input$data_selection,"gene")){
+        dat$table_data = all_dat %>% filter(group=="gene")
+      } else if(identical(input$data_selection,"protein")){
+        dat$table_data = all_dat %>% filter(group=="protein")
+      } else if(identical(input$data_selection,"metabolite")){
+        dat$table_data = all_dat %>% filter(group=="metabolite")
+      }
+      datatable(dat,
+                rownames = FALSE,
+                #options = list(displayStart = start_index - 2),
+                options = list(
+                  scrollX = "300px",
+                  scrollY = "300px"
+                ),    
+                selection = list(mode = 'multiple')
+      )},server = FALSE)
+    
   })
 
   return(
     reactive({
-      if(app_data$data_loaded){
+      if(app_data$visualize_network){
         list(
-          individual_data = app_data$individual_data,
-          category_colors = app_data$category_colors,
-          phewas_data = app_data$phewas_data,
-          snp_name = app_data$snp_name
-        )
+          current_phecode = app_data$current_phecode,
+          current_description = app_data$current_description, 
+          current_institution = app_data$current_institution,
+          # current_data = app_data$current_data,
+          visualize_network = app_data$visualize_network
+        )  
       } else {
         NULL
       }
     })
   )
+  
 }
 
 

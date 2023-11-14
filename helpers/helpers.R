@@ -1,22 +1,20 @@
-makeTooltips <- function(phewas){
-  columns <- colnames(phewas)
-  
-  phewas <- phewas %>% 
-    mutate(tooltip = '')
-  
-  for(col in columns){
-    # print(col)
-    phewas <- phewas %>% 
-      mutate(
-        tooltip = paste0(
-          tooltip,
-          "<i> ", col, " </i>", !!(rlang::sym(col)), "</br>"
-        )
-      )
-  }
-  phewas
+fromList <- function(input){
+  elements <- unique(unlist(input))
+  data <- unlist(lapply(input, function(x){x <- as.vector(match(elements, x))}))
+  data[is.na(data)] <- as.integer(0); data[data != 0] <- as.integer(1)
+  data <- data.frame(matrix(data, ncol = length(input), byrow = F))
+  data <- data[which(rowSums(data) !=0), ]
+  names(data) <- names(input)
+  return(data)
 }
 
-phecode_info = phecode_def %>%
-  dplyr::select(phecode,description,category=group) %>% makeTooltips(.) %>%
-  dplyr::select(name=description,tooltip)
+# Function to calculate intersection
+calculate_intersection <- function(combination, upset_data) {
+  cols <- upset_data %>%
+    filter(if_all(combination,~.x == 1)) %>%
+    filter(if_all(colnames(cols)[!colnames(cols) %in% combination],~.x==0))
+  
+   intersect = nrow(cols) 
+   return(intersect)
+}
+

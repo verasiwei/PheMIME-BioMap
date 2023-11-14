@@ -1,0 +1,13 @@
+name: phe-omicsmime_mediation
+title: Phe-OmicsMIME Mediation
+username: siwei
+account: siwei
+server: prod.tbilab.org
+hostUrl: https://prod.tbilab.org/__api__
+appId: 611
+bundleId: 2532
+url: https://prod.tbilab.org/content/99395bec-6a59-4526-b1cf-e973e7746261/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .here|app_new.R|helpers

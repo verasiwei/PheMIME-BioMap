@@ -1,5 +1,5 @@
 svg.selectAll("*").remove();
-svg.style('background-color', "#F2F3F6");
+//svg.style('background-color', "#F2F3F6");
 const padding = 20;
 const X = d3.scaleLinear()
   .range([padding, width - padding]);
@@ -15,10 +15,10 @@ const node_types = unique(nodes.map(d => d.type));
 const num_types = node_types.length;
 
 type_to_prop = {
-  gene:  {r:5, opacity: 1, color: "#689030"},
-  protein: {r:5, opacity: 1, color: "#5E738F"},
-  metabolite: {r:5, opacity: 1, color: "#AD6F3B"},
-  phecode: {r:7, opacity: 1, color: "#673770"}
+  gene:  {r:3, opacity: 1, color: "#689030"},
+  protein: {r:3, opacity: 1, color: "#5E738F"},
+  metabolite: {r:3, opacity: 1, color: "#AD6F3B"},
+  phecode: {r:6, opacity: 1, color: "#673770"}
 };
 
 
@@ -204,6 +204,12 @@ function generateSimplifiedTooltip(node) {
     </div>
   `;
 }
+
+// Define a set to store preselected nodes
+const preselectedNodes = new Set(nodes.filter(d => d.selected === 'yes'));
+sendPreSelectNodeToShiny(preselectedNodes);
+//sendClickedNodeToShiny(preselectedNodes);
+
 ///add isolate and return
 // Create a group for buttons
 const buttonGroup = svg.append("g")
@@ -289,12 +295,13 @@ node.on('click', function (clickedNode) {
   }
   
   // Send the clicked node ID to your Shiny module using the module's namespace (ns)
+  // Combine preselected and clicked nodes
+  //const allSelectedNodes = new Set([...preselectedNodes, ...selectedNodes]);
+  
   sendClickedNodeToShiny(selectedNodes);
 
   
 });
-
-// Create tooltips for pre-selected nodes that are always visible
 
 ///=======================functions===================
 ///===================================================
@@ -344,6 +351,7 @@ function isolateSelectedNode() {
   selectedNodes.clear();
   // Update the color of pre-selected nodes after the isolation operation
   //updatePreSelectedNodesColor();
+  
 }
 
 // Function to check if a node is connected to all selected nodes
