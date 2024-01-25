@@ -75,7 +75,9 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
     # current_data = NULL,
     visualize_network = FALSE,
     clicked_node_id = NULL,
-    preselected_node_id = NULL
+    preselected_node_id = NULL,
+    update_upset = NULL,
+    return_preselected = NULL
   )
   
   ##info
@@ -105,6 +107,8 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
       network_data <- network()
       app_data$clicked_node_id <- network_data$clicked_node_id
       app_data$preselected_node_id <- network_data$preselected_node_id
+      app_data$update_upset <- network_data$update_upset
+      app_data$return_preselected <- network_data$return_preselected
     })
   })
   
@@ -117,8 +121,9 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
       current_institution = current_institution,
       # current_data = all_data$current_data,
       visualize_network = visualize_network,
-      clicked_node_id = app_data$clicked_node_id,
-      preselected_node_id = app_data$preselected_node_id
+      clicked_node_id = reactive(app_data$clicked_node_id),
+      preselected_node_id = app_data$preselected_node_id,
+      update_upset = reactive(app_data$update_upset)
     )
   })
   
@@ -131,8 +136,9 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
       current_institution = current_institution,
       # current_data = all_data$current_data,
       visualize_network = visualize_network,
-      clicked_node_id = app_data$clicked_node_id,
-      preselected_node_id = app_data$preselected_node_id
+      clicked_node_id = reactive(app_data$clicked_node_id),
+      preselected_node_id = app_data$preselected_node_id,
+      return_preselected = reactive(app_data$return_preselected)
     )
   })
   

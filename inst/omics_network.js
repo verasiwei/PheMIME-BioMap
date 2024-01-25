@@ -18,10 +18,10 @@ type_to_prop = {
   gene:  {r:3, opacity: 1, color: "#689030"},
   protein: {r:3, opacity: 1, color: "#5E738F"},
   metabolite: {r:3, opacity: 1, color: "#AD6F3B"},
-  phecode: {r:6, opacity: 1, color: "#673770"}
+  phecode: {r:4.7, opacity: 1, color: "#673770"}
 };
 
-
+///removing force-directed network
 ///begin to force-directed simulation
 const simulation = d3.forceSimulation(nodes)
   .force(
@@ -45,7 +45,7 @@ const simulation = d3.forceSimulation(nodes)
   ) 
   .on("tick", ticked);
 // Run the simulation for a few iterations to stabilize the positions
-for (let i = 0; i < 300; i++) {
+for (let i = 0; i < 500; i++) {
   simulation.tick();
 }
 
@@ -81,17 +81,21 @@ const hoverStyles = {
   r: selectedNodeSize, // Increase node size on hover
 };
 const unhoverStyles = {
-  cursor: 'default', // Reset cursor
+  cursor: 'pointer', // Reset cursor
   r: d => type_to_prop[d.type].r, // Reset node size
 };
+
+// Make sure each node has a unique ID for selection
+node.attr('id', d => `node-${d.id}`);
+
 // Add event listeners to show and hide the table on hover
 node.on('mouseover', function(d){
   //const isPreSelected = d.selected === 'yes';
   //const isSelected = selectedNodes.has(d);
-  
+
   d3.select(this)
-    .classed('hovered', true) // Add the "hovered" class
-    .style('cursor', 'pointer') // Change cursor to a hand
+    //.classed('hovered', true) // Add the "hovered" class
+    .style('cursor', hoverStyles.cursor) // Change cursor to a hand
     .attr('r', hoverStyles.r); // Apply hover styles
     
   // Show the table and populate it with node information
@@ -99,22 +103,28 @@ node.on('mouseover', function(d){
     //.duration(200)
     .style("opacity", 1);
   tooltipDiv.html(generateTable(d))
-    .style("left", (d3.event.pageX + 10) + "px")
-    .style("top", (d3.event.pageY - 28) + "px");
+    .style("left", (d3.event.pageX + 20) + "px")
+    .style("top", (d3.event.pageY + 20) + "px");
+    
+  // Highlight connected edges
+  link.filter(l => l.source === d || l.target === d)
+        .style('stroke', 'black') // Change to black or any other color
+        .style('stroke-width', '5px'); // Increase stroke-width to highlight
+    
 })
 .on('mouseout', function(d){
   const isPreSelected = d.selected === 'yes';
   
   if (!isPreSelected) {
   d3.select(this)
-    .classed('hovered', false) // Remove the "hovered" class
-    .style('cursor', 'default') // Reset cursor
+    //.classed('hovered', false) // Remove the "hovered" class
+    .style('cursor', unhoverStyles.cursor) // Reset cursor
     .attr('r', unhoverStyles.r); // Reset node size
   }
   if (isPreSelected) {
   d3.select(this)
-    .classed('hovered', false) // Remove the "hovered" class
-    .style('cursor', 'default') // Reset cursor
+    //.classed('hovered', false) // Remove the "hovered" class
+    .style('cursor', "pointer") // Reset cursor
     .attr('r', selectedNodeSize); // Reset node size
   }
   
@@ -122,6 +132,12 @@ node.on('mouseover', function(d){
   tooltipDiv.transition()
     //.duration(500)
     .style("opacity", 0);
+  
+  // Reset connected edges to original style
+  link.filter(l => l.source === d || l.target === d)
+        .style('stroke', '#999') // Reset to original color
+        .style('stroke-width', '1.5px'); // Reset to original stroke-width
+    
 });
 
 function ticked(){
@@ -220,6 +236,7 @@ const svgHeight = height;
 // Calculate the x-positions for the buttons to center them
 const isolateButtonX = svgWidth - 130;
 const isolateButtonY = svgHeight - 40;
+
 // Create the Isolate button
 buttonGroup.append("rect")
   .attr("x", isolateButtonX)

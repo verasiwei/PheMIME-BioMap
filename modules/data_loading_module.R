@@ -158,16 +158,16 @@ data_loading <- function(input, output, session) {
     current_description(NULL)
     current_phecode(NULL)
     output$code_selection <- renderDT({
-      if(identical(input$data_selection,"phecode")){
-        dat$table_data = all_dat %>% filter(group=="phecode")
-      } else if(identical(input$data_selection,"gene")){
-        dat$table_data = all_dat %>% filter(group=="gene")
-      } else if(identical(input$data_selection,"protein")){
-        dat$table_data = all_dat %>% filter(group=="protein")
-      } else if(identical(input$data_selection,"metabolite")){
-        dat$table_data = all_dat %>% filter(group=="metabolite")
-      }
-      datatable(dat,
+      # if(identical(input$data_selection,"phecode")){
+      #   dat$table_data = all_dat %>% filter(group=="phecode")
+      # } else if(identical(input$data_selection,"gene")){
+      #   dat$table_data = all_dat %>% filter(group=="gene")
+      # } else if(identical(input$data_selection,"protein")){
+      #   dat$table_data = all_dat %>% filter(group=="protein")
+      # } else if(identical(input$data_selection,"metabolite")){
+      #   dat$table_data = all_dat %>% filter(group=="metabolite")
+      # }
+      datatable(dat$table_data,
                 rownames = FALSE,
                 #options = list(displayStart = start_index - 2),
                 options = list(

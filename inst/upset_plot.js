@@ -5,13 +5,13 @@ const pValFormat = d3.format("0.2");
 
 // Hardcoded settings
 const highlightColor = '#fdcdac'; // Color of the highlight bars
-const margin = {right: 20, left: 10, top: 20, bottom: 50}; // margins on side of chart
+const margin = {right: 20, left: 10, top: 20, bottom: 100}; // margins on side of chart
 
 // layout grid
 const proportionPlotUnits = 0; // width of proportion CIs
 const matrixPlotUnits = 2;
 const countBarUnits = 3;
-const marginalChartRatio = 1/3;  // what proportion of vertical space is the code marginal count bars?
+const marginalChartRatio = 0.2;  // what proportion of vertical space is the code marginal count bars?
 
 // matrix settings
 const matrixPadding = 5;              // How far in from sides the dots start
@@ -226,7 +226,7 @@ matrixAxis
     x: -7,
     y: -1,
     textAnchor: 'end',
-    transform: 'rotate(-60)',
+    transform: 'rotate(-35)',
     fontSize:12
   });
     
