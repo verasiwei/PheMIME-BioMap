@@ -8,12 +8,14 @@ source('modules/info_panel_module.R')
 source('modules/multipartite_network_module.R')
 source('modules/shared_info_module.R')
 source('modules/upset_plot_module.R')
+source("modules/shared_pathways_module.R")
+options(repos = BiocManager::repositories())
 
 starting_code <- c("250.20","250.70","272.10","278.10","401.10","594.10","296.20")
 # starting_code <- c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
 starting_description = c("Type 2 diabetes", "Diabetic retinopathy", "Hyperlipidemia", "Obesity", "Essential hypertension", "Calculus of kidney", "Depression")
 # starting_description = c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
-starting_row = c(113,122,144,164,206,292,465)
+starting_row = c(73,78,83,95,163,274,118)
 # starting_row = c(672,673,674,675)
 # Used in data table to both select correct row and navigate table to that row
 start_index <- which(phecodes$code %in% starting_code)
@@ -25,7 +27,7 @@ ui <- shinyUI(
     # hr(),
     mainPanel(
       width = 12,
-      # includeCSS("inst/custom.css"),
+      includeCSS("inst/custom.css"),
       shinyjs::useShinyjs(debug = TRUE),
       uiOutput("ui")
     )

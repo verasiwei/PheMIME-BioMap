@@ -1,0 +1,668 @@
+Front Aging Neurosci. 2024 May 30;16:1352681. doi: 10.3389/fnagi.2024.1352681. 
+eCollection 2024.
+
+Identification and validation of a novel Parkinson-Glioma feature gene signature 
+in glioma and Parkinson's disease.
+
+Zhang H(1)(2), Wang J(1)(2), Su N(1)(2), Yang N(1)(2), Wang X(1)(2), Li C(1)(2).
+
+Author information:
+(1)Department of Neurosurgery, Qilu Hospital, Cheeloo College of Medicine and 
+Institute of Brain and Brain-Inspired Science, Shandong University, Jinan, 
+China.
+(2)Jinan Microecological Biomedicine Shandong Laboratory and Shandong Key 
+Laboratory of Brain Function Remodeling, Jinan, China.
+
+INTRODUCTION: The prognosis for glioma is generally poor, and the 5-year 
+survival rate for patients with this disease has not shown significant 
+improvement over the past few decades. Parkinson's disease (PD) is a prevalent 
+movement disorder, ranking as the second most common neurodegenerative disease 
+after Alzheimer's disease. Although Parkinson's disease and glioma are distinct 
+diseases, they may share certain underlying biological pathways that contribute 
+to their development.
+OBJECTIVE: This study aims to investigate the involvement of genes associated 
+with Parkinson's disease in the development and prognosis of glioma.
+METHODS: We obtained datasets from the TCGA, CGGA, and GEO databases, which 
+included RNA sequencing data and clinical information of glioma and Parkinson's 
+patients. Eight machine learning algorithms were used to identify 
+Parkinson-Glioma feature genes (PGFGs). PGFGs associated with glioma prognosis 
+were identified through univariate Cox analysis. A risk signature was 
+constructed based on PGFGs using Cox regression analysis and the Least Absolute 
+Shrinkage and Selection Operator (LASSO) method. We subsequently validated its 
+predictive ability using various methods, including ROC curves, calibration 
+curves, KM survival analysis, C-index, DCA, independent prognostic analysis, and 
+stratified analysis. To validate the reproducibility of the results, similar 
+work was performed on three external test datasets. Additionally, a 
+meta-analysis was employed to observe the heterogeneity and consistency of the 
+signature across different datasets. We also compared the differences in genomic 
+variations, functional enrichment, immune infiltration, and drug sensitivity 
+analysis based on risk scores. This exploration aimed to uncover potential 
+mechanisms of glioma occurrence and prognosis.
+RESULTS: We identified 30 PGFGs, of which 25 were found to be significantly 
+associated with glioma survival. The prognostic signature, consisting of 19 
+genes, demonstrated excellent predictive performance for 1-, 2-, and 3-year 
+overall survival (OS) of glioma. The signature emerged as an independent 
+prognostic factor for glioma overall survival (OS), surpassing the predictive 
+performance of traditional clinical variables. Notably, we observed differences 
+in the tumor microenvironment (TME), levels of immune cell infiltration, immune 
+gene expression, and drug resistance analysis among distinct risk groups. These 
+findings may have significant implications for the clinical treatment of glioma 
+patients.
+CONCLUSION: The expression of genes related to Parkinson's disease is closely 
+associated with the immune status and prognosis of glioma patients, potentially 
+regulating glioma pathogenesis through multiple mechanisms. The interaction 
+between genes associated with Parkinson's disease and the immune system during 
+glioma development provides novel insights into the molecular mechanisms and 
+targeted therapies for glioma.
+
+Copyright © 2024 Zhang, Wang, Su, Yang, Wang and Li.
+
+DOI: 10.3389/fnagi.2024.1352681
+PMCID: PMC11170708
+PMID: 38872623
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+J Parkinsons Dis. 2024 May 24. doi: 10.3233/JPD-240075. Online ahead of print.
+
+Localized Pantothenic Acid (Vitamin B5) Reductions Present Throughout the 
+Dementia with Lewy Bodies Brain.
+
+Scholefield M(1), Church SJ(1), Xu J(2), Patassini S(2), Cooper GJS(1)(2).
+
+Author information:
+(1)Division of Cardiovascular Sciences, School of Medical Sciences, Faculty of 
+Biology, Medicine and Health, The University of Manchester, Manchester, UK.
+(2)School of Biological Sciences, Faculty of Science, University of Auckland, 
+Private Bag, Auckland, New Zealand.
+
+BACKGROUND: Localized pantothenic acid deficiencies have been observed in 
+several neurodegenerative diseases such as Alzheimer's disease (AD), Parkinson's 
+disease dementia (PDD), and Huntington's disease (HD), indicating downstream 
+energetic pathway perturbations. However, no studies have yet been performed to 
+see whether such deficiencies occur across the dementia with Lewy bodies (DLB) 
+brain, or what the pattern of such dysregulation may be.
+OBJECTIVE: Firstly, this study aimed to quantify pantothenic acid levels across 
+ten regions of the brain in order to determine the localization of any 
+pantothenic acid dysregulation in DLB. Secondly, the localization of pantothenic 
+acid alterations was compared to that previously in AD, PDD, and HD brains.
+METHODS: Pantothenic acid levels were determined in 20 individuals with DLB and 
+19 controls by ultra-high performance liquid chromatography-tandem mass 
+spectrometry (UHPLC-MS/MS) across ten brain regions. Case-control differences 
+were determined by nonparametric Mann-Whitney U test, with the calculation of 
+S-values, risk ratios, E-values, and effect sizes. The results were compared 
+with those previously obtained in DLB, AD, and HD.
+RESULTS: Pantothenic acid levels were significantly decreased in six of the ten 
+investigated brain regions: the pons, substantia nigra, motor cortex, middle 
+temporal gyrus, primary visual cortex, and hippocampus. This level of 
+pantothenic acid dysregulation is most similar to that of the AD brain, in which 
+pantothenic acid is also decreased in the motor cortex, middle temporal gyrus, 
+primary visual cortex, and hippocampus. DLB appears to differ from other 
+neurodegenerative diseases in being the only of the four to not show pantothenic 
+acid dysregulation in the cerebellum.
+CONCLUSIONS: Pantothenic acid deficiency appears to be a shared mechanism of 
+several neurodegenerative diseases, although differences in the localization of 
+this dysregulation may contribute to the differing clinical pathways observed in 
+these conditions.
+
+Plain Language Summary: Decreases in a molecule called pantothenic acid (also 
+known as vitamin B5) have been observed in several areas of the brain in 
+multiple dementia disease, including Alzheimer’s disease, Parkinson’s disease 
+dementia, and Huntington’s disease. However, it is unknown whether such changes 
+also occur in another dementia disease, dementia with Lewy bodies, which shows 
+many of the same symptoms and molecular changes as these conditions. As such, 
+this study was performed in order to determine if and where changes in 
+pantothenic acid occur throughout the dementia with Lewy bodies brain. Using a 
+methodology called liquid chromatography–mass spectrometry, which is able to 
+measure pantothenic acid levels in a highly precise manner in brain tissues, we 
+found that several regions of the dementia with Lewy bodies brain show decreases 
+in pantothenic acid, including some involved in movement such as the substantia 
+nigra and motor cortex, as well as regions associated with cognition and memory 
+such as the hippocampus—looking most similar to the pattern of changes already 
+seen in Alzheimer’s disease. It is possible that these changes contribute to the 
+progression of dementia with Lewy bodies; however, further studies need to be 
+performed to determine at what point these changes happen during the disease and 
+how they may contribute to the development of symptoms.
+
+DOI: 10.3233/JPD-240075
+PMID: 38820022
+
+
+Neurol Genet. 2024 Mar 28;10(2):e200144. doi: 10.1212/NXG.0000000000200144. 
+eCollection 2024 Apr.
+
+Cerebellar Micro-RNA Profile in a Mouse Model of Spinocerebellar Ataxia Type 2.
+
+Paul S(1), Dansithong W(1), Gandelman M(1), Figueroa KP(1), Scoles DR(1), Pulst 
+SM(1).
+
+Author information:
+(1)From the Department of Neurology, University of Utah.
+
+BACKGROUND AND OBJECTIVES: Micro-RNAs (miRNAs) are critical for regulating the 
+expression of genes in multiple neurodegenerative diseases, but miRNAs have not 
+been investigated in spinocerebellar ataxia type 2 (SCA2). SCA2, a dominantly 
+inherited progressive neurodegenerative polyglutamine (polyQ) disease, is caused 
+by a CAG repeat expansion in the ataxin-2 (ATXN2) gene. In this study, we 
+determined miRNA transcriptomes in SCA2-BAC-ATXN2[Q72] transgenic mice.
+METHODS: We assessed the expression of miRNAs in SCA2 transgenic mouse cerebella 
+using the HiSeq Illumina sequencer. We used the miRNA target filter tool in 
+Qiagen Ingenuity Pathway Analysis (IPA) to identify target genes of 
+differentially expressed miRNAs (DEmiRs) within in the SCA2 mouse transcriptomes 
+and then performed pathway analyses.
+RESULTS: Our analysis revealed significant changes in the expression levels of 
+multiple miRNAs in mice with SCA2. We identified 81 DEmiRs in mice with SCA2, 
+with 52 miRNAs upregulated and 29 miRNAs downregulated after onset of rotarod 
+deficit. Subsequent IPA processing enabled us to establish connections between 
+these DEmiRs and specific biological regulatory functions. Furthermore, by using 
+the IPA miRNA target filter, we identified target genes of DEmiRs in the 
+SCA2-BAC-ATXN2[Q72] transcriptome data set and demonstrated their significant 
+impact on several biological functional and disease pathways.
+DISCUSSION: Our study establishes the role of both DEmiRs and their targets in 
+SCA2 pathogenesis. By expressing mutant ATXN2 under the control of its 
+endogenous regulatory elements in the SCA2-BAC-ATXN2[Q72] mouse model, we 
+identified a set of DEmiRs that are shared across multiple neurodegenerative 
+diseases including other SCAs, Alzheimer disease (AD), Parkinson disease (PD), 
+and amyotrophic lateral sclerosis (ALS). There was a significant overlap of both 
+DEmiRs and their targets of BAC-ATXN2[Q72] transcriptomes in dysregulated 
+pathways that characterize SCA2. This observation also extended to dysregulated 
+pathways in ALS, AD, and PD. DEmiRs identified in this study may represent 
+therapeutic targets for neurodegeneration or lead to biomarkers for 
+characterizing various neurodegenerative diseases.
+
+Copyright © 2024 The Author(s). Published by Wolters Kluwer Health, Inc. on 
+behalf of the American Academy of Neurology.
+
+DOI: 10.1212/NXG.0000000000200144
+PMCID: PMC11073881
+PMID: 38715656
+
+Conflict of interest statement: The authors report no relevant disclosures. Go 
+to Neurology.org/NG for full disclosures.
+
+
+medRxiv [Preprint]. 2024 Mar 8:2024.03.07.24303921. doi: 
+10.1101/2024.03.07.24303921.
+
+Local patterns of genetic sharing challenge the boundaries between 
+neuropsychiatric and insulin resistance-related conditions.
+
+Fanelli G(1)(2)(3), Franke B(1)(2)(4), Fabbri C(3), Werme J(4), Erdogan I(2), De 
+Witte W(2), Poelmans G(5), Ruisch IH(2), Reus LM(6)(7)(8), van Gils V(9), Jansen 
+WJ(9), Vos SJB(9), Alam KA(10), Martinez A(10)(11), Haavik J(10)(12), Wimberley 
+T(13)(14), Dalsgaard S(13)(15)(16), Fóthi Á(17), Barta C(17), Fernandez-Aranda 
+F(18)(19)(20)(21), Jimenez-Murcia S(18)(19)(20)(21)(22), Berkel S(23), Matura 
+S(24), Salas-Salvadó J(25)(26)(27), Arenella M(2)(28), Serretti A(29), Mota 
+NR(1)(2), Bralten J(1)(2).
+
+Author information:
+(1)Donders Institute for Brain, Cognition and Behaviour, Radboud University, 
+Nijmegen, The Netherlands.
+(2)Department of Human Genetics, Radboud University Medical Center, Nijmegen, 
+The Netherlands.
+(3)Department of Biomedical and Neuromotor Sciences, University of Bologna, 
+Bologna, Italy.
+(4)Department of Complex Trait Genetics, Center for Neurogenomics and Cognitive 
+Research, Vrije Universiteit Amsterdam, Amsterdam Neuroscience, Amsterdam, The 
+Netherlands.
+(5)Department of Cognitive Neuroscience, Radboud University Medical Center, 
+Nijmegen, The Netherlands.
+(6)Alzheimer Center Amsterdam, Neurology, Vrije Universiteit Amsterdam, 
+Amsterdam UMC location VUmc, Amsterdam, The Netherlands.
+(7)Amsterdam Neuroscience, Neurodegeneration, Amsterdam, The Netherlands.
+(8)Center for Neurobehavioral Genetics, University of California, Los Angeles, 
+Los Angeles, California, United States.
+(9)Department of Psychiatry and Neuropsychology, School for Mental Health and 
+Neuroscience, Alzheimer Center Limburg, Maastricht University, Maastricht, The 
+Netherlands.
+(10)Department of Biomedicine, University of Bergen, Norway.
+(11)K.G. Jebsen Center for Translational Research in Parkinson's Disease, 
+University of Bergen, Norway.
+(12)Division of Psychiatry, Haukeland University Hospital, Norway.
+(13)National Centre for Register-based Research, School of Business and Social 
+Sciences, Aarhus University, Aarhus, Denmark.
+(14)iPSYCH - The Lundbeck Foundation Initiative for Integrated Psychiatric 
+Research, Aarhus, Denmark.
+(15)Institute of Clinical Medicine, University of Copenhagen, Copenhagen, 
+Denmark.
+(16)Department of Child and Adolescent Psychiatry Glostrup, Mental Health 
+Services of the Capital Region, Hellerup, Denmark.
+(17)Department of Molecular Biology, Institute of Biochemistry and Molecular 
+Biology, Semmelweis University, Budapest, Hungary.
+(18)Clinical Psychology Department, University Hospital of Bellvitge, Barcelona, 
+Spain.
+(19)Psychoneurobiology of Eating and Addictive Behaviors Group, Neurosciences 
+Program, Bellvitge Biomedical Research Institute (IDIBELL), Barcelona, Spain.
+(20)CIBER Fisiopatología Obesidad y Nutrición (CIBERobn), Instituto de Salud 
+Carlos III, Barcelona, Spain.
+(21)Department of Clinical Sciences, School of Medicine and Health Sciences, 
+University of Barcelona, Barcelona, Spain.
+(22)Psychological Services, University of Barcelona, Spain.
+(23)Institute of Human Genetics, Heidelberg University, Heidelberg, Germany.
+(24)Department of Psychiatry, Psychosomatic Medicine and Psychotherapy, 
+University Hospital, Goethe University Frankfurt, Frankfurt am Main, Germany.
+(25)Universitat Rovira i Virgili, Biochemistry and biotechnology Department, 
+Grup Alimentació, Nutrició, Desenvolupament i Salut Mental, Unitat de Nutrició 
+Humana, Reus, Spain.
+(26)CIBER de Fisiopatología de la Obesidad y Nutrición (CIBEROBN), Instituto de 
+Salud Carlos III, Madrid, Spain.
+(27)Institut d'Investigació Sanitària Pere Virgili (IISPV), Reus, Spain.
+(28)Department of Forensic and Neurodevelopmental Science, Institute of 
+Psychiatry, Psychology and Neuroscience, King's College, London, UK.
+(29)Department of Medicine and Surgery, Kore University of Enna, Enna, Italy.
+
+The co-occurrence of insulin resistance (IR)-related metabolic conditions with 
+neuropsychiatric disorders is a complex public health challenge. Evidence of the 
+genetic links between these phenotypes is emerging, but little is currently 
+known about the genomic regions and biological functions that are involved. To 
+address this, we performed Local Analysis of [co]Variant Association (LAVA) 
+using large-scale (N=9,725-933,970) genome-wide association studies (GWASs) 
+results for three IR-related conditions (type 2 diabetes mellitus, obesity, and 
+metabolic syndrome) and nine neuropsychiatric disorders. Subsequently, 
+positional and expression quantitative trait locus (eQTL)-based gene mapping and 
+downstream functional genomic analyses were performed on the significant loci. 
+Patterns of negative and positive local genetic correlations (|rg|=0.21-1, 
+pFDR<0.05) were identified at 109 unique genomic regions across all phenotype 
+pairs. Local correlations emerged even in the absence of global genetic 
+correlations between IR-related conditions and Alzheimer's disease, bipolar 
+disorder, and Tourette's syndrome. Genes mapped to the correlated regions showed 
+enrichment in biological pathways integral to immune-inflammatory function, 
+vesicle trafficking, insulin signalling, oxygen transport, and lipid metabolism. 
+Colocalisation analyses further prioritised 10 genetically correlated regions 
+for likely harbouring shared causal variants, displaying high deleterious or 
+regulatory potential. These variants were found within or in close proximity to 
+genes, such as SLC39A8 and HLA-DRB1, that can be targeted by supplements and 
+already known drugs, including omega-3/6 fatty acids, immunomodulatory, 
+antihypertensive, and cholesterol-lowering drugs. Overall, our findings 
+underscore the complex genetic landscape of IR-neuropsychiatric multimorbidity, 
+advocating for an integrated disease model and offering novel insights for 
+research and treatment strategies in this domain.
+
+DOI: 10.1101/2024.03.07.24303921
+PMCID: PMC10942494
+PMID: 38496672
+
+Conflict of interest statement: Declarations of interest AS is or has been a 
+consultant/speaker for Abbott, Abbvie, Angelini, AstraZeneca, Clinical Data, 
+Boehringer, Bristol-Myers Squibb, Eli Lilly, GlaxoSmithKline, Innovapharma, 
+Italfarmaco, Janssen, Lundbeck, Naurex, Pfizer, Polifarma, Sanofi, Servier and 
+Taliaz. BF discloses having received educational speaking fees and travel 
+support from Medice. CF was a speaker for Janssen. GP is director/chief 
+scientific officer and WDW as well as IHR are employees of Drug Target ID, Ltd., 
+but their activities at this company do not constitute competing interests with 
+regard to this paper. JH has received lecture honoraria as part of continuing 
+medical education programs sponsored by Shire, Takeda, Medice, and Biocodex. JSS 
+reported receiving research support through his institution from the Patrimonio 
+Comunal Olivarero, Almond Board of California and Pistachio Growers of 
+California; he is serving on the board of and receiving grant support through 
+his institution from the International Nut and Dried Foundation, Instituto 
+Danone Spain and Institute Danone International. FFA and SJM have been 
+consultants/speakers for NovoNordisk. All other authors report no biomedical 
+financial interests or potential conflicts of interest.
+
+
+Brain Pathol. 2024 Feb 28;34(4):e13250. doi: 10.1111/bpa.13250. Online ahead of 
+print.
+
+Huntingtin CAG repeats in neuropathologically confirmed tauopathies: Novel 
+insights.
+
+Pérez-Oliveira S(1)(2), Castilla-Silgado J(2)(3), Painous C(4)(5)(6), Aldecoa 
+I(7)(8), Menéndez-González M(2)(9)(10), Blázquez-Estrada M(2)(9)(10), Corte 
+D(11), Tomás-Zapico C(2)(3), Compta Y(4)(5)(6), Muñoz E(4)(5)(6), Lladó A(12), 
+Balasa M(12), Aragonès G(7), García-González P(13)(14), Rosende-Roca M(13)(14), 
+Boada M(13)(14), Ruíz A(13)(14), Pastor P(15), De la Casa-Fages B(16)(17), 
+Rabano A(18), Sánchez-Valle R(12), Molina-Porcel L(5)(12), Álvarez V(1)(2).
+
+Author information:
+(1)Laboratory of Genetics, Hospital Universitario Central de Asturias, Oviedo, 
+Spain.
+(2)Instituto de Investigación Sanitaria del Principado de Asturias (ISPA), 
+Oviedo, Spain.
+(3)Department of Functional Biology (Physiology), University of Oviedo, Oviedo, 
+Spain.
+(4)Parkinson's Disease and Movement Disorders Unit, Department of Neurology, 
+Hospital Clinic of Barcelona, Barcelona, Spain.
+(5)UB Neuro Institut de Neurociències, Maeztu Center, University of Barcelona, 
+Barcelona, Spain.
+(6)Fundació de Recerca Clínic Barcelona-Institut d'Investigacions Biomèdiques 
+August Pi i Sunyer (FRCB-IDIBAPS), Barcelona, Spain.
+(7)Neurological Tissue Bank of the Biobank-Hospital Clinic-FRCB-IDIBAPS, 
+Barcelona, Spain.
+(8)Pathology Department, Biomedical Diagnostic Center, Hospital Clínic de 
+Barcelona, University of Barcelona, Barcelona, Spain.
+(9)Department of Neurology, Hospital Universitario Central de Asturias, Oviedo, 
+Spain.
+(10)Department of Medicine, University of Oviedo, Oviedo, Spain.
+(11)Biobank of Principado de Asturias, Hospital Universitario Central de 
+Asturias (HUCA), Oviedo, Spain.
+(12)Alzheimer's Disease and other Cognitive Disorders Unit, Neurology Service, 
+Hospital Clínic, FRCB-IDIBAPS, University of Barcelona, Barcelona, Spain.
+(13)Ace Alzheimer Center Barcelona - Universitat Internacional de Catalunya, 
+Barcelona, Spain.
+(14)Networking Research Center on Neurodegenerative Diseases (CIBERNED), 
+Instituto de Salud Carlos III, Madrid, Spain.
+(15)Unit of Neurodegenerative Diseases, Department of Neurology, University 
+Hospital Germans Trias i Pujol and The Germans Trias i Pujol Research Institute 
+(IGTP) Badalona, Barcelona, Spain.
+(16)Movement Disorders Unit, Department of Neurology, Hospital General 
+Universitario Gregorio Marañón, Madrid, Spain.
+(17)Instituto Investigación Sanitaria Gregorio Marañón, Madrid, Spain.
+(18)Neuropathology Department and Brain Tissue Bank, CIEN Foundation, Queen 
+Sofia Foundation Alzheimer Center, Madrid, Spain.
+
+Previous studies have suggested a relationship between the number of CAG triplet 
+repeats in the HTT gene and neurodegenerative diseases not related to 
+Huntington's disease (HD). This study seeks to investigate whether the number of 
+CAG repeats of HTT is associated with the risk of developing certain tauopathies 
+and its influence as a modulator of the clinical and neuropathological 
+phenotype. Additionally, it aims to evaluate the potential of polyglutamine 
+staining as a neuropathological screening. We genotyped the HTT gene CAG repeat 
+number and APOE-ℰ isoforms in a cohort of patients with neuropathological 
+diagnoses of tauopathies (n=588), including 34 corticobasal degeneration (CBD), 
+98 progressive supranuclear palsy (PSP) and 456 Alzheimer's disease (AD). 
+Furthermore, we genotyped a control group of 1070 patients, of whom 44 were 
+neuropathologic controls. We identified significant differences in the number of 
+patients with pathological HTT expansions in the CBD group (2.7%) and PSP group 
+(3.2%) compared to control subjects (0.2%). A significant increase in the size 
+of the HTT CAG repeats was found in the AD compared to the control group, 
+influenced by the presence of the Apoliprotein E (APOE)-ℰ4 isoform. Post-mortem 
+assessments uncovered tauopathy pathology with positive polyglutamine 
+aggregates, with a slight predominance in the neostriatum for PSP and CBD cases 
+and somewhat greater limbic involvement in the AD case. Our results indicated a 
+link between HTT CAG repeat expansion with other non-HD pathology, suggesting 
+they could share common neurodegenerative pathways. These findings support that 
+genetic or histological screening for HTT repeat expansions should be considered 
+in tauopathies.
+
+© 2024 The Authors. Brain Pathology published by John Wiley & Sons Ltd on behalf 
+of International Society of Neuropathology.
+
+DOI: 10.1111/bpa.13250
+PMCID: PMC11189778
+PMID: 38418081
+
+Conflict of interest statement: The authors report no conflicts of interest 
+related to this work.
+
+
+Eur J Med Res. 2023 Dec 6;28(1):570. doi: 10.1186/s40001-023-01360-8.
+
+SNAP25 is a potential target for early stage Alzheimer's disease and Parkinson's 
+disease.
+
+Wang Q(#)(1), Tao S(#)(2), Xing L(3), Liu J(3), Xu C(3), Xu X(3), Ding H(3), 
+Shen Q(4), Yu X(5), Zheng Y(6).
+
+Author information:
+(1)Department of Radiology, Xuzhou Central Hospital, Xuzhou, 221004, Jiangsu, 
+China.
+(2)Laboratory Animal Center, Zhejiang University, Hangzhou, 310058, Zhejiang, 
+China.
+(3)Jiangsu Key Laboratory of Brain Disease and Bioinformation, Research Center 
+for Biochemistry and Molecular Biology, Xuzhou Medical University, Xuzhou, 
+221004, Jiangsu, China.
+(4)Neurological Institute, Columbia University, NY Presbyterian Hospital, New 
+York, NY, USA. Kikkifly@gmail.com.
+(5)National Engineering Laboratory for Resource Development of Endangered Crude 
+Drugs in Northwest of China, Shaanxi Normal University, Xi'an, 710062, Shanxi, 
+China. yxb_zhengzhou@163.com.
+(6)Jiangsu Key Laboratory of Brain Disease and Bioinformation, Research Center 
+for Biochemistry and Molecular Biology, Xuzhou Medical University, Xuzhou, 
+221004, Jiangsu, China. northstar1979@163.com.
+(#)Contributed equally
+
+BACKGROUND: Alzheimer's disease (AD) and Parkinson's disease (PD), two common 
+irreversible neurodegenerative diseases, share similar early stage syndromes, 
+such as olfaction dysfunction. Yet, the potential comorbidity mechanism of AD 
+and PD was not fully elucidated.
+METHODS: The gene expression profiles of GSE5281 and GSE8397 were downloaded 
+from the Gene Expression Omnibus (GEO) database. We utilized a series of 
+bioinformatics analyses to screen the overlapped differentially expressed genes 
+(DEGs). The hub genes were further identified by the plugin CytoHubba of 
+Cytoscape and validated in the hippocampus (HIP) samples of APP/PS-1 transgenic 
+mice and the substantial nigra (SN) samples of A53T transgenic mice by real-time 
+quantitative polymerase chain reaction (RT-qPCR). Meanwhile, the expression of 
+the target genes in the olfactory epithelium/bulb was detected by RT-qPCR. 
+Finally, molecular docking was used to screen potential compounds for the target 
+gene.
+RESULTS: One hundred seventy-four overlapped DEGs were identified in AD and PD. 
+Five of the top ten enrichment pathways mainly focused on the synapse. Five hub 
+genes were identified and further validated. As a common factor in AD and PD, 
+the changes of synaptosomal-associated protein 25 (SNAP25) mRNA in olfactory 
+epithelium/bulb were significantly decreased and had a strong association with 
+those in the HIP and SN samples. Pazopanib was the optimal compound targeting 
+SNAP25, with a binding energy of - 9.2 kcal/mol.
+CONCLUSIONS: Our results provided a theoretical basis for understanding the 
+comorbidity mechanism of AD and PD and highlighted that SNAP25 in the olfactory 
+epithelium may serve as a potential target for early detection and intervention 
+in both AD and PD.
+
+© 2023. The Author(s).
+
+DOI: 10.1186/s40001-023-01360-8
+PMCID: PMC10699008
+PMID: 38053192 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no competing 
+interests.
+
+
+Bioinformation. 2023 Oct 31;19(10):995-998. doi: 10.6026/97320630019995. 
+eCollection 2023.
+
+Neurological potency of native plants from sub-Himalayan West Bengal through 
+reverse pharmacology.
+
+Tshering Dhendup L(1), Sutapa D(1), Lee J(2), Mohammad AA(3), Sen A(1)(4)(5).
+
+Author information:
+(1)Molecular Genetics Laboratory, Department of Botany, University of North 
+Bengal, Raja Rammohanpur, Siliguri-734013, India.
+(2)Department of Environmental and Forest Resources, Chungnam National 
+University, Daehak-ro, Yuseong-gu, Daejeon, Republic of Korea.
+(3)Department of Botany and Microbiology, College of Sciences,King Saud 
+University, Riyadh 11451, Saudi Arabia.
+(4)Bioinformatics Facility Centre, University of North Bengal, Raja Rammohanpur, 
+Siliguri-734013, India.
+(5)Biswa Bangla Genome Centre, University of North Bengal, Raja Rammohanpur, 
+Siliguri-734013, India.
+
+Neurodegenerative diseases, such as Alzheimer's disease (AD), Parkinson's 
+disease (PD), and epilepsy, pose a growing global health challenge due to an 
+aging population. These conditions share common processes, including protein 
+accumulation, oxidative stress, and neuro-inflammation, making their treatment 
+complex and costly. Network pharmacology, an innovative approach integrating 
+systems biology and computational biology, offers insights into multi-target 
+formulations and the repurposing of existing medications for neurodegenerative 
+diseases. We shortlisted 730 bioactive compounds from 25 traditional Himalayan 
+plants, assessed their drug-like properties using ADME criteria, and predicted 
+their potential target proteins through reverse docking and pharmacophore 
+mapping. Our study identified 287 compounds with high gastrointestinal 
+absorption and good blood-brain barrier permeability. These compounds were 
+subjected to target prediction, yielding a list of 171 potential target 
+proteins. Functional annotation and pathway enrichment analysis highlighted 
+their involvement in steroid hormone-related pathways, MAPK signaling, FOXO 
+signaling, TNF signaling, VEGF signaling, and neurotrophin signaling. 
+Importantly, one plant, Valeriana jatamansi, exhibited an association with 
+beta-amyloid binding activity, a potential therapeutic approach for AD. From our 
+study we could understand how these plants modulate our body to manage these 
+diseases. However, further in vitro and in vivo validation is needed before 
+commercial and public use of this data.
+
+© 2023 Biomedical Informatics.
+
+DOI: 10.6026/97320630019995
+PMCID: PMC10640792
+PMID: 37969663
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the authors. The authors have no relevant financial or non-financial 
+interests to disclose.
+
+
+Arch Toxicol. 2024 Jan;98(1):95-119. doi: 10.1007/s00204-023-03628-8. Epub 2023 
+Nov 15.
+
+Inflammation as common link to progressive neurological diseases.
+
+Dias-Carvalho A(1)(2), Sá SI(3)(4), Carvalho F(5)(6), Fernandes E(7), Costa 
+VM(8)(9).
+
+Author information:
+(1)Associate Laboratory i4HB - Institute for Health and Bioeconomy, Faculty of 
+Pharmacy, University of Porto, 4050-313, Porto, Portugal. arcdc97@gmail.com.
+(2)UCIBIO- Applied Molecular Biosciences Unit, Laboratory of Toxicology, 
+Department of Biological Sciences, Faculty of Pharmacy, University of Porto, 
+4050-313, Porto, Portugal. arcdc97@gmail.com.
+(3)Unit of Anatomy, Department of Biomedicine, Faculty of Medicine, University 
+of Porto, Porto, Portugal.
+(4)CINTESIS@RISE, Faculty of Medicine, University of Porto, Porto, Portugal.
+(5)Associate Laboratory i4HB - Institute for Health and Bioeconomy, Faculty of 
+Pharmacy, University of Porto, 4050-313, Porto, Portugal.
+(6)UCIBIO- Applied Molecular Biosciences Unit, Laboratory of Toxicology, 
+Department of Biological Sciences, Faculty of Pharmacy, University of Porto, 
+4050-313, Porto, Portugal.
+(7)LAQV, REQUIMTE, Laboratory of Applied Chemistry, Department of Chemical 
+Sciences, Faculty of Pharmacy, University of Porto, 4050-313, Porto, Portugal.
+(8)Associate Laboratory i4HB - Institute for Health and Bioeconomy, Faculty of 
+Pharmacy, University of Porto, 4050-313, Porto, Portugal. veramcosta@ff.up.pt.
+(9)UCIBIO- Applied Molecular Biosciences Unit, Laboratory of Toxicology, 
+Department of Biological Sciences, Faculty of Pharmacy, University of Porto, 
+4050-313, Porto, Portugal. veramcosta@ff.up.pt.
+
+Life expectancy has increased immensely over the past decades, bringing new 
+challenges to the health systems as advanced age increases the predisposition 
+for many diseases. One of those is the burden of neurologic disorders. While 
+many hypotheses have been placed to explain aging mechanisms, it has been widely 
+accepted that the increasing pro-inflammatory status with advanced age or 
+"inflammaging" is a main determinant of biological aging. Furthermore, 
+inflammaging is at the cornerstone of many age-related diseases and its 
+involvement in neurologic disorders is an exciting hypothesis. Indeed, aging and 
+neurologic disorders development in the elderly seem to share some basic 
+pathways that fundamentally converge on inflammation. Peripheral inflammation 
+significantly influences brain function and contributes to the development of 
+neurological disorders, including Alzheimer's disease, Parkinson's disease, and 
+multiple sclerosis. Understanding the role of inflammation in the pathogenesis 
+of progressive neurological diseases is of crucial importance for developing 
+effective treatments and interventions that can slow down or prevent disease 
+progression, therefore, decreasing its social and economic burden.
+
+© 2023. The Author(s).
+
+DOI: 10.1007/s00204-023-03628-8
+PMCID: PMC10761431
+PMID: 37964100 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+
+Channels (Austin). 2023 Dec;17(1):2253102. doi: 10.1080/19336950.2023.2253102. 
+Epub 2023 Oct 8.
+
+Overlap in synaptic neurological condition susceptibility pathways and the 
+neural pannexin 1 interactome revealed by bioinformatics analyses.
+
+Frederiksen SD(1), Wicki-Stordeur LE(1), Swayne LA(1).
+
+Author information:
+(1)Division of Medical Sciences, University of Victoria, Victoria, BC, Canada.
+
+Many neurological conditions exhibit synaptic impairments, suggesting 
+mechanistic convergence. Additionally, the pannexin 1 (PANX1) channel and 
+signaling scaffold is linked to several of these neurological conditions and is 
+an emerging regulator of synaptic development and plasticity; however, its 
+synaptic pathogenic contributions are relatively unexplored. To this end, we 
+explored connections between synaptic neurodevelopmental disorder and 
+neurodegenerative disease susceptibility genes discovered by genome-wide 
+association studies (GWASs), and the neural PANX1 interactome (483 proteins) 
+identified from mouse Neuro2a (N2a) cells. To identify shared susceptibility 
+genes, we compared synaptic suggestive GWAS candidate genes amongst autism 
+spectrum disorders, schizophrenia, Parkinson's disease, and Alzheimer's disease. 
+To further probe PANX1 signaling pathways at the synapse, we used bioinformatics 
+tools to identify PANX1 interactome signaling pathways and protein-protein 
+interaction clusters. To shed light on synaptic disease mechanisms potentially 
+linking PANX1 and these four neurological conditions, we performed additional 
+cross-analyses between gene ontologies enriched for the PANX1 synaptic and 
+disease-susceptibility gene sets. Finally, to explore the regional specificity 
+of synaptic PANX1-neurological condition connections, we identified brain 
+region-specific elevations of synaptic PANX1 interactome and GWAS candidate gene 
+set transcripts. Our results confirm considerable overlap in risk genes for 
+autism spectrum disorders and schizophrenia and identify potential commonalities 
+in genetic susceptibility for neurodevelopmental disorders and neurodegenerative 
+diseases. Our findings also pinpointed novel putative PANX1 links to synaptic 
+disease-associated pathways, such as regulation of vesicular trafficking and 
+proteostasis, warranting further validation.
+
+DOI: 10.1080/19336950.2023.2253102
+PMCID: PMC10563626
+PMID: 37807670 [Indexed for MEDLINE]
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the authors.
+
+
+JMIR Form Res. 2023 Sep 27;7:e47486. doi: 10.2196/47486.
+
+Toward Personalized Medicine Approaches for Parkinson Disease Using Digital 
+Technologies.
+
+Khanna A(1), Jones G(#)(2)(3).
+
+Author information:
+(1)Neuroscience Global Drug Development, Novartis Pharma AG, Basel, Switzerland.
+(2)GDD Connected Health and Innovation Group, Novartis Pharmaceuticals, East 
+Hanover, NJ, United States.
+(3)Clinical and Translational Science Institute, Tufts University Medical 
+Center, Boston, MA, United States.
+(#)Contributed equally
+
+Parkinson disease (PD) is a complex neurodegenerative disorder that afflicts 
+over 10 million people worldwide, resulting in debilitating motor and cognitive 
+impairment. In the United States alone (with approximately 1 million cases), the 
+economic burden for treating and caring for persons with PD exceeds US $50 
+billion and myriad therapeutic approaches are under development, including both 
+symptomatic- and disease-modifying agents. The challenges presented in 
+addressing PD are compounded by observations that numerous, statistically 
+distinct patient phenotypes present with a wide variety of motor and nonmotor 
+symptomatic profiles, varying responses to current standard-of-care 
+symptom-alleviating medications (L-DOPA and dopaminergic agonists), and 
+different disease trajectories. The existence of these differing phenotypes 
+highlights the opportunities in personalized approaches to symptom management 
+and disease control. The prodromal period of PD can span across several decades, 
+allowing the potential to leverage the unique array of composite symptoms 
+presented to trigger early interventions. This may be especially beneficial as 
+disease progression in PD (alongside Alzheimer disease and Huntington disease) 
+may be influenced by biological processes such as oxidative stress, offering the 
+potential for individual lifestyle factors to be tailored to delay disease 
+onset. In this viewpoint, we offer potential scenarios where emerging diagnostic 
+and monitoring strategies might be tailored to the individual patient under the 
+tenets of P4 medicine (predict, prevent, personalize, and participate). These 
+approaches may be especially relevant as the causative factors and biochemical 
+pathways responsible for the observed neurodegeneration in patients with PD 
+remain areas of fluid debate. The numerous observational patient cohorts 
+established globally offer an excellent opportunity to test and refine 
+approaches to detect, characterize, control, modify the course, and ultimately 
+stop progression of this debilitating disease. Such approaches may also help 
+development of parallel interventive strategies in other diseases such as 
+Alzheimer disease and Huntington disease, which share common traits and 
+etiologies with PD. In this overview, we highlight near-term opportunities to 
+apply P4 medicine principles for patients with PD and introduce the concept of 
+composite orthogonal patient monitoring.
+
+©Amit Khanna, Graham Jones. Originally published in JMIR Formative Research 
+(https://formative.jmir.org), 27.09.2023.
+
+DOI: 10.2196/47486
+PMCID: PMC10568402
+PMID: 37756050
+
+Conflict of interest statement: Conflicts of Interest: The authors are employees 
+of Novartis Pharmaceuticals. Views expressed are those of the authors and 
+Novartis Pharmaceuticals had no influence on the content of the submitted 
+manuscript.
+
+

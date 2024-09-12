@@ -1,0 +1,602 @@
+Cell Metab. 2024 Jun 4;36(6):1335-1350.e8. doi: 10.1016/j.cmet.2024.04.010. Epub 
+2024 May 2.
+
+Dietary intake and glutamine-serine metabolism control pathologic vascular 
+stiffness.
+
+Rachedi NS(1), Tang Y(2), Tai YY(2), Zhao J(2), Chauvet C(1), Grynblat J(3), 
+Akoumia KKF(4), Estephan L(2), Torrino S(1), Sbai C(1), Ait-Mouffok A(1), 
+Latoche JD(5), Al Aaraj Y(2), Brau F(1), Abélanet S(1), Clavel S(1), Zhang Y(6), 
+Guillermier C(7), Kumar NVG(8), Tavakoli S(9), Mercier O(10), Risbano MG(6), Yao 
+ZK(11), Yang G(11), Ouerfelli O(11), Lewis JS(11), Montani D(12), Humbert M(10), 
+Steinhauser ML(13), Anderson CJ(14), Oldham WM(15), Perros F(16), Bertero T(17), 
+Chan SY(18).
+
+Author information:
+(1)Université Côte d'Azur, CNRS, INSERM, IPMC, IHU-RespirERA, Valbonne, France.
+(2)Center for Pulmonary Vascular Biology and Medicine, Pittsburgh Heart, Lung, 
+and Blood Vascular Medicine Institute, Pittsburgh, PA, USA; Division of 
+Cardiology, Department of Medicine, University of Pittsburgh School of Medicine 
+and UPMC, Pittsburgh, PA, USA.
+(3)Université Paris-Saclay, AP-HP, INSERM UMR_S 999, Service de Pneumologie et 
+Soins Intensifs Respiratoires, Hôpital de Bicêtre, Le Kremlin Bicêtre, France; 
+Pôle Thoracique, Vasculaire et Transplantations, Hôpital Marie Lannelongue, Le 
+Plessis-Robinson, France.
+(4)Université Paris-Saclay, AP-HP, INSERM UMR_S 999, Service de Pneumologie et 
+Soins Intensifs Respiratoires, Hôpital de Bicêtre, Le Kremlin Bicêtre, France.
+(5)Hillman Cancer Center, University of Pittsburgh School of Medicine and UPMC, 
+Pittsburgh, PA, USA.
+(6)Center for Pulmonary Vascular Biology and Medicine, Pittsburgh Heart, Lung, 
+and Blood Vascular Medicine Institute, Pittsburgh, PA, USA; Division of 
+Pulmonary and Critical Care Medicine, Department of Medicine, University of 
+Pittsburgh School of Medicine and UPMC, Pittsburgh, PA, USA.
+(7)Center for NanoImaging, Division of Genetics, Brigham and Women's Hospital 
+and Harvard Medical School, Boston, MA, USA.
+(8)Aging Institute, Division of Cardiology, Department of Medicine, University 
+of Pittsburgh School of Medicine and UPMC, Pittsburgh, PA, USA.
+(9)Division of Cardiology, Department of Medicine, University of Pittsburgh 
+School of Medicine and UPMC, Pittsburgh, PA, USA; Department of Radiology, 
+University of Pittsburgh School of Medicine and UPMC, Pittsburgh, PA, USA.
+(10)Université Paris-Saclay, AP-HP, INSERM UMR_S 999, Service de Pneumologie et 
+Soins Intensifs Respiratoires, Hôpital de Bicêtre, Le Kremlin Bicêtre, France; 
+Assistance PubliqueHôpitaux de Paris (AP-HP), Service de Pneumologie et Soins 
+Intensifs Respiratoires, Centre de Référence de l'Hypertension Pulmonaire, 
+Hôpital Bicêtre, 94270 Le Kremlin-Bicêtre, France.
+(11)Molecular Pharmacology and Chemistry Program and Organic Synthesis Core 
+Facility, Memorial Sloan Kettering Cancer Center, New York, NY, USA.
+(12)Pôle Thoracique, Vasculaire et Transplantations, Hôpital Marie Lannelongue, 
+Le Plessis-Robinson, France; Assistance PubliqueHôpitaux de Paris (AP-HP), 
+Service de Pneumologie et Soins Intensifs Respiratoires, Centre de Référence de 
+l'Hypertension Pulmonaire, Hôpital Bicêtre, 94270 Le Kremlin-Bicêtre, France.
+(13)Center for NanoImaging, Division of Genetics, Brigham and Women's Hospital 
+and Harvard Medical School, Boston, MA, USA; Aging Institute, Division of 
+Cardiology, Department of Medicine, University of Pittsburgh School of Medicine 
+and UPMC, Pittsburgh, PA, USA.
+(14)Department of Chemistry, University of Missouri, Columbia, MO, USA.
+(15)Division of Pulmonary and Critical Care Medicine, Department of Medicine, 
+Brigham and Women's Hospital, Harvard Medical School, Boston, MA, USA.
+(16)Université Paris-Saclay, AP-HP, INSERM UMR_S 999, Service de Pneumologie et 
+Soins Intensifs Respiratoires, Hôpital de Bicêtre, Le Kremlin Bicêtre, France; 
+Laboratoire CarMeN, UMR INSERM U1060/INRA U1397, Université Claude Bernard 
+Lyon1, 69310 Pierre-Bénite, France.
+(17)Université Côte d'Azur, CNRS, INSERM, IPMC, IHU-RespirERA, Valbonne, France. 
+Electronic address: thomas.bertero@univ-cotedazur.fr.
+(18)Center for Pulmonary Vascular Biology and Medicine, Pittsburgh Heart, Lung, 
+and Blood Vascular Medicine Institute, Pittsburgh, PA, USA; Division of 
+Cardiology, Department of Medicine, University of Pittsburgh School of Medicine 
+and UPMC, Pittsburgh, PA, USA. Electronic address: chansy@pitt.edu.
+
+Perivascular collagen deposition by activated fibroblasts promotes vascular 
+stiffening and drives cardiovascular diseases such as pulmonary hypertension 
+(PH). Whether and how vascular fibroblasts rewire their metabolism to sustain 
+collagen biosynthesis remains unknown. Here, we found that inflammation, 
+hypoxia, and mechanical stress converge on activating the transcriptional 
+coactivators YAP and TAZ (WWTR1) in pulmonary arterial adventitial fibroblasts 
+(PAAFs). Consequently, YAP and TAZ drive glutamine and serine catabolism to 
+sustain proline and glycine anabolism and promote collagen biosynthesis. 
+Pharmacologic or dietary intervention on proline and glycine anabolic demand 
+decreases vascular stiffening and improves cardiovascular function in PH rodent 
+models. By identifying the limiting metabolic pathways for vascular collagen 
+biosynthesis, our findings provide guidance for incorporating metabolic and 
+dietary interventions for treating cardiopulmonary vascular disease.
+
+Copyright © 2024 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.cmet.2024.04.010
+PMCID: PMC11152997
+PMID: 38701775 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests S.Y.C. has served as a 
+consultant for Merck, Janssen, and United Therapeutics. S.Y.C. is a director, 
+officer, and shareholder in Synhale Therapeutics. S.Y.C. has held research 
+grants from WoodNext, Bayer, and United Therapeutics. S.Y.C. and T.B. have filed 
+patent applications regarding the targeting of metabolism in pulmonary 
+hypertension. G.Y., Z.-K.Y., and O.O. are listed as inventors in patents not 
+related to this work, which are filed by MSKCC. O.O. receives royalties from 
+MSKCC, Johnson & Johnson, Jazz, and Y-mAbs and owns shares in Angiogenex, for 
+which he is an unpaid member of the SAB, all of which are not related to this 
+work.
+
+
+Pharmaceuticals (Basel). 2023 Feb 23;16(3):345. doi: 10.3390/ph16030345.
+
+A Cross Talk between the Endocannabinoid System and Different Systems Involved 
+in the Pathogenesis of Hypertensive Retinopathy.
+
+Alswailmi FK(1).
+
+Author information:
+(1)Department of Pharmacy Practice, College of Pharmacy, University of Hafr Al 
+Batin, Hafr Al Batin 39524, Saudi Arabia.
+
+The prognosis of hypertension leads to organ damage by causing nephropathy, 
+stroke, retinopathy, and cardiomegaly. Retinopathy and blood pressure have been 
+extensively discussed in relation to catecholamines of the autonomic nervous 
+system (ANS) and angiotensin II of the renin-angiotensin aldosterone system 
+(RAAS) but very little research has been conducted on the role of the ECS in the 
+regulation of retinopathy and blood pressure. The endocannabinoid system (ECS) 
+is a unique system in the body that can be considered as a master regulator of 
+body functions. It encompasses the endogenous production of its cannabinoids, 
+its degrading enzymes, and functional receptors which innervate and perform 
+various functions in different organs of the body. Hypertensive retinopathy 
+pathologies arise normally due to oxidative stress, ischemia, endothelium 
+dysfunction, inflammation, and an activated renin-angiotensin system (RAS) and 
+catecholamine which are vasoconstrictors in their biological nature. The 
+question arises of which system or agent counterbalances the vasoconstrictors 
+effect of noradrenaline and angiotensin II (Ang II) in normal individuals? In 
+this review article, we discuss the role of the ECS and its contribution to the 
+pathogenesis of hypertensive retinopathy. This review article will also examine 
+the involvement of the RAS and the ANS in the pathogenesis of hypertensive 
+retinopathy and the crosstalk between these three systems in hypertensive 
+retinopathy. This review will also explain that the ECS, which is a vasodilator 
+in its action, either independently counteracts the effect produced with the 
+vasoconstriction of the ANS and Ang II or blocks some of the common pathways 
+shared by the ECS, ANS, and Ang II in the regulation of eye functions and blood 
+pressure. This article concludes that persistent control of blood pressure and 
+normal functions of the eye are maintained either by decreasing systemic 
+catecholamine, ang II, or by upregulation of the ECS which results in the 
+regression of retinopathy induced by hypertension.
+
+DOI: 10.3390/ph16030345
+PMCID: PMC10058254
+PMID: 36986445
+
+Conflict of interest statement: Author declares no conflict of interest.
+
+
+Curr Neurol Neurosci Rep. 2022 Nov;22(11):735-743. doi: 
+10.1007/s11910-022-01239-x. Epub 2022 Oct 1.
+
+Promise of Physiological Profiling to Prevent Stroke in People of African 
+Ancestry: Prototyping Ghana.
+
+Sarfo FS(1)(2), Ovbiagele B(3).
+
+Author information:
+(1)Department of Medicine, Kwame Nkrumah University of Science & Technology, 
+Private Mail Bag, Kumasi, Ghana. stephensarfo78@gmail.com.
+(2)Department of Medicine, Komfo Anokye Teaching Hospital, Kumasi, Ghana. 
+stephensarfo78@gmail.com.
+(3)Department of Neurology, University of California, San Francisco, USA.
+
+PURPOSE OF REVIEW: Worldwide, compared to other racial/ethnic groups, 
+individuals of African ancestry have an excessively higher burden of 
+hypertension-related morbidities, especially stroke. Identifying modifiable 
+biological targets that contribute to these disparities could improve global 
+stroke outcomes. In this scoping review, we discuss how pathological 
+perturbations in the renin-angiotensin-aldosterone pathways could be harnessed 
+via physiological profiling for the purposes of improving blood pressure control 
+for stroke prevention among people of African ancestry.
+RECENT FINDINGS: Transcontinental comparative data from the USA and Ghana show 
+that the prevalence of treatment-resistant hypertension among stroke survivors 
+is 42.7% among indigenous Africans, 16.1% among African Americans, and 6.9% 
+among non-Hispanic Whites, p < 0.0001. A multicenter clinical trial of patients 
+without stroke in 3 African countries (Nigeria, Kenya, and South Africa) 
+demonstrated that physiological profiling using plasma renin activity and 
+aldosterone to individualize selection of antihypertensive medications compared 
+with usual care resulted in better blood pressure control with fewer medications 
+over 12 months. Among Ghanaian ischemic stroke survivors treated without 
+renin-aldosterone profiling data, an analysis revealed that those with low renin 
+phenotypes did not achieve any meaningful reduction in blood pressure over 
+12 months on 3-4 antihypertensive medications despite excellent adherence. For a 
+polygenic condition such as hypertension, individualized therapy based on plasma 
+renin-aldosterone-guided selection of therapy for uncontrolled BP following 
+precision medicine principles may be a viable strategy for primary and secondary 
+stroke prevention with the potential to reduce disparities in the poor outcomes 
+of stroke disproportionately shared by individuals of African ancestry. A 
+dedicated clinical trial to test this hypothesis is warranted.
+
+© 2022. The Author(s), under exclusive licence to Springer Science+Business 
+Media, LLC, part of Springer Nature.
+
+DOI: 10.1007/s11910-022-01239-x
+PMID: 36181575 [Indexed for MEDLINE]
+
+
+J Neuropathol Exp Neurol. 2022 Aug 16;81(9):731-745. doi: 10.1093/jnen/nlac057.
+
+Distinct Brain Proteomic Signatures in Cerebral Small Vessel Disease Rat Models 
+of Hypertension and Cerebral Amyloid Angiopathy.
+
+Schrader JM(1)(2), Stanisavljevic A(1)(2), Xu F(1)(2), Van Nostrand WE(1)(2).
+
+Author information:
+(1)From the George and Anne Ryan Institute for Neuroscience.
+(2)Department of Biomedical and Pharmaceutical Sciences, University of Rhode 
+Island, Kingston, Rhode Island, USA.
+
+Cerebral small vessel diseases (CSVDs) are prominent contributors to vascular 
+cognitive impairment and dementia and can arise from a range of etiologies. 
+Cerebral amyloid angiopathy (CAA) and hypertension (HTN), both prevalent in the 
+elderly population, lead to cerebral microhemorrhages, macrohemorrhages, and 
+white matter damage. However, their respective underlying mechanisms and 
+molecular events are poorly understood. Here, we show that the transgenic rat 
+model of CAA type 1 (rTg-DI) exhibits perivascular inflammation that is lacking 
+in the spontaneously hypertensive stroke-prone (SHR-SP) rat model of HTN. 
+Alternatively, SHR-SP rats display notable dilation of arteriolar perivascular 
+spaces. Comparative proteomics analysis revealed few shared altered proteins, 
+with key proteins such as ANXA3, H2A, and HTRA1 unique to rTg-DI rats, and Nt5e, 
+Flot-1 and Flot-2 unique to SHR-SP rats. Immunolabeling confirmed that 
+upregulation of ANXA3, HTRA1, and neutrophil extracellular trap proteins were 
+distinctly associated with rTg-DI rats. Pathway analysis predicted activation of 
+TGF-β1 and TNFα in rTg-DI rat brain, while insulin signaling was reduced in the 
+SHR-SP rat brain. Thus, we report divergent protein signatures associated with 
+distinct cerebral vessel pathologies in the SHR-SP and rTg-DI rat models and 
+provide new mechanistic insight into these different forms of CSVD.
+
+© The Author(s) 2022. Published by Oxford University Press on behalf of American 
+Association of Neuropathologists, Inc. All rights reserved. For permissions, 
+please email: journals.permissions@oup.com.
+
+DOI: 10.1093/jnen/nlac057
+PMCID: PMC9803909
+PMID: 35856898 [Indexed for MEDLINE]
+
+
+Eur Heart J Cardiovasc Imaging. 2022 Oct 20;23(11):1471-1481. doi: 
+10.1093/ehjci/jeac101.
+
+Pericardial adiposity is independently linked to adverse cardiovascular 
+phenotypes: a CMR study of 42 598 UK Biobank participants.
+
+Ardissino M(1), McCracken C(2)(3), Bard A(2), Antoniades C(3)(4), Neubauer S(3), 
+Harvey NC(5)(6), Petersen SE(2)(7)(8)(9), Raisi-Estabragh Z(2)(7).
+
+Author information:
+(1)National Heart and Lung Institute, Imperial College London, Hammersmith 
+Hospital, London W12 0NN, UK.
+(2)William Harvey Research Institute, NIHR Barts Biomedical Research Centre, 
+Queen Mary University of London, Charterhouse Square, London EC1M 6BQ, UK.
+(3)Division of Cardiovascular Medicine, Radcliffe Department of Medicine, 
+University of Oxford, National Institute for Health Research Oxford Biomedical 
+Research Centre, Oxford University Hospitals NHS Foundation Trust, Oxford OX3 
+9DUUK.
+(4)Acute Vascular Imaging Centre, Radcliffe Department of Medicine, University 
+of Oxford, Oxford OX1 2JD, UK.
+(5)MRC Lifecourse Epidemiology Centre, University of Southampton, Southampton 
+SO16 6YD, UK.
+(6)NIHR Southampton Biomedical Research Centre, University of Southampton and 
+University Hospital Southampton NHS Foundation Trust, Southampton SO16 6YDUK.
+(7)Barts Heart Centre, St Bartholomew's Hospital, Barts Health NHS Trust, West 
+Smithfield EC1A 7BE, UK.
+(8)Health Data Research UK, London, UK.
+(9)Alan Turing Institute, London, UK.
+
+AIMS: We evaluated independent associations of cardiovascular magnetic resonance 
+(CMR)-measured pericardial adipose tissue (PAT) with cardiovascular structure 
+and function and considered underlying mechanism in 42 598 UK Biobank 
+participants.
+METHODS AND RESULTS: We extracted PAT and selected CMR metrics using automated 
+pipelines. We estimated associations of PAT with each CMR metric using linear 
+regression adjusting for age, sex, ethnicity, deprivation, smoking, exercise, 
+processed food intake, body mass index, diabetes, hypertension, height 
+cholesterol, waist-to-hip ratio, impedance fat measures, and magnetic resonance 
+imaging abdominal visceral adiposity measures. Higher PAT was independently 
+associated with unhealthy left ventricular (LV) structure (greater wall 
+thickness, higher LV mass, more concentric pattern of LV hypertrophy), poorer LV 
+function (lower LV global function index, lower LV stroke volume), lower left 
+atrial ejection fraction, and lower aortic distensibility. We used multiple 
+mediation analysis to examine the potential mediating effect of cardiometabolic 
+diseases and blood biomarkers (lipid profile, glycaemic control, inflammation) 
+in the PAT-CMR relationships. Higher PAT was associated with cardiometabolic 
+disease (hypertension, diabetes, high cholesterol), adverse serum lipids, poorer 
+glycaemic control, and greater systemic inflammation. We identified potential 
+mediation pathways via hypertension, adverse lipids, and inflammation markers, 
+which overall only partially explained the PAT-CMR relationships.
+CONCLUSION: We demonstrate association of PAT with unhealthy cardiovascular 
+structure and function, independent of baseline comorbidities, vascular risk 
+factors, inflammatory markers, and multiple non-invasive and imaging measures of 
+obesity. Our findings support an independent role of PAT in adversely impacting 
+cardiovascular health and highlight CMR-measured PAT as a potential novel 
+imaging biomarker of cardiovascular risk.
+
+© The Author(s) 2022. Published by Oxford University Press on behalf of the 
+European Society of Cardiology.
+
+DOI: 10.1093/ehjci/jeac101
+PMCID: PMC9584621
+PMID: 35640889 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of interest: S.E.P. provides 
+consultancy to and owns stock of Circle Cardiovascular Imaging Inc, Calgary, 
+Alberta, Canada. CA and SN are Founders, Share holders and Directors of Caristo 
+Diagnostics, a CT Image analysis spinout company from the University of Oxford. 
+C.A. is also inventor of relevant patents US10,695,023B2, PCT/GB2017/053262, 
+GB2018/1818049.7, GR20180100490, and GR20180100510, licensed through exclusive 
+license to Caristo Diagnostics. The remaining authors have no disclosures.
+
+
+JCI Insight. 2022 May 23;7(10):e157035. doi: 10.1172/jci.insight.157035.
+
+Genome-wide studies reveal factors associated with circulating uromodulin and 
+its relationships to complex diseases.
+
+Li Y(1), Cheng Y(1)(2), Consolato F(3), Schiano G(4), Chong MR(5)(6)(7), 
+Pietzner M(8)(9), Nguyen NQH(10), Scherer N(1)(11), Biggs ML(12)(13), Kleber 
+ME(14)(15), Haug S(1), Göçmen B(1), Pigeyre M(5)(16), Sekula P(1), Steinbrenner 
+I(1), Schlosser P(1)(17), Joseph CB(18), Brody JA(12), Grams ME(17)(19), Hayward 
+C(18), Schultheiss UT(1)(20), Krämer BK(15), Kronenberg F(21), Peters A(22)(23), 
+Seissler J(24), Steubl D(25)(26)(27), Then C(24), Wuttke M(1)(20), März 
+W(15)(28)(29), Eckardt KU(30)(31), Gieger C(22)(32)(33), Boerwinkle E(34)(35), 
+Psaty BM(12)(36)(37), Coresh J(17), Oefner PJ(38), Pare G(5)(7), Langenberg 
+C(8)(9), Scherberich JE(39), Yu B(10), Akilesh S(40), Devuyst O(4), Rampoldi 
+L(3), Köttgen A(1)(17)(41).
+
+Author information:
+(1)Institute of Genetic Epidemiology, Faculty of Medicine and Medical Center, 
+and.
+(2)Faculty of Biology, University of Freiburg, Freiburg, Germany.
+(3)Molecular Genetics of Renal Disorders group, Division of Genetics and Cell 
+Biology, IRCCS Ospedale San Raffaele, Milan, Italy.
+(4)Institute of Physiology, University of Zurich, Zurich, Switzerland.
+(5)Population Health Research Institute and Thrombosis and Atherosclerosis 
+Research Institute, David Braley Cardiac, Vascular and Stroke Research 
+Institute, Hamilton Health Sciences, Hamilton, Ontario, Canada.
+(6)Department of Biochemistry and Biomedical Sciences and.
+(7)Department of Pathology and Molecular Medicine, Faculty of Health Science, 
+McMaster University, Hamilton, Ontario, Canada.
+(8)Medical Research Council (MRC) Epidemiology Unit, Institute of Metabolic 
+Science, University of Cambridge School of Clinical Medicine, Cambridge, United 
+Kingdom.
+(9)Computational Medicine, Berlin Institute of Health at Charité - 
+Universitätsmedizin Berlin, Berlin, Germany.
+(10)Department of Epidemiology, Human Genetics and Environmental Sciences, 
+School of Public Health, University of Texas Health Science Center at Houston, 
+Houston, Texas, USA.
+(11)Spemann Graduate School of Biology and Medicine, University of Freiburg, 
+Freiburg, Germany.
+(12)Cardiovascular Health Research Unit, Department of Medicine, and.
+(13)Department of Biostatistics, University of Washington, Seattle, Washington, 
+USA.
+(14)SYNLAB MVZ Humangenetik Mannheim GmbH, Mannheim, Germany.
+(15)Vth Department of Medicine, Medical Faculty Mannheim, Heidelberg University, 
+Mannheim, Germany.
+(16)Department of Medicine, Michael G. DeGroote School of Medicine, McMaster 
+University, Hamilton, Ontario, Canada.
+(17)Department of Epidemiology, Johns Hopkins Bloomberg School of Public Health, 
+Baltimore, Maryland, USA.
+(18)MRC Human Genetics Unit, Institute of Genetics and Cancer, University of 
+Edinburgh, Western General Hospital, Edinburgh, United Kingdom.
+(19)Division of Nephrology, School of Medicine, Johns Hopkins University, 
+Baltimore, Maryland, USA.
+(20)Department of Medicine IV: Nephrology and Primary Care, Faculty of Medicine 
+and Medical Center, University of Freiburg, Freiburg, Germany.
+(21)Institute of Genetic Epidemiology, Medical University of Innsbruck, 
+Innsbruck, Austria.
+(22)Institute of Epidemiology, Helmholtz Center Munich, German Research Center 
+for Environmental Health, Neuherberg, Germany.
+(23)Chair of Epidemiology, Institute for Medical Information Processing, 
+Biometry, and Epidemiology, Faculty of Medicine, Ludwig-Maximilians-Universität 
+(LMU), Munich, Germany.
+(24)Medical Clinic and Policlinic IV, Hospital of the University of Munich, LMU 
+Munich, Munich, Germany.
+(25)Division of Nephrology, Tufts Medical Center, Boston, Massachusetts, USA.
+(26)Department of Nephrology, Klinikum rechts der Isar, Technical University 
+Munich, Munich, Germany.
+(27)Boehringer Ingelheim International GmbH, Ingelheim, Germany.
+(28)Clinical Institute of Medical and Chemical Laboratory Diagnostics, Medical 
+University of Graz, Graz, Austria.
+(29)SYNLAB Academy, SYNLAB Holding Deutschland GmbH, Augsburg and Mannheim, 
+Germany.
+(30)Department of Nephrology and Medical Intensive Care, Charité - 
+Universitätsmedizin Berlin, Berlin, Germany.
+(31)Department of Nephrology and Hypertension, University Hospital Erlangen, 
+Friedrich-Alexander-Universität Erlangen-Nürnberg, Erlangen, Germany.
+(32)Research Unit of Molecular Epidemiology, Helmholtz Center Munich, German 
+Research Center for Environmental Health, Neuherberg, Germany.
+(33)German Center for Diabetes Research (DZD), Partner Munich, Neuherberg, 
+Germany.
+(34)Human Genetics Center, School of Public Health, University of Texas Health 
+Science Center at Houston, Houston, Texas, USA.
+(35)Human Genome Sequencing Center, Baylor College of Medicine, Houston, Texas, 
+USA.
+(36)Department of Epidemiology and.
+(37)Department of Health Systems and Population Health, School of Public Health, 
+University of Washington, Seattle, Washington, USA.
+(38)Institute of Functional Genomics, University of Regensburg, Regensburg, 
+Germany.
+(39)Munich Clinic Harlaching, LMU Munich, Munich, Germany.
+(40)Department of Laboratory Medicine and Pathology, University of Washington, 
+Seattle, Washington, USA.
+(41)Centre for Integrative Biological Signalling Studies (CIBSS), University of 
+Freiburg, Freiburg, Germany.
+
+Uromodulin (UMOD) is a major risk gene for monogenic and complex forms of kidney 
+disease. The encoded kidney-specific protein uromodulin is highly abundant in 
+urine and related to chronic kidney disease, hypertension, and pathogen defense. 
+To gain insights into potential systemic roles, we performed genome-wide screens 
+of circulating uromodulin using complementary antibody-based and aptamer-based 
+assays. We detected 3 and 10 distinct significant loci, respectively. 
+Integration of antibody-based results at the UMOD locus with functional genomics 
+data (RNA-Seq, ATAC-Seq, Hi-C) of primary human kidney tissue highlighted an 
+upstream variant with differential accessibility and transcription in 
+uromodulin-synthesizing kidney cells as underlying the observed cis effect. 
+Shared association patterns with complex traits, including chronic kidney 
+disease and blood pressure, placed the PRKAG2 locus in the same pathway as UMOD. 
+Experimental validation of the third antibody-based locus, B4GALNT2, showed that 
+the p.Cys466Arg variant of the encoded N-acetylgalactosaminyltransferase had a 
+loss-of-function effect leading to higher serum uromodulin levels. Aptamer-based 
+results pointed to enzymes writing glycan marks present on uromodulin and to 
+their receptors in the circulation, suggesting that this assay permits 
+investigating uromodulin's complex glycosylation rather than its quantitative 
+levels. Overall, our study provides insights into circulating uromodulin and its 
+emerging functions.
+
+DOI: 10.1172/jci.insight.157035
+PMCID: PMC9220927
+PMID: 35446786 [Indexed for MEDLINE]
+
+
+J Psychopathol Clin Sci. 2022 Apr;131(3):278-286. doi: 10.1037/abn0000744. Epub 
+2022 Feb 17.
+
+Genetic variation mediating neuroticism's influence on cardiovascular diseases.
+
+Zhang F(1), Cao H(2), Baranova A(2).
+
+Author information:
+(1)Department of Psychiatry.
+(2)School of Systems Biology.
+
+The personality of neuroticism is phenotypically associated with cardiovascular 
+diseases (CVD), but the underlying mechanisms are poorly understood. We 
+conducted Mendelian randomization analysis to investigate causal relationships 
+between neuroticism and CVD (including coronary artery disease, heart failure, 
+atrial fibrillation, stroke, and hypertensive disease) using summary results of 
+genome-wide association studies for these traits. Our results show that although 
+neuroticism has low or minimal correlations with CVD in general, there are 
+substantial polygenic overlaps between neuroticism and CVD (20%∼97%). Mendelian 
+randomization analysis indicates that genetic liability to neuroticism exerts 
+causal effects on CVD, but not the reverse. A panel of pleiotropic genes is 
+shared by neuroticism and CVD, pointing to the potential role of the 
+SOX-WNT/β-catenin-T-cell-specific transcription factors/lymphoid enhancer 
+factors pathway. Our study suggests that genetics may mediate the influence of 
+neuroticism on CVD. The results shed light on mechanisms underlying phenotypic 
+relationships between neuroticism and CVD and have implications for personalized 
+prevention of CVD with the potential benefits of incorporating personality 
+management into the treatment regimen. (PsycInfo Database Record (c) 2022 APA, 
+all rights reserved).
+
+DOI: 10.1037/abn0000744
+PMID: 35230853 [Indexed for MEDLINE]
+
+
+Nat Rev Cardiol. 2021 Jul;18(7):499-521. doi: 10.1038/s41569-021-00511-w. Epub 
+2021 Feb 22.
+
+Endoplasmic reticulum stress and unfolded protein response in cardiovascular 
+diseases.
+
+Ren J(1)(2)(3), Bi Y(4), Sowers JR(5)(6), Hetz C(7)(8)(9)(10), Zhang Y(11).
+
+Author information:
+(1)Department of Cardiology and Shanghai Institute of Cardiovascular Diseases, 
+Zhongshan Hospital, Fudan University, Shanghai, China. jren@uw.edu.
+(2)Center for Cardiovascular Research and Alternative Medicine, University of 
+Wyoming College of Health Sciences, Laramie, WY, USA. jren@uw.edu.
+(3)Department of Laboratory Medicine and Pathology, University of Washington, 
+Seattle, WA, USA. jren@uw.edu.
+(4)Department of Cardiology and Shanghai Institute of Cardiovascular Diseases, 
+Zhongshan Hospital, Fudan University, Shanghai, China.
+(5)Dalton Cardiovascular Research Center, University of Missouri, Columbia, MO, 
+USA.
+(6)Diabetes and Cardiovascular Center, University of Missouri School of 
+Medicine, Columbia, MO, USA.
+(7)Biomedical Neuroscience Institute, Faculty of Medicine, University of Chile, 
+Santiago, Chile.
+(8)FONDAP Center for Geroscience Brain Health and Metabolism, Santiago, Chile.
+(9)Program of Cellular and Molecular Biology, Institute of Biomedical Science, 
+University of Chile, Santiago, Chile.
+(10)Buck Institute for Research on Aging, Novato, CA, USA.
+(11)Department of Cardiology and Shanghai Institute of Cardiovascular Diseases, 
+Zhongshan Hospital, Fudan University, Shanghai, China. zhangym197951@126.com.
+
+Cardiovascular diseases (CVDs), such as ischaemic heart disease, cardiomyopathy, 
+atherosclerosis, hypertension, stroke and heart failure, are among the leading 
+causes of morbidity and mortality worldwide. Although specific CVDs and the 
+associated cardiometabolic abnormalities have distinct pathophysiological and 
+clinical manifestations, they often share common traits, including disruption of 
+proteostasis resulting in accumulation of unfolded or misfolded proteins in the 
+endoplasmic reticulum (ER). ER proteostasis is governed by the unfolded protein 
+response (UPR), a signalling pathway that adjusts the protein-folding capacity 
+of the cell to sustain the cell's secretory function. When the adaptive UPR 
+fails to preserve ER homeostasis, a maladaptive or terminal UPR is engaged, 
+leading to the disruption of ER integrity and to apoptosis. ER stress functions 
+as a double-edged sword, with long-term ER stress resulting in cellular defects 
+causing disturbed cardiovascular function. In this Review, we discuss the 
+distinct roles of the UPR and ER stress response as both causes and consequences 
+of CVD. We also summarize the latest advances in our understanding of the 
+importance of the UPR and ER stress in the pathogenesis of CVD and discuss 
+potential therapeutic strategies aimed at restoring ER proteostasis in CVDs.
+
+DOI: 10.1038/s41569-021-00511-w
+PMID: 33619348 [Indexed for MEDLINE]
+
+
+Dermatol Ther. 2021 Jan;34(1):e14721. doi: 10.1111/dth.14721. Epub 2021 Jan 5.
+
+Novel anti-inflammatory therapies to reduce cardiovascular burden of psoriasis.
+
+Piros ÉA(1), Szilveszter B(2), Vattay B(2), Maurovich-Horvat P(2)(3), Szalai 
+K(1), Dósa E(4)(5), Merkely B(2), Holló P(1).
+
+Author information:
+(1)Department of Dermatology, Venereology, and Dermatooncology, Semmelweis 
+University, Budapest, Hungary.
+(2)MTA-SE Cardiovascular Imaging Research Group, Semmelweis University, Heart 
+and Vascular Center, Budapest, Hungary.
+(3)Department of Radiology, Semmelweis University, Medical Imaging Center, 
+Budapest, Hungary.
+(4)Department of Interventional Radiology, Semmelweis University, Heart and 
+Vascular Center, Budapest, Hungary.
+(5)Hungarian Vascular Radiology Research Group, Budapest, Hungary.
+
+Psoriasis mainly affects the skin and joints and has serious impacts on the 
+physical, emotional, and financial life of patients. Recent studies have 
+demonstrated that other comorbidities are frequently detected in psoriatic 
+patients. A strong association with the development of cardiovascular diseases, 
+such as hypertension, myocardial infarction, and stroke is responsible for the 
+shortened (by 4.5-5 years) life expectancy of severe psoriatic patients. 
+Systemic inflammation plays an important role in the interrelationship between 
+psoriasis and atherosclerotic plaque formation, which is a common 
+immunopathogenic pathway that explains the multiorgan involvement in psoriasis. 
+As far life-threatening cardiovascular diseases are very often symptom-free, the 
+treating dermatologist's responsibility is to initiate interdisciplinary 
+holistic patient care, which may lead to directly saved patients' lives. 
+Holistic care of severe psoriatic patients should include regular cardiac 
+monitoring using cardiovascular imaging modalities and functional testing to 
+detect even subclinical coronary artery disease. Effective anti-inflammatory 
+treatment with biologic therapies may have beneficial effects on the 
+cardiovascular state and may reduce the incidence of cardiac events. The authors 
+review the latest findings on the shared immunopathogenic background of 
+psoriasis and cardiovascular diseases and discuss the available data about the 
+cardiovascular responses to the currently used biologic treatments.
+
+© 2020 The Authors. Dermatologic Therapy published by Wiley Periodicals LLC.
+
+DOI: 10.1111/dth.14721
+PMCID: PMC8244030
+PMID: 33373079 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+
+Genes (Basel). 2020 Dec 18;11(12):1514. doi: 10.3390/genes11121514.
+
+Genetic Variants behind Cardiovascular Diseases and Dementia.
+
+Ho WM(1)(2), Wu YY(1)(2), Chen YC(1)(2).
+
+Author information:
+(1)Department of Neurology, Chang Gung Memorial Hospital, Linkou Medical Center, 
+Taoyuan 33305, Taiwan.
+(2)College of Medicine, Chang Gung University, Taoyuan 33302, Taiwan.
+
+Cardiovascular diseases (CVDs) and dementia are the leading causes of disability 
+and mortality. Genetic connections between cardiovascular risk factors and 
+dementia have not been elucidated. We conducted a scoping review and pathway 
+analysis to reveal the genetic associations underlying both CVDs and dementia. 
+In the PubMed database, literature was searched using keywords associated with 
+diabetes mellitus, hypertension, dyslipidemia, white matter hyperintensities, 
+cerebral microbleeds, and covert infarctions. Gene lists were extracted from 
+these publications to identify shared genes and pathways for each group. This 
+included high penetrance genes and single nucleotide polymorphisms (SNPs) 
+identified through genome wide association studies. Most risk SNPs to both 
+diabetes and dementia participate in the phospholipase C enzyme system and the 
+downstream nositol 1,4,5-trisphosphate and diacylglycerol activities. 
+Interestingly, AP-2 (TFAP2) transcription factor family and metabolism of 
+vitamins and cofactors were associated with genetic variants that were shared by 
+white matter hyperintensities and dementia, and by microbleeds and dementia. 
+Variants shared by covert infarctions and dementia were related to VEGF 
+ligand-receptor interactions and anti-inflammatory cytokine pathways. Our review 
+sheds light on future investigations into the causative relationships behind 
+CVDs and dementia, and can be a paradigm of the identification of dementia 
+treatments.
+
+DOI: 10.3390/genes11121514
+PMCID: PMC7766236
+PMID: 33352859 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+

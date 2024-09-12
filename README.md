@@ -1,4 +1,4 @@
-# Phenome and Multi-Omics Multi-Institutional Multimorbidity Explorer (Phe-OmicsMIME)
+# Network Analysis and Visualization of Shared Biomolecular Mechanisms in Disease Multimorbidity (PheBioNet)
 
 ## Introduction
 

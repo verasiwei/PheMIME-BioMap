@@ -2,7 +2,7 @@
 phecodes <- phecode_def %>% dplyr::select(phecode,description) %>%
   dplyr::select(phecode) %>%
   join_phecode_info(cols_to_join = c("description", "category")) %>%
-  rename(Description=description)
+  dplyr::rename(Description=description)
 
 # vumc
 transcriptomics_dat = list.files(path="vumc_cox_transcriptomics", full.names=TRUE) %>% 
@@ -16,19 +16,20 @@ vumc_res = bind_rows(transcriptomics_dat %>% mutate(group="gene"),
                      proteomics_dat %>% mutate(group="protein"),
                      metabolomics_dat %>% mutate(group="metabolite")) %>%
            mutate(p_adjust = p.adjust(pvalue,"fdr")) %>%
-           filter(p_adjust < 0.05) %>%
+           # filter(p_adjust < 0.05) %>%
+           filter(pvalue < 0.05) %>% ### less strict rule
            mutate(variable = str_remove_all(variable,"`"))
-
+saveRDS(vumc_res, file="data/vumc_phewas_res_original_p_0.05.rds")
 vumc_res_connect = vumc_res %>%
   mutate(phenotype=normalize_phecodes(phecode),hr=round(as.numeric(hr),2)) %>%
-  left_join(., phecodes %>% rename(phenotype=phecode),by="phenotype") %>%
+  left_join(., phecodes %>% dplyr::rename(phenotype=phecode),by="phenotype") %>%
   dplyr::select(variable,phenotype,connection_type=group,hr,pvalue,p_adjust,phecode_description=Description,phecode_category=category) %>%
-  rename(from = variable,to = phecode_description) %>%
+  dplyr::rename(from = variable,to = phecode_description) %>%
   bind_rows(vumc_res %>%
               mutate(phenotype=normalize_phecodes(phecode)) %>%
-              left_join(., phecodes %>% rename(phenotype=phecode),by="phenotype") %>%
+              left_join(., phecodes %>% dplyr::rename(phenotype=phecode),by="phenotype") %>%
               dplyr::select(variable,phenotype,connection_type=group,hr,pvalue,p_adjust,phecode_description=Description,phecode_category=category) %>%
-              rename(from = phecode_description,to = variable)) %>%
+              dplyr::rename(from = phecode_description,to = variable)) %>%
   # mutate(hazard_ratio = str_extract(hr,"[^()]+",group=NULL)) %>%
   dplyr::select(from,to,phecode=phenotype,connection_type,hazard_ratio=hr,pvalue,phecode_category) %>%
   filter(!is.na(from) & !is.na(to)) %>%
@@ -37,20 +38,20 @@ vumc_res_connect = vumc_res %>%
 res = readRDS("data/omicspred_phewas_res.rds")
 omicspred_res_connect = res %>%
   dplyr::select(Phenotype,`Trait ID`,Description,Type,`Hazard Ratio|Effect Size`,`FDR adjusted P-value`) %>%
-  rename(phenotype = Phenotype, variable = Description,connection_type=Type,
+  dplyr::rename(phenotype = Phenotype, variable = Description,connection_type=Type,
          hr = `Hazard Ratio|Effect Size`, pvalue = `FDR adjusted P-value`) %>%
   mutate(phenotype=normalize_phecodes(phenotype)) %>%
-  left_join(., phecodes %>% rename(phenotype=phecode),by="phenotype") %>%
+  left_join(., phecodes %>% dplyr::rename(phenotype=phecode),by="phenotype") %>%
   dplyr::select(variable,phenotype,connection_type,hr,pvalue,phecode_description=Description,phecode_category=category) %>%
-  rename(from = variable,to = phecode_description) %>%
+  dplyr::rename(from = variable,to = phecode_description) %>%
   bind_rows(res %>%
               dplyr::select(Phenotype,`Trait ID`,Description,Type,`Hazard Ratio|Effect Size`,`FDR adjusted P-value`) %>%
-              rename(phenotype = Phenotype, variable = Description,connection_type=Type,
+              dplyr::rename(phenotype = Phenotype, variable = Description,connection_type=Type,
                      hr = `Hazard Ratio|Effect Size`, pvalue = `FDR adjusted P-value`) %>%
               mutate(phenotype=normalize_phecodes(phenotype)) %>%
-              left_join(., phecodes %>% rename(phenotype=phecode),by="phenotype") %>%
+              left_join(., phecodes %>% dplyr::rename(phenotype=phecode),by="phenotype") %>%
               dplyr::select(variable,phenotype,connection_type,hr,pvalue,phecode_description=Description,phecode_category=category) %>%
-              rename(from = phecode_description,to = variable)) %>%
+              dplyr::rename(from = phecode_description,to = variable)) %>%
   mutate(hazard_ratio = str_extract(hr,"[^ ()]+",group=NULL)) %>%
   dplyr::select(from,to,phecode=phenotype,connection_type,hazard_ratio,hr,pvalue,phecode_category) %>%
   filter(!is.na(from) & !is.na(to)) %>%
@@ -62,19 +63,18 @@ omicspred_res_connect = res %>%
 
 all_res = bind_rows(omicspred_res_connect %>% mutate(institution="ukb"),
                     vumc_res_connect %>% mutate(institution="vumc"))
-
-nodes = all_res %>%
-  dplyr::select(node = Description,type=Type) %>%
-  distinct(node,.keep_all = T) %>%
-  bind_rows(phecodes %>% dplyr::select(node=Description) %>% mutate(type="phecode")) %>%
-  mutate(type=case_when(type=="gene"~"gene",
-                        type=="protein"~"protein",
-                        type=="metabolite"~"metabolite",
-                        type=="phecode"~"phecode")) %>%
-  filter(!is.na(node))
-
-all_res = bind_rows(res %>% mutate(institution="ukb"),
-                    vumc_res %>% mutate(institution="vumc"))
+saveRDS(all_res, file="data/all_res_vumc_original_p_0.05.rds")
+# nodes = all_res %>%
+#   dplyr::select(node = Description,type=Type) %>%
+#   distinct(node,.keep_all = T) %>%
+#   bind_rows(phecodes %>% dplyr::select(node=Description) %>% mutate(type="phecode")) %>%
+#   mutate(type=case_when(type=="gene"~"gene",
+#                         type=="protein"~"protein",
+#                         type=="metabolite"~"metabolite",
+#                         type=="phecode"~"phecode")) %>%
+#   filter(!is.na(node))
+# all_res = bind_rows(res %>% mutate(institution="ukb"),
+#                     vumc_res %>% mutate(institution="vumc"))
 
 ##prepare the upset plot
 upset_dat = tidy_connect %>%
@@ -93,8 +93,6 @@ upset_dat_res = purrr::map(unique(upset_dat$to),function(i){
 names(upset_dat_res) = unique(upset_dat$to)
 saveRDS(upset_dat_res, file = "upset_phecode_vumc.rds")
 
-library(UpSetR)
-upset(fromList(upset_dat_res),order.by = "freq")
 
 ##update tool data
 tidy_connect_phe = tidy_connect %>%

@@ -2,7 +2,7 @@ starting_code <- c("250.20","250.70","272.10","278.10","401.10","594.10","296.20
 # starting_code <- c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
 starting_description = c("Type 2 diabetes", "Diabetic retinopathy", "Hyperlipidemia", "Obesity", "Essential hypertension", "Calculus of kidney", "Depression")
 # starting_description = c("other aUPD","overlap v617f aUPD","GGCC/GGCC","GGCC/TCTT")
-starting_row = c(113,122,144,164,206,292,465)
+starting_row = c(73,78,83,95,163,274,118)
 # starting_row = c(672,673,674,675)
 # Used in data table to both select correct row and navigate table to that row
 start_index <- which(phecodes$code %in% starting_code)
@@ -10,7 +10,6 @@ data_loading_UI <- function(id) {
   ns <- NS(id)
   
     fluidPage(
-      
       useShinydashboard(),
       # use a gradient in background
       setBackgroundColor(
@@ -19,20 +18,26 @@ data_loading_UI <- function(id) {
         direction = "bottom"
       ),
       titlePanel(
-        title = "Phe-Omics Multimorbidity Explorer"
+         div(h4("Phe-Omics Multimorbidity Explorer",style='padding-top:0px;padding-bottom:0px;padding-left:10px'),style='margin-top:-15px;margin-bottom:-5px'),
+         windowTitle = "Phe-Omics Multimorbidity Explorer"
       ),
-      
+          
+        hr(),
         sidebarLayout(
           sidebarPanel(
             style = "background-color: white;height:90vh",
             
-          selectInput(ns("institution"),label = strong("Selecting Institution",style="font-size: 2rem;color:black;float:left"),
+          selectInput(ns("institution"),label = div(class = "subtitle","Selecting Institution",style="font-size: 2rem;color:black;float:left"),
                       choices = list("UKB"="ukb","VUMC"="vumc")),
+          hr(),
+          
+          fileInput(ns("upload"), div(class = "subtitle","Upload Disease Phenotype or Biomolecule of Interest From associationsubgraphs",style="font-size: 2rem;color:black;float:left"), multiple = TRUE),
+          
           hr(),
           ##select phecode/molecular centric
           # div(strong("Exploring Disease Phenotype or Biomolecules?",style="font-size: 2rem;color:black")),
           # DTOutput(ns("data_selection")),
-          selectInput(ns("data_selection"),label = strong("Exploring Disease Phenotypes or Biomolecules?",style="font-size: 2rem;color:black;float:left"),
+          selectInput(ns("data_selection"),label = div(class = "subtitle","Add Disease Phenotypes or Biomolecules of Interest from the Table",style="font-size: 2rem;color:black;float:left"),
                       choices = list("Phenotype"="phecode","Gene"="gene","Protein"="protein","Metabolite"="metabolite")),
           div("Current selections:",style = "font-size:1.7rem;color: black;
                                                 padding-left: 10px;
@@ -43,17 +48,17 @@ data_loading_UI <- function(id) {
                      display: flex;align-items:
                      center;justify-content: space-evenly;"),
           hr(),
-          div(actionButton(ns("reset_selection"), "Reset Selection",style="float:right;background-color: #D3D3D3;display: inline-block; margin-left: 15px;"),
-          actionButton(ns("visualize"), "Visualize Multipartite Network",style="float:right;background-color: #D3D3D3;display: inline-block; ")
+          div(actionButton(ns("reset_selection"), "Reset Selection",class="buttonstyle1"),
+          actionButton(ns("visualize"), "Visualize Bipartite Network",class="buttonstyle1")
           )
           
         ),
         
         mainPanel(style = "background-color: white;height:90vh;",
-          div(strong("Select Disease Phenotype or Biomolecule of Interest"),style="padding-top: 20px;font-size: 2rem;color:black;float:left"),
+          div(class = "subtitle","Select Disease Phenotype or Biomolecule of Interest",style="padding-top: 20px;font-size: 2rem;color:black;float:left"),
           DTOutput(ns("code_selection")),
           hr(),
-          actionButton(ns("bring_top"), "Bring Selected Rows Top",style="float:right;background-color: #D3D3D3;")
+          actionButton(ns("bring_top"), "Bring Selected Rows Top",class="buttonstyle1")
         )
         ) #full panel
     )
@@ -65,7 +70,9 @@ data_loading <- function(input, output, session) {
   current_phecode <- reactiveVal(starting_code)
   current_description <- reactiveVal(starting_description)
   current_row <- reactiveVal(starting_row)
-  dat <- reactiveValues(table_data = all_dat %>% filter(group=="phecode"))
+  upload_data <- reactiveValues(table_data=data.frame(id=c(),phecode=c()))
+  index <- reactiveVal(NULL)
+  dat <- reactiveValues(table_data = all_dat %>% filter(group=="phecode") %>% filter(institution=="ukb"))
   
   app_data <- reactiveValues(
     current_phecode = NULL,
@@ -85,16 +92,71 @@ data_loading <- function(input, output, session) {
   #             selection = list(mode = "single",selected=c(1)))
   # },server = FALSE)
   
+  observeEvent(input$upload,{
+    
+    file <- input$upload
+    ext <- tools::file_ext(file$datapath)
+    
+    req(file)
+    validate(need(ext == "csv", "Please upload a csv file"))
+    
+    nodes_data = read_delim(file$datapath, delim = ",",col_names = T) %>%
+      left_join(.,phecode_def %>% dplyr::select(description,phecode) %>% dplyr::rename(id=description),by="id")
+    upload_data$table_data=nodes_data
+    
+    nodes_data = upload_data$table_data[upload_data$table_data$id %in% all_dat$Description[all_dat$group==input$data_selection & all_dat$institution==current_institution()],]
+    
+    if(nrow(nodes_data)==0){
+      showModal(modalDialog(
+        tags$h2('There are no significant associations with these codes in the knowledge-base.'),
+        footer=tagList(
+          modalButton('Return')
+        )
+      ))
+    } else{
+      # upload_data$table_data=nodes_data
+      current_phecode(nodes_data$phecode)
+      current_description(nodes_data$id)
+    }
+    # current_institution(current_institution())
+    # app_data$visualize_network = TRUE
+  })
+  
+  observeEvent(input$institution,{
+    if(identical(input$data_selection,"phecode")){
+      dat$table_data = all_dat %>% filter(group=="phecode") %>% filter(institution==current_institution())
+    } else if(identical(input$data_selection,"gene")){
+      dat$table_data = all_dat %>% filter(group=="gene") %>% filter(institution==current_institution())
+    } else if(identical(input$data_selection,"protein")){
+      dat$table_data = all_dat %>% filter(group=="protein") %>% filter(institution==current_institution())
+    } else if(identical(input$data_selection,"metabolite")){
+      dat$table_data = all_dat %>% filter(group=="metabolite") %>% filter(institution==current_institution())
+    }
+    
+    nodes_data = upload_data$table_data[upload_data$table_data$id %in% all_dat$Description[all_dat$group==input$data_selection & all_dat$institution==current_institution()],]
+      current_phecode(nodes_data$phecode)
+      current_description(nodes_data$id)
+      
+    index(which(dat$table_data$Description %in% current_description()))
+    
+  })
+  
   observeEvent(input$data_selection,{
     if(identical(input$data_selection,"phecode")){
-      dat$table_data = all_dat %>% filter(group=="phecode")
+      dat$table_data = all_dat %>% filter(group=="phecode") %>% filter(institution==current_institution())
     } else if(identical(input$data_selection,"gene")){
-      dat$table_data = all_dat %>% filter(group=="gene")
+      dat$table_data = all_dat %>% filter(group=="gene") %>% filter(institution==current_institution())
     } else if(identical(input$data_selection,"protein")){
-      dat$table_data = all_dat %>% filter(group=="protein")
+      dat$table_data = all_dat %>% filter(group=="protein") %>% filter(institution==current_institution())
     } else if(identical(input$data_selection,"metabolite")){
-      dat$table_data = all_dat %>% filter(group=="metabolite")
+      dat$table_data = all_dat %>% filter(group=="metabolite") %>% filter(institution==current_institution())
     }
+    
+    nodes_data = upload_data$table_data[upload_data$table_data$id %in% all_dat$Description[all_dat$group==input$data_selection & all_dat$institution==current_institution()],]
+    current_phecode(nodes_data$phecode)
+    current_description(nodes_data$id)
+    index(which(dat$table_data$Description %in% current_description()))
+    
   })
   
   ## user select specific phenotypes/biomolecules
@@ -120,14 +182,15 @@ data_loading <- function(input, output, session) {
   observeEvent(input$code_selection_rows_selected,{
   
       # current_row(input$code_selection_rows_selected)
-      current_description(dat$table_data$Description[input$code_selection_rows_selected])
-      current_phecode(dat$table_data$code[input$code_selection_rows_selected])
+      current_description(c(dat$table_data$Description[input$code_selection_rows_selected],upload_data$table_data$id))
+      current_phecode(c(dat$table_data$code[input$code_selection_rows_selected],upload_data$table_data$phecode))
     
   })
   
   observeEvent(input$bring_top,{
     
-    selected_rows <- input$code_selection_rows_selected
+    selected_rows <- unique(c(input$code_selection_rows_selected,index()))
+    # selected_rows <- input$code_selection_rows_selected
     
     row_order <- order(
       seq_along(dat$table_data[[1]]) %in% selected_rows,
@@ -147,11 +210,21 @@ data_loading <- function(input, output, session) {
   # visualize_network <- reactive({input$visualize})
   observeEvent(input$visualize, {
     # removeModal()
-    app_data$current_phecode = current_phecode()
-    app_data$current_description = current_description()
-    app_data$current_institution = current_institution()
-    # app_data$current_data = current_data()
-    app_data$visualize_network = TRUE
+    if(length(current_phecode())==0){
+      showModal(modalDialog(
+        tags$h2('Please upload or select disease phenotypes or biomolecules'),
+        footer=tagList(
+          modalButton('Return')
+        )
+      ))
+    } else {
+      app_data$current_phecode = current_phecode()
+      app_data$current_description = current_description()
+      app_data$current_institution = current_institution()
+      # app_data$current_data = current_data()
+      app_data$visualize_network = TRUE
+    }
+    
   })
   #reset selections if user select reset
   observeEvent(input$reset_selection,{

@@ -1,0 +1,304 @@
+---
+title: "Shared Biological Pathways"
+author: "Siwei Zhang"
+date: "2024-07-09"
+output: html_document
+---
+
+## Shared pathways module
+
+```{r,echo=F,message=F,warning=F}
+library(r2d3)
+library(tidyverse)
+
+dat = readRDS("enrichment_network_initial_update.rds")
+
+
+
+```
+
+## Shared pathways identified from common disease comorbidities (ICD-based) based on public resource
+
+- Searching by disease (ICD10 diagnosis code) and identify the associated genes based on the disgenet2r database.
+
+- Pathway enrichment analysis on the associated genes
+
+```{r,echo=F,message=F,warning=F}
+dat = readRDS("disease_pairs_pathways_disgenet2r.rds") %>%
+  filter(pathways_common!=" ") %>%
+  dplyr::rename(shared_pathways = pathways_common)
+DT::datatable(dat)
+
+```
+
+## Shared pathways identified from common disease comorbidities (ICD-based) based on Phe-OmicsMIME
+
+- Identified from ICD-based disease diagnosis phenotype to shared pathways.
+
+```{r,echo=F,message=F,warning=F}
+# library(phewasHelper)
+# disease_pairs <- tibble(
+#   disease1 = c(
+#     "Cardiovascular Disease", "Obesity", "Alzheimer's Disease", "Chronic Obstructive Pulmonary Disease",
+#     "Malignant Neoplasms", "Rheumatoid Arthritis", "Chronic Kidney Disease", "Essential hypertension",
+#     "Asthma", "Depression", "Parkinson's Disease", "Psoriasis", "Migraine", "Multiple Sclerosis",
+#     "Type 1 Diabetes", "Hyperlipidemia"
+#   ),
+#   phecode1 = c(
+#     "401", "278.1", "290.1", "496",
+#     "174", "714", "585", "401.1",
+#     "493", "296.2", "332", "696.1", "346", "335",
+#     "250.1", "272.1"
+#   ),
+#   phenotype1 = c(
+#     "Essential hypertension", "Obesity", "Alzheimer's disease", "Chronic airway obstruction",
+#     "Malignant neoplasms", "Rheumatoid arthritis", "Chronic renal failure [CKD]", "Essential hypertension",
+#     "Asthma", "Major depressive disorder", "Parkinson's disease", "Psoriasis", "Migraine", "Multiple sclerosis",
+#     "Type 1 diabetes", "Hyperlipidemia"
+#   ),
+#   icd10_code1 = paste0("ICD10_",c(
+#     "I10", "E66", "G30", "J44",
+#     "C00-C97", "M06.9", "N18", "I10",
+#     "J45", "F32", "G20", "L40", "G43", "G35",
+#     "E10", "E78"
+#   )),
+#   doid1 = c(
+#     "DOID:10763", "DOID:9970", "DOID:10652", "DOID:3083",
+#     "DOID:162", "DOID:7148", "DOID:1220", "DOID:10763",
+#     "DOID:2841", "DOID:150", "DOID:14330", "DOID:8893", "DOID:6364", "DOID:2377",
+#     "DOID:9744", "DOID:2355"
+#   ),
+#   h_number1 = c(
+#     "H01633","H02106","H00056","H01714"," ","H00630"," ","H01633","H00079","H01646","H00057","H01656","H00775","H01490","H00408","H01635"
+#   ),
+#   disease2 = c(
+#     "Type 2 diabetes", "Type 2 Diabetes", "Cardiovascular Disease", "Cardiovascular Disease",
+#     "Obesity", "Cardiovascular Disease", "Cardiovascular Disease", "Stroke",
+#     "Allergic Rhinitis", "Anxiety Disorders", "Alzheimer's Disease", "Rheumatoid Arthritis", "Fibromyalgia", "Systemic Lupus Erythematosus",
+#     "Celiac Disease", "Coronary Artery Disease"
+#   ),
+#   phecode2 = c(
+#     "250", "250.2", "401", "401",
+#     "278.1", "401", "401", "433",
+#     "477", "300", "290.1", "714", "729.1", "710.2",
+#     "579.0", "411"
+#   ),
+#   phenotype2 = c(
+#     "Type 2 diabetes", "Type 2 diabetes", "Essential hypertension", "Essential hypertension",
+#     "Obesity", "Essential hypertension", "Essential hypertension", "Occlusion of cerebral arteries",
+#     "Allergic rhinitis", "Anxiety disorder", "Alzheimer's disease", "Rheumatoid arthritis", "Fibromyalgia and myofascial pain syndromes", "Systemic lupus erythematosus",
+#     "Celiac disease", "Coronary atherosclerosis"
+#   ),
+#   icd10_code2 = paste0("ICD10_",c(
+#     "E11", "E11", "I10", "I10",
+#     "E66", "I10", "I10", "I63",
+#     "J30", "F41", "G30", "M06.9", "M79.7", "M32",
+#     "K90.0", "I25"
+#   )),
+#   doid2 = c(
+#     "DOID:9352", "DOID:9352", "DOID:10763", "DOID:10763",
+#     "DOID:9970", "DOID:10763", "DOID:10763", "DOID:1508",
+#     "DOID:0060509", "DOID:2841", "DOID:10652", "DOID:7148", "DOID:2657", "DOID:6757",
+#     "DOID:10608", "DOID:3393"
+#   ),
+#   h_number2 = c("H00409","H00409","H01633","H01633","H02106","H01633","H01633"," ","H01360","H01662","H00056","H00630","H01636","H00080","H02123","H02505")
+# ) %>% mutate(phecode1 = normalize_phecodes(phecode1),phecode2 = normalize_phecodes(phecode2))
+# 
+# # current_institution = "vumc"
+# res = purrr::map2_dfr(disease_pairs$phenotype1, disease_pairs$phenotype2, function(x,y){
+# 
+#   conn_nodes = tidy_connect %>%
+#           # filter(institution == current_institution) %>%
+#           filter(from %in% x) %>%
+#           dplyr::select(node = to,hazard_ratio) %>%
+#           bind_rows(tidy_connect %>%
+#                       filter(institution == current_institution) %>%
+#                       filter(to %in% x) %>%
+#                       dplyr::select(node = from,hazard_ratio)) %>%
+#           distinct(node,.keep_all = T) %>%
+#           mutate(phenotype = x) %>%
+#           bind_rows(tidy_connect %>%
+#           filter(institution == current_institution) %>%
+#           filter(from %in% y) %>%
+#           dplyr::select(node = to,hazard_ratio) %>%
+#           bind_rows(tidy_connect %>%
+#                       filter(institution == current_institution) %>%
+#                       filter(to %in% y) %>%
+#                       dplyr::select(node = from,hazard_ratio)) %>%
+#           distinct(node,.keep_all = T) %>%
+#           mutate(phenotype = y))
+#   
+#   if(nrow(conn_nodes)!=0){
+#   
+#     dat = conn_nodes %>%
+#         left_join(.,all_id %>% dplyr::rename(node = variable) %>% dplyr::select(node,orig_id) %>%
+#                     filter(!is.na(node)) %>% distinct(node,.keep_all = T), by="node") %>%
+#         left_join(.,nodes %>% filter(institution==current_institution),by="node")
+#   dat = convert_id(dat)
+#   res = purrr::map_dfr(unique(dat$phenotype),function(pheno){
+#      gene_list = dat %>% filter(phenotype==pheno) %>%
+#        distinct(orig_id,.keep_all = T) %>%
+#        distinct(ENTREZID,.keep_all = T) %>%
+#        distinct(node,.keep_all = T) %>%
+#        arrange(desc(hazard_ratio)) %>%
+#        pull(hazard_ratio)
+#      names(gene_list) = dat %>% filter(phenotype==pheno) %>%
+#        distinct(orig_id,.keep_all = T) %>%
+#        distinct(ENTREZID,.keep_all = T) %>%
+#        distinct(node,.keep_all = T) %>%
+#        pull(ENTREZID)
+# 
+#      ## go enrichment analysis
+#      res = gseGO(geneList   = gene_list,
+#                  OrgDb        = org.Hs.eg.db,
+#                  ont          = "CC",
+#                  minGSSize    = 10,
+#                  # maxGSSize    = 500,
+#                  pvalueCutoff = 1,
+#                  verbose      = FALSE)
+#      res_go = res@result
+# 
+#      ## kegg enrichment analysis
+#      res = gseKEGG(geneList     = gene_list,
+#                    organism     = 'hsa',
+#                    minGSSize    = 10,
+#                    pvalueCutoff = 1,
+#                    verbose      = FALSE)
+#      res_kegg = res@result
+# 
+#      ## wikipathway analysis
+#      # res = gseWP(gene_list,
+#      #             organism = "Homo sapiens",
+#      #             minGSSize    = 100,
+#      #             pvalueCutoff = 1,
+#      #             verbose      = FALSE)
+#      # res_wiki = res@result
+#      #
+#      ## reactome pathway
+#      res <- gsePathway(gene_list,
+#                      minGSSize    = 10,
+#                      pvalueCutoff = 1,
+#                      pAdjustMethod = "BH",
+#                      verbose = FALSE)
+#      res_reactome = res@result
+# 
+#      ## disease
+#      res <- gseDO(gene_list,
+#                 minGSSize     = 10,
+#                 pvalueCutoff  = 1,
+#                 pAdjustMethod = "BH",
+#                 verbose       = FALSE)
+#      res_disease = res@result
+# 
+#      bind_rows(res_go,res_kegg,res_reactome,res_disease) %>%
+#        mutate(pvalue = round(pvalue,2),
+#               p.adjust = round(p.adjust,2),
+#               qvalue = round(qvalue,2),
+#               enrichmentScore = round(enrichmentScore,2),
+#               NES = round(NES,2)) %>%
+#        mutate(phenotype = pheno)
+#     })
+# 
+#   disease1 = res %>% filter(phenotype == x)
+#   disease2 = res %>% filter(phenotype == y)
+# 
+#   if(nrow(disease1)!=0 & nrow(disease2)!=0){
+#     pathways_common = intersect(disease1$Description,disease2$Description)
+#   } else{
+#     pathways_common = " "
+#   }
+# 
+#   if(length(pathways_common)!=0){
+#     pathways_common = data.frame(pathways_common) %>%
+#       mutate(disease1 = x,
+#              disease2 = y)
+#   } else{
+#     pathways_common = data.frame(pathways_common = " ",
+#                                  disease1=x,
+#                                  disease2=y)
+#   }
+#     
+#   }
+#   
+#   pathways_common
+# 
+# })
+# saveRDS(res, file="disease_pairs_pathways_pheomics.rds")
+```
+
+```{r,echo=F,message=F,warning=F}
+dat2 = readRDS("disease_pairs_pathways_pheomics.rds") %>%
+  filter(pathways_common!=" ") %>%
+  dplyr::rename(shared_pathways = pathways_common)
+DT::datatable(dat2)
+# rsconnect::deploySite(siteName = "Phe-OmicsMIME_supplementary",account = "siwei",server="prod.tbilab.org")
+```
+
+## Targeted Disease Discovery Using Phe-OmicsMIME
+
+### Type 2 diabetes and Hypertension
+
+- VUMC cohort example
+
+```{r,echo=F,message=F,warning=F}
+pathway_diabetes_hypertension = readRDS("pathway_vumc_diabetes_hypertension.rds")
+
+r2d3(
+      data=pathway_diabetes_hypertension,
+      script = "pathway_network.js",
+      # dependencies = "inst/style.css",
+      options = list(r2d3.theme = list(background="white")),
+      container = "svg",
+      d3_version = "5"
+    )
+
+DT::datatable(pathway_diabetes_hypertension$res_table)
+```
+
+- UKB cohort example
+
+```{r,echo=F,message=F,warning=F}
+pathway_diabetes_hypertension = readRDS("pathway_ukb_diabetes_hypertension.rds")
+
+r2d3(
+      data=pathway_diabetes_hypertension,
+      script = "pathway_network.js",
+      # dependencies = "inst/style.css",
+      options = list(r2d3.theme = list(background="white")),
+      container = "svg",
+      d3_version = "5"
+    )
+
+DT::datatable(pathway_diabetes_hypertension$res_table)
+```
+
+### Alzheimer's disease and Parkinson's disease
+
+- VUMC cohort example
+
+```{r,echo=F,message=F,warning=F}
+pathway_az_parkinson = readRDS("pathway_vumc_az_parkinson.rds")
+
+r2d3(
+      data=pathway_az_parkinson,
+      script = "pathway_network.js",
+      # dependencies = "inst/style.css",
+      options = list(r2d3.theme = list(background="white")),
+      container = "svg",
+      d3_version = "5"
+    )
+
+DT::datatable(pathway_az_parkinson$res_table)
+```
+
+
+## Shared Biological Pathways in Consistent Disease Comorbidity Across Multiple Institutions Identified by PheMIME
+
+
+
+
+
+
+
+
+

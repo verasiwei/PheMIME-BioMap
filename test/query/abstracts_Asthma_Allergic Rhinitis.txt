@@ -1,0 +1,477 @@
+Xi Bao Yu Fen Zi Mian Yi Xue Za Zhi. 2024 May;40(5):460-464.
+
+[Progress in dendritic cell-derived exosomes in allergic rhinitis].
+
+[Article in Chinese]
+
+Kang C(1), Liu P(2), Liu Y(2), Zeng X(2), Zhao H(2), Qiu S(3), Liu J(4).
+
+Author information:
+(1)Department of Graduate and Scientific Research, Zhuhai Campus of Zunyi 
+Medical University, Zhuhai 519041; Department of Otorhinolaryngology, Longgang 
+Otorhinolaryngology Hospital, Shenzhen Institute of Otorhinolaryngology, 
+Shenzhen 518172; Department of Otorhinolaryngology, The Second People's Hospital 
+of Gansu Province, Lanzhou 730000, China.
+(2)Department of Graduate and Scientific Research, Zhuhai Campus of Zunyi 
+Medical University, Zhuhai 519041; Department of Otorhinolaryngology, Longgang 
+Otorhinolaryngology Hospital, Shenzhen Institute of Otorhinolaryngology, 
+Shenzhen 518172, China.
+(3)Department of Graduate and Scientific Research, Zhuhai Campus of Zunyi 
+Medical University, Zhuhai 519041; Department of Otorhinolaryngology, Longgang 
+Otorhinolaryngology Hospital, Shenzhen Institute of Otorhinolaryngology, 
+Shenzhen 518172, China. *Corresponding authors, E-mail: qiuqi66858@163.com.
+(4)Department of Graduate and Scientific Research, Zhuhai Campus of Zunyi 
+Medical University, Zhuhai 519041; Department of Otorhinolaryngology, Longgang 
+Otorhinolaryngology Hospital, Shenzhen Institute of Otorhinolaryngology, 
+Shenzhen 518172, China. *Corresponding authors, E-mail: 532709385@qq.com.
+
+Allergic rhinitis (AR), a common disease in otolaryngology, is a key risk factor 
+for poorly controlled asthma and many complications, although it is not 
+life-threatening. The negative impact of AR on social productive forces and 
+human health is no less than that of asthma. Dendritic cells (DCs) play an 
+important role in AR. In addition to sharing some of DC's biological 
+characteristics, DCs-derived exosomes (DEXs) can promote the priming and 
+activation of T cells and the maturation and differentiation of T helper type 2 
+(Th2) cells. Multiple signaling pathways in AR can be modulated by DEXs, which 
+present allergens and participate in allergic immune responses. Anti-allergic 
+drugs can be carried by DEXs to alleviate allergic airway inflammation and treat 
+Th2-mediated AR effectively. Therefore, DEXs are crucial in the pathogenesis and 
+treatment of AR.
+
+PMID: 38790103 [Indexed for MEDLINE]
+
+
+Medicine (Baltimore). 2024 Feb 16;103(7):e36892. doi: 
+10.1097/MD.0000000000036892.
+
+Molecular characterization of allergic constitution based on network 
+pharmacology and multi-omics analysis methods.
+
+Sun P(1)(2), Liu X(1)(2), Wang Y(1)(2), Shen R(3), Chen X(2), Li Z(1)(2), Cui 
+D(1)(2), Wang J(2), Wang Q(2).
+
+Author information:
+(1)College of Traditional Chinese Medicine, Beijing University of Chinese 
+Medicine, Beijing, China.
+(2)National Institute of Traditional Chinese Medicine Constitution and 
+Preventive Medicine, Beijing University of Chinese Medicine, Beijing, China.
+(3)Beijing Heniantang Traditional Chinese Medicine Hospital, Beijing, China.
+
+The objective of this study was to identify critical pathways associated with 
+allergic constitution. Shared genes among allergic rhinitis (AR), asthma (AA), 
+and atopic dermatitis (AD) were extracted from the GWAS catalog. RNA-seq data of 
+AR, AA, and AD from gene expression omnibus (GEO) database were preprocessed and 
+subjected to differential gene expression analysis. The differentially expressed 
+genes (DEGs) were merged using the Robust Rank Aggregation (RRA) algorithm. 
+Weighted gene co-expression network analysis (WGCNA) was performed to identify 
+modules associated with allergies. Components of Guominkang (GMK) were obtained 
+from 6 databases and activate components were identified by SwissADME website. 
+Utilizing the SwissTarget Prediction, PharmMapper, SymMap, and HERB, the targets 
+of GMK were predicted and subsequently validated using gene chip data from our 
+team previous study. Differentially expressed proteins (DEPs) related to the 
+allergic constitution were also extracted based on a previous study. Pathway 
+enrichment analysis was performed using KOBAS-i on the GWAS, RRA, WGCNA modules, 
+DEPs, and GMK targets. P values from multi-omics datasets were combined by 
+meta-analysis, and Bonferroni correction was applied. The significant pathways 
+were further validated using Gene Set Enrichment Analysis (GSEA) with 
+intervention data of GMK. The GWAS results yielded 172 genes. Four datasets AR1, 
+AA1, AD1, and AD2 were acquired from GSE75011, GSE125916, and GSE184237. The RRA 
+algorithm identified 19 upregulated and 20 downregulated genes. WGCNA identified 
+5 significant modules, with the blue and turquoise modules displaying a moderate 
+correlation with allergies. By performing network pharmacology analysis, we 
+identified 127 active ingredients of GMK and predicted 618 targets. Validation 
+using gene chip data confirmed 107 GMK targets. Single-omics pathway analysis 
+was conducted using KOBAS-i, and 39 significant pathways were identified across 
+multiple omics datasets. GSEA analysis using GMK intervention data identified 11 
+of 39 significant pathways as the final key pathways associated with the 
+allergic constitution. Through multi-omics integrated pathway analysis, we 
+identified 11 critical pathways of allergic constitution, including TH1 and TH2 
+cell differentiation, TLR cascade, and TH17 cell differentiation. Identifying 
+these pathways suggests that the observed alterations at the pathway level may 
+play significant roles in the molecular characteristics of the allergic 
+constitution.
+
+Copyright © 2024 the Author(s). Published by Wolters Kluwer Health, Inc.
+
+DOI: 10.1097/MD.0000000000036892
+PMCID: PMC10869101
+PMID: 38363941 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have no conflicts of interest to 
+disclose.
+
+
+Zhonghua Yu Fang Yi Xue Za Zhi. 2023 Dec 6;57(12):1936-1941. doi: 
+10.3760/cma.j.cn112150-20230712-00535.
+
+[The similar characteristics of IgG4-related disease and allergic diseases].
+
+[Article in Chinese; Abstract available in Chinese from the publisher]
+
+Bian SN(1), Guan K(1).
+
+Author information:
+(1)Allergy Department, Peking Union Medical College Hospital, Peking Union 
+Medical College, Chinese Academy of Medical Sciences, Beijing Key Laboratory of 
+Precision Medicine for Diagnosis and Treatment of Allergic Disease, National 
+Clinical Research Center for Dermatologic and Immunologic Diseases, Beijing 
+100730, China.
+
+IgG4-related disease (IgG4-RD) is a chronic inflammation with fibrosis. About 
+30% to 40% of patients with IgG4-RD are complicated with atopic manifestations 
+as allergic rhinitis and asthma, usually with elevated serum total 
+immunoglobulin E and peripheral blood eosinophils, which are also of some value 
+for predicting disease activity and relapse. Similar to allergic diseases, 
+activation of type 2 inflammation is also observed in the pathogenesis of 
+IgG4-RD, and eosinophils, basophils, mast cells, thymic stromal lymphopoietin, 
+IL-33, IL-4, IL-5, and IL-13 all participate in the pathogenesis of IgG4-RD. 
+Studies of susceptible genes showed that IgG4-RD and allergic disease shared the 
+same susceptible genes. Monoclonal antibodies targeting type 2 inflammation 
+pathway may become a novel choice for IgG4-RD treatment.
+
+Publisher: IgG4相关性疾病（IgG4-related 
+disease，IgG4-RD）是一种慢性炎症伴纤维化疾病，有报道约30%~40%的IgG4-RD患者合并特应性表现如过敏性鼻炎、哮喘等，常伴有血清总免疫球蛋白E、外周血嗜酸性粒细胞增多，且对预测IgG4-RD疾病活动及复发有一定价值。IgG4-RD在发病机制上存在与过敏性疾病类似的2型炎症激活，嗜酸性粒细胞、嗜碱性粒细胞、肥大细胞、胸腺基质淋巴细胞生成素、IL-33、IL-4、IL-5、IL-13等均参与IgG4-RD的发病。关于易感基因的研究也发现IgG4-RD与过敏性疾病存在相同的易感基因。针对2型炎症通路的单克隆抗体或许可成为IgG4-RD新的治疗选择。.
+
+DOI: 10.3760/cma.j.cn112150-20230712-00535
+PMID: 38186139 [Indexed for MEDLINE]
+
+
+Sci Rep. 2022 Dec 5;12(1):21028. doi: 10.1038/s41598-022-24960-6.
+
+Exome variants associated with asthma and allergy.
+
+Wjst M(1)(2).
+
+Author information:
+(1)Institute of Lung Health and Immunity (LHI), Helmholtz Zentrum München - 
+German Research Center for Environmental Health, Ingolstädter Landstr. 1, 85764, 
+Neuherberg, München, Germany. wjst@helmholtz-muenchen.de.
+(2)Institut für KI und Informatik in der Medizin, Lehrstuhl für Medizinische 
+Informatik, Klinikum Rechts der Isar, Grillparzerstr. 18, 81675, München, 
+Germany. wjst@helmholtz-muenchen.de.
+
+The mutational spectrum of asthma and allergy associated genes is not known 
+although recent biobank based exome sequencing studies included these traits. We 
+therefore conducted a secondary analysis of exome data from 281,104 UK Biobank 
+samples for association of mostly rare variants with asthma, allergic rhinitis 
+and atopic dermatitis. Variants of interest (VOI) were tabulated, shared genes 
+annotated and compared to earlier genome-wide SNP association studies (GWAS), 
+whole genome sequencing, exome and bisulfit sequencing studies. 354 VOI were 
+significantly associated with asthma, allergic rhinitis and atopic dermatitis. 
+They cluster mainly in two large regions on chromosome 6 and 17. After exclusion 
+of the variants associated with atopic dermatitis and redundant variants, 321 
+unique VOI remain in 122 unique genes. 30 genes are shared among the 87 genes 
+with increased and the 65 genes with decreased risk for allergic disease. 85% of 
+genes identified earlier by common GWAS SNPs are not replicated here. Most 
+identified genes are located in interferon ɣ and IL33 signaling pathway. These 
+genes include already known but also new pharmacological targets, including the 
+IL33 receptor ST2/IL1RL1, as well as TLR1, ALOX15, GSDMA, BTNL2, IL13 and IKZF3. 
+Future pharmacological studies will need to included these VOI for 
+stratification of the study population paving the way to individualized 
+treatment.
+
+© 2022. The Author(s).
+
+DOI: 10.1038/s41598-022-24960-6
+PMCID: PMC9722654
+PMID: 36470944 [Indexed for MEDLINE]
+
+Conflict of interest statement: The author declares no competing interests.
+
+
+Front Immunol. 2021 Aug 18;12:720746. doi: 10.3389/fimmu.2021.720746. 
+eCollection 2021.
+
+Achieving Precision Medicine in Allergic Disease: Progress and Challenges.
+
+Proper SP(1), Azouz NP(1)(2), Mersha TB(2)(3).
+
+Author information:
+(1)Division of Allergy and Immunology, Cincinnati Children's Hospital Medical 
+Center, Cincinnati, OH, United States.
+(2)Department of Pediatrics, University of Cincinnati College of Medicine, 
+Cincinnati, OH, United States.
+(3)Division of Asthma Research, Cincinnati Children's Hospital Medical Center, 
+Cincinnati, OH, United States.
+
+Allergic diseases (atopic dermatitis, food allergy, eosinophilic esophagitis, 
+asthma and allergic rhinitis), perhaps more than many other traditionally 
+grouped disorders, share several overlapping inflammatory pathways and risk 
+factors, though we are still beginning to understand how the relevant patient 
+and environmental factors uniquely shape each disease. Precision medicine is the 
+concept of applying multiple levels of patient-specific data to tailor diagnoses 
+and available treatments to the individual; ideally, a patient receives the 
+right intervention at the right time, in order to maximize effectiveness but 
+minimize morbidity, mortality and cost. While precision medicine in allergy is 
+in its infancy, the recent success of biologics, development of tools focused on 
+large data set integration and improved sampling methods are encouraging and 
+demonstrates the utility of refining our understanding of allergic endotypes to 
+improve therapies. Some of the biggest challenges to achieving precision 
+medicine in allergy are characterizing allergic endotypes, understanding 
+allergic multimorbidity relationships, contextualizing the impact of 
+environmental exposures (the "exposome") and ancestry/genetic risks, achieving 
+actionable multi-omics integration, and using this information to develop 
+adequately powered patient cohorts and refined clinical trials. In this paper, 
+we highlight several recently developed tools and methods showing promise to 
+realize the aspirational potential of precision medicine in allergic disease. We 
+also outline current challenges, including exposome sampling and building the 
+"knowledge network" with multi-omics integration.
+
+Copyright © 2021 Proper, Azouz and Mersha.
+
+DOI: 10.3389/fimmu.2021.720746
+PMCID: PMC8416451
+PMID: 34484229 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+Otolaryngol Head Neck Surg. 2021 Jan;164(1_suppl):S1-S21. doi: 
+10.1177/0194599820965233. Epub 2020 Nov 3.
+
+Targeted Molecular Therapies in Allergy and Rhinology.
+
+Damask CC(1), Ryan MW(2), Casale TB(3), Castro M(4), Franzese CB(5), Lee SE(6), 
+Levy JM(7), Lin SY(8), Lio PA(9), Peters AT(9), Platt MP(10), White AA(11).
+
+Author information:
+(1)University of Central Florida, Lake Mary, Florida, USA.
+(2)UT Southwestern Medical Center, Dallas, Texas, USA.
+(3)University of South Florida, Tampa, Florida, USA.
+(4)University of Kansas Medical Center, Kansas City, Kansas, USA.
+(5)University of Missouri Medical Center, Columbia, Missouri, USA.
+(6)University of Pittsburgh, Pittsburgh, Pennsylvania, USA.
+(7)Emory Medicine, Atlanta, Georgia, USA.
+(8)Johns Hopkins Medicine, Baltimore, Maryland, USA.
+(9)Northwestern Medicine, Chicago, Illinois, USA.
+(10)Boston Medical Center, Boston, Massachusetts, USA.
+(11)Scripps Clinic, La Jolla, California, USA.
+
+Biologic agents, monoclonal antibodies that target highly-specific molecular 
+pathways of inflammation, are becoming integrated into care pathways for 
+multiple disorders that are relevant in otolaryngology and allergy. These 
+conditions share common inflammatory mechanisms of so-called Type 2 inflammation 
+with dysregulation of immunoglobulin E production and eosinophil and mast cell 
+degranulation leading to tissue damage. Biologic agents are now available for 
+the treatment of chronic rhinosinusitis with nasal polyps (CRSwNP), asthma, 
+eosinophilic granulomatosis with polyangiitis (EGPA), atopic dermatitis (AD), 
+and chronic spontaneous urticaria (CSU). This paper summarizes the diagnosis and 
+management of these conditions and critically reviews the clinical trial data 
+that has led to regulatory approval of biologic agents for these conditions.
+
+DOI: 10.1177/0194599820965233
+PMID: 33138725 [Indexed for MEDLINE]
+
+
+Int J Mol Sci. 2020 Jan 21;21(3):712. doi: 10.3390/ijms21030712.
+
+Does Allergy Break Bones? Osteoporosis and Its Connection to Allergy.
+
+Sirufo MM(1)(2), Suppa M(3), Ginaldi L(1)(2), De Martinis M(1)(2).
+
+Author information:
+(1)Department of Life, Health and Environmental Sciences, University of 
+L'Aquila, 67100 L'Aquila, Italy.
+(2)Allergy and Clinical Immunology Unit, Center for the diagnosis and treatment 
+of Osteoporosis, AUSL 04 Teramo, 64100 Teramo, Italy.
+(3)Department of Dermatology, Hôpital Erasme, Université Libre de Bruxelles, 
+1070 Brussels, Belgium.
+
+: Osteoporosis and allergic diseases are important causes of morbidity, and 
+traditionally their coexistence has been attributed to causality, to independent 
+processes, and they were considered unrelated. However, the increasing knowledge 
+in the field of osteoimmunology and an increasing number of epidemiological and 
+biological studies have provided support to a correlation between bone and 
+allergy that share pathways, cells, cytokines and mediators. If the link between 
+allergic pathology and bone alterations appears more subtle, there are 
+conditions such as mastocytosis and hypereosinophilic or hyper-IgE syndromes 
+characterized by the proliferation of cells or hyper-production of molecules 
+that play a key role in allergies, in which this link is at least clinically 
+more evident, and the diseases are accompanied by frank skeletal involvement, 
+offering multiple speculation cues. The pathophysiological connection of allergy 
+and osteoporosis is currently an intriguing area of research. The aim of this 
+review is to summarize and bring together the current knowledge and pursue an 
+opportunity to stimulate further investigation.
+
+DOI: 10.3390/ijms21030712
+PMCID: PMC7037724
+PMID: 31973226 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.
+
+
+PLoS One. 2019 Nov 6;14(11):e0224448. doi: 10.1371/journal.pone.0224448. 
+eCollection 2019.
+
+Understanding allergic multimorbidity within the non-eosinophilic interactome.
+
+Aguilar D(1)(2)(3), Lemonnier N(4), Koppelman GH(5)(6), Melén E(7), Oliva B(8), 
+Pinart M(2), Guerra S(2)(9), Bousquet J(10)(11), Anto JM(2).
+
+Author information:
+(1)Biomedical Research Networking Center in Hepatic and Digestive Diseases 
+(CIBEREHD), Instituto de Salud Carlos III, Barcelona, Spain.
+(2)ISGlobal, Barcelona Institute for Global Health, Barcelona, Spain.
+(3)6AM Data Mining, Barcelona, Spain.
+(4)Institute for Advanced Biosciences, Inserm U 1209 CNRS UMR 5309 Université 
+Grenoble Alpes, Site Santé, Allée des Alpes, La Tronche, France.
+(5)University of Groningen, University Medical Center Groningen, Beatrix 
+Children's Hospital, Department of Pediatric Pulmonology and Pediatric 
+Allergology, Groningen, Netherlands.
+(6)University of Groningen, University Medical Center Groningen, GRIAC Research 
+Institute.
+(7)Institute of Environmental Medicine, Karolinska Institutet, Stockholm, 
+Sweden.
+(8)Structural Bioinformatics Group, Research Programme on Biomedical 
+Informatics, Department of Experimental and Health Sciences, Universitat Pompeu 
+Fabra, Barcelona, Spain.
+(9)Asthma and Airway Disease Research Center, University of Arizona, Tucson, 
+Arizona, United States of America.
+(10)Hopital Arnaud de Villeneuve University Hospital, Montpellier, France.
+(11)Charité, Universitätsmedizin Berlin, Humboldt-Universität zu Berlin, and 
+Berlin Institute of Health, Comprehensive Allergy Center, Department of 
+Dermatology and Allergy, Berlin, Germany.
+
+BACKGROUND: The mechanisms explaining multimorbidity between asthma, dermatitis 
+and rhinitis (allergic multimorbidity) are not well known. We investigated these 
+mechanisms and their specificity in distinct cell types by means of an 
+interactome-based analysis of expression data.
+METHODS: Genes associated to the diseases were identified using data mining 
+approaches, and their multimorbidity mechanisms in distinct cell types were 
+characterized by means of an in silico analysis of the topology of the human 
+interactome.
+RESULTS: We characterized specific pathomechanisms for multimorbidities between 
+asthma, dermatitis and rhinitis for distinct emergent non-eosinophilic cell 
+types. We observed differential roles for cytokine signaling, TLR-mediated 
+signaling and metabolic pathways for multimorbidities across distinct cell 
+types. Furthermore, we also identified individual genes potentially associated 
+to multimorbidity mechanisms.
+CONCLUSIONS: Our results support the existence of differentiated multimorbidity 
+mechanisms between asthma, dermatitis and rhinitis at cell type level, as well 
+as mechanisms common to distinct cell types. These results will help 
+understanding the biology underlying allergic multimorbidity, assisting in the 
+design of new clinical studies.
+
+DOI: 10.1371/journal.pone.0224448
+PMCID: PMC6834334
+PMID: 31693680 [Indexed for MEDLINE]
+
+Conflict of interest statement: I have read the journal’s policy and the authors 
+of this manuscript have the following competing interests: DA worked for 6AM 
+Data Mining data science company as a bioinformatics consultant at the time of 
+the study. This commercial affiliation does not alter our adherence PLOS ONE 
+policies on sharing data and materials. The authors have declared that no 
+competing interests exist.
+
+
+Sci Rep. 2019 Oct 29;9(1):15535. doi: 10.1038/s41598-019-51661-4.
+
+Allergic rhinitis is a risk factor of gastro-esophageal reflux disease 
+regardless of the presence of asthma.
+
+Kung YM(1), Tsai PY(2), Chang YH(3), Wang YK(4), Hsieh MS(4), Hung 
+CH(5)(6)(7)(8)(9), Kuo CH(10)(11)(12).
+
+Author information:
+(1)Department of Internal Medicine, Kaohsiung Municipal Hsiao-Kang Hospital, 
+Kaohsiung, Taiwan.
+(2)Department of Nursing, Kaohsiung Municipal Hsiao-Kang Hospital, Kaohsiung, 
+Taiwan.
+(3)Teaching and research center, Kaohsiung Municipal Hsiao-Kang Hospital, 
+Kaohsiung, Taiwan.
+(4)Division of Gastroenterology, Department of Internal Medicine, Kaohsiung 
+Medical University Hospital, Kaohsiung, Taiwan.
+(5)Teaching and research center, Kaohsiung Municipal Hsiao-Kang Hospital, 
+Kaohsiung, Taiwan. pedhung@gmail.com.
+(6)Department of Medicine, Faculty of Medicine, College of Medicine, Kaohsiung 
+Medical University, Kaohsiung, Taiwan. pedhung@gmail.com.
+(7)Department of Pediatrics, Kaohsiung Medical University Hospital, Kaohsiung, 
+Taiwan. pedhung@gmail.com.
+(8)Department of Pediatrics, Faculty of Pediatrics, College of Medicine, 
+Kaohsiung Medical University, Kaohsiung, Taiwan. pedhung@gmail.com.
+(9)Research Center for Environmental Medicine, Kaohsiung Medical University, 
+Kaohsiung, Taiwan. pedhung@gmail.com.
+(10)Department of Internal Medicine, Kaohsiung Municipal Hsiao-Kang Hospital, 
+Kaohsiung, Taiwan. kjh88kmu@gmail.com.
+(11)Division of Gastroenterology, Department of Internal Medicine, Kaohsiung 
+Medical University Hospital, Kaohsiung, Taiwan. kjh88kmu@gmail.com.
+(12)Department of Medicine, Faculty of Medicine, College of Medicine, Kaohsiung 
+Medical University, Kaohsiung, Taiwan. kjh88kmu@gmail.com.
+
+Gastroesophageal reflux disease (GERD) can cause several upper airway symptoms 
+and alter the physiology of nasopharyngeal mucosa, while upper airway diseases 
+in turn might also exacerbate GERD symptoms. For a long time, asthma was 
+considered a risk factor of GERD in the literature. Asthma and allergic rhinitis 
+(AR) are usually identified as united airway disease according to similar 
+epidemiology and pathophysiology; however, the association between AR and GERD 
+is less elucidated. We aimed to evaluate whether AR would increase the 
+development of GERD. Patients diagnosed as AR were identified from the National 
+Health Insurance Research Database between January 1, 2000 and December 31, 2005 
+without prior history of gastroesophageal reflux disease. The outcome of 
+interest was new-onset GERD. Cox regression models were applied to calculate the 
+hazard ratio (HR) of GERD. We analyzed the data of 193,810 AR patients aged 18 
+years or older and being free of AR at baseline. The AR cohort (n = 96,905) had 
+a significantly increased risk of GERD over a non-AR cohort (n = 96905) 
+(adjusted HR (aHR) 1.94; 95% CI = 1.88-1.99, p < 0.001). AR may have stronger 
+correlation with GERD than does asthma, although asthma might increase GERD risk 
+by means of certain pathways shared with AR.
+
+DOI: 10.1038/s41598-019-51661-4
+PMCID: PMC6820784
+PMID: 31664063 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no competing interests.
+
+
+J Allergy Clin Immunol Pract. 2019 May-Jun;7(5):1418-1429. doi: 
+10.1016/j.jaip.2019.02.030. Epub 2019 Mar 27.
+
+IgE-Mediated Multimorbidities in Allergic Asthma and the Potential for 
+Omalizumab Therapy.
+
+Humbert M(1), Bousquet J(2), Bachert C(3), Palomares O(4), Pfister P(5), 
+Kottakis I(5), Jaumont X(5), Thomsen SF(6), Papadopoulos NG(7).
+
+Author information:
+(1)Service de Pneumologie, Hôpital Bicêtre, Le Kremlin Bicêtre, France. 
+Electronic address: marc.humbert@aphp.fr.
+(2)MACVIA-France, Contre les Maladies Chroniques pour un Vieillissement Actif en 
+France, European Innovation Partnership on Active and Healthy Ageing Reference 
+Site, Montpellier, France.
+(3)Upper Airways Research Laboratory and Department of Oto-Rhino-Laryngology, 
+Ghent University and Ghent University Hospital, Ghent, Belgium.
+(4)Department of Biochemistry and Molecular Biology, School of Chemistry, 
+Complutense University of Madrid, Madrid, Spain.
+(5)Novartis Pharma AG, Basel, Switzerland.
+(6)Department of Dermatology, Bispebjerg University Hospital, Copenhagen, 
+Denmark; Department of Biomedical Sciences, University of Copenhagen, 
+Copenhagen, Denmark.
+(7)Division of Infection, Immunity & Respiratory Medicine, University of 
+Manchester, Manchester, United Kingdom; Allergy Department, 2nd Pediatric 
+Clinic, University of Athens, Athens, Greece.
+
+Allergic asthma often coexists with different pathological conditions, called 
+multimorbidities, that are mostly of allergic nature and share a common 
+underlying inflammatory pathophysiological mechanism. Multimorbidities of 
+allergic asthma may influence asthma control, its severity, and patients' 
+response to treatment, and contribute to the overall socioeconomic burden of the 
+disease. Immunoglobulin E (IgE) is known to play a central role in the 
+pathogenesis of various allergic diseases, including asthma. Thus, IgE-mediated 
+immunologic pathways present an attractive target for intervention in asthma and 
+multimorbidities. In this review, we discuss the most frequently reported 
+IgE-mediated multimorbidities in allergic asthma, including allergic rhinitis, 
+rhinoconjunctivitis, atopic dermatitis, vernal keratoconjunctivitis, chronic 
+rhinosinusitis with nasal polyps, food allergies, and allergic bronchopulmonary 
+aspergillosis. Omalizumab is a recombinant humanized monoclonal antibody against 
+IgE and has been in use to treat allergic asthma for more than a decade. We 
+comprehensively review the clinical evidence for omalizumab in the treatment of 
+the aforementioned multimorbidities in allergic asthma.
+
+Copyright © 2018 The Authors. Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.jaip.2019.02.030
+PMID: 30928481 [Indexed for MEDLINE]
+
+

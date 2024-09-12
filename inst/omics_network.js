@@ -1,11 +1,11 @@
-svg.selectAll("*").remove();
+//svg.selectAll("*").remove();
 //svg.style('background-color', "#F2F3F6");
 const padding = 20;
 const X = d3.scaleLinear()
-  .range([padding, width - padding]);
+  .range([10, width - 10]);
   
 const Y = d3.scaleLinear()
-  .range([padding, height - padding]);
+  .range([10, height-20]);
   
 const nodes = HTMLWidgets.dataframeToD3(data.nodes);
 const links = HTMLWidgets.dataframeToD3(data.edges);
@@ -15,10 +15,10 @@ const node_types = unique(nodes.map(d => d.type));
 const num_types = node_types.length;
 
 type_to_prop = {
-  gene:  {r:3, opacity: 1, color: "#689030"},
-  protein: {r:3, opacity: 1, color: "#5E738F"},
-  metabolite: {r:3, opacity: 1, color: "#AD6F3B"},
-  phecode: {r:4.7, opacity: 1, color: "#673770"}
+  gene:  {r:3.7, opacity: 3, color: "#dbc1ac"},
+  protein: {r:3.7, opacity: 3, color: "#D5CAE4"},
+  metabolite: {r:3.7, opacity: 3, color: "#a6cfe5"},
+  phecode: {r:4.7, opacity: 1, color: "#689030"}
 };
 
 ///removing force-directed network
@@ -110,6 +110,14 @@ node.on('mouseover', function(d){
   link.filter(l => l.source === d || l.target === d)
         .style('stroke', 'black') // Change to black or any other color
         .style('stroke-width', '5px'); // Increase stroke-width to highlight
+  
+  // New functionality to add a black border to connected nodes
+  const connectedNodes = links.filter(l => l.source === d || l.target === d)
+    .map(l => l.source === d ? l.target : l.source);
+  
+  node.filter(n => connectedNodes.includes(n))
+    .attr('stroke', 'black')
+    .attr('stroke-width', 2); // Adjust the border width as needed
     
 })
 .on('mouseout', function(d){
@@ -121,13 +129,13 @@ node.on('mouseover', function(d){
     .style('cursor', unhoverStyles.cursor) // Reset cursor
     .attr('r', unhoverStyles.r); // Reset node size
   }
-  if (isPreSelected) {
+  if (isPreSelected | selectedNodes.has(d)) {
   d3.select(this)
     //.classed('hovered', false) // Remove the "hovered" class
     .style('cursor', "pointer") // Reset cursor
     .attr('r', selectedNodeSize); // Reset node size
   }
-  
+
   // Hide the table when the mouse moves away
   tooltipDiv.transition()
     //.duration(500)
@@ -137,8 +145,54 @@ node.on('mouseover', function(d){
   link.filter(l => l.source === d || l.target === d)
         .style('stroke', '#999') // Reset to original color
         .style('stroke-width', '1.5px'); // Reset to original stroke-width
+  
+  // New functionality to remove the black border from all nodes
+  node.attr('stroke', '#fff') // Reset the stroke to white or to its original color
+    .attr('stroke-width', 1); // Reset the stroke width to its original value
     
 });
+
+// Legend data remains as previously defined
+const legendData = [
+  { label: "Gene", color: "#dbc1ac" },
+  { label: "Protein", color: "#D5CAE4" },
+  { label: "Metabolite", color: "#a6cfe5" },
+  { label: "Phenotype", color: "#689030" }
+];
+
+// Starting position for the legend at the top-left with padding
+const legendPadding = 10; // Padding around the legend
+const legendStartX = legendPadding;
+const legendStartY = height-15;
+const legendItemSpacing = 100; // Spacing between legend items
+
+// Create the legend group, positioned at the top-left with padding
+const legend = svg.append("g")
+  .attr("class", "legend")
+  .attr("transform", `translate(${legendStartX}, ${legendStartY})`);
+
+// Create legend items, arranging them horizontally with specified spacing
+legend.selectAll("g")
+  .data(legendData)
+  .enter()
+  .append("g")
+    .attr("transform", (d, i) => `translate(${i * legendItemSpacing}, 0)`) // Layout items horizontally
+    .each(function(d) {
+      const g = d3.select(this);
+      // Append rectangle for color
+      g.append("rect")
+        .attr("x", 0)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", d.color);
+
+      // Append text label, positioned to the right of the rectangle
+      g.append("text")
+        .attr("x", 22) // Position text to the right of the rectangle
+        .attr("y", 9) // Vertically center text with rectangle
+        .attr("dy", "0.35em")
+        .text(d.label);
+    });
 
 function ticked(){
   
@@ -228,35 +282,35 @@ sendPreSelectNodeToShiny(preselectedNodes);
 
 ///add isolate and return
 // Create a group for buttons
-const buttonGroup = svg.append("g")
+//const buttonGroup = svg.append("g")
   //.attr("transform", `translate(${width - 150}, 10)`);
 // Determine the width of the SVG container
-const svgWidth = width; // You may need to adjust this based on your actual container width
-const svgHeight = height;
+//const svgWidth = width; // You may need to adjust this based on your actual container width
+//const svgHeight = height;
 // Calculate the x-positions for the buttons to center them
-const isolateButtonX = svgWidth - 130;
-const isolateButtonY = svgHeight - 40;
+//const isolateButtonX = svgWidth - 130;
+//const isolateButtonY = svgHeight - 40;
 
 // Create the Isolate button
-buttonGroup.append("rect")
-  .attr("x", isolateButtonX)
-  .attr("y", isolateButtonY)
-  .attr("width", 120)
-  .attr("height", 30)
-  .attr("rx", 5)
-  .attr("ry", 5)
-  .style("fill", "#D3D3D3")
-  .style("cursor", "pointer")
-  .on("click", isolateSelectedNode);
-buttonGroup.append("text")
-  .attr("x", isolateButtonX + 60)
-  .attr("y", isolateButtonY + 15)
-  .attr("text-anchor", "middle")
-  .attr("dy", "0.35em")
-  .style("fill", "black")
-  .style("font-size", "1.5rem")
-  .style("pointer-events", "none")
-  .text("Sub-network");
+//buttonGroup.append("rect")
+//  .attr("x", isolateButtonX)
+//  .attr("y", isolateButtonY)
+//  .attr("width", 120)
+//  .attr("height", 30)
+//  .attr("rx", 5)
+//  .attr("ry", 5)
+//  .style("fill", "#D3D3D3")
+//  .style("cursor", "pointer")
+//  .on("click", isolateSelectedNode);
+//buttonGroup.append("text")
+//  .attr("x", isolateButtonX + 60)
+//  .attr("y", isolateButtonY + 15)
+//  .attr("text-anchor", "middle")
+//  .attr("dy", "0.35em")
+//  .style("fill", "black")
+//  .style("font-size", "1.5rem")
+//  .style("pointer-events", "none")
+//  .text("Sub-network");
 
 ///change the node size of user pre-selected nodes
 //const preSelectedNodes = nodes.filter(d => d.selected === 'yes');
@@ -268,6 +322,7 @@ const selectedNodes = new Set(); //does not include pre-selected nodes
 node
   .filter(d => d.selected === 'yes')
   .attr('r', selectedNodeSize)
+  //.attr('fill', 'red')
   .attr("fill",d => type_to_prop[d.type].color);
 // Set the size of non-selected nodes to their original size
 node
@@ -277,6 +332,7 @@ node
   
 ///begin to define the actions when click the node
 node.on('click', function (clickedNode) {
+  
   // Check if the clicked node is user pre-selected
   // Toggle the selection state of the clicked node
   if (selectedNodes.has(clickedNode)) {
@@ -287,7 +343,8 @@ node.on('click', function (clickedNode) {
 
   // Change the color of selected nodes to red
   node.filter(d => selectedNodes.has(d))
-    .attr('fill', 'red');
+    .attr('fill', 'red')
+    .attr('r', 15);
   // Change the color of unselected nodes to their original color
   node.filter(d => !selectedNodes.has(d))
     .attr('fill', d => type_to_prop[d.type].color);
@@ -308,7 +365,8 @@ node.on('click', function (clickedNode) {
 
     // Change unconnected nodes to the desired grey color
     node.filter(d => !selectedNodes.has(d) && !isNodeConnectedToAllSelectedNodes(d))
-      .attr('fill', '#888');
+      .attr('fill', '#e3e4e6')
+      .attr("opacity",2);
   }
   
   // Send the clicked node ID to your Shiny module using the module's namespace (ns)
@@ -320,8 +378,181 @@ node.on('click', function (clickedNode) {
   
 });
 
+Shiny.addCustomMessageHandler('updateD3Selection', function(message) {
+  
+  // Log the type and value of updated_ids for debugging
+    //console.log("Type of updated_ids:", typeof message.updated_ids);
+    //console.log("Value of updated_ids:", message.updated_ids);
+    // Ensure updatedIds is always an array, even if it's just one element
+    //const updatedIds = Array.isArray(message.updated_ids) ? message.updated_ids : [message.updated_ids];
+    //const sharedNodesUnique = Array.isArray(message.shared_nodes_unique) ? message.shared_nodes_unique : [message.shared_nodes_unique];
+    // No need for further checks as we ensure updated_ids is an array in R
+    const updatedIds = message.updated_ids;
+    const sharedNodesUnique = message.shared_nodes_unique || [];
+
+    // Clear the current selection
+    selectedNodes.clear();
+    // Update the selection with the new IDs
+    updatedIds.forEach(id => {
+        const node = nodes.find(n => n.id === id);
+        if(node) {
+            selectedNodes.add(node);
+        }
+    });
+    
+    // Ensure at least one node is in the selection
+ // If only one node is selected, handle it separately
+    if (updatedIds.length === 1) {
+        const onlyNodeId = updatedIds[0];
+        node.filter(d => d.id === onlyNodeId)
+            .attr('fill', 'red')
+            .attr('r', 15);
+    } else {
+        // Change the color of selected nodes to red for multiple selections
+        node.filter(d => selectedNodes.has(d))
+            .attr('fill', 'red')
+            .attr('r', 15);
+    }
+
+    // Highlight shared nodes in blue
+    node.filter(d => sharedNodesUnique.includes(d.id))
+        .attr('fill', 'blue')
+        .attr('r', 15);
+
+    // Reset the color of unselected and unshared nodes
+    node.filter(d => !selectedNodes.has(d) && !sharedNodesUnique.includes(d.id))
+        .attr('fill', d => type_to_prop[d.type].color)
+        .attr('r', d => type_to_prop[d.type].r);
+
+    // Highlight shared edges and change the color of unconnected nodes to grey
+    link.attr('stroke', '#999'); // Reset all edges to their original color
+    if (selectedNodes.size > 0) {
+        link.filter(d => selectedNodes.has(d.source) && selectedNodes.has(d.target))
+            .attr('stroke', "#DA5724");
+
+        // Find nodes that are connected to all selected nodes
+        const nodesConnectedToAllSelected = nodes.filter(node => isNodeConnectedToAllSelectedNodes(node));
+
+        // Change the color of the edges connected to all selected nodes
+        link.filter(d => {
+            const sourceConnectedToAll = isNodeConnectedToAllSelectedNodes(d.source);
+            const targetConnectedToAll = isNodeConnectedToAllSelectedNodes(d.target);
+            return (selectedNodes.has(d.source) && targetConnectedToAll) || (sourceConnectedToAll && selectedNodes.has(d.target));
+        }).attr('stroke', "#DA5724"); // Change to your desired color
+
+        // Change unconnected nodes to the desired grey color
+        node.filter(d => !selectedNodes.has(d) && !isNodeConnectedToAllSelectedNodes(d))
+            .attr('fill', '#e3e4e6');
+    }
+
+    sendClickedNodeToShiny(selectedNodes);
+});
+
+// Helper functions (unchanged)
+function isNodeConnectedToAllSelectedNodes(nodeToCheck) {
+    for (const selectedNode of selectedNodes) {
+        if (!areNodesConnected(nodeToCheck, selectedNode)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function areNodesConnected(node1, node2) {
+    return links.some(link => (link.source === node1 && link.target === node2) || (link.source === node2 && link.target === node1));
+}
+
+Shiny.addCustomMessageHandler('updateD3Selection', function(message) {
+
+    const updatedIds = message.updated_ids || [];
+    const sharedNodesUnique = message.shared_nodes_unique || [];
+
+    // Clear the current selection
+    selectedNodes.clear();
+
+    // Update the selection with the new IDs
+    updatedIds.forEach(id => {
+        const node = nodes.find(n => n.id === id);
+        if (node) {
+            selectedNodes.add(node);
+        }
+    });
+
+    // Change the color of selected nodes to red
+    node.filter(d => selectedNodes.has(d))
+        .attr('fill', 'red')
+        .attr('r', 15);
+    // Change the color of unselected nodes to their original color
+  node.filter(d => !selectedNodes.has(d))
+    .attr('fill', d => type_to_prop[d.type].color);
+
+    // Reset the color of all edges to the original color
+    link.attr('stroke', '#999');
+
+    if (selectedNodes.size > 0) {
+        // Highlight edges between selected nodes and shared nodes
+        link.filter(d => (selectedNodes.has(d.source) && sharedNodesUnique.includes(d.target.id)) || 
+                         (sharedNodesUnique.includes(d.source.id) && selectedNodes.has(d.target)))
+            .attr('stroke', "#DA5724");
+
+        // Change the color of nodes not in the shared list to grey
+        node.filter(d => !selectedNodes.has(d) && !sharedNodesUnique.includes(d.id))
+        .attr('fill', '#e3e4e6'); 
+    }
+    sendClickedNodeToShiny(selectedNodes);
+});
+
+/*
+Shiny.addCustomMessageHandler('updateD3Selection', function(message) {
+  
+    // Ensure message is treated as an array
+    const updatedIds = Array.isArray(message) ? message : [message];
+    
+    // Clear the current selection
+    selectedNodes.clear();
+    // Update the selection with the new IDs
+    updatedIds.forEach(id => {
+        const node = nodes.find(n => n.id === id);
+        if(node) {
+            selectedNodes.add(node);
+        }
+    });
+    
+    // Change the color of selected nodes to red
+  node.filter(d => selectedNodes.has(d))
+    .attr('fill', 'red')
+    .attr('r', 15);
+  // Change the color of unselected nodes to their original color
+  node.filter(d => !selectedNodes.has(d))
+    .attr('fill', d => type_to_prop[d.type].color);
+
+  // Highlight shared edges and change the color of unconnected nodes to grey
+  link.attr('stroke', '#999'); // Reset all edges to their original color
+  if (selectedNodes.size > 0) {
+    link.filter(d => selectedNodes.has(d.source) && selectedNodes.has(d.target))
+      .attr('stroke', "#DA5724");
+    // Find nodes that are connected to all selected nodes
+    const nodesConnectedToAllSelected = nodes.filter(node => isNodeConnectedToAllSelectedNodes(node));
+    // Change the color of the edges connected to all selected nodes to blue
+    link.filter(d => {
+      const sourceConnectedToAll = isNodeConnectedToAllSelectedNodes(d.source);
+      const targetConnectedToAll = isNodeConnectedToAllSelectedNodes(d.target);
+      return (selectedNodes.has(d.source) && targetConnectedToAll) || (sourceConnectedToAll && selectedNodes.has(d.target));
+    }).attr('stroke', "#DA5724"); // Change to your desired color
+
+    // Change unconnected nodes to the desired grey color
+    node.filter(d => !selectedNodes.has(d) && !isNodeConnectedToAllSelectedNodes(d))
+      .attr('fill', '#e3e4e6');
+  }
+    
+    sendClickedNodeToShiny(selectedNodes);
+    
+});
+*/
+
 ///=======================functions===================
 ///===================================================
+// Function to reset selected nodes and send the update to Shiny
 function isolateSelectedNode() {
   // Check if a node is selected
   if (selectedNodes.size === 0) {

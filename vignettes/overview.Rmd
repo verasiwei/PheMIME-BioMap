@@ -1,0 +1,32 @@
+---
+title: "Phenome-wide, Multi-Omics Multimorbidity Explorer"
+author: Siwei Zhang
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:
+  style_switcher: false
+  thumbnails: no
+  lightbox: yes
+  gallery: no
+  highlight: tango
+  use_bookdown: no
+  toc_depth: 6
+  fig_caption: yes
+  embed_fonts: no
+  keep_md: no
+  number_sections: yes
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+embed_png <- function(image_title, width = "100%") {
+  knitr::asis_output(
+    glue::glue("<div style=\"text-align: center;\">",
+                 "<img src=\"{image_title}\" width={width} />",
+               "</div>")
+  )
+}
+```

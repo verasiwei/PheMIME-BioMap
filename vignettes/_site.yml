@@ -1,0 +1,19 @@
+name: "Phenome-wide, Multi-Omics Multimorbidity Explorer Appendix"
+navbar:
+  title: "Phe-OmicsME Appendix"
+  type: inverse
+  left:
+    - text: "Overview and User Manual"
+      href: overview.html
+    # - text: "User Manual"
+    #   href: usage_example.html
+    - text: "Supplementary"
+      menu:
+        - text: "Shared biological pathways among common co-occurred diseases"
+          href: query.html
+    
+output:
+  html_document:
+    theme: paper
+    css: style.css
+

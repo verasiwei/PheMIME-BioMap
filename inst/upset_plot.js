@@ -5,7 +5,7 @@ const pValFormat = d3.format("0.2");
 
 // Hardcoded settings
 const highlightColor = '#fdcdac'; // Color of the highlight bars
-const margin = {right: 20, left: 10, top: 20, bottom: 100}; // margins on side of chart
+const margin = {right: 20, left: 10, top: 20, bottom: 80}; // margins on side of chart
 
 // layout grid
 const proportionPlotUnits = 0; // width of proportion CIs
@@ -56,7 +56,7 @@ const padded = svg.append('g')
 const codeList = Object.keys(
   data
   .reduce(
-    (all, current) => [...all, ...(current.pattern.split('-'))],
+    (all, current) => [...all, ...(current.pattern.split('/'))],
     []
   ).reduce(
     (codeDict, currentCode) => Object.assign(codeDict, {[currentCode]: 1}),
@@ -91,7 +91,7 @@ const y = d3.scaleLinear()
   .domain([0, data.length]);
 
 const verticalSpace = y(1) - y(0);   // how big of a gap each pattern gets
-const barHeight = verticalSpace - 2*countBarPadding;
+const barHeight = verticalSpace/1.5 - 2*countBarPadding;
 
 const marginalY = d3.scaleLinear()
   .range([marginalChartHeight-marginalBottomPadding, 0])
@@ -102,16 +102,21 @@ const marginalY = d3.scaleLinear()
 // ----------------------------------------------------------------------
 const matrixChart = padded.append('g.matrixChart')
   .translate([countBarWidth,0]);
-  
+// Variable to keep track of the currently highlighted count bar
+let currentHighlighted = null;
+
+// Variable to keep track of selected patterns
+let selectedPatterns = new Set();
+
 matrixChart.selectAll('.currentRow')
   .data(data)
   .enter().append('g.currentRow')
   .translate((d,i) => [0, y(i)] )
   .each(function(currentEntry, i){
-    
-    // Initially hidden box for highlighting purposes. 
+    // Create the highlight rectangle for each row
     const highlightRect = d3.select(this)
-      .selectAppend('rect.highlightRect')
+      .append('rect')
+      .attr('class', 'highlightRect hoverInfo') 
       .at({
         width: w + 20,
         x: -(countBarWidth + countBarPadding*2),
@@ -120,8 +125,7 @@ matrixChart.selectAll('.currentRow')
         fill: highlightColor,
         stroke: 'black',
         rx: 5,
-        opacity: 0,
-        'class': 'hoverInfo'
+        opacity: 0,  // Initially hidden
       });
     
     // Matrix key
@@ -142,7 +146,7 @@ matrixChart.selectAll('.currentRow')
     
     // bars that go accross
     const codePositions = currentEntry.pattern
-      .split('-')
+      .split('/')
       .map(d => matrixWidthScale(d) + matrixWidthScale.bandwidth()/2);
     
     const rangeOfPattern = d3.extent(codePositions)
@@ -182,6 +186,8 @@ matrixChart.selectAll('.currentRow')
         y: countBarPadding/2,
         width: countX(0) - countX(currentEntry.count),
       })
+
+
     
     countBar.append('text')
       .text(countFormat(currentEntry.count))
@@ -205,13 +211,29 @@ matrixChart.selectAll('.currentRow')
         opacity: 0,
         'class': 'hoverInfo'
       })
+
   })
   .on('mouseover', function(d){
-    d3.select(this).selectAll('.hoverInfo').attr('opacity', 1)
+    d3.select(this).selectAll('.hoverInfo').attr('opacity', 1);
   })
   .on('mouseout', function(d){
-    d3.select(this).selectAll('.hoverInfo').attr('opacity', 0)
+    if (!selectedPatterns.has(d.pattern)) {
+      d3.select(this).selectAll('.hoverInfo').attr('opacity', 0);
+    }
   })
+  .on('click', function(d, i) {
+    // Toggle selection
+    if (selectedPatterns.has(d.pattern)) {
+      selectedPatterns.delete(d.pattern);
+      d3.select(this).select('.highlightRect').attr('opacity', 0);
+    } else {
+      selectedPatterns.add(d.pattern);
+      d3.select(this).select('.highlightRect').attr('opacity', 1);
+    }
+
+    // Send selected patterns to Shiny
+    sendClickedPatternToShiny(Array.from(selectedPatterns));
+  });
 // ----------------------------------------------------------------------
 // Axes
 // ----------------------------------------------------------------------
@@ -226,8 +248,8 @@ matrixAxis
     x: -7,
     y: -1,
     textAnchor: 'end',
-    transform: 'rotate(-35)',
-    fontSize:12
+    transform: 'rotate(-30)',
+    fontSize:10
   });
     
 matrixAxis.select('.domain').remove()
@@ -274,15 +296,34 @@ marginalCountAxis.select('text').remove() // hides the first zero so we can doub
 const marginalCountsChart = padded.append('g.marginalCountsChart')
   .translate([countBarWidth,0]);
 
+let currentMarginalHighlighted = null; // Track the currently highlighted marginal bar
+
 const marginalBars = marginalCountsChart.selectAll('.marginalCounts')
   .data(options.marginalData)
   .enter().append('g')
+  .attr('class', 'marginalCounts')
   .translate(d => [matrixWidthScale(d.code), marginalY(d.count)])
   .on('mouseover',function(d){
     d3.select(this).selectAll('.margingMouseoverInfo').attr('opacity', 1);
   })
-  .on('mouseout',function(d){
-    d3.select(this).selectAll('.margingMouseoverInfo').attr('opacity', 0);
+  .on('mouseout', function(d) {
+    if (this !== currentMarginalHighlighted) { // Only reset opacity if it's not the currently selected marginal bar
+      d3.select(this).selectAll('.margingMouseoverInfo').attr('opacity', 0);
+    }
+  })
+  .on('click', function(event, d) {
+    resetHighlights(); // Reset highlights for both count and marginal bars
+    
+    // Reset highlight of previously selected marginal bar, if any
+    if (currentMarginalHighlighted && currentMarginalHighlighted !== this) {
+      d3.select(currentMarginalHighlighted).selectAll('.margingMouseoverInfo').attr('opacity', 0);
+    }
+
+    // Highlight the clicked marginal bar by showing its .margingMouseoverInfo elements
+    d3.select(this).selectAll('.margingMouseoverInfo').attr('opacity', 1);
+
+    // Update reference to currently highlighted marginal bar
+    currentMarginalHighlighted = this;
   })
 
 marginalBars.append('rect')
@@ -338,3 +379,19 @@ marginalBars.append('text')
     opacity: 0,
     "class": "margingMouseoverInfo"
   })
+  
+function resetHighlights() {
+    // Reset highlight for marginal bars
+    if (currentMarginalHighlighted) {
+        d3.select(currentMarginalHighlighted).selectAll('.margingMouseoverInfo').attr('opacity', 0);
+        currentMarginalHighlighted = null; // Clear the reference
+    }
+
+    // Reset highlight for count bars
+    matrixChart.selectAll('.currentRow').each(function(d) {
+        if (!selectedPatterns.has(d.pattern)) {
+            d3.select(this).selectAll('.hoverInfo').attr('opacity', 0);
+        }
+    });
+}
+

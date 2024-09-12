@@ -1,0 +1,646 @@
+EBioMedicine. 2023 Jun;92:104581. doi: 10.1016/j.ebiom.2023.104581. Epub 2023 
+Apr 28.
+
+Identifying shared genetic architecture between rheumatoid arthritis and other 
+conditions: a phenome-wide association study with genetic risk scores.
+
+Zhang HG(1), McDermott G(2), Seyok T(2), Huang S(2), Dahal K(2), L'Yi S(3), 
+Lea-Bonzel C(3), Stratton J(2), Weisenfeld D(2), Monach P(4), Raychaudhuri S(5), 
+Yu KH(3), Cai T(2), Cui J(2), Hong C(6), Cai T(7), Liao KP(8).
+
+Author information:
+(1)Division of Rheumatology, Inflammation, and Immunity, Department of Medicine, 
+Brigham and Women's Hospital, Boston, MA, USA; Department of Biomedical 
+Informatics, Harvard Medical School, Boston, MA, USA.
+(2)Division of Rheumatology, Inflammation, and Immunity, Department of Medicine, 
+Brigham and Women's Hospital, Boston, MA, USA.
+(3)Department of Biomedical Informatics, Harvard Medical School, Boston, MA, 
+USA.
+(4)Division of Rheumatology, Inflammation, and Immunity, Department of Medicine, 
+Brigham and Women's Hospital, Boston, MA, USA; VA Boston Healthcare System, 
+Boston, MA, USA.
+(5)Division of Rheumatology, Inflammation, and Immunity, Department of Medicine, 
+Brigham and Women's Hospital, Boston, MA, USA; Department of Biomedical 
+Informatics, Harvard Medical School, Boston, MA, USA; Center for Data Science, 
+Brigham and Women's Hospital and Harvard Medical School, Boston, MA, USA; 
+Division of Genetics, Department of Medicine, Brigham and Women's Hospital, 
+Boston, MA, USA; Program in Medical and Population Genetics, Broad Institute of 
+Harvard and MIT, Cambridge, MA, USA.
+(6)Department of Biostatistics and Bioinformatics, Duke University, Durham, NC, 
+USA.
+(7)Department of Biomedical Informatics, Harvard Medical School, Boston, MA, 
+USA; VA Boston Healthcare System, Boston, MA, USA; Department of Biostatistics, 
+Harvard T.H. Chan School of Public Health, Boston, MA, USA.
+(8)Division of Rheumatology, Inflammation, and Immunity, Department of Medicine, 
+Brigham and Women's Hospital, Boston, MA, USA; Department of Biomedical 
+Informatics, Harvard Medical School, Boston, MA, USA; VA Boston Healthcare 
+System, Boston, MA, USA. Electronic address: kliao@bwh.harvard.edu.
+
+BACKGROUND: Rheumatoid arthritis (RA) shares genetic variants with other 
+autoimmune conditions, but existing studies test the association between RA 
+variants with a pre-defined set of phenotypes. The objective of this study was 
+to perform a large-scale, systemic screen to determine phenotypes that share 
+genetic architecture with RA to inform our understanding of shared pathways.
+METHODS: In the UK Biobank (UKB), we constructed RA genetic risk scores (GRS) 
+incorporating human leukocyte antigen (HLA) and non-HLA risk alleles. Phenotypes 
+were defined using groupings of International Classification of Diseases (ICD) 
+codes. Patients with an RA code were excluded to mitigate the possibility of 
+associations being driven by the diagnosis or management of RA. We performed a 
+phenome-wide association study, testing the association between the RA GRS with 
+phenotypes using multivariate generalized estimating equations that adjusted for 
+age, sex, and first five principal components. Statistical significance was 
+defined using Bonferroni correction. Results were replicated in an independent 
+cohort and replicated phenotypes were validated using medical record review of 
+patients.
+FINDINGS: We studied n = 316,166 subjects from UKB without evidence of RA and 
+screened for association between the RA GRS and n = 1317 phenotypes. In the UKB, 
+20 phenotypes were significantly associated with the RA GRS, of which 13 (65%) 
+were immune mediated conditions including polymyalgia rheumatica, granulomatosis 
+with polyangiitis (GPA), type 1 diabetes, and multiple sclerosis. We further 
+identified a novel association in Celiac disease where the HLA and non-HLA 
+alleles had strong associations in opposite directions. Strikingly, we observed 
+that the non-HLA GRS was exclusively associated with greater risk of the 
+validated conditions, suggesting shared underlying pathways outside the HLA 
+region.
+INTERPRETATION: This study replicated and identified novel autoimmune phenotypes 
+verified by medical record review that share immune pathways with RA and may 
+inform opportunities for shared treatment targets, as well as risk assessment 
+for conditions with a paucity of genomic data, such as GPA.
+FUNDING: This research was funded by the US National Institutes of Health 
+(P30AR072577, R21AR078339, R35GM142879, T32AR007530) and the Harold and DuVal 
+Bowen Fund.
+
+Copyright © 2023 The Author(s). Published by Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.ebiom.2023.104581
+PMCID: PMC10173154
+PMID: 37121095 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests SR is a founder of 
+Mestag, a scientific advisor for Rheos Medicines, serves on the advisory boards 
+for Janssen and Pfizer, and is a consultant for Sanofi. The remaining authors 
+have no declarations of interests.
+
+
+Diabetes Metab Res Rev. 2020 Jul;36(5):e3309. doi: 10.1002/dmrr.3309. Epub 2020 
+Mar 31.
+
+Zonulin as a potential putative biomarker of risk for shared type 1 diabetes and 
+celiac disease autoimmunity.
+
+Wood Heickman LK(1), DeBoer MD(1), Fasano A(2)(3).
+
+Author information:
+(1)Department of Pediatrics, Division of Endocrinology, University of Virginia, 
+Charlottesville, Virginia, USA.
+(2)Mucosal Immunology and Biology Research Center, Division of Pediatric 
+Gastroenterology and Nutrition, Massachusetts General Hospital for Children, 
+Harvard Medical School Boston, Boston, Massachusetts, USA.
+(3)European Biomedical Research Institute of Salerno (EBRIS), Salerno, Italy.
+
+The incidence of type 1 diabetes (T1D) is increasing annually, in addition to 
+other childhood-onset autoimmune diseases. This review is inspired by recent 
+strides in research defining the pathophysiology of autoimmunity in celiac 
+disease, a disease that has significant genetic overlap with T1D. Population 
+genetic studies have demonstrated an increased proportion of newly diagnosed 
+young children with T1D also have a higher genetic risk of celiac disease, 
+suggesting that shared environmental risk factors are driving the incidence of 
+both diseases. The small intestine barrier forms a tightly regulated interface 
+of the immune system with the outside world and largely controls the mucosal 
+immune response to non-self-antigens, dictating the balance between tolerance 
+and immune response. Zonulin is the only known physiological modulator of the 
+intercellular tight junctions, important in antigen trafficking, and therefore, 
+is a key player in regulation of the mucosal immune response. While usually 
+tightly controlled, when the zonulin pathway is dysregulated by changes in 
+microbiome composition and function, antigen trafficking control is lost, 
+leading to loss of mucosal tolerance in genetically susceptible individuals. The 
+tenant of this hypothesis is that loss of tolerance would not occur if the 
+zonulin-dependent intestinal barrier function is restored, thereby preventing 
+the influence of environmental triggers in individuals genetically susceptible 
+to autoimmunity. This review outlines the current research and a structured 
+hypothesis on how a dysregulated small intestinal epithelial barrier, a "leaky 
+gut," may be important in the pathogenesis of autoimmunity in certain 
+individuals at risk of both T1D and celiac disease.
+
+© 2020 John Wiley & Sons Ltd.
+
+DOI: 10.1002/dmrr.3309
+PMCID: PMC7340576
+PMID: 32162764 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of Interest Statement AF is a stock 
+holder with Alba Therapeutics, a consultant with Inova Diagnostics with regards 
+to diagnosis of celiac disease, a consultant with Innovate Biopharmaceuticals, 
+Inc and has a speaking agreement with Mead Johnson Nutrition. AF is on the 
+Scientific Advisory Board of Viome. No grants, honoraria or royalties were 
+received supporting the writing of the paper. MD and LWH have no financial or 
+other potential conflicts of interest to report.
+
+
+Genome Med. 2018 Dec 20;10(1):97. doi: 10.1186/s13073-018-0604-8.
+
+Meta-analysis of Immunochip data of four autoimmune diseases reveals novel 
+single-disease and cross-phenotype associations.
+
+Márquez A(1)(2), Kerick M(3), Zhernakova A(4), Gutierrez-Achury J(5), Chen 
+WM(6), Onengut-Gumuscu S(6), González-Álvaro I(7), Rodriguez-Rodriguez L(8), 
+Rios-Fernández R(9), González-Gay MA(10); Coeliac Disease Immunochip Consortium; 
+Rheumatoid Arthritis Consortium International for Immunochip (RACI); 
+International Scleroderma Group; Type 1 Diabetes Genetics Consortium; Mayes 
+MD(11), Raychaudhuri S(12)(13)(14), Rich SS(6), Wijmenga C(4), Martín J(15).
+
+Collaborators: Trynka G, Hunt KA, Bockett NA, Romanos J, Mistry V, Szperl A, 
+Bakker SF, Bardella MT, Bhaw-Rosun L, Castillejo G, de la Concha EG, de Almeida 
+RC, Dias KM, van Diemen CC, Dubois PCA, Duerr RH, Edkins S, Franke L, Fransen K, 
+Gutierrez J, Heap GAR, Hrdlickova B, Hunt S, Plaza Izurieta L, Izzo V, Joosten 
+LAB, Langford C, Mazzilli MC, Mein CA, Midah V, Mitrovic M, Mora B, Morelli M, 
+Nutlan S, Pearce K, Platteel M, Polanco I, Potter S, Ribes-Koninckx C, 
+Ricaño-Ponce I, Rybak A, Santiago JL, Senapati S, Sood A, Szajewska H, Troncone 
+R, Varadé J, Wallace C, Wolters VM, Zhernakova A, Thelma BK, Cukrowska B, 
+Urcelay E, Bilbao JR, Luisa Mearin M, Barisani D, Barrett JC, Plagnol V, 
+Wijmenga C, van Heel DA, Eyre S, Bowes J, Diogo D, Lee A, Barton A, Martin P, 
+Zhernakova A, Stahl E, Viatte S, McAllister K, Amos CI, Padyukov L, Toes REM, 
+Huizinga TWJ, Wijmenga C, Trynka G, Franke L, Westra HJ, Alfredsson L, Hu X, 
+Sandor C, Davila S, Khor CC, Heng KK, Andrews R, Edkins S, Hunt SE, Langford C, 
+Symmons D, Concannon P, Rich SS, Gonzalez-Gay MA, Rodriguez-Rodriguez L, 
+Ärlsetig L, Martin J, Rantapää-Dahlqvist S, Plenge RM, Raychaudhuri S, Klareskog 
+L, Gregersen PK, Worthington J, Mayes MD, Bossini-Castillo L, Gorlova O, Zhou X, 
+Chen WV, Assassi S, Ying J, Tan FK, Arnett FC, Reveille JD, Guerra S, Gregersen 
+PK, Lee AT, Simeón CP, Carreira P, Castellví I, González-Gay MA, Beretta L, 
+Voskuyl AE, Airò P, Lunardi C, Shiels P, van Laar JM, Herrick A, Worthington J, 
+Denton CP, Broen J, Radstake TRDJ, Fonseca C, Koeleman BP, Martin J, Ríos R, 
+Callejas JL, Vargas Hitos JA, García Portales R, Camps MT, Fernández-Nebro A, 
+González-Escribano MF, García-Hernández FJ, Castillo MJ, Aguirre MÁ, 
+Gómez-Gracia I, Rodríguez-Rodríguez L, García de la Peña P, Vicente E, Andreu 
+JL, Fernández de Castro M, López-Longo FJ, Martínez L, Fonollosa V, Guillén A, 
+Espinosa G, Tolosa C, Pros A, Rodríguez Carballeira M, Narváez FJ, Rubio Rivas 
+M, Ortiz-Santamaría V, Madroñero AB, Díaz B, Trapiella L, Sousa A, Egurbide MV, 
+Fanlo Mateo P, Sáez-Comet L, Díaz F, Hernández V, Beltrán E, Román-Ivorra JA, 
+Grau E, Alegre-Sancho JJ, Blanco García FJ, Oreiro N, Ortego-Centeno N, Freire 
+M, Fernández-Gutiérrez B, Balsa A, Ortiz AM, de Vries-Bouwstra J, Magro-Checa C, 
+Santaniello A, Bellocchi C, Moroncini G, Gabrielli A, Adlem E, Allen J, Barrett 
+J, Brown J, Burren O, Clarke P, Clayton D, Coleman G, Cooper J, Cucca F, Davison 
+L, Downes K, Duley S, Dunger D, Esposito L, Everett V, Field S, Hafler J, Hardy 
+M, Harrison D, Harrison I, Hawkins S, Healy B, Hood S, Howell S, Maisuria M, 
+Meadows W, Mistry T, Nezhenstsev S, Nutland S, Ovington N, Plagnol V, Rainbow D, 
+Rainbow K, Raj S, Schuilenburg H, Simpson A, Smink L, Smyth D, Stevens H, Taylor 
+N, Todd J, Tuomilehto J, Walker N, Wicker L, Widmer B, Wilson M, Withers H, Yang 
+J, Brown M, Crews A, Griffin J, Hall M, Harnish T, Hepler J, Hilner J, King N, 
+Lohman K, Lu L, Mychaleckyj J, Nail J, Perdue L, Pierce J, Reboussin D, Rushing 
+S, Sale M, Sides E, Snively B, Teuschler H, Theil G, Wagenknecht L, Williams D.
+
+Author information:
+(1)Instituto de Parasitología y Biomedicina "López-Neyra", CSIC, PTS Granada, 
+Granada, Spain. anamaort@ipb.csic.es.
+(2)Systemic Autoimmune Disease Unit, Instituto de Investigación Biosanitaria de 
+Granada, Granada, Spain. anamaort@ipb.csic.es.
+(3)Instituto de Parasitología y Biomedicina "López-Neyra", CSIC, PTS Granada, 
+Granada, Spain.
+(4)Department of Genetics, University of Groningen, University Medical Centre 
+Groningen, Groningen, The Netherlands.
+(5)Wellcome Trust Sanger Institute, Wellcome Trust Genome Campus, Hinxton, UK.
+(6)Center for Public Health Genomics, University of Virginia, Charlottesville, 
+VA, USA.
+(7)Rheumatology Service, Hospital Universitario La Princesa, IIS-IP, Madrid, 
+Spain.
+(8)Rheumatology Service, Hospital Clinico San Carlos, IdiSSC, Madrid, Spain.
+(9)Systemic Autoimmune Diseases Unit, Complejo Hospitalario de Granada, Hospital 
+Campus de la Salud, Granada, Spain.
+(10)Epidemiology, Genetics and Atherosclerosis Research Group on Systemic 
+Inflammatory Diseases, IDIVAL, Santander, Spain.
+(11)Division of Rheumatology and Clinical Immunogenetics, The University of 
+Texas Health Science Center-Houston, Houston, USA.
+(12)Division of Rheumatology, Immunology, and Allergy, Brigham and Women's 
+Hospital, Harvard Medical School, Boston, MA, USA.
+(13)Division of Genetics, Brigham and Women's Hospital, Harvard Medical School, 
+Boston, MA, USA.
+(14)Program in Medical and Population Genetics, Broad Institute of MIT and 
+Harvard, Cambridge, MA, USA.
+(15)Instituto de Parasitología y Biomedicina "López-Neyra", CSIC, PTS Granada, 
+Granada, Spain. javiermartin@ipb.csic.es.
+
+BACKGROUND: In recent years, research has consistently proven the occurrence of 
+genetic overlap across autoimmune diseases, which supports the existence of 
+common pathogenic mechanisms in autoimmunity. The objective of this study was to 
+further investigate this shared genetic component.
+METHODS: For this purpose, we performed a cross-disease meta-analysis of 
+Immunochip data from 37,159 patients diagnosed with a seropositive autoimmune 
+disease (11,489 celiac disease (CeD), 15,523 rheumatoid arthritis (RA), 3477 
+systemic sclerosis (SSc), and 6670 type 1 diabetes (T1D)) and 22,308 healthy 
+controls of European origin using the R package ASSET.
+RESULTS: We identified 38 risk variants shared by at least two of the conditions 
+analyzed, five of which represent new pleiotropic loci in autoimmunity. We also 
+identified six novel genome-wide associations for the diseases studied. 
+Cell-specific functional annotations and biological pathway enrichment analyses 
+suggested that pleiotropic variants may act by deregulating gene expression in 
+different subsets of T cells, especially Th17 and regulatory T cells. Finally, 
+drug repositioning analysis evidenced several drugs that could represent 
+promising candidates for CeD, RA, SSc, and T1D treatment.
+CONCLUSIONS: In this study, we have been able to advance in the knowledge of the 
+genetic overlap existing in autoimmunity, thus shedding light on common 
+molecular mechanisms of disease and suggesting novel drug targets that could be 
+explored for the treatment of the autoimmune diseases studied.
+
+DOI: 10.1186/s13073-018-0604-8
+PMCID: PMC6302306
+PMID: 30572963 [Indexed for MEDLINE]
+
+Conflict of interest statement: ETHICS APPROVAL AND CONSENT TO PARTICIPATE: 
+Written informed consent was obtained from all subjects and the design of the 
+work was approved by the Ethics Committee of the Spanish National Research 
+Council and the local ethical committees of the different participating 
+institutions. Research was conducted in accordance with the principles of the 
+Declaration of Helsinki. CONSENT FOR PUBLICATION: Not applicable. COMPETING 
+INTERESTS: The authors declare that they have no competing interests. 
+PUBLISHER’S NOTE: Springer Nature remains neutral with regard to jurisdictional 
+claims in published maps and institutional affiliations.
+
+
+JAMA Neurol. 2017 Jul 1;74(7):780-792. doi: 10.1001/jamaneurol.2017.0469.
+
+Genome-wide Pleiotropy Between Parkinson Disease and Autoimmune Diseases.
+
+Witoelar A(1), Jansen IE(2), Wang Y(3), Desikan RS(4), Gibbs JR(5), Blauwendraat 
+C(6), Thompson WK(7), Hernandez DG(5), Djurovic S(8), Schork AJ(9), Bettella 
+F(10), Ellinghaus D(11), Franke A(11), Lie BA(12), McEvoy LK(13), Karlsen 
+TH(14), Lesage S(15), Morris HR(16), Brice A(15), Wood NW(17), Heutink P(18), 
+Hardy J(19), Singleton AB(5), Dale AM(20), Gasser T(21), Andreassen OA(10), 
+Sharma M(22); International Parkinson’s Disease Genomics Consortium (IPDGC), 
+North American Brain Expression Consortium (NABEC), and United Kingdom Brain 
+Expression Consortium (UKBEC) Investigators.
+
+Author information:
+(1)Norwegian Centre for Mental Disorders Research (NORMENT), K. G. Jebsen Centre 
+for Psychosis Research, Institute of Clinical Medicine, University of Oslo, 
+Oslo2Division of Mental Health and Addiction, Oslo University Hospital, Oslo, 
+Norway.
+(2)Department of Clinical Genetics, Vrije Universiteit (VU) University Medical 
+Center, Amsterdam, the Netherlands4German Center for Neurodegenerative Diseases 
+(DZNE), Tübingen.
+(3)Norwegian Centre for Mental Disorders Research (NORMENT), K. G. Jebsen Centre 
+for Psychosis Research, Institute of Clinical Medicine, University of Oslo, 
+Oslo5Multimodal Imaging Laboratory, University of California at San Diego, La 
+Jolla.
+(4)Multimodal Imaging Laboratory, University of California at San Diego, La 
+Jolla6Department of Radiology and Biomedical Imaging, University of California, 
+San Francisco.
+(5)Laboratory of Neurogenetics, National Institute on Aging, Bethesda, Maryland.
+(6)German Center for Neurodegenerative Diseases (DZNE), Tübingen.
+(7)Department of Psychiatry, University of California at San Diego, La 
+Jolla9Department of Psychiatry, University of Copenhagen, Copenhagen, Denmark.
+(8)Norwegian Centre for Mental Disorders Research (NORMENT), K. G. Jebsen Centre 
+for Psychosis Research, Institute of Clinical Medicine, University of Oslo, 
+Oslo10Department of Medical Genetics, University of Oslo, Oslo, 
+Norway11Department of Medical Genetics, Oslo University Hospital, Oslo, Norway.
+(9)Multimodal Imaging Laboratory, University of California at San Diego, La 
+Jolla12Sciences Graduate Program, University of California at San Diego, La 
+Jolla13Department of Neurosciences, University of California at San Diego, La 
+Jolla.
+(10)Norwegian Centre for Mental Disorders Research (NORMENT), K. G. Jebsen 
+Centre for Psychosis Research, Institute of Clinical Medicine, University of 
+Oslo, Oslo.
+(11)Institute of Clinical Molecular Biology, Christian Albrechts University of 
+Kiel, Kiel, Germany.
+(12)Department of Medical Genetics, University of Oslo, Oslo, Norway11Department 
+of Medical Genetics, Oslo University Hospital, Oslo, Norway15K. G. Jebsen 
+Inflammation Research Centre, Research Institute of Internal Medicine, Oslo, 
+Norway16Division of Cancer Medicine, Surgery and Transplantation, Oslo 
+University Hospital Rikshospitalet, Oslo, Norway17Section of Clinical Immunology 
+and Infectious Diseases, Oslo University Hospital Rikshospitalet, Oslo, Norway.
+(13)Multimodal Imaging Laboratory, University of California at San Diego, La 
+Jolla15K. G. Jebsen Inflammation Research Centre, Research Institute of Internal 
+Medicine, Oslo, Norway.
+(14)K. G. Jebsen Inflammation Research Centre, Research Institute of Internal 
+Medicine, Oslo, Norway16Division of Cancer Medicine, Surgery and 
+Transplantation, Oslo University Hospital Rikshospitalet, Oslo, Norway18Division 
+of Gastroenterology, Institute of Medicine, University of Bergen, Bergen, 
+Norway19Norwegian Primary Sclerosing Cholangitis (PSC) Research Center, 
+Department of Transplantation Medicine, Oslo.
+(15)Sorbonne Universités, Université Pierre-et-Marie Curie (UPMC) Paris 06, UM 
+1127, Institut du Cerveau et de la Moelle Epinière (ICM), Paris, 
+France21Institut National de la Santé et de la Récherche Médicale (INSERM), 
+Unité 1127, Institut du Cerveau et de la Moelle Epinière (ICM), Paris, 
+France22Centre National de la Recherche Scientifique (CNRS) UMR 7225, Institut 
+du Cerveau et de la Moelle Epinière (ICM), Paris, France23Institut du Cerveau et 
+de la Moelle Epinière (ICM), Paris, France24Assistance Publique-Hôpitaux de 
+Paris, Hôpital de la Salpêtrière, Département de Génétique et Cytogénétique, 
+Paris, France.
+(16)Department of Clinical Neuroscience, National Hospital for Neurology and 
+Neurosurgery (NHNN), University College London, London, England.
+(17)Department of Molecular Neurosciences, Institute of Neurology, University 
+College London, London, England.
+(18)Department of Clinical Genetics, Vrije Universiteit (VU) University Medical 
+Center, Amsterdam, the Netherlands4German Center for Neurodegenerative Diseases 
+(DZNE), Tübingen27Department of Neurodegenerative Diseases, Hertie Institute for 
+Clinical Brain Research, University of Tübingen, Tübingen, Germany.
+(19)Rita Lila Weston Institute, University College London, London, England.
+(20)Multimodal Imaging Laboratory, University of California at San Diego, La 
+Jolla8Department of Psychiatry, University of California at San Diego, La 
+Jolla13Department of Neurosciences, University of California at San Diego, La 
+Jolla29Department of Radiology, University of California at San Diego, La Jolla.
+(21)German Center for Neurodegenerative Diseases (DZNE), Tübingen27Department of 
+Neurodegenerative Diseases, Hertie Institute for Clinical Brain Research, 
+University of Tübingen, Tübingen, Germany.
+(22)Department of Neurodegenerative Diseases, Hertie Institute for Clinical 
+Brain Research, University of Tübingen, Tübingen, Germany30Centre for Genetic 
+Epidemiology, Institute for Clinical Epidemiology and Applied Biometry, 
+University of Tübingen, Tübingen, Germany.
+
+Comment in
+    JAMA Neurol. 2017 Jul 1;74(7):769-770. doi: 10.1001/jamaneurol.2017.0843.
+
+IMPORTANCE: Recent genome-wide association studies (GWAS) and pathway analyses 
+supported long-standing observations of an association between immune-mediated 
+diseases and Parkinson disease (PD). The post-GWAS era provides an opportunity 
+for cross-phenotype analyses between different complex phenotypes.
+OBJECTIVES: To test the hypothesis that there are common genetic risk variants 
+conveying risk of both PD and autoimmune diseases (ie, pleiotropy) and to 
+identify new shared genetic variants and their pathways by applying a novel 
+statistical framework in a genome-wide approach.
+DESIGN, SETTING, AND PARTICIPANTS: Using the conjunction false discovery rate 
+method, this study analyzed GWAS data from a selection of archetypal autoimmune 
+diseases among 138 511 individuals of European ancestry and systemically 
+investigated pleiotropy between PD and type 1 diabetes, Crohn disease, 
+ulcerative colitis, rheumatoid arthritis, celiac disease, psoriasis, and 
+multiple sclerosis. NeuroX data (6927 PD cases and 6108 controls) were used for 
+replication. The study investigated the biological correlation between the top 
+loci through protein-protein interaction and changes in the gene expression and 
+methylation levels. The dates of the analysis were June 10, 2015, to March 4, 
+2017.
+MAIN OUTCOMES AND MEASURES: The primary outcome was a list of novel loci and 
+their pathways involved in PD and autoimmune diseases.
+RESULTS: Genome-wide conjunctional analysis identified 17 novel loci at false 
+discovery rate less than 0.05 with overlap between PD and autoimmune diseases, 
+including known PD loci adjacent to GAK, HLA-DRB5, LRRK2, and MAPT for 
+rheumatoid arthritis, ulcerative colitis and Crohn disease. Replication 
+confirmed the involvement of HLA, LRRK2, MAPT, TRIM10, and SETD1A in PD. Among 
+the novel genes discovered, WNT3, KANSL1, CRHR1, BOLA2, and GUCY1A3 are within a 
+protein-protein interaction network with known PD genes. A subset of novel loci 
+was significantly associated with changes in methylation or expression levels of 
+adjacent genes.
+CONCLUSIONS AND RELEVANCE: The study findings provide novel mechanistic insights 
+into PD and autoimmune diseases and identify a common genetic pathway between 
+these phenotypes. The results may have implications for future therapeutic 
+trials involving anti-inflammatory agents.
+
+DOI: 10.1001/jamaneurol.2017.0469
+PMCID: PMC5710535
+PMID: 28586827 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of Interest Disclosures: None reported.
+
+
+Genet Mol Res. 2015 Dec 28;14(4):18936-44. doi: 10.4238/2015.December.28.42.
+
+Association of TNF-α, CTLA4, and PTPN22 polymorphisms with type 1 diabetes and 
+other autoimmune diseases in Brazil.
+
+Tavares NA(1), Santos MM(1)(2), Moura R(1)(2), Araújo J(3), Guimarães RL(1)(2), 
+Crovella S(1)(2), Brandão LA(1)(4).
+
+Author information:
+(1)Laboratório de Imunopatologia Keiso Asami, Universidade Federal de 
+Pernambuco, Recife, PE, Brasil.
+(2)Departamento de Genética, Universidade Federal de Pernambuco, Recife, PE, 
+Brasil.
+(3)Unidade de Endocrinologia Pediátrica do Hospital das Clínicas, Universidade 
+Federal de Pernambuco, Recife, PE, Brasil.
+(4)Departamento de Patologia, Universidade Federal de Pernambuco, Recife, PE, 
+Brasil.
+
+Type 1 diabetes mellitus (T1D) is a complex disorder characterized by an 
+autoimmune response against human pancreatic beta-cells. Patients with T1D can 
+also develop a response toward one or more other factors, such as in autoimmune 
+thyroiditis (AITD) and celiac disease (CD). In the presence of T1D + AITD, the 
+patient is diagnosed with autoimmune polyglandular syndrome type III (APSIII); 
+patients with APSIII may also present with CD. These diseases have a strong 
+genetic component and share many susceptibility genes, suggesting potentially 
+overlapping pathogenic pathways. Polymorphisms in the TNF-α(rs1800629), CTLA-4 
+(rs231775), and PTPN22 (rs2476601) genes have been previous associated with T1D; 
+however, there is no consensus regarding their role in T1D and scarce literature 
+focusing on AIDT and/or CD. Thus, we analyzed these genetic variants in 205 
+Northeast Brazilian patients with T1D and with/without AITD and/or CD, and in 
+308 healthy controls. The PTPN22 gene variants were associated with T1D 
+susceptibility and APSIII [odds ratio (OR) = 2.57 and 2.77, respectively]. CTLA4 
+rs231775 and TNF-αrs1800629 were not associated with T1D onset in the Brazilian 
+population. However, when comparing APSIII individuals in the T1D only group, we 
+observed an association of the TNF-αSNP in the allelic (P = 0.0442; OR = 0.44) 
+and dominant models (P = 0.0387; OR = 0.40). This study reinforces the 
+importance of CTLA-4 and other variants in unraveling the pathogenic mechanisms 
+of T1D in different populations and in understanding their relationships with 
+the development of other T1D-related autoimmune diseases.
+
+DOI: 10.4238/2015.December.28.42
+PMID: 26782543 [Indexed for MEDLINE]
+
+
+PLoS One. 2015 Apr 8;10(4):e0123057. doi: 10.1371/journal.pone.0123057. 
+eCollection 2015.
+
+Abundant genetic overlap between blood lipids and immune-mediated diseases 
+indicates shared molecular genetic mechanisms.
+
+Andreassen OA(1), Desikan RS(2), Wang Y(3), Thompson WK(4), Schork AJ(5), Zuber 
+V(6), Doncheva NT(7), Ellinghaus E(8), Albrecht M(9), Mattingsdal M(10), Franke 
+A(8), Lie BA(11), Mills IG, Aukrust P(12), McEvoy LK(2), Djurovic S(13), Karlsen 
+TH(14), Dale AM(15).
+
+Author information:
+(1)NORMENT, KG Jebsen Centre for Psychosis Research, Institute of Clinical 
+Medicine, University of Oslo and Division of Mental Health and Addiction, Oslo 
+University Hospital, 0407 Oslo, Norway; Department of Psychiatry, University of 
+California San Diego, La Jolla, CA 92093, United States of America.
+(2)Multimodal Imaging Laboratory, University of California San Diego, La Jolla, 
+CA 92093, United States of America; Department of Radiology, University of 
+California San Diego, La Jolla, CA 92093, United States of America.
+(3)NORMENT, KG Jebsen Centre for Psychosis Research, Institute of Clinical 
+Medicine, University of Oslo and Division of Mental Health and Addiction, Oslo 
+University Hospital, 0407 Oslo, Norway; Multimodal Imaging Laboratory, 
+University of California San Diego, La Jolla, CA 92093, United States of 
+America; Department of Neurosciences, University of California San Diego, La 
+Jolla, CA 92093, United States of America.
+(4)Department of Psychiatry, University of California San Diego, La Jolla, CA 
+92093, United States of America.
+(5)Multimodal Imaging Laboratory, University of California San Diego, La Jolla, 
+CA 92093, United States of America; Cognitive Sciences Graduate Program, 
+University of California San Diego, La Jolla, CA 92093, United States of 
+America; Center for Human Development, University of California San Diego, La 
+Jolla, CA 92093, United States of America.
+(6)NORMENT, KG Jebsen Centre for Psychosis Research, Institute of Clinical 
+Medicine, University of Oslo and Division of Mental Health and Addiction, Oslo 
+University Hospital, 0407 Oslo, Norway; Centre for Molecular Medicine Norway, 
+Nordic EMBL Partnership, University of Oslo and Oslo University Hospital, 0407 
+Oslo, Norway.
+(7)Max Planck Institute for Informatics, 66123 Saarbrücken, Germany.
+(8)Institute of Clinical Molecular Biology, Christian-Albrechts-University of 
+Kiel, 24118 Kiel, Germany.
+(9)Max Planck Institute for Informatics, 66123 Saarbrücken, Germany; Department 
+of Bioinformatics, Institute of Biometrics and Medical Informatics, University 
+Medicine Greifswald, 17475 Greifswald, Germany; Institute for Knowledge 
+Discovery, Graz University of Technology, 8010 Graz, Austria; BioTechMed-Graz, 
+8010 Graz, Austria.
+(10)NORMENT, KG Jebsen Centre for Psychosis Research, Institute of Clinical 
+Medicine, University of Oslo and Division of Mental Health and Addiction, Oslo 
+University Hospital, 0407 Oslo, Norway; Sørlandet Hospital, 3000 Kristiansand, 
+Norway.
+(11)BioTechMed-Graz, 8010 Graz, Austria.
+(12)Department of Medical Genetics, University of Oslo and Oslo University 
+Hospital, 0407 Oslo, Norway; Section of Clinical Immunology and Infectious 
+Diseases, Oslo University Hospital, 0407 Oslo Norway.
+(13)NORMENT, KG Jebsen Centre for Psychosis Research, Institute of Clinical 
+Medicine, University of Oslo and Division of Mental Health and Addiction, Oslo 
+University Hospital, 0407 Oslo, Norway; Department of Medical Genetics, 
+University of Oslo and Oslo University Hospital, 0407 Oslo, Norway.
+(14)K.G.Jebsen Inflammation Research Centre, Research Institute of Internal 
+Medicine, Division of Cancer Medicine, Surgery and Transplantation, Oslo 
+University Hospital Rikshospitalet, 0407 Oslo, Norway; Division of 
+Gastroenterology, Institute of Medicine, University of Bergen, 5000 Bergen, 
+Norway; Norwegian PSC Research Center, Department of Transplantation Medicine, 
+Division of Cancer Medicine, Surgery and Transplantation, Oslo University 
+Hospital Rikshospitalet, 0407 Oslo, Norway.
+(15)Department of Psychiatry, University of California San Diego, La Jolla, CA 
+92093, United States of America; Multimodal Imaging Laboratory, University of 
+California San Diego, La Jolla, CA 92093, United States of America; Department 
+of Radiology, University of California San Diego, La Jolla, CA 92093, United 
+States of America; Department of Neurosciences, University of California San 
+Diego, La Jolla, CA 92093, United States of America.
+
+Erratum in
+    PLoS One. 2015 May 15;10(5):e0128048. doi: 10.1371/journal.pone.0128048. 
+Mills, Ian [corrected to Mills, Ian G].
+
+Epidemiological studies suggest a relationship between blood lipids and 
+immune-mediated diseases, but the nature of these associations is not well 
+understood. We used genome-wide association studies (GWAS) to investigate shared 
+single nucleotide polymorphisms (SNPs) between blood lipids and immune-mediated 
+diseases. We analyzed data from GWAS (n~200,000 individuals), applying new False 
+Discovery Rate (FDR) methods, to investigate genetic overlap between blood lipid 
+levels [triglycerides (TG), low density lipoproteins (LDL), high density 
+lipoproteins (HDL)] and a selection of archetypal immune-mediated diseases 
+(Crohn's disease, ulcerative colitis, rheumatoid arthritis, type 1 diabetes, 
+celiac disease, psoriasis and sarcoidosis). We found significant polygenic 
+pleiotropy between the blood lipids and all the investigated immune-mediated 
+diseases. We discovered several shared risk loci between the immune-mediated 
+diseases and TG (n = 88), LDL (n = 87) and HDL (n = 52). Three-way analyses 
+differentiated the pattern of pleiotropy among the immune-mediated diseases. The 
+new pleiotropic loci increased the number of functional gene network nodes 
+representing blood lipid loci by 40%. Pathway analyses implicated several novel 
+shared mechanisms for immune pathogenesis and lipid biology, including 
+glycosphingolipid synthesis (e.g. FUT2) and intestinal host-microbe interactions 
+(e.g. ATG16L1). We demonstrate a shared genetic basis for blood lipids and 
+immune-mediated diseases independent of environmental factors. Our findings 
+provide novel mechanistic insights into dyslipidemia and immune-mediated 
+diseases and may have implications for therapeutic trials involving 
+lipid-lowering and anti-inflammatory agents.
+
+DOI: 10.1371/journal.pone.0123057
+PMCID: PMC4390360
+PMID: 25853426 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.
+
+
+Hum Immunol. 2013 Feb;74(2):249-55. doi: 10.1016/j.humimm.2012.10.009. Epub 2012 
+Oct 13.
+
+CD226 Gly307Ser association with multiple autoimmune diseases: a meta-analysis.
+
+Qiu ZX(1), Zhang K, Qiu XS, Zhou M, Li WM.
+
+Author information:
+(1)Department of Respiratory Medicine, West China Hospital, Sichuan University, 
+Chengdu 610041, PR China. wqeqllseagull@gmail.com
+
+BACKGROUND: Recently, there has been increasing evidence shown that a 
+non-synonymous exchange (Gly307Ser/rs763361) of the CD226 gene on chromosome 
+18q22 is linked to several autoimmune diseases (ADs) including type 1 diabetes 
+(T1D), celiac disease (CED), rheumatoid arthritis (RA), multiple sclerosis (MS), 
+Grave's disease, Wegener's granulomatosis (WG), psoriasis, and primary sicca 
+syndrome (pSS). Taking into consideration that different autoimmune diseases may 
+share some common pathogenic pathways and in order to assess the overall 
+relationship between CD226 Gly307Ser (rs763361) polymorphism and multiple 
+autoimmune diseases, we performed this meta-analysis.
+METHOD: All eligible case-control studies were searched in the US National 
+Library of Medicine's PubMed and Embase database. Crude odds ratios (OR) with 
+95% confidence intervals (CI) were conducted to assess the association.
+RESULTS: 7876 cases and 8558 controls from 7 published studies which were 
+selected from 149 articles identified by a search of the US National Library of 
+Medicine's PubMed and Embase databases for the period up to 25th April 2012. The 
+total OR for ADs associated with the T allele was 1.19 (95%CI=1.12-1.27) by 
+random effects model. Significantly increased risks were also observed in the 
+South American (OR=1.72, 95%CI=1.34-2.20), Asian (OR=1.46, 95%CI=1.01-2.10), and 
+European (OR=1.29, 95%CI=1.07-1.58). Similarly, significant associations were 
+observed in two genetic models (OR=1.41, 95%CI=1.23-1.62 in a codominant model; 
+OR=1.33, 95%CI=1.18-1.50 in a recessive model).
+CONCLUSION: This meta-analysis provided evidence that CD226 Gly307Ser (rs763361) 
+is significantly associated with the risk of multiple autoimmune diseases.
+
+Copyright © 2012 American Society for Histocompatibility and Immunogenetics. 
+Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.humimm.2012.10.009
+PMID: 23073294 [Indexed for MEDLINE]
+
+
+Clin Exp Rheumatol. 2009 Jul-Aug;27(4 Suppl 55):S20-5.
+
+Genetics of ankylosing spondylitis and rheumatoid arthritis: where are we at 
+currently, and how do they compare?
+
+Maksymowych WP(1), Brown MA.
+
+Author information:
+(1)Alberta Heritage Foundation for Medical Research, Professor of Medicine, 
+University of Alberta, Canada.
+
+Both ankylosing spondylitis (AS) and rheumatoid arthritis (RA) are common, 
+highly heritable conditions, the pathogenesis of which are incompletely 
+understood. Gene-mapping studies in both conditions have over the last couple of 
+years made major breakthroughs in identifying the mechanisms by which these 
+diseases occur. Considering RA, there is an over-representation of genes 
+involved in TNF signalling and the NFKappaB pathway that have been shown to 
+influence the disease risk. There is also considerable sharing of susceptibility 
+genes between RA and other autoimmune diseases such as systemic lupus 
+erythematosus, type 1 diabetes, autoimmune thyroid disease and celiac disease, 
+with thus far little overlap with AS. In AS, genes involved in response to 
+IL12/IL23, and in endoplasmic reticulum peptide presentation, have been 
+identified, but a full genomewide association study has not yet been reported.
+
+PMID: 19822041 [Indexed for MEDLINE]
+
+
+Nat Genet. 2008 Apr;40(4):395-402. doi: 10.1038/ng.102. Epub 2008 Mar 2.
+
+Newly identified genetic risk variants for celiac disease related to the immune 
+response.
+
+Hunt KA(1), Zhernakova A, Turner G, Heap GA, Franke L, Bruinenberg M, Romanos J, 
+Dinesen LC, Ryan AW, Panesar D, Gwilliam R, Takeuchi F, McLaren WM, Holmes GK, 
+Howdle PD, Walters JR, Sanders DS, Playford RJ, Trynka G, Mulder CJ, Mearin ML, 
+Verbeek WH, Trimble V, Stevens FM, O'Morain C, Kennedy NP, Kelleher D, 
+Pennington DJ, Strachan DP, McArdle WL, Mein CA, Wapenaar MC, Deloukas P, 
+McGinnis R, McManus R, Wijmenga C, van Heel DA.
+
+Author information:
+(1)Institute of Cell and Molecular Science, Barts and The London School of 
+Medicine and Dentistry, 4 Newark Street, London E1 2AT, UK.
+
+Our genome-wide association study of celiac disease previously identified risk 
+variants in the IL2-IL21 region. To identify additional risk variants, we 
+genotyped 1,020 of the most strongly associated non-HLA markers in an additional 
+1,643 cases and 3,406 controls. Through joint analysis including the genome-wide 
+association study data (767 cases, 1,422 controls), we identified seven 
+previously unknown risk regions (P < 5 x 10(-7)). Six regions harbor genes 
+controlling immune responses, including CCR3, IL12A, IL18RAP, RGS1, SH2B3 (nsSNP 
+rs3184504) and TAGAP. Whole-blood IL18RAP mRNA expression correlated with 
+IL18RAP genotype. Type 1 diabetes and celiac disease share HLA-DQ, IL2-IL21, 
+CCR3 and SH2B3 risk regions. Thus, this extensive genome-wide association 
+follow-up study has identified additional celiac disease risk variants in 
+relevant biological pathways.
+
+DOI: 10.1038/ng.102
+PMCID: PMC2673512
+PMID: 18311140 [Indexed for MEDLINE]
+
+

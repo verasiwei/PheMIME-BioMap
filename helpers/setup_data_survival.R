@@ -64,7 +64,7 @@ dat = readRDS("vumc_transcriptomics.rds")
 aws.s3::s3saveRDS(x=dat, bucket = "tbilab",object = "/vis_tool/PheOmicsMultimorbidity/vumc_transcriptomics.rds")
 
 ## conduct survival analysis for VUMC data
-library(PheGenHelper)
+# library(PheGenHelper)
 library(phewasHelper)
 ### read data
 transcriptomics_dat = readRDS("vumc_transcriptomics.rds")

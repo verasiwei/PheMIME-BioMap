@@ -1,0 +1,511 @@
+PLoS One. 2024 Jun 7;19(6):e0304404. doi: 10.1371/journal.pone.0304404. 
+eCollection 2024.
+
+Exploration of the shared pathways and common biomarker in adamantinomatous 
+craniopharyngioma and type 2 diabetes using integrated bioinformatics analysis.
+
+Han Y(1), Wang Y(2), Li S(1), Sato K(1), Yamagishi S(1)(3).
+
+Author information:
+(1)Department of Organ and Tissue Anatomy, Hamamatsu University School of 
+Medicine, Hamamatsu, Japan.
+(2)Neurosurgery, The First Hospital of China Medical University, Shenyang, 
+China.
+(3)Department of Optical Neuroanatomy, Institute of Photonics Medicine, 
+Hamamatsu University School of Medicine, Hamamatsu, Japan.
+
+Craniopharyngiomas are rare tumors of the central nervous system that typically 
+present with symptoms such as headache and visual impairment, and those 
+reflecting endocrine abnormalities, which seriously affect the quality of life 
+of patients. Patients with craniopharyngiomas are at higher cardiometabolic 
+risk, defined as conditions favoring the development of type 2 diabetes and 
+cardiovascular disease. However, the underlying common pathogenic mechanisms of 
+craniopharyngiomas and type 2 diabetes are not clear. Especially due to the 
+difficulty of conducting in vitro or in vivo experiments on craniopharyngioma, 
+we thought the common pathway analysis between craniopharyngioma and type 2 
+diabetes based on bioinformatics is a powerful and feasible method. In the 
+present study, using public datasets (GSE94349, GSE68015, GSE38642 and GSE41762) 
+obtained from the GEO database, the gene expression associated with 
+adamantinomatous craniopharyngioma, a subtype of craniopharyngioma, and type 2 
+diabetes were analyzed using a bioinformatic approach. We found 11 hub genes 
+using a protein-protein interaction network analysis. Of these, seven (DKK1, 
+MMP12, KRT14, PLAU, WNT5B, IKBKB, and FGF19) were also identified by least 
+absolute shrinkage and selection operator analysis. Finally, single-gene 
+validation and receptor operating characteristic analysis revealed that four of 
+these genes (MMP12, PLAU, KRT14, and DKK1) may be involved in the common 
+pathogenetic mechanism of adamantinomatous craniopharyngioma and type 2 
+diabetes. In addition, we have characterized the differences in immune cell 
+infiltration that characterize these two diseases, providing a reference for 
+further research.
+
+Copyright: © 2024 Han et al. This is an open access article distributed under 
+the terms of the Creative Commons Attribution License, which permits 
+unrestricted use, distribution, and reproduction in any medium, provided the 
+original author and source are credited.
+
+DOI: 10.1371/journal.pone.0304404
+PMCID: PMC11161051
+PMID: 38848397 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.
+
+
+Commun Biol. 2024 May 27;7(1):643. doi: 10.1038/s42003-024-06333-z.
+
+Genome-wide cross-disease analyses highlight causality and shared biological 
+pathways of type 2 diabetes with gastrointestinal disorders.
+
+Adewuyi EO(1)(2), Porter T(3)(4)(5), O'Brien EK(3)(4), Olaniru O(6), Verdile 
+G(5)(7), Laws SM(8)(9)(10).
+
+Author information:
+(1)Centre for Precision Health, Edith Cowan University, Joondalup, 6027, 
+Western, Australia. e.adewuyi@ecu.edu.au.
+(2)Collaborative Genomics and Translation Group, School of Medical and Health 
+Sciences, Edith Cowan University, Joondalup, 6027, Western, Australia. 
+e.adewuyi@ecu.edu.au.
+(3)Centre for Precision Health, Edith Cowan University, Joondalup, 6027, 
+Western, Australia.
+(4)Collaborative Genomics and Translation Group, School of Medical and Health 
+Sciences, Edith Cowan University, Joondalup, 6027, Western, Australia.
+(5)Curtin Medical School, Curtin University, Bentley, 6102, Western, Australia.
+(6)Department of Diabetes, School of Cardiovascular and Metabolic Medicine & 
+Sciences, King's College London, London, UK.
+(7)Curtin Health Innovation Research Institute, Curtin University, Bentley, 
+6102, Western, Australia.
+(8)Centre for Precision Health, Edith Cowan University, Joondalup, 6027, 
+Western, Australia. s.laws@ecu.edu.au.
+(9)Collaborative Genomics and Translation Group, School of Medical and Health 
+Sciences, Edith Cowan University, Joondalup, 6027, Western, Australia. 
+s.laws@ecu.edu.au.
+(10)Curtin Medical School, Curtin University, Bentley, 6102, Western, Australia. 
+s.laws@ecu.edu.au.
+
+Studies suggest links between diabetes and gastrointestinal (GI) traits; 
+however, their underlying biological mechanisms remain unclear. Here, we 
+comprehensively assess the genetic relationship between type 2 diabetes (T2D) 
+and GI disorders. Our study demonstrates a significant positive global genetic 
+correlation of T2D with peptic ulcer disease (PUD), irritable bowel syndrome 
+(IBS), gastritis-duodenitis, gastroesophageal reflux disease (GERD), and 
+diverticular disease, but not inflammatory bowel disease (IBD). We identify 
+several positive local genetic correlations (negative for T2D - IBD) 
+contributing to T2D's relationship with GI disorders. Univariable and 
+multivariable Mendelian randomisation analyses suggest causal effects of T2D on 
+PUD and gastritis-duodenitis and bidirectionally with GERD. Gene-based analyses 
+reveal a gene-level genetic overlap between T2D and GI disorders and identify 
+several shared genes reaching genome-wide significance. Pathway-based study 
+implicates leptin (T2D - IBD), thyroid, interferon, and notch signalling (T2D - 
+IBS), abnormal circulating calcium (T2D - PUD), cardiovascular, viral, 
+proinflammatory and (auto)immune-mediated mechanisms in T2D and GI disorders. 
+These findings support a risk-increasing genetic overlap between T2D and GI 
+disorders (except IBD), implicate shared biological pathways with putative 
+causality for certain T2D - GI pairs, and identify targets for further 
+investigation.
+
+© 2024. The Author(s).
+
+DOI: 10.1038/s42003-024-06333-z
+PMCID: PMC11130317
+PMID: 38802514 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no competing interests.
+
+
+Environ Sci Pollut Res Int. 2024 Jun;31(26):37963-37987. doi: 
+10.1007/s11356-024-33735-7. Epub 2024 May 23.
+
+Heavy metal exposure and metabolomics analysis: an emerging frontier in 
+environmental health.
+
+Ilyas K(1), Iqbal H(1), Akash MSH(2), Rehman K(3), Hussain A(4).
+
+Author information:
+(1)Department of Pharmaceutical Chemistry, Government College University, 
+Faisalabad, Pakistan.
+(2)Department of Pharmaceutical Chemistry, Government College University, 
+Faisalabad, Pakistan. sajidakash@gcuf.edu.pk.
+(3)Department of Pharmacy, The Women University, Multan, Pakistan.
+(4)Institute of Chemistry, University of Okara, Okara, Pakistan.
+
+Exposure to heavy metals in various populations can lead to extensive damage to 
+different organs, as these metals infiltrate and bioaccumulate in the human 
+body, causing metabolic disruptions in various organs. To comprehensively 
+understand the metal homeostasis, inter-organ "traffic," and extensive metabolic 
+alterations resulting from heavy metal exposure, employing complementary 
+analytical methods is crucial. Metabolomics is pivotal in unraveling the 
+intricacies of disease vulnerability by furnishing thorough understandings of 
+metabolic changes linked to different metabolic diseases. This field offers 
+exciting prospects for enhancing the disease prevention, early detection, and 
+tailoring treatment approaches to individual needs. This article consolidates 
+the existing knowledge on disease-linked metabolic pathways affected by the 
+exposure of diverse heavy metals providing concise overview of the underlying 
+impact mechanisms. The main aim is to investigate the connection between the 
+altered metabolic pathways and long-term complex health conditions induced by 
+heavy metals such as diabetes mellitus, cardiovascular diseases, renal 
+disorders, inflammation, neurodegenerative diseases, reproductive risks, and 
+organ damage. Further exploration of common pathways may unveil the shared 
+targets for treating associated pathological conditions. In this article, the 
+role of metabolomics in disease susceptibility is emphasized that metabolomics 
+is expected to be routinely utilized for the diagnosis and monitoring of 
+diseases and practical value of biomarkers derived from metabolomics, as well as 
+determining their appropriate integration into extensive clinical settings.
+
+© 2024. The Author(s), under exclusive licence to Springer-Verlag GmbH Germany, 
+part of Springer Nature.
+
+DOI: 10.1007/s11356-024-33735-7
+PMID: 38780845 [Indexed for MEDLINE]
+
+
+Front Immunol. 2024 Mar 19;15:1354578. doi: 10.3389/fimmu.2024.1354578. 
+eCollection 2024.
+
+Case report: Successful treatment of acute generalized pustular psoriasis with 
+multiple comorbidities with oral tacrolimus.
+
+Zhao M(1), Huang F(2), Tang L(1), Zhou X(1), Zhang M(2), Liao M(2), Liu L(2), 
+Huang M(1).
+
+Author information:
+(1)Department of Dermatology and Cosmetology, Chongqing Hospital of Traditional 
+Chinese Medicine, Chongqing, China.
+(2)College of Traditional Chinese Medicine, Chongqing Medical University, 
+Chongqing, China.
+
+Acute generalized pustular psoriasis (GPP) is a serious illness. Despite various 
+treatment methods, there is still lack of effective treatment plans for 
+refractory cases with multiple comorbidities. This case report presents a 
+67-year-old woman with acute GPP, stage 4 chronic kidney disease (CKD), type 2 
+diabetes, and cardiovascular disease, in whom skin symptom disappearance and 
+kidney function improvement were observed after the use of oral tacrolimus as 
+the sole therapy. This is the first report on the application of tacrolimus in 
+the treatment of acute GPP, especially refractory acute GPP. The successful 
+treatment indicates that there are shared immune pathways between acute GPP and 
+CKD, and the pathways can be interdicted by tacrolimus. Further studies are 
+needed to optimize the therapy to maximize efficacy and minimize toxicity.
+
+Copyright © 2024 Zhao, Huang, Tang, Zhou, Zhang, Liao, Liu and Huang.
+
+DOI: 10.3389/fimmu.2024.1354578
+PMCID: PMC10985253
+PMID: 38566985 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+Int Wound J. 2024 Feb;21(2):e14748. doi: 10.1111/iwj.14748.
+
+Integrated genetic analysis of diabetic complications: Bioinformatics insights 
+into foot ulcers, neuropathy and peripheral artery disease.
+
+Liang J(1)(2), Gong X(1), Hu X(2), You C(2), Zhou J(1), Gao Y(1), Zong J(3), Liu 
+Y(1)(2).
+
+Author information:
+(1)Department of Rehabilitation Medicine, The First Affiliated Hospital of 
+Dalian Medical University, Dalian, China.
+(2)Institute (College) of Integrative Medicine, Dalian Medical University, 
+Dalian, China.
+(3)Department of Orthopaedic Surgery, The First Affiliated Hospital of Dalian 
+Medical University, Dalian, China.
+
+Diabetic foot ulcers (DFU), diabetic peripheral neuropathy (DPN) and peripheral 
+arterial disease (PAD) are common complications of diabetes mellitus, while 
+diabetic peripheral neuropathy and peripheral arterial disease contribute to the 
+pathogenesis of diabetic foot ulcers, and the pathogenic mechanisms between 
+these three diseases still need further investigation. The keywords 'diabetic 
+foot ulcer', 'diabetic peripheral neuropathy' and 'atherosclerosis' were used to 
+search for related gene sets in the GEO database. Differentially expressed genes 
+(DEGs) were screened and analysed for GO, KEGG and enrichR functional 
+enrichment. Potential three disease biomarkers were identified by SVM-SVM-RFE 
+and LASSO regression analysis. The results were also validated using external 
+datasets and discriminability was measured by area under the ROC curve (AUC). 
+Finally, biomarkers and co-upregulated genes were analysed through the GSEA and 
+Attie Laboratories diabetes databases. A total of 11 shared genes (KRT16, CD24, 
+SAMD9L, SRGAP2, FGL2, GPR34, DDIT4, NFE2L3, FBLN5, ANXA3 and CPA3), two 
+biomarkers (SAMD9L and FGL2) and one co-upregulated gene (CD24) were screened. 
+GO and KEGG pathway analysis of DEGs, enrichr enrichment analysis of shared 
+differential genes and GSEA analysis of biomarkers showed that these significant 
+genes were mainly focused on vasoregulatory, inflammatory-oxidative stress and 
+immunomodulatory pathways. In this study, we used bioinformatics to investigate 
+the intrinsic relationship and potential mechanisms of three common lower 
+extremity complications of diabetes and identified two pivotal genes using the 
+LASSO model and the SVM-RFE algorithm, which will further help clinicians to 
+understand the relationship between diabetic complications, improve the 
+diagnosis and treatment of diabetic foot problems and help doctors to identify 
+the potential risk factors of diabetic foot.
+
+© 2024 The Authors. International Wound Journal published by 
+Medicalhelplines.com Inc and John Wiley & Sons Ltd.
+
+DOI: 10.1111/iwj.14748
+PMCID: PMC10867868
+PMID: 38358067 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.
+
+
+Curr Pharm Des. 2024;30(6):448-467. doi: 10.2174/0113816128287155240122121553.
+
+Underlying Mechanism of Traditional Herbal Formula Chuang-Ling-Ye in the 
+Treatment of Diabetic Foot Ulcer through Network Pharmacology and Molecular 
+Docking.
+
+Geng J(1), Zhou G(2), Guo S(2), Ma C(2), Ma J(1).
+
+Author information:
+(1)State Key Laboratory of Materials-Oriented Chemical Engineering, College of 
+Biotechnology and Pharmaceutical Engineering, Nanjing Tech University, Nanjing 
+211800, P.R. China.
+(2)Department of General Surgery, Affiliated Hospital of Nanjing University of 
+Chinese Medicine, Nanjing 210029, P.R. China.
+
+BACKGROUND: Chuang-Ling-Ye (CLY) has been clinically proven to be an effective 
+Chinese medicine for the treatment of diabetic foot ulcers (DFU).
+OBJECTIVES: This study aimed to investigate the possible mechanism of CLY in 
+relation to DFU using network pharmacology and molecular docking.
+MATERIALS AND METHODS: Firstly, relevant targets of CLY against DFU were 
+obtained from TCMSP, Swiss Target Prediction database and GEO database. Then, 
+topological analysis was employed by Cytoscape to screen the top 6 core active 
+ingredients and the top 8 hub targets. Furthermore, the OmicShare Tools were 
+applied for gene ontology (GO) functional enrichment analysis and Kyoto 
+Encyclopedia of Genes and Genomes (KEGG) signaling pathway enrichment analysis. 
+Finally, the results of network pharmacology were verified by molecular docking 
+method.
+RESULTS: CLY has 61 active compounds and 361 targets after de-duplication, and 
+the top 8 hub targets were EGFR, TP53, CCND1, IL-1B, CREBBP, AR, PTGS2 and PGR. 
+GO enrichment analysis is mainly related to signal transducer activity, receptor 
+activity, and molecular transducer activity. KEGG pathway analysis indicated 
+that these shared targets were primarily focused on AGE-RAGE signaling pathway 
+in diabetic complications, HIF-1 signaling pathway, IL-17 signaling pathway, and 
+JAK-STAT signaling pathway. Molecular docking results showed that 
+physciondiglucoside, 2-cinnamoyl-glucose and kinobeon A were well bound with 
+EGFR, IL-1B, AR and PTGS2.
+CONCLUSION: This study demonstrated that CLY has anti-oxidative stress and 
+anti-inflammatory effects in the treatment of DFU through various constituents, 
+multiple targets, and multiple pathways, which provides a valuable point of 
+reference for future investigations on CLY.
+
+Copyright© Bentham Science Publishers; For any queries, please email at 
+epub@benthamscience.net.
+
+DOI: 10.2174/0113816128287155240122121553
+PMID: 38343057 [Indexed for MEDLINE]
+
+
+Curr Issues Mol Biol. 2024 Jan 11;46(1):663-676. doi: 10.3390/cimb46010043.
+
+Pathological and Therapeutical Implications of Pyroptosis in Psoriasis and 
+Hidradenitis Suppurativa: A Narrative Review.
+
+Krajewski PK(1), Tsoukas M(2), Szepietowski JC(1).
+
+Author information:
+(1)Department of Dermatology, Venereology and Allergology, Wroclaw Medical 
+University, Chalubinskiego 1, 50-368 Wroclaw, Poland.
+(2)Department of Dermatology, University of Illinois at Chicago, Chicago, IL 
+60607, USA.
+
+This manuscript explores the role of pyroptosis, an inflammatory programmed cell 
+death, in the pathogenesis of two chronic dermatoses, psoriasis and hidradenitis 
+suppurativa (HS). The diseases, though clinically diverse, share common 
+pathogenetic pathways involving the unbalanced interaction between the adaptive 
+and innate immune systems. This review focuses on the molecular changes in 
+psoriatic and HS skin, emphasizing the activation of dendritic cells, secretion 
+of interleukins (IL-17, IL-22, and TNF-α), and the involvement of inflammasomes, 
+particularly NLRP3. This manuscript discusses the role of caspases, especially 
+caspase-1, in driving pyroptosis and highlights the family of gasdermins (GSDMs) 
+as key players in the formation of pores leading to cell rupture and the release 
+of proinflammatory signals. This study delves into the potential therapeutic 
+implications of targeting pyroptosis in psoriasis and HS, examining existing 
+medications like biologics and Janus kinase inhibitors. It also reviews the 
+current limitations and challenges in developing therapies that selectively 
+target pyroptosis. Additionally, the manuscript explores the role of pyroptosis 
+in various inflammatory disorders associated with psoriasis and HS, such as 
+inflammatory bowel disease, diabetes mellitus, and cardiovascular disorders. The 
+review concludes by emphasizing the need for further research to fully elucidate 
+the pathomechanisms of these dermatoses and develop effective, targeted 
+therapies.
+
+DOI: 10.3390/cimb46010043
+PMCID: PMC10814322
+PMID: 38248345
+
+Conflict of interest statement: The authors declare no conflicts of interest.
+
+
+Diabetes Res Clin Pract. 2024 Jan;207:111052. doi: 
+10.1016/j.diabres.2023.111052. Epub 2023 Dec 9.
+
+Coronary artery disease patients with rs7904519 (TCF7L2) are at a persistent 
+risk of type 2 diabetes.
+
+Al Hageh C(1), O'Sullivan S(2), Platt DE(3), Henschel A(4), Chacar S(5), 
+Gauguier D(6), Abchee A(7), Alefishat E(8), Nader M(9), Zalloua PA(10).
+
+Author information:
+(1)Department of Molecular Biology and Genetics, College of Medicine and Health 
+Sciences, Khalifa University of Science and Technology, Abu Dhabi, United Arab 
+Emirates; Center for Biotechnology, Khalifa University of Science and 
+Technology, Abu Dhabi 127788, United Arab Emirates.
+(2)Department of Molecular Biology and Genetics, College of Medicine and Health 
+Sciences, Khalifa University of Science and Technology, Abu Dhabi, United Arab 
+Emirates.
+(3)Computational Biology Center, IBM TJ Watson Research Centre, Yorktown Hgts, 
+NY, USA.
+(4)Department of Electrical Engineering and Computer, Khalifa University of 
+Science and Technology, Abu Dhabi, United Arab Emirates.
+(5)Center for Biotechnology, Khalifa University of Science and Technology, Abu 
+Dhabi 127788, United Arab Emirates; Department of Physiology and Immunology, 
+College of Medicine and Health Sciences, Khalifa University of Science and 
+Technology, Abu Dhabi, United Arab Emirates.
+(6)Université Paris Cité, INSERM UMR 1124, 45 rue des Saint-Pères, 75006 Paris, 
+France; McGill University and Genome Quebec Innovation Centre, 740 Doctor 
+Penfield Avenue, Montreal, QC H3A 0G1, Canada.
+(7)Faculty of Medicine, University of Balamand, Lebanon.
+(8)Center for Biotechnology, Khalifa University of Science and Technology, Abu 
+Dhabi 127788, United Arab Emirates; Department of Pharmacology, College of 
+Medicine and Health Sciences, Khalifa University of Science and Technology, Abu 
+Dhabi UAE.
+(9)Center for Biotechnology, Khalifa University of Science and Technology, Abu 
+Dhabi 127788, United Arab Emirates; Department of Physiology and Immunology, 
+College of Medicine and Health Sciences, Khalifa University of Science and 
+Technology, Abu Dhabi, United Arab Emirates. Electronic address: 
+moni.nader@ku.ac.ae.
+(10)Department of Molecular Biology and Genetics, College of Medicine and Health 
+Sciences, Khalifa University of Science and Technology, Abu Dhabi, United Arab 
+Emirates; Center for Biotechnology, Khalifa University of Science and 
+Technology, Abu Dhabi 127788, United Arab Emirates; Harvard T.H. Chan School of 
+Public Health, Boston, MA, USA. Electronic address: pierre.zalloua@ku.ac.ae.
+
+AIMS: Type 2 diabetes (T2D) and coronary artery disease (CAD) often coexist and 
+share genetic factors.This study aimed to investigate the common genetic factors 
+underlying T2D and CAD in patients with CAD.
+METHODS: A three-step association approach was conducted: a) a discovery step 
+involving 943 CAD patients with T2D and 1,149 CAD patients without T2D; b) an 
+eliminating step to exclude CAD or T2D specific variants; and c) a replication 
+step using the UK Biobank data.
+RESULTS: Ten genetic loci were associated with T2D in CAD patients. Three 
+variants were specific to either CAD or T2D. Five variants lost significance 
+after adjusting for covariates, while two SNPs remained associated with T2D in 
+CAD patients (rs7904519*G: TCF7L2 and rs17608766*C: GOSR2). The T2D 
+susceptibility rs7904519*G was associated with increased T2D risk, while the CAD 
+susceptibility rs17608766*C was negatively associated with T2D in CAD patients. 
+These associations were replicated in a UK Biobank data, confirming the results.
+CONCLUSIONS: No significant common T2D and CAD susceptibility genetic 
+association was demonstrated indicating distinct disease pathways. However, CAD 
+patients carrying the T2D susceptibility gene TCF7L2 remain at higher risk for 
+developing T2D emphasizing the need for frequent monitoring in this subgroup.
+
+Copyright © 2023. Published by Elsevier B.V.
+
+DOI: 10.1016/j.diabres.2023.111052
+PMID: 38072013 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.
+
+
+Int J Mol Sci. 2023 Nov 9;24(22):16131. doi: 10.3390/ijms242216131.
+
+Anti-Proliferative Properties of the Novel Hybrid Drug Met-ITC, Composed of the 
+Native Drug Metformin with the Addition of an Isothiocyanate H(2)S Donor Moiety, 
+in Different Cancer Cell Lines.
+
+Citi V(1), Barresi E(1)(2), Piragine E(1), Spezzini J(1), Testai L(1)(2)(3), Da 
+Settimo F(1)(2), Martelli A(1)(2)(3), Taliani S(1)(2), Calderone V(1)(2)(3).
+
+Author information:
+(1)Department of Pharmacy, University of Pisa, Via Bonanno 6, 56126 Pisa, Italy.
+(2)Center for Instrument Sharing of the University of Pisa (CISUP), University 
+of Pisa, Lungarno Pacinotti 43/44, 56126 Pisa, Italy.
+(3)Interdepartmental Research Center "Biology and Pathology of Ageing", 
+University of Pisa, 56126 Pisa, Italy.
+
+Metformin (Met) is the first-line therapy in type 2 diabetes mellitus but, in 
+last few years, it has also been evaluated as anti-cancer agent. Several 
+pathways, such as AMPK or PI3K/Akt/mTOR, are likely to be involved in the 
+anti-cancer Met activity. In addition, hydrogen sulfide (H2S) and H2S donors 
+have been described as anti-cancer agents affecting cell-cycle and inducing 
+apoptosis. Among H2S donors, isothiocyanates are endowed with a further 
+anti-cancer mechanism: the inhibition of the histone deacetylase enzymes. On 
+this basis, a hybrid molecule (Met-ITC) obtained through the addition of an 
+isothiocyanate moiety to the Met molecule was designed and its ability to 
+release Met has been demonstrated. Met-ITC exhibited more efficacy and potency 
+than Met in inhibiting cancer cells (AsPC-1, MIA PaCa-2, MCF-7) viability and it 
+was less effective on non-tumorigenic cells (MCF 10-A). The ability of Met-ITC 
+to release H2S has been recorded both in cell-free and in cancer cells assays. 
+Finally, its ability to affect the cell cycle and to induce both early and late 
+apoptosis has been demonstrated on the most sensitive cell line (MCF-7). These 
+results confirmed that Met-ITC is a new hybrid molecule endowed with potential 
+anti-cancer properties derived both from Met and H2S.
+
+DOI: 10.3390/ijms242216131
+PMCID: PMC10671447
+PMID: 38003321 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors CALDERONE Vincenzo, MARTELLI Alma, 
+CITI Valentina, PIRAGINE Eugenia, TESTAI Lara, DA SETTIMO Federico, TALIANI 
+Sabrina, BARRESI Elisabetta are co-authors of the international patent WO 
+2023/017400 A1, reporting for the first time the molecule Met-ITC.
+
+
+Int J Immunopathol Pharmacol. 2023 Jan-Dec;37:3946320231216313. doi: 
+10.1177/03946320231216313.
+
+Identification of key proteins as potential biomarkers associated with 
+post-infarction complications in diabetics.
+
+Wu W(1)(2), Yan L(2), Yuan XF(2), Wang L(2), Zhang Y(3), Tu RX(2), Pan JQ(2), 
+Yin L(2), Ge ZR(2).
+
+Author information:
+(1)Ningxia Medical University, Yinchuan, China.
+(2)Department of Cardiology, Shanghai Gongli Hospital, The Second Military 
+Medical University, Shanghai, China.
+(3)Department of Critical Care Medicine, Shanghai University of Medicine & 
+Health Sciences Affiliated Zhoupu Hospital, Shanghai, China.
+
+Background: The ability of transcriptome analysis to identify dysregulated 
+pathways and outcome-related genes following myocardial infarction in diabetic 
+patients remains unknown. The present study was designed to detect possible 
+biomarkers associated with the incidence of post-infarction complications in 
+diabetes to assist thedevelopment of novel treatments for this 
+condition.Methods: Two gene expression datasets, GSE12639 and GSE6880, were 
+downloaded from the Gene Expression Omnibus (GEO) database, and then 
+differentially expressed genes (DEGs) were identified between post-infarction 
+diabetics and healthy samples from the left ventricular wall of rats. These DEGs 
+were then arranged into a protein-protein interaction (PPI) network, and Kyoto 
+Encyclopedia of Genes and Genomes (KEGG) pathway and Gene Ontology (GO) 
+enrichment analyses were performed to explore the functional roles of these 
+genes.Results: In total, 30 DEGs (14 upregulated and 16 downregulated) were 
+shared between these two datasets, as identified through Venn diagram analyses. 
+GO analyses revealed these DEGs to be significantly enriched in ovarian 
+steroidogenesis, fatty acid elongation, biosynthesis of unsaturated fatty acids, 
+synthesis and degradation of ketone bodies, and butanoate metabolism. The PPI 
+network of the DEGs had 14 genes and 70 edges. We identified two key proteins, 
+3-hydroxymethylglutaryl-CoA synthase 2 (Hmgcs2) and Δ3, Δ2-Enoyl-CoA Delta 
+Isomerase 1 (ECI1), and the upregulated gene Hmgcs2 with the highest score in 
+the MCC method. We generated a co-expression network for the hub genes and 
+obtained the top ten medications suggested for infarction with 
+diabetes.Conclusion: Taken together, the findings of these bioinformatics 
+analyses identified key hub genes associated with the development of myocardial 
+infarction in diabetics. These hub genes and potential drugs may become novel 
+biomarkers for prognosis and precision treatment in the future.
+
+DOI: 10.1177/03946320231216313
+PMCID: PMC10676060
+PMID: 37999626 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of conflicting interestsThe 
+author(s) declared no potential conflicts of interest with respect to the 
+research, authorship, and/or publication of this article.
+
+

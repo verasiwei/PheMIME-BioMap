@@ -1,0 +1,599 @@
+BMJ Open Respir Res. 2024 Jun 4;11(1):e002148. doi: 10.1136/bmjresp-2023-002148.
+
+Shared genetic aetiology of respiratory diseases: a genome-wide multitraits 
+association analysis.
+
+Chen Z(#)(1), Gao N(#)(2), Wang X(3), Chen X(4), Zeng Y(5), Li C(6), Yang X(7), 
+Cai Q(8), Wang X(8).
+
+Author information:
+(1)Department of Thoracic Surgery, The Second Xiangya Hospital of Central South 
+University Department of Thoracic Surgery, Changsha, Hunan, China.
+(2)Department of Cardiovascular Surgery, The Second Affiliated Hospital of 
+Zhejiang University School of Medicine, Hangzhou, China.
+(3)Department of Oncology, Xi'an Jiaotong University Second Affiliated Hospital 
+Department of Oncology, Xi'an, Shaanxi, China.
+(4)Department of Orthopaedics, Xiangya Hospital Central South University, 
+Changsha, Hunan, China.
+(5)Department of Psychiatry, Brain Hospital of Hunan Province, Changsha, Hunan, 
+China.
+(6)Department of Radiology, The Second Xiangya Hospital of Central South 
+University Department of Radiology, Changsha, Hunan, China.
+(7)Department of Anesthesiology, The Second Xiangya Hospital of Central South 
+University Department of Anesthesiology, Changsha, Hunan, China.
+(8)Department of Thoracic Surgery, The Second Xiangya Hospital of Central South 
+University Department of Thoracic Surgery, Changsha, Hunan, China 
+wangxiang@csu.edu.cn 2204130810@csu.edu.cn.
+(#)Contributed equally
+
+OBJECTIVE: This study aims to explore the common genetic basis between 
+respiratory diseases and to identify shared molecular and biological mechanisms.
+METHODS: This genome-wide pleiotropic association study uses multiple 
+statistical methods to systematically analyse the shared genetic basis between 
+five respiratory diseases (asthma, chronic obstructive pulmonary disease, 
+idiopathic pulmonary fibrosis, lung cancer and snoring) using the largest 
+publicly available genome wide association studies summary statistics. The 
+missions of this study are to evaluate global and local genetic correlations, to 
+identify pleiotropic loci, to elucidate biological pathways at the multiomics 
+level and to explore causal relationships between respiratory diseases. Data 
+were collected from 27 November 2022 to 30 March 2023 and analysed from 14 April 
+2023 to 13 July 2023.
+MAIN OUTCOMES AND MEASURES: The primary outcomes are shared genetic loci, 
+pleiotropic genes, biological pathways and estimates of genetic correlations and 
+causal effects.
+RESULTS: Significant genetic correlations were found for 10 paired traits in 5 
+respiratory diseases. Cross-Phenotype Association identified 12 400 significant 
+potential pleiotropic single-nucleotide polymorphism at 156 independent 
+pleiotropic loci. In addition, multitrait colocalisation analysis identified 15 
+colocalised loci and a subset of colocalised traits. Gene-based analyses 
+identified 432 potential pleiotropic genes and were further validated at the 
+transcriptome and protein levels. Both pathway enrichment and single-cell 
+enrichment analyses supported the role of the immune system in respiratory 
+diseases. Additionally, five pairs of respiratory diseases have a causal 
+relationship.
+CONCLUSIONS AND RELEVANCE: This study reveals the common genetic basis and 
+pleiotropic genes among respiratory diseases. It provides strong evidence for 
+further therapeutic strategies and risk prediction for the phenomenon of 
+respiratory disease comorbidity.
+
+© Author(s) (or their employer(s)) 2024. Re-use permitted under CC BY-NC. No 
+commercial re-use. See rights and permissions. Published by BMJ.
+
+DOI: 10.1136/bmjresp-2023-002148
+PMCID: PMC11163672
+PMID: 38834332 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: None declared.
+
+
+Biomol Concepts. 2022 Feb 21;13(1):34-54. doi: 10.1515/bmc-2022-0001.
+
+Analysis of differentially expressed genes and signaling pathways involved in 
+atherosclerosis and chronic obstructive pulmonary disease.
+
+Kotlyarov S(1).
+
+Author information:
+(1)Department of Nursing, Ryazan State Medical University, 390026, Ryazan, 
+Russian Federation.
+
+Atherosclerosis is an important medical and social problem, and the keys to 
+solving this problem are still largely unknown. A common situation in real 
+clinical practice is the comorbid course of atherosclerosis with chronic 
+obstructive pulmonary disease (COPD). Diseases share some common risk factors 
+and may be closely linked pathogenetically.
+METHODS: Bioinformatics analysis of datasets from Gene Expression Omnibus (GEO) 
+was performed to examine the gene ontology (GO) of common differentially 
+expressed genes (DEGs) in COPD and peripheral arterial atherosclerosis. DEGs 
+were identified using the limma R package with the settings p < 0.05, corrected 
+using the Benjamini & Hochberg algorithm and ǀlog 2FCǀ > 1.0. The GO, Kyoto 
+Encyclopedia of Genes and Genomes (KEGG) pathway enrichment, and the 
+protein-protein interaction (PPI) network analysis were performed with the 
+detected DEGs.
+RESULTS: The biological processes and signaling pathways involving common DEGs 
+from airway epithelial datasets in COPD and tissue in peripheral atherosclerosis 
+were identified. A total of 15 DEGs were identified, comprising 12 upregulated 
+and 3 downregulated DEGs. The GO enrichment analysis demonstrated that the 
+upregulated hub genes were mainly involved in the inflammatory response, 
+reactive oxygen species metabolic process, cell adhesion, lipid metabolic 
+process, regulation of angiogenesis, icosanoid biosynthetic process, and 
+cellular response to a chemical stimulus. The KEGG pathway enrichment analysis 
+demonstrated that the common pathways were Toll-like receptor signaling pathway, 
+NF-kappa B signaling pathway, lipid and atherosclerosis, and cytokine-cytokine 
+receptor interaction.
+CONCLUSIONS: Biological processes and signaling pathways associated with the 
+immune response may link the development and progression of COPD and 
+atherosclerosis.
+
+© 2022 Stanislav Kotlyarov, published by De Gruyter.
+
+DOI: 10.1515/bmc-2022-0001
+PMID: 35189051 [Indexed for MEDLINE]
+
+
+PLoS One. 2021 Nov 5;16(11):e0259375. doi: 10.1371/journal.pone.0259375. 
+eCollection 2021.
+
+Factors affecting brain structure in smoking-related diseases: Chronic 
+Obstructive Pulmonary Disease (COPD) and coronary artery disease.
+
+Spilling CA(1), Dhillon MK(1), Burrage DR(2), Ruickbie S(3), Baker EH(2), 
+Barrick TR(1), Jones PW(2).
+
+Author information:
+(1)Neurosciences Research Centre, Molecular and Clinical Sciences Research 
+Institute, St George's University of London, London, United Kingdom.
+(2)Institute for Infection and Immunity, St George's University of London, 
+London, United Kingdom.
+(3)Respiratory Medicine, St George's University Hospitals NHS Foundation Trust, 
+London, United Kingdom.
+
+BACKGROUND: Changes in brain structure and cognitive decline occur in Chronic 
+Obstructive Pulmonary Disease (COPD). They also occur with smoking and coronary 
+artery disease (CAD), but it is unclear whether a common mechanism is 
+responsible.
+METHODS: Brain MRI markers of brain structure were tested for association with 
+disease markers in other organs. Where possible, principal component analysis 
+(PCA) was used to group markers within organ systems into composite markers. 
+Univariate relationships between brain structure and the disease markers were 
+explored using hierarchical regression and then entered into multivariable 
+regression models.
+RESULTS: 100 participants were studied (53 COPD, 47 CAD). PCA identified two 
+brain components: brain tissue volumes and white matter microstructure, and six 
+components from other organ systems: respiratory function, plasma lipids, blood 
+pressure, glucose dysregulation, retinal vessel calibre and retinal vessel 
+tortuosity. Several markers could not be grouped into components and were 
+analysed as single variables, these included brain white matter hyperintense 
+lesion (WMH) volume. Multivariable regression models showed that less well 
+organised white matter microstructure was associated with lower respiratory 
+function (p = 0.028); WMH volume was associated with higher blood pressure (p = 
+0.036) and higher C-Reactive Protein (p = 0.011) and lower brain tissue volume 
+was associated with lower cerebral blood flow (p<0.001) and higher blood 
+pressure (p = 0.001). Smoking history was not an independent correlate of any 
+brain marker.
+CONCLUSIONS: Measures of brain structure were associated with a range of markers 
+of disease, some of which appeared to be common to both COPD and CAD. No single 
+common pathway was identified, but the findings suggest that brain changes 
+associated with smoking-related diseases may be due to vascular, respiratory, 
+and inflammatory changes.
+
+DOI: 10.1371/journal.pone.0259375
+PMCID: PMC8570465
+PMID: 34739504 [Indexed for MEDLINE]
+
+Conflict of interest statement: I have read the journal’s policy and the authors 
+of this manuscript have the following competing interests: DRB was funded by the 
+National Institute for Health Research (NIHR) (Doctoral Research Fellow) for 
+this research project. DRB was an honorary visiting scientist (April 2019-April 
+2020) for GlaxoSmithKline for work unrelated to this research. PWJ is employed 
+by GlaxoSmithKline for work unrelated to this research. No other competing 
+interests exist. This does not alter our adherence to PLOS ONE policies on 
+sharing data and materials.
+
+
+Respir Res. 2021 Apr 28;22(1):130. doi: 10.1186/s12931-021-01706-y.
+
+InforMing the PAthway of COPD Treatment (IMPACT) trial: fibrinogen levels 
+predict risk of moderate or severe exacerbations.
+
+Singh D(1), Criner GJ(2), Dransfield MT(3), Halpin DMG(4), Han MK(5), Lange 
+P(6), Lettis S(7), Lipson DA(8)(9), Mannino D(10), Martin N(11)(12), Martinez 
+FJ(13), Miller BE(8), Wise R(14), Zhu CQ(7), Lomas D(15).
+
+Author information:
+(1)Centre for Respiratory Medicine and Allergy, Institute of Inflammation and 
+Repair, Manchester Academic Health Science Centre, The University of Manchester, 
+Manchester University NHS Foundation Trust, Manchester, UK.
+(2)Pulmonary and Critical Care Medicine, Lewis Katz School of Medicine at Temple 
+University, Philadelphia, PA, USA.
+(3)Division of Pulmonary, Allergy, and Critical Care Medicine, Lung Health 
+Center, University of Alabama at Birmingham, Birmingham, AL, USA.
+(4)University of Exeter Medical School, College of Medicine and Health, 
+University of Exeter, Exeter, UK.
+(5)University of Michigan, Pulmonary & Critical Care, Ann Arbor, MI, USA.
+(6)Department of Public Health, University of Copenhagen, Copenhagen, Denmark.
+(7)Biostatistics, GlaxoSmithKline, Stockley Park West, Uxbridge, Middlesex, UK.
+(8)Clinical Sciences, GlaxoSmithKline, Collegeville, PA, USA.
+(9)Pulmonary, Allergy and Critical Care Division, Department of Medicine, 
+Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA.
+(10)University of Kentucky College of Public Health, Lexington, KY, USA.
+(11)Global Medical Affairs, GlaxoSmithKline, Brentford, Middlesex, UK.
+(12)Institute for Lung Health, University of Leicester, Leicester, UK.
+(13)Weill Cornell Medicine, New York, NY, USA.
+(14)Division of Pulmonary and Critical Care Medicine, Johns Hopkins University 
+School of Medicine, Baltimore, MD, USA.
+(15)Division of Medicine, UCL Respiratory, Rayne Building, University College 
+London, London, WC1E 6BN, UK. d.lomas@ucl.ac.uk.
+
+BACKGROUND: Fibrinogen is the first qualified prognostic/predictive biomarker 
+for exacerbations in patients with chronic obstructive pulmonary disease (COPD). 
+The IMPACT trial investigated fluticasone furoate/umeclidinium/vilanterol 
+(FF/UMEC/VI) triple therapy versus FF/VI and UMEC/VI in patients with 
+symptomatic COPD at risk of exacerbations. This analysis used IMPACT trial data 
+to examine the relationship between fibrinogen levels and exacerbation outcomes 
+in patients with COPD.
+METHODS: 8094 patients with a fibrinogen assessment at Week 16 were included, 
+baseline fibrinogen data were not measured. Post hoc analyses were performed by 
+fibrinogen quartiles and by 3.5 g/L threshold. Endpoints included on-treatment 
+exacerbations and adverse events of special interest (AESIs).
+RESULTS: Rates of moderate, moderate/severe, and severe exacerbations were 
+higher in the highest versus lowest fibrinogen quartile (0.75, 0.92 and 0.15 vs 
+0.67, 0.79 and 0.10, respectively). The rate ratios (95% confidence interval 
+[CI]) for exacerbations in patients with fibrinogen levels ≥ 3.5 g/L versus 
+those with fibrinogen levels < 3.5 g/L were 1.03 (0.95, 1.11) for moderate 
+exacerbations, 1.08 (1.00, 1.15) for moderate/severe exacerbations, and 1.30 
+(1.10, 1.54) for severe exacerbations. There was an increased risk of 
+moderate/severe exacerbation (hazard ratio [95% CI]: highest vs lowest quartile 
+1.16 [1.04, 1.228]; ≥ 3.5 g/L vs < 3.5 g/L: 1.09 [1.00, 1.16]) and severe 
+exacerbation (1.35 [1.09, 1.69]; 1.27 [1.08, 1.47], respectively) with 
+increasing fibrinogen level. Cardiovascular AESIs were highest in patients in 
+the highest fibrinogen quartile.
+CONCLUSIONS: Rate and risk of exacerbations was higher in patients with higher 
+fibrinogen levels. This supports the validity of fibrinogen as a predictive 
+biomarker for COPD exacerbations, and highlights the potential use of fibrinogen 
+as an enrichment strategy in trials examining exacerbation outcomes.
+TRIAL REGISTRATION: NCT02164513.
+
+DOI: 10.1186/s12931-021-01706-y
+PMCID: PMC8080358
+PMID: 33910578 [Indexed for MEDLINE]
+
+Conflict of interest statement: DS reports personal fees from GSK, AstraZeneca, 
+Boehringer Ingelheim, Chiesi, Cipla, Genentech, Glenmark, Menarini, Mundipharma, 
+Novartis, Peptinnovate, Pfizer, Pulmatrix, Theravance and Verona, and grant 
+support from AstraZeneca, Boehringer Ingelheim, Chiesi, Glenmark, Menarini, 
+Mundipharma, Novartis, Pfizer, Pulmatrix, Theravance and Verona. GC has received 
+personal fees from Almirall, AstraZeneca, Boehringer Ingelheim, Chiesi, CSA 
+Medical, Eolo, GSK, HGE Technologies, Novartis, Nuvaira, Olympus, Pulmonx and 
+Verona. MD has received personal fees from AstraZeneca, Teva, Boehringer 
+Ingelheim and GSK and contracted clinical trial support from AstraZeneca, 
+Boehringer Ingelheim and GSK. DH reports personal fees from AstraZeneca, 
+Boehringer Ingelheim, Chiesi, GSK, Novartis and Pfizer, and non-financial 
+support Boehringer Ingelheim and Novartis. MH has received personal fees from 
+AstraZeneca, Boehringer Ingelheim, Merck, Mylan and GSK, and research support 
+from Novartis and Sunovion. PL reports personal fees and grant support from GSK, 
+AstraZeneca and Boehringer Ingelheim. SL, DaLi, NM, and C-QZ are GSK employees 
+and hold stock/shares in GSK. DM and BM are former GSK employees and hold 
+stock/shares in GSK. FM has received personal fees and non-financial support 
+from the American College of Chest Physicians, AstraZeneca, Boehringer 
+Ingelheim, Chiesi, ConCert, Continuing Education, Genentech, GSK, Inova Fairfax 
+Health System, Miller Communications, National Society for Continuing Education, 
+Novartis, Pearl Pharmaceuticals, PeerView Communications, Potomac, Prime 
+Communications, Puerto Rico Respiratory Society, Roche, Sunovion, Theravance, 
+University of Alabama Birmingham, Physicians Education Resource, Canadian 
+Respiratory Network and Teva, non-financial support from Gilead, Nitto, 
+ProterrixBio and Zambon, personal fees from Columbia University, Integritas, MD 
+magazine, Methodist Hospital Brooklyn, New York University, Unity, UpToDate, 
+WedMD/MedScape, Western Connecticut Health Network, Academic CME, Patara, 
+PlatformIQ, American Thoracic Society, Rockpointe and France Foundation, grant 
+support from NIH, Rare Disease Health Communications and ProMedior, and is a 
+member of steering committees for Afferent/Merck, Biogen, Veracyte, Prometic, 
+Bayer and Bridge Biotherapeutics. RW has been a consultant for Circassia, 
+Pneuma, Verona, Mylan/Theravance, Propeller Health, has received personal fees 
+from AstraZeneca/Medimmune/Pearl, Boehringer Ingelheim, Contrafect, 
+Roche-Genentech, GSK, Merck, AbbVie, ChemRx, Kiniska, Bristol Myers Squibb, 
+Galderma, Kamada, Pulmonx, Kinevant and Puretech, has received research grants 
+from Boehringer Ingelheim, Sanofi-Aventis and GSK. DaLo has received grant 
+income, honoraria, and consultancy fees from GSK, and personal fees from 
+Grifols, and chaired the GSK Respiratory Therapy Area Board 2012–2015.
+
+
+Pain Med. 2019 Nov 1;20(11):2263-2271. doi: 10.1093/pm/pnz113.
+
+The Relationship Between Migraine or Severe Headache and Chronic Health 
+Conditions: A Cross-Sectional Study from the National Health Interview Survey 
+2013-2015.
+
+Minen MT(1), Weissman J(2), Tietjen GE(2)(3)(4).
+
+Author information:
+(1)Departments of Neurology and Population Health, NYU Langone Health, New York, 
+New York.
+(2)Department of Molecular Imaging and Neuropathology, New York State 
+Psychiatric Institute, New York, New York.
+(3)Departments of Neurology and Population Health, NYU Langone Medical Center, 
+New York, New York.
+(4)Department of Neurology, University of Toledo, Toledo, Ohio, USA.
+
+Comment in
+    Pain Med. 2020 Apr 1;21(4):871-872. doi: 10.1093/pm/pnz286.
+    Pain Med. 2020 Apr 1;21(4):872-873. doi: 10.1093/pm/pnz288.
+
+OBJECTIVE: To estimate the prevalence of having at least one or two or more 
+chronic health conditions among US adults with self-reported migraine or severe 
+headaches.
+DESIGN: Cross-sectional study.
+METHODS: Using data collected from the 2013-2015 National Health Interview 
+Survey, we examined adults with and without migraine or severe headache and 
+associations with chronic obstructive pulmonary disease, cancer, heart disease, 
+stroke, diabetes, and hypertension. We calculated point estimates, variances, 
+and 95% confidence intervals and conducted bivariate and multivariable logistic 
+regression modeling to examine the relationships between migraine or severe 
+headache and each of the chronic health conditions, as well as multinomial 
+modeling, to examine the relationship between migraine or severe headache and 
+having one or more chronic health conditions.
+RESULTS: A total of 104,926 people were in the study. Adults aged 18 to 44 years 
+(18.2%), women (20.1%), and those with some college education (17.6%) had the 
+greatest proportion with migraine or severe headache (P < 0.0001). Using 
+multinomial modeling with the number of chronic health conditions as the 
+dependent variable, adults reporting migraine had an increased odds of reporting 
+a single chronic health condition (adjusted odds ratio [aOR] = 1.7, 95% 
+confidence interval [CI] = 1.6-1.8) and more than double the odds of reporting 
+two or more chronic health conditions (aOR = 2.5, 95% CI = 2.3-2.8) compared 
+with adults who did not have migraine or severe headache.
+CONCLUSIONS: Our study confirms observed relationships between migraine or 
+severe headache and chronic health conditions and supports the need for further 
+research to uncover the shared biological pathways.
+
+© 2019 American Academy of Pain Medicine. All rights reserved. For permissions, 
+please e-mail: journals.permissions@oup.com.
+
+DOI: 10.1093/pm/pnz113
+PMCID: PMC7963202
+PMID: 31127846 [Indexed for MEDLINE]
+
+
+mSystems. 2019 Apr 30;4(2):e00058-19. doi: 10.1128/mSystems.00058-19. 
+eCollection 2019 Mar-Apr.
+
+Intermittent Hypoxia and Hypercapnia Reproducibly Change the Gut Microbiome and 
+Metabolome across Rodent Model Systems.
+
+Tripathi A(#)(1)(2)(3), Xu ZZ(#)(4), Xue J(2), Poulsen O(2), Gonzalez A(2), 
+Humphrey G(2), Meehan MJ(3), Melnik AV(3), Ackermann G(2), Zhou D(2), Malhotra 
+A(5), Haddad GG(2)(6)(7), Dorrestein PC(2)(8)(9), Knight R(2)(9)(10).
+
+Author information:
+(1)Division of Biological Sciences, University of California-San Diego, San 
+Diego, California, USA.
+(2)Department of Pediatrics, University of California-San Diego, San Diego, 
+California, USA.
+(3)Skaggs School of Pharmacy and Pharmaceutical Sciences, University of 
+California-San Diego, San Diego, California, USA.
+(4)State Key Laboratory of Food Science and Technology, Nanchang University, 
+Nanchang, China.
+(5)Division of Pulmonary, Critical Care and Sleep Medicine, University of 
+California-San Diego, San Diego, California, USA.
+(6)Department of Neuroscience, University of California-San Diego, San Diego, 
+California, USA.
+(7)Rady Children's Hospital-San Diego, San Diego, California, USA.
+(8)Collaborative Mass Spectrometry Innovation Center, University of 
+California-San Diego, San Diego, California, USA.
+(9)Center for Microbiome Innovation, University of California-San Diego, San 
+Diego, California, USA.
+(10)Department of Computer Science and Engineering, University of California-San 
+Diego, San Diego, California, USA.
+(#)Contributed equally
+
+Studying perturbations in the gut ecosystem using animal models of disease 
+continues to provide valuable insights into the role of the microbiome in 
+various pathological conditions. However, understanding whether these changes 
+are consistent across animal models of different genetic backgrounds, and hence 
+potentially translatable to human populations, remains a major unmet challenge 
+in the field. Nonetheless, in relatively limited cases have the same 
+interventions been studied in two animal models in the same laboratory. 
+Moreover, such studies typically examine a single data layer and time point. 
+Here, we show the power of utilizing time series microbiome (16S rRNA amplicon 
+profiling) and metabolome (untargeted liquid chromatography-tandem mass 
+spectrometry [LC-MS/MS]) data to relate two different mouse models of 
+atherosclerosis-ApoE-/- (n = 24) and Ldlr-/- (n = 16)-that are exposed to 
+intermittent hypoxia and hypercapnia (IHH) longitudinally (for 10 and 6 weeks, 
+respectively) to model chronic obstructive sleep apnea. Using random forest 
+classifiers trained on each data layer, we show excellent accuracy in predicting 
+IHH exposure within ApoE-/- and Ldlr-/- knockout models and in cross-applying 
+predictive features found in one animal model to the other. The key microbes and 
+metabolites that reproducibly predicted IHH exposure included bacterial species 
+from the families Mogibacteriaceae, Clostridiaceae, bile acids, and fatty acids, 
+providing a refined set of biomarkers associated with IHH. The results highlight 
+that time series multiomics data can be used to relate different animal models 
+of disease using supervised machine learning techniques and can provide a 
+pathway toward identifying robust microbiome and metabolome features that 
+underpin translation from animal models to human disease. IMPORTANCE 
+Reproducibility of microbiome research is a major topic of contemporary 
+interest. Although it is often possible to distinguish individuals with specific 
+diseases within a study, the differences are often inconsistent across cohorts, 
+often due to systematic variation in analytical conditions. Here we study the 
+same intervention in two different mouse models of cardiovascular disease 
+(atherosclerosis) by profiling the microbiome and metabolome in stool specimens 
+over time. We demonstrate that shared microbial and metabolic changes are 
+involved in both models with the intervention. We then introduce a pipeline for 
+finding similar results in other studies. This work will help find common 
+features identified across different model systems that are most likely to apply 
+in humans.
+
+DOI: 10.1128/mSystems.00058-19
+PMCID: PMC6495231
+PMID: 31058230
+
+
+Hum Mol Genet. 2019 Jul 15;28(14):2352-2364. doi: 10.1093/hmg/ddz069.
+
+Exploring the cross-phenotype network region of disease modules reveals 
+concordant and discordant pathways between chronic obstructive pulmonary disease 
+and idiopathic pulmonary fibrosis.
+
+Halu A(1)(2), Liu S(1)(3), Baek SH(1), Hobbs BD(1)(4), Hunninghake GM(4), Cho 
+MH(1)(4), Silverman EK(1)(4), Sharma A(1).
+
+Author information:
+(1)Channing Division of Network Medicine, Department of Medicine, Brigham and 
+Women's Hospital, Harvard Medical School, Boston, MA, USA.
+(2)Center for Interdisciplinary Cardiovascular Sciences, Cardiovascular 
+Division, Brigham and Women's Hospital, Harvard Medical School, Boston, MA, USA.
+(3)Department of Computer Science and Engineering, University of Notre Dame, 
+Notre Dame, IN, USA.
+(4)Division of Pulmonary and Critical Care, Department of Medicine, Brigham and 
+Women's Hospital, Harvard Medical School, Boston, MA, USA.
+
+Chronic obstructive pulmonary disease (COPD) and idiopathic pulmonary fibrosis 
+(IPF) are two pathologically distinct chronic lung diseases that are associated 
+with cigarette smoking. Genetic studies have identified shared loci for COPD and 
+IPF, including several loci with opposite directions of effect. The existence of 
+additional shared genetic loci, as well as potential shared pathobiological 
+mechanisms between the two diseases at the molecular level, remains to be 
+explored. Taking a network-based approach, we built disease modules for COPD and 
+IPF using genome-wide association studies-implicated genes. The two disease 
+modules displayed strong disease signals in an independent gene expression data 
+set of COPD and IPF lung tissue and showed statistically significant overlap and 
+network proximity, sharing 19 genes, including ARHGAP12 and BCHE. To uncover 
+pathways at the intersection of COPD and IPF, we developed a metric, 
+NetPathScore, which prioritizes the pathways of a disease by their network 
+overlap with another disease. Applying NetPathScore to the COPD and IPF disease 
+modules enabled the determination of concordant and discordant pathways between 
+these diseases. Concordant pathways between COPD and IPF included extracellular 
+matrix remodeling, Mitogen-activated protein kinase (MAPK) signaling and ALK 
+pathways, whereas discordant pathways included advanced glycosylation end 
+product receptor signaling and telomere maintenance and extension pathways. 
+Overall, our findings reveal shared molecular interaction regions between COPD 
+and IPF and shed light on the congruent and incongruent biological processes 
+lying at the intersection of these two complex diseases.
+
+© The Author(s) 2019. Published by Oxford University Press. All rights reserved. 
+For Permissions, please email: journals.permissions@oup.com.
+
+DOI: 10.1093/hmg/ddz069
+PMCID: PMC6606854
+PMID: 30997486 [Indexed for MEDLINE]
+
+
+Ann Am Thorac Soc. 2018 Dec;15(Suppl 4):S234-S238. doi: 
+10.1513/AnnalsATS.201808-533MG.
+
+Targeting Chronic Obstructive Pulmonary Disease Phenotypes, Endotypes, and 
+Biomarkers.
+
+Garudadri S(1), Woodruff PG(2)(3).
+
+Author information:
+(1)1 Cleveland Clinic Lerner College of Medicine, Case Western Reserve 
+University, Cleveland, Ohio; and.
+(2)2 Division of Pulmonary, Critical Care, Sleep and Allergy, Department of 
+Medicine, and.
+(3)3 Cardiovascular Research Institute, University of California, San Francisco, 
+San Francisco, California.
+
+Chronic obstructive pulmonary disease (COPD) is now well recognized to be a 
+phenotypically heterogeneous disease, and this heterogeneity is underpinned by 
+biological heterogeneity. An "endotype" is a group of patients who share the 
+same observed characteristic(s) because of shared underlying biology, and the 
+"endotype" concept has emerged as one way of bringing order to this phenotypic 
+heterogeneity by focusing on its biological underpinnings. In principle, 
+biomarkers can help identify endotypes and mark these specific groups of 
+patients as suitable candidates for targeted biological therapies. Among the 
+better-described endotypes of COPD are alpha-1 antitrypsin deficiency and 
+eosinophilic COPD. Both of these endotypes have biomarkers and at least some 
+evidence of preferential benefit from targeted therapy. Other biological 
+pathways that may define endotypes of COPD include more general pathways of type 
+2 inflammation, IL-17-driven inflammation (due to autoimmunity or deposition of 
+nanoparticulate carbon black), bacterial colonization, pathological alterations 
+of the airway mucus gel, and others that are beyond the scope of this review. 
+Whether these biological pathways ultimately are found to segregate patients 
+into very distinct endotypes or subsets (like alpha-1 antitrypsin deficiency) 
+or, instead, are present as "treatable traits" in various combinations is 
+uncertain. However imperfect, the endotype concept forces a focus on 
+heterogeneity at a biological level, and the development of biomarkers of 
+biological heterogeneity should help advance the goal of developing new 
+therapies for COPD.
+
+DOI: 10.1513/AnnalsATS.201808-533MG
+PMCID: PMC6321999
+PMID: 30758998 [Indexed for MEDLINE]
+
+
+Inhal Toxicol. 2018 Aug;30(9-10):327-334. doi: 10.1080/08958378.2018.1530316. 
+Epub 2018 Dec 5.
+
+The toxicology of air pollution predicts its epidemiology.
+
+Ghio AJ(1), Soukup JM(1), Madden MC(1).
+
+Author information:
+(1)a The National Health and Environmental Effects Research Laboratory , 
+Environmental Protection Agency , Chapel Hill , NC , USA.
+
+The epidemiologic investigation has successively delineated associations of air 
+pollution exposure with non-malignant and malignant lung disease, cardiovascular 
+disease, cerebrovascular disease, pregnancy outcomes, perinatal effects and 
+other extra-pulmonary disease including diabetes. Defining these relationships 
+between air pollution exposure and human health closely parallels results of an 
+earlier epidemiologic investigation into cigarette smoking and environmental 
+tobacco smoke (ETS), two other particle-related exposures. Humic-like substances 
+(HULIS) have been identified as a chemical component common to cigarette smoke 
+and air pollution particles. Toxicology studies provide evidence that a 
+disruption of iron homeostasis with sequestration of host metal by HULIS is a 
+fundamental mechanistic pathway through which biological effects are initiated 
+by cigarette smoke and air pollution particles. As a result of a common chemical 
+component and a shared mechanistic pathway, it should be possible to extrapolate 
+from the epidemiology of cigarette smoking and ETS to predict associations of 
+air pollution exposure with human disease, which are currently unrecognized. 
+Accordingly, it is anticipated that the forthcoming epidemiologic investigation 
+will demonstrate relationships of air pollution with COPD causation, peripheral 
+vascular disease, hypertension, renal disease, digestive disease, loss of bone 
+mass/risk of fractures, dental disease, eye disease, fertility problems, and 
+extrapulmonary malignancies.
+
+DOI: 10.1080/08958378.2018.1530316
+PMCID: PMC8167977
+PMID: 30516398 [Indexed for MEDLINE]
+
+
+Vitam Horm. 2018;108:1-28. doi: 10.1016/bs.vh.2018.02.002. Epub 2018 Mar 16.
+
+Dehydroepiandrosterone Research: Past, Current, and Future.
+
+Klinge CM(1), Clark BJ(1), Prough RA(2).
+
+Author information:
+(1)Department of Biochemistry and Molecular Genetics, Center for Genetics and 
+Molecular Medicine, University of Louisville School of Medicine, Louisville, KY, 
+United States.
+(2)Department of Biochemistry and Molecular Genetics, Center for Genetics and 
+Molecular Medicine, University of Louisville School of Medicine, Louisville, KY, 
+United States. Electronic address: russ.prough@louisville.edu.
+
+The discovery of "oestrus-producing" hormones was a major research breakthrough 
+in biochemistry and pharmacology during the early part of the 20th century. The 
+elucidation of the molecular weight and chemical structure of major oxidative 
+metabolites of dehydroepiandrosterone (DHEA) led to the award of the Nobel Prize 
+in 1939 to Adolf Frederick Johann Butenandt and Leopold Ruzicka. Considered a 
+bulk androgen in the circulation, DHEA and its sulfated metabolite DHEA-S can be 
+taken up by most tissues where the sterols are metabolized to active androgenic 
+and estrogenic compounds needed for growth and development. Butenandt's 
+interactions with the German pharmaceutical company Schering led to production 
+of gram quantities of these steroids and other chemically modified compounds of 
+this class. Sharing chemical expertise allowed Butenandt's laboratory at the 
+Kaiser Wilhelm Institute to isolate and synthesize many steroid compounds in the 
+elucidation of the pathway leading from cholesterol to testosterone and estrogen 
+derivatives. As a major pharmaceutical company worldwide, Schering AG sought 
+these new biological sterols as pharmacological agents for endocrine-related 
+diseases, and the European medical community tested these compounds in women for 
+conditions such as postmenopausal depression, and in men for increasing muscle 
+mass. Since it was noted that circulating DHEA-S levels decline as a function of 
+age, experimental pathology experiments in animals were performed to determine 
+how DHEA may protect against cancer, diabetes, aging, obesity, immune function, 
+bone density, depression, adrenal insufficiency, inflammatory bowel disease, 
+diminished sexual function/libido, AIDS/HIV, chronic obstructive pulmonary 
+disease, coronary artery disease, chronic fatigue syndrome, and metabolic 
+syndrome. While the mechanisms by which DHEA ameliorates these conditions in 
+animal models have been elusive to define, even less is known about its role in 
+human disease, other than as a precursor to other sterols, e.g., testosterone 
+and estradiol. Our groups have shown that DHEA and many of its oxidative 
+metabolites serve as a low-affinity ligands for hepatic nuclear receptors, such 
+as the pregnane X receptor, the constitutive androstane receptor, and estrogen 
+receptors α/β (ERα/ERβ) as well as G protein-coupled ER (GPER1). This chapter 
+highlights the founding research on DHEA from a historical perspective, provides 
+an overview of DHEA biosynthesis and metabolism, briefly summarizes the early 
+work on the beneficial effects attributed to DHEA in animals, and summarizes the 
+human trials addressing the action of DHEA as a therapeutic agent. In general, 
+most human studies involve weak correlations of circulating levels of DHEA and 
+disease outcomes. Some support for DHEA as a therapeutic compound has been 
+demonstrated for postmenopausal women, in vitro fertilization, and several 
+autoimmune disorders, and adverse health effects, such as, acne, embryo 
+virilization during pregnancy, and possible endocrine-dependent cancers.
+
+© 2018 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/bs.vh.2018.02.002
+PMID: 30029723 [Indexed for MEDLINE]
+
+

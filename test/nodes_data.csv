@@ -1,0 +1,38 @@
+id,group,degree
+Other venous embolism and thrombosis,circulatory system,183
+Atrial fibrillation,circulatory system,263
+Deep vein thrombosis [DVT],circulatory system,205
+Varicose veins,circulatory system,94
+Splenomegaly,digestive,219
+Liver abscess and sequelae of chronic liver disease,digestive,155
+Other disorders of stomach and duodenum,digestive,182
+Dysphagia,digestive,279
+GERD,digestive,253
+Cirrhosis of liver without mention of alcohol,digestive,175
+Portal hypertension,digestive,125
+Liver replaced by transplant,digestive,101
+Ascites (non malignant),digestive,177
+Hemorrhage of gastrointestinal tract,digestive,209
+Other chronic nonalcoholic liver disease,digestive,174
+Esophageal bleeding (varices/hemorrhage),digestive,110
+Gout,endocrine/metabolic,251
+Protein-calorie malnutrition,endocrine/metabolic,185
+Hyperlipidemia,endocrine/metabolic,253
+Chronic Kidney Disease, Stage III,genitourinary,214
+Other disorders of male genital organs,genitourinary,139
+Anemia in neoplastic disease,hematopoietic,243
+Encounter for long-term (current) use of anticoagulants,hematopoietic,253
+Primary hypercoagulable state,hematopoietic,223
+Elevated white blood cell count,hematopoietic,243
+Other anemias,hematopoietic,213
+Diseases of spleen,hematopoietic,165
+Myelofibrosis,hematopoietic,264
+Anemia in chronic kidney disease,hematopoietic,125
+Other diseases of blood and blood-forming organs,hematopoietic,309
+Abnormal coagulation profile,hematopoietic,211
+Myeloproliferative disease,neoplasms,423
+Neoplasm of uncertain behavior,neoplasms,307
+Polycythemia vera,neoplasms,416
+Myeloid leukemia, acute,neoplasms,192
+Other dyspnea,respiratory,212
+Abdominal pain,symptoms,306
