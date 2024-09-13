@@ -85,7 +85,7 @@ data_loading <- function(input, output, session) {
   dat_co <- reactiveValues(table_data = shared_phe %>% filter(institution=="ukb") %>% filter(select_phenotype %in% starting_description))
   
   ## update selection table and co phenotype table
-  observeEvent(input$institution,{
+  observeEvent(c(input$institution,current_description()),{
     
     dat$table_data = all_dat %>% filter(group=="phecode") %>% filter(institution==current_institution())
     dat_co$table_data = shared_phe %>% filter(institution==current_institution()) %>% filter(select_phenotype %in% current_description())
@@ -231,7 +231,7 @@ data_loading <- function(input, output, session) {
     
     output$shared_phenotype <- renderDT({
       
-      datatable(data,frame(select_phenotype=c(),co_phenotype=c(),`# of shared biomolecules`=c(),select_phecode=c(),co_phecode=c(),institution=c()),
+      datatable(dat_co$table_data,
                 rownames = FALSE,
                 #options = list(displayStart = start_index - 2),
                 options = list(

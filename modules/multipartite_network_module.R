@@ -100,7 +100,7 @@ multipartite_network_Server = function(input,output,session,current_description,
   ns <- session$ns
   
   # Reactive value to track clicked nodes
-  clicked_nodes <- reactiveVal(starting_description)
+  clicked_nodes <- reactiveVal(NULL)
   
   #=================================tuning selection============================
   #=============================================================================

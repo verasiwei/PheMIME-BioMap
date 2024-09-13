@@ -150,22 +150,37 @@ enrichment_analysis = function(dat){
       dist_matrix <- as.matrix(dist(data_matrix, method = kl_divergence))
   
     # generate edges
+      if(ncol(data_matrix)>1){
       g <- graph_from_adjacency_matrix(dist_matrix, mode = "undirected", weighted = TRUE)
       res_network <- as_data_frame(g, what = "edges") %>% filter(weight != 0) %>% dplyr::select(-weight) %>% filter(from!=to)
+      } else {
+        res_network <- expand_grid(rownames(data_matrix),rownames(data_matrix)) 
+        colnames(res_network) = c("from","to")
+      }
       
       # Compute the distance matrix
       dist_matrix <- as.dist(dist_matrix)
       # Perform hierarchical clustering
       hclust_result <- hclust(dist_matrix,method = "ward.D2")
+      
       ## cophenetic correlation
+      if(ncol(data_matrix)>1){
       cor_coef = cor(dist_matrix, cophenetic(hclust_result))
+      } else {
+        cor_coef = NA
+      }
       ## silhouette width
-      cutoffs = seq(min(hclust_result$height)+0.5,max(hclust_result$height)-0.5,1)
+      cutoffs = seq(0.1,20,0.1)
       sil_scores = purrr::map_dbl(cutoffs, function(cut){
         clusters = cutree(hclust_result,h=cut)
+        if(length(unique(clusters))>1){
         mean(silhouette(clusters, dist_matrix)[,3])
+        } else {
+          0
+        }
       })
       sil_dat = data.frame(cutoffs, sil_scores)
+    
       return(list(hclust_result,res_network,res_freq,res_freq_list,res_table,dist_matrix,cor_coef,sil_dat))
     } else{
       NULL

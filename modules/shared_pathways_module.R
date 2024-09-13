@@ -26,15 +26,15 @@ shared_pathways_UI = function(id,app_ns){
                                       step = 0.1),
                         withSpinner(plotOutput(ns("dendrogram_plot"))),
                         div(class = "subtitle","Clustering Measurements",style="font-size: 1.2rem;color:black;padding-left: 5px;padding-top:8px;"),
-                        textOutput(ns("cor_phecoef")),
-                        plotOutput(ns("silhouette_plot"))),
+                        withSpinner(textOutput(ns("cor_phecoef"))),
+                        withSpinner(plotOutput(ns("silhouette_plot")))),
                  column(7,
                         downloadButton(class="buttonstyle",ns("download_table"), "Download Results"),
                         # actionButton(ns("update_pathway"), "Update pathway analysis",class="buttonstyle"),
                         withSpinner(r2d3::d3Output(ns("pathway_network"),width = "100%",height="70vh")),
                         tags$br(),
                         div(div(class = "subtitle","Table of Shared Biological Terms",style="font-size: 1.5rem;color:black;padding-left: 5px;padding-top:8px;")),
-                        DTOutput(ns("pathway_table")))
+                        withSpinner(DTOutput(ns("pathway_table"))))
                )
            )
     )
@@ -48,6 +48,7 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
   dendrogram = reactiveVal(enrichment_network_initial$dendrogram_dat)
   cor_coef_react = reactiveVal(0.9326)
   sil_dat_react = reactiveVal(sil_dat)
+  enrichment_res_all_react = reactiveVal(enrichment_network_all_initial)
   # update_pathway_react = reactiveVal(input$update_pathway)
 
   ##selected node ID
@@ -62,12 +63,13 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
     # Save selected nodes before update
   selected_nodes_backup <- clicked_node_id()
     # if(!is.null(clicked_node_id())) {
-      withProgress(
-        message = "It is running, please wait...",
-        value = 0,{
+      # withProgress(
+      #   message = "It is running, please wait...",
+      #   value = 0,{
       enrichment_res_react(NULL) ##to tell r2d3 there is an update, remove the previous r2d3, but did not plot new r2d3 since it is still running within oberveEvent
       dendrogram(NULL)
       sil_dat_react(NULL)
+      res_table
           ##1st layer connected nodes
           # Example progress step
           shinyWidgets::updateProgressBar(session, id = "pathwayProgress", value = 10)
@@ -117,7 +119,9 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
         res_network = enrichment_res[[2]],
         extra = data.frame(nothing=Sys.time())
       )
-    })
+    # })
+      
+      enrichment_res_all_react(enrichment_res)
       enrichment_res_react(network_dat)
       res_table(network_dat$res_table)
       dendrogram(dendrogram_dat)
@@ -127,44 +131,33 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
   })
   
   observeEvent(input$hclust_cutoff,{
-    if(is.null(clicked_node_id())) {
-    ##network data
-    clusters <- data.frame(node = unique(enrichment_network_initial$network_dat$res_freq$Description),cluster=cutree(enrichment_network_initial$dendrogram_dat, h = input$hclust_cutoff))
-    vertices = data.frame(node = unique(enrichment_network_initial$network_dat$res_freq$Description))
-    vertices = vertices %>%
-      left_join(.,clusters,by="node")
-    
-    network_dat = list(
-      nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% enrichment_network_initial$network_dat$res_freq$Description),
-      edges = enrichment_network_initial$network_dat$res_network %>% dplyr::rename(source = from, target = to) %>% filter(source %in% enrichment_network_initial$network_dat$res_freq$Description & target %in% enrichment_network_initial$network_dat$res_freq$Description),
-      freq = enrichment_network_initial$network_dat$freq,
-      res_table = enrichment_network_initial$network_dat$res_table,
-      res_freq = enrichment_network_initial$network_dat$res_freq,
-      extra = data.frame(nothing=Sys.time())
-    )
-    enrichment_res_react(network_dat)
-    } else{
-      res_freq <- enrichment_res_react()$res_freq
-      res_network <- enrichment_res_react()$res_network
-      freq <- enrichment_res_react()$freq
-      res_table <- enrichment_res_react()$res_table
-      dend <- dendrogram()
+      ##dendrogram data
+      dendrogram_dat = enrichment_res_all_react()[[1]]
       ##network data
-      clusters <- data.frame(node = unique(res_freq$Description),cluster=cutree(dend, h = input$hclust_cutoff))
-      vertices = data.frame(node = unique(res_freq$Description))
+      clusters <- data.frame(node = unique(enrichment_res_all_react()[[3]]$Description),cluster=cutree(dendrogram_dat, h = input$hclust_cutoff))
+      ##cophenetic coefficient
+      cor_coef = enrichment_res_all_react()[[7]]
+      ##silhouette
+      sil_dat = enrichment_res_all_react()[[8]]
+      vertices = data.frame(node = unique(enrichment_res_all_react()[[3]]$Description))
       vertices = vertices %>%
         left_join(.,clusters,by="node")
 
-      network_dat = list(
-        nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% res_freq$Description),
-        edges = res_network %>% dplyr::rename(source = from, target = to) %>% filter(source %in% res_freq$Description & target %in% res_freq$Description),
-        freq = freq,
-        res_table = res_table,
-        res_freq = res_freq,
-        extra = data.frame(nothing=Sys.time())
-      )
-      enrichment_res_react(network_dat)
-    }
+    network_dat = list(
+      nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% enrichment_res_all_react()[[3]]$Description),
+      edges = enrichment_res_all_react()[[2]] %>% dplyr::rename(source = from, target = to) %>% filter(source %in% enrichment_res_all_react()[[3]]$Description & target %in% enrichment_res_all_react()[[3]]$Description),
+      freq = enrichment_res_all_react()[[4]],
+      res_table = enrichment_res_all_react()[[5]],
+      res_freq = enrichment_res_all_react()[[3]],
+      res_network = enrichment_res_all_react()[[2]],
+      extra = data.frame(nothing=Sys.time())
+    )
+
+    enrichment_res_react(network_dat)
+    res_table(network_dat$res_table)
+    dendrogram(dendrogram_dat)
+    cor_coef_react(cor_coef)
+    sil_dat_react(sil_dat)
   })
   
   ## cophenetic coefficient
@@ -172,9 +165,10 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
   
   ## silhouette
   output$silhouette_plot <- renderPlot({
-    withProgress(
-      message = "It is running, please wait...",
-      value = 0,{
+    # withProgress(
+    #   message = "It is running, please wait...",
+    #   value = 0,{
+    if(!is.null(sil_dat_react())){
     ggplot(sil_dat_react(),aes(x=cutoffs, y=sil_scores)) +
       geom_point(size=1) +
       geom_line()+
@@ -188,15 +182,18 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
             axis.title.y = element_text(size = 12),
             axis.text.y = element_text(size = 12),
             axis.text.x = element_text(size = 7,angle = 20))
-  })}, height = 400,width = 500)
+    }
+  # })
+    }, height = 400,width = 500)
 
   
   ## dendrogram tree
   output$dendrogram_plot <- renderPlot({
-    withProgress(
-      message = "It is running, please wait...",
-      value = 0,{
+    # withProgress(
+    #   message = "It is running, please wait...",
+    #   value = 0,{
     # Convert hclust result to dendrogram
+    if(!is.null(dendrogram())){
     dend <- as.dendrogram(dendrogram())
     clusters <- cutree(dendrogram(), h = input$hclust_cutoff)
     # Add cluster colors to dendrogram
@@ -224,7 +221,8 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
       theme_minimal() +
       labs(title = "Cluster Dendrogram", y = "Height", color = "Cluster") +
       theme(legend.position = "bottom", axis.text.y = element_blank(), axis.title.y = element_blank(), axis.ticks.y = element_blank())
-      })
+    }
+      # })
   }, height = 400,width = 500)
   
   ## pathway network

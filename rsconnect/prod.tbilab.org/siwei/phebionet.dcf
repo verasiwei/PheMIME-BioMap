@@ -1,0 +1,13 @@
+name: phebionet
+title: PheBioNet
+username: siwei
+account: siwei
+server: prod.tbilab.org
+hostUrl: https://prod.tbilab.org/__api__
+appId: 697
+bundleId: 2937
+url: https://prod.tbilab.org/content/a391a4a5-d9c6-4de8-8d96-f45616c29359/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .here|app_new_new.R|README.md|helpers|vignettes
