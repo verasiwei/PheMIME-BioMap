@@ -18,14 +18,9 @@ multipartite_network_UI = function(id,app_ns){
                    function sendPreSelectNodeToShiny(preselectedNodes) {
                    const preselectedNodeIDs = Array.from(preselectedNodes, node => node.id);
                    Shiny.onInputChange("%s", preselectedNodeIDs);
-                   }
-                   
-                   Shiny.addCustomMessageHandler("resetClickedNode", function(message) {
-                                 Shiny.setInputValue("%s", null);
-                   })',
+                   }',
                                ns("clicked_node_id"),
-                               ns("preselected_node_id"),
-                               ns("clicked_node_id"))
+                               ns("preselected_node_id"))
       )),
     ),
     column(12,offset = 0, style='padding:0px;',
@@ -51,18 +46,18 @@ multipartite_network_UI = function(id,app_ns){
                    tippy::tippy_this(elementId = "info_pvalue",
                                      tooltip = "<span style='font-size:20px;'>Remove connections > p-value cutoff, maximum cutoff is 0.05<span>",
                                      placement = "right")),
-                 div(actionButton(ns("update_p_m"), "Update",style="float:left;background-color: #fff;"))
+                 div(actionButton(ns("updatepm"), "Update",style="float:left;background-color: #fff;"))
                ),
                
                fluidRow(
-                 column(3,actionButton(ns("first_layer"), "1st-layer network",class="buttonstyle"
-                                       # style="font-size: 1.5rem;float:left;background-color:#D3D3D3;"
-                 )),
+                 # column(3,actionButton(ns("first_layer"), "1st-layer network",class="buttonstyle"
+                 #                       # style="font-size: 1.5rem;float:left;background-color:#D3D3D3;"
+                 # )),
                  # column(3,actionButton(ns("second_layer"), "2nd-layer network",class="buttonstyle")),
-                 column(3,actionButton(ns("return"), "Revert to pre-selected network",class="buttonstyle")),
+                 # column(3,actionButton(ns("return"), "Revert to pre-selected network",class="buttonstyle")),
                  column(1,""),
-                 column(2,actionButton(ns("update_upset"), "Update upset",class="buttonstyle")),
-                 column(2,actionButton(ns("update_pathway"), "Update pathway analysis",class="buttonstyle")),
+                 column(2,actionButton(ns("updateupset"), "Update upset",class="buttonstyle")),
+                 column(2,actionButton(ns("updatepathway"), "Update pathway analysis",class="buttonstyle")),
                  column(width=12,style="padding-bottom:0px;margin-bottom:0px",
                         # hr(),
                         withSpinner(r2d3::d3Output(ns("network"),width = "100%",height="60vh"),
@@ -72,21 +67,37 @@ multipartite_network_UI = function(id,app_ns){
                  column(12,div(class = "subtitle","Selected Nodes:",style="font-size: 1.5rem;color:black;padding-top:10px;padding-left:5px;")),
                  column(12,textOutput(ns("node_info"))),
                  tags$br(),
-                 column(6,
-                        ##1st layer shared 
+                 column(12,
+                        div(class = "subtitle","Biomolecules Table"),
                         # div(
-                        div(class = "subtitle","1st Layer: Shared Nodes Among Selected Nodes"),
-                        downloadButton(class="buttonstyle",ns("download_table1"), "Download Results"),
-                        withSpinner(DTOutput(ns("conn_first_table")),
-                                    hide.ui = FALSE)
-                 ),
-                 column(6,
-                        # div(
-                        div(class = "subtitle","2nd Layer: Nodes Connected to 1st Layer Nodes"),
-                        downloadButton(class="buttonstyle",ns("download_table2"), "Download Results"),
-                        withSpinner(DTOutput(ns("conn_second_table")),
-                                    hide.ui = FALSE)
+                        # column(5,actionButton(ns("showsharedtab"),"Shared Biomolecules Table",class="buttonstyle")),
+                        # column(7,conditionalPanel(
+                        #   condition = "input.update_network > 0",  # Shows when update_network is clicked
+                        #   actionButton(ns("exclusivetab"), "Exclusively Shared Biomolecules Table", class = "buttonstyle")
+                        # )),
+                        # column(7,actionButton(ns("exclusivetab"),"Exlusively Shared Biomolecules Table",class="buttonstyle")),
+                        column(5,uiOutput(ns("shared_ui"))),
+                        column(7,uiOutput(ns("exclusive_ui"))),
+                        # column(6, hidden(downloadButton(class="buttonstyle",ns("download_table"), "Download Results"))),
+                        column(12,textOutput(ns("table_info"))),
+                        column(12,style = "overflow-y: auto; height: 200px;",withSpinner(DTOutput(ns("conn_table")),
+                                    hide.ui = FALSE))
                  )
+                 # column(6,
+                 #        ##1st layer shared
+                 #        # div(
+                 #        div(class = "subtitle","Shared Nodes Connected to All Selected Nodes"),
+                 #        downloadButton(class="buttonstyle",ns("download_table1"), "Download Results"),
+                 #        withSpinner(DTOutput(ns("conn_first_table")),
+                 #                    hide.ui = FALSE)
+                 # ),
+                 # column(6,
+                 #        # div(
+                 #        div(class = "subtitle","Exclusively Shared Nodes Among Selected Nodes (UpSet Selection)"),
+                 #        downloadButton(class="buttonstyle",ns("download_table2"), "Download Results"),
+                 #        withSpinner(DTOutput(ns("conn_second_table")),
+                 #                    hide.ui = FALSE)
+                 # )
                )#fluidrow
            ) #box
     )
@@ -96,12 +107,15 @@ multipartite_network_UI = function(id,app_ns){
   
 }
 
-multipartite_network_Server = function(input,output,session,current_description,current_institution,visualize_network,current_phecode,update_network,update_clicked_id,update_info_all,shared_nodes_id_unique){
+multipartite_network_Server = function(input,output,session,current_description,current_institution,visualize_network,current_phecode,update_network,update_clicked_id,update_info_all,shared_nodes_id_unique,upset_data){
   ns <- session$ns
   
   # Reactive value to track clicked nodes
   clicked_nodes <- reactiveVal(NULL)
-  
+  ## update data for network visualization
+  data_for_network <- reactiveVal(data_network_initial)
+  sharednodes <- reactiveVal(NULL)
+  # shinyjs::hide("exclusivetab")
   #=================================tuning selection============================
   #=============================================================================
   #=============================================================================
@@ -121,12 +135,34 @@ multipartite_network_Server = function(input,output,session,current_description,
   #=================================updates from upset plot=====================
   #=============================================================================
   #=============================================================================
+  # Initially hide the button
+  exclusive_button <- reactiveVal(FALSE)
+  shared_button <- reactiveVal(FALSE)
+  # Render UI conditionally based on the reactive trigger
+  output$exclusive_ui <- renderUI({
+    if (exclusive_button()) {
+      actionButton(ns("exclusivetab"), "Exclusively Shared Biomolecules Table", class = "buttonstyle")
+    }
+  })
+  # Render UI conditionally based on the reactive trigger
+  output$shared_ui <- renderUI({
+    if (shared_button()) {
+      actionButton(ns("sharedtab"), "Shared Biomolecules Table", class = "buttonstyle")
+    }
+  })
+  # # Reset the trigger when the button is clicked
+  observeEvent(input$exclusivetab, {
+    exclusive_button(FALSE)  # Hide the button after it's clicked
+  })
+  observeEvent(input$sharedtab, {
+    shared_button(FALSE)  # Hide the button after it's clicked
+  })
+  
   observeEvent(update_network(),{
-
+ 
+    exclusive_button(TRUE)
     updated_ids <- update_clicked_id()
-    
-    # clicked_nodes(updated_ids)
-    
+    clicked_nodes(updated_ids)
     shared_nodes_unique <- shared_nodes_id_unique()
     
     # Ensure updated_ids is always a list/array
@@ -136,23 +172,35 @@ multipartite_network_Server = function(input,output,session,current_description,
     
     session$sendCustomMessage(type = 'updateD3Selection', message = list(updated_ids=updated_ids, 
                                                                          shared_nodes_unique=shared_nodes_unique))
-    
+  
   })
+
   #=======observe event of the clicked nodes update from network================
   #=============================================================================
   #=============================================================================
   observeEvent(input$clicked_node_id,{
+    sharednodes(NULL)
     clicked_node_ids <- clicked_nodes()
+    updated_ids <- update_clicked_id()
     if(length(input$clicked_node_id$selectedNodeIDs)==0){
       clicked_nodes(NULL)
-    } else if(!isTRUE(all.equal(clicked_node_ids,input$clicked_node_id$selectedNodeIDs))) {
+    # } else if(!isTRUE(all.equal(clicked_node_ids,input$clicked_node_id$selectedNodeIDs))) {
+    } else {
       clicked_nodes(input$clicked_node_id$selectedNodeIDs)
     }
+  
+    output$node_info <- renderText(glue("{clicked_nodes()};"))
+    output$table_info <- renderText(NULL)
+    
+    if(!isTRUE((all.equal(clicked_node_ids,updated_ids))) | is.null(updated_ids)){
+      exclusive_button(FALSE) 
+      shared_button(TRUE)
+    } else {
+      exclusive_button(TRUE) 
+      shared_button(FALSE)
+    }
   })
-  
-  ## update data for network visualization
-  data_for_network = reactiveVal(data_network_initial)
-  
+
   ## observe visualization of the network
   observeEvent(c(visualize_network,update_info_all()),{
     ##1st layer nodes connected to the user selection
@@ -191,289 +239,81 @@ multipartite_network_Server = function(input,output,session,current_description,
     
   })
   
-  ### observe revert to pre-selected
-  observeEvent(input$return,{
-    
-    # shinyjs::js$refresh_page()
-    ##1st layer nodes connected to the user selection
-    tidy_connect_sub = tidy_connect %>%
-      filter(institution %in% current_institution()) %>%
-      filter(from %in% current_description() | to %in% current_description()) %>%
-      #filter(pvalue <= pvalue_react()) %>%
-      #filter(connection_type %in% molecular_react$table_data$type) %>%
-      # filter(from %in% conn_first | to %in% conn_first) %>%
-      dplyr::select(from,to) %>%
-      graph_from_data_frame(., directed=FALSE) %>%
-      igraph::simplify(.) %>%
-      as_data_frame
-
-    vertices_first = tidy_connect_sub %>%
-      dplyr::select(node=from) %>%
-      bind_rows(
-        tidy_connect_sub %>%
-          dplyr::select(node=to)
-      ) %>%
-      distinct(node,.keep_all = T)
-
-    vertices = bind_rows(vertices_first) %>%
-      left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
-      distinct(node,.keep_all = T) %>%
-      arrange(type) %>%
-      mutate(selected = ifelse(node %in% current_description(),"yes","no"))
-
-
-    # Save data for JS visualization
-    dat = list(
-      nodes = vertices %>% dplyr::rename(id = node),
-      edges = bind_rows(tidy_connect_sub) %>% dplyr::rename(source = from, target = to),
-      extra = data.frame(nothing=Sys.time())
-    )
-    data_for_network(dat)
-    clicked_nodes(NULL)
-    # Send a custom message to JavaScript to reset clicked_node_id
-    session$sendCustomMessage('resetClickedNode', list())
-    
-  })
-  
-  observeEvent(input$update_p_m,{
-    tidy_connect_sub = tidy_connect %>%
-      filter(institution %in% current_institution()) %>%
-      filter(from %in% current_description() | to %in% current_description()) %>%
-      dplyr::filter(pvalue <= pvalue_react()) %>%
-      dplyr::filter(connection_type %in% molecular_react$table_data$type) %>%
-      # filter(from %in% conn_first | to %in% conn_first) %>%
-      dplyr::select(from,to) %>%
-      graph_from_data_frame(., directed=FALSE) %>%
-      igraph::simplify(.) %>%
-      as_data_frame
-    
-    vertices_first = tidy_connect_sub %>%
-      dplyr::select(node=from) %>%
-      bind_rows(
-        tidy_connect_sub %>%
-          dplyr::select(node=to)
-      ) %>%
-      distinct(node,.keep_all = T)
-    
-    vertices = bind_rows(vertices_first) %>%
-      left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
-      distinct(node,.keep_all = T) %>%
-      arrange(type) %>%
-      mutate(selected = ifelse(node %in% current_description(),"yes","no"))
-    
-    dat = list(
-      nodes = vertices %>% dplyr::rename(id = node),
-      edges = bind_rows(tidy_connect_sub) %>% dplyr::rename(source = from, target = to),
-      extra = data.frame(nothing=Sys.time())
-    )
-    data_for_network(dat)
-  })
-  
-  ### observe 1st layer network
-  observeEvent(input$first_layer,{
-    
-    if(length(input$clicked_node_id$selectedNodeIDs)==0){
-      clicked_nodes(NULL)
-    } else {
-      clicked_nodes(input$clicked_node_id$selectedNodeIDs)
-    }
-
-      if(!is.null(clicked_nodes())){
-      ##1st layer nodes connected to the user selection
-      tidy_connect_sub = tidy_connect %>%
-        filter(institution %in% current_institution()) %>%
-        filter(from %in% unique(clicked_nodes()) | to %in% unique(clicked_nodes())) %>%
-        filter(pvalue <= pvalue_react()) %>%
-        filter(connection_type %in% molecular_react$table_data$type) %>%
-        # filter(from %in% conn_first | to %in% conn_first) %>%
-        dplyr::select(from,to) %>%
-        graph_from_data_frame(., directed=FALSE) %>%
-        igraph::simplify(.) %>%
-        as_data_frame
-      
-      vertices_first = tidy_connect_sub %>%
-        dplyr::select(node=from) %>%
-        bind_rows(
-          tidy_connect_sub %>%
-            dplyr::select(node=to)
-        ) %>%
-        distinct(node,.keep_all = T)
-      
-      vertices = bind_rows(vertices_first) %>%
-        left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
-        distinct(node,.keep_all = T) %>%
-        arrange(type) %>%
-        mutate(selected = ifelse(node %in% c(clicked_nodes()),"yes","no"))
-      
-     
-    # Save data for JS visualization
-    dat = list(
-      nodes = vertices %>% dplyr::rename(id = node),
-      edges = tidy_connect_sub %>% dplyr::rename(source = from, target = to), 
-      extra = data.frame(nothing=Sys.time()) 
-    ) 
-    data_for_network(dat)
-      }
-    
-    observeEvent(input$update_p_m,{
-      ##1st layer nodes connected to the user selection
-      tidy_connect_sub = tidy_connect %>%
-        filter(institution %in% current_institution()) %>%
-        filter(from %in% unique(clicked_nodes()) | to %in% unique(clicked_nodes())) %>%
-        filter(pvalue <= pvalue_react()) %>%
-        filter(connection_type %in% molecular_react$table_data$type) %>%
-        # filter(from %in% conn_first | to %in% conn_first) %>%
-        dplyr::select(from,to) %>%
-        graph_from_data_frame(., directed=FALSE) %>%
-        igraph::simplify(.) %>%
-        as_data_frame
-      
-      vertices_first = tidy_connect_sub %>%
-        dplyr::select(node=from) %>%
-        bind_rows(
-          tidy_connect_sub %>%
-            dplyr::select(node=to)
-        ) %>%
-        distinct(node,.keep_all = T)
-      
-      vertices = bind_rows(vertices_first) %>%
-        left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
-        distinct(node,.keep_all = T) %>%
-        arrange(type) %>%
-        mutate(selected = ifelse(node %in% c(clicked_nodes()),"yes","no"))
-      
-      
-      # Save data for JS visualization
-      dat = list(
-        nodes = vertices %>% dplyr::rename(id = node),
-        edges = tidy_connect_sub %>% dplyr::rename(source = from, target = to), 
-        extra = data.frame(nothing=Sys.time()) 
-      ) 
-      data_for_network(dat)
-    })
-  })
-  
-  ## observe visualization of the network
-  observeEvent(input$second_layer,{
-    if(length(input$clicked_node_id$selectedNodeIDs)==0){
-      clicked_nodes(NULL)
-    } else {
-      clicked_nodes(input$clicked_node_id$selectedNodeIDs)
-    }
-   
-      if(!is.null(clicked_nodes())){
-      ##1st layer nodes connected to the user selection
-      tidy_connect_sub = tidy_connect %>%
-        filter(institution %in% current_institution()) %>%
-        filter(from %in% unique(clicked_nodes()) | to %in% unique(clicked_nodes())) %>%
-        filter(pvalue <= pvalue_react()) %>%
-        filter(connection_type %in% molecular_react$table_data$type) %>%
-        # filter(from %in% conn_first | to %in% conn_first) %>%
-        dplyr::select(from,to) %>%
-        graph_from_data_frame(., directed=FALSE) %>%
-        igraph::simplify(.) %>%
-        as_data_frame
-      ##2nd layer nodes connected to the 1st layer nodes
-      tidy_connect_second = tidy_connect %>%
-        filter(institution %in% current_institution()) %>%
-        filter(!(from %in% unique(c(current_description(),clicked_nodes())))) %>%
-        filter(!(to %in% unique(c(current_description(),clicked_nodes())))) %>%
-        filter(from %in% unique(c(tidy_connect_sub$from,tidy_connect_sub$to)) | to %in% unique(c(tidy_connect_sub$from,tidy_connect_sub$to))) %>%
-        dplyr::select(from,to) %>%
-        graph_from_data_frame(., directed=FALSE) %>%
-        igraph::simplify(.) %>%
-        as_data_frame
-      
-      vertices_first = tidy_connect_sub %>%
-        dplyr::select(node=from) %>%
-        bind_rows(
-          tidy_connect_sub %>%
-            dplyr::select(node=to)
-        ) %>%
-        distinct(node,.keep_all = T)
-      vertices_second = tidy_connect_second %>%
-        filter(!from %in% vertices_first$node) %>%
-        dplyr::select(node=from) %>%
-        bind_rows(
-          tidy_connect_second %>%
-            filter(!to %in% vertices_first$node) %>%
-            dplyr::select(node=to)
-        ) %>%
-        distinct(node,.keep_all = T)
-      
-      vertices = bind_rows(vertices_first,vertices_second) %>%
-        left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
-        distinct(node,.keep_all = T) %>%
-        arrange(type) %>%
-        mutate(selected = ifelse(node %in% clicked_nodes(),"yes","no")) 
-      
-    
-    # Save data for JS visualization
-    dat = list(
-      nodes = vertices %>% dplyr::rename(id = node),
-      edges = bind_rows(tidy_connect_sub,tidy_connect_second) %>% dplyr::rename(source = from, target = to),
-      extra = data.frame(nothing=Sys.time())
-    )
-    data_for_network(dat)
-      }
-    
-    observeEvent(input$update_p_m,{
-      ##1st layer nodes connected to the user selection
-      tidy_connect_sub = tidy_connect %>%
-        filter(institution %in% current_institution()) %>%
-        filter(from %in% unique(clicked_nodes()) | to %in% unique(clicked_nodes())) %>%
-        filter(pvalue <= pvalue_react()) %>%
-        filter(connection_type %in% molecular_react$table_data$type) %>%
-        # filter(from %in% conn_first | to %in% conn_first) %>%
-        dplyr::select(from,to) %>%
-        graph_from_data_frame(., directed=FALSE) %>%
-        igraph::simplify(.) %>%
-        as_data_frame
-      ##2nd layer nodes connected to the 1st layer nodes
-      tidy_connect_second = tidy_connect %>%
-        filter(institution %in% current_institution()) %>%
-        filter(!(from %in% unique(c(current_description(),clicked_nodes())))) %>%
-        filter(!(to %in% unique(c(current_description(),clicked_nodes())))) %>%
-        filter(from %in% unique(c(tidy_connect_sub$from,tidy_connect_sub$to)) | to %in% unique(c(tidy_connect_sub$from,tidy_connect_sub$to))) %>%
-        dplyr::select(from,to) %>%
-        graph_from_data_frame(., directed=FALSE) %>%
-        igraph::simplify(.) %>%
-        as_data_frame
-      
-      vertices_first = tidy_connect_sub %>%
-        dplyr::select(node=from) %>%
-        bind_rows(
-          tidy_connect_sub %>%
-            dplyr::select(node=to)
-        ) %>%
-        distinct(node,.keep_all = T)
-      vertices_second = tidy_connect_second %>%
-        filter(!from %in% vertices_first$node) %>%
-        dplyr::select(node=from) %>%
-        bind_rows(
-          tidy_connect_second %>%
-            filter(!to %in% vertices_first$node) %>%
-            dplyr::select(node=to)
-        ) %>%
-        distinct(node,.keep_all = T)
-      
-      vertices = bind_rows(vertices_first,vertices_second) %>%
-        left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
-        distinct(node,.keep_all = T) %>%
-        arrange(type) %>%
-        mutate(selected = ifelse(node %in% clicked_nodes(),"yes","no")) 
-      
-      
-      # Save data for JS visualization
-      dat = list(
-        nodes = vertices %>% dplyr::rename(id = node),
-        edges = bind_rows(tidy_connect_sub,tidy_connect_second) %>% dplyr::rename(source = from, target = to),
-        extra = data.frame(nothing=Sys.time())
-      )
-      data_for_network(dat)
-      
-    })
-  })
+  # ### observe revert to pre-selected
+  # observeEvent(input$return,{
+  #   
+  #   # shinyjs::js$refresh_page()
+  #   ##1st layer nodes connected to the user selection
+  #   tidy_connect_sub = tidy_connect %>%
+  #     filter(institution %in% current_institution()) %>%
+  #     filter(from %in% current_description() | to %in% current_description()) %>%
+  #     #filter(pvalue <= pvalue_react()) %>%
+  #     #filter(connection_type %in% molecular_react$table_data$type) %>%
+  #     # filter(from %in% conn_first | to %in% conn_first) %>%
+  #     dplyr::select(from,to) %>%
+  #     graph_from_data_frame(., directed=FALSE) %>%
+  #     igraph::simplify(.) %>%
+  #     as_data_frame
+  # 
+  #   vertices_first = tidy_connect_sub %>%
+  #     dplyr::select(node=from) %>%
+  #     bind_rows(
+  #       tidy_connect_sub %>%
+  #         dplyr::select(node=to)
+  #     ) %>%
+  #     distinct(node,.keep_all = T)
+  # 
+  #   vertices = bind_rows(vertices_first) %>%
+  #     left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
+  #     distinct(node,.keep_all = T) %>%
+  #     arrange(type) %>%
+  #     mutate(selected = ifelse(node %in% current_description(),"yes","no"))
+  #   
+  #   # Save data for JS visualization
+  #   dat = list(
+  #     nodes = vertices %>% dplyr::rename(id = node),
+  #     edges = bind_rows(tidy_connect_sub) %>% dplyr::rename(source = from, target = to),
+  #     extra = data.frame(nothing=Sys.time())
+  #   )
+  #   data_for_network(dat)
+  #   clicked_nodes(NULL)
+  #   # Send a custom message to JavaScript to reset clicked_node_id
+  #   session$sendCustomMessage('resetClickedNode', list())
+  # })
+  # 
+  # observeEvent(input$updatepm,{
+  #   tidy_connect_sub = tidy_connect %>%
+  #     filter(institution %in% current_institution()) %>%
+  #     filter(from %in% current_description() | to %in% current_description()) %>%
+  #     dplyr::filter(pvalue <= pvalue_react()) %>%
+  #     dplyr::filter(connection_type %in% molecular_react$table_data$type) %>%
+  #     # filter(from %in% conn_first | to %in% conn_first) %>%
+  #     dplyr::select(from,to) %>%
+  #     graph_from_data_frame(., directed=FALSE) %>%
+  #     igraph::simplify(.) %>%
+  #     as_data_frame
+  #   
+  #   vertices_first = tidy_connect_sub %>%
+  #     dplyr::select(node=from) %>%
+  #     bind_rows(
+  #       tidy_connect_sub %>%
+  #         dplyr::select(node=to)
+  #     ) %>%
+  #     distinct(node,.keep_all = T)
+  #   
+  #   vertices = bind_rows(vertices_first) %>%
+  #     left_join(.,nodes %>% filter(institution==current_institution()),by="node") %>%
+  #     distinct(node,.keep_all = T) %>%
+  #     arrange(type) %>%
+  #     mutate(selected = ifelse(node %in% current_description(),"yes","no"))
+  #   
+  #   dat = list(
+  #     nodes = vertices %>% dplyr::rename(id = node),
+  #     edges = bind_rows(tidy_connect_sub) %>% dplyr::rename(source = from, target = to),
+  #     extra = data.frame(nothing=Sys.time())
+  #   )
+  #   data_for_network(dat)
+  # })
   
   output$network = r2d3::renderD3({
     
@@ -494,10 +334,10 @@ multipartite_network_Server = function(input,output,session,current_description,
     return_preselected = NULL,
     update_pathway = NULL
   )
-  observeEvent(input$update_upset,{
+  observeEvent(input$updateupset,{
     app_data$update_upset = 1
   })
-  observeEvent(input$update_pathway,{
+  observeEvent(input$updatepathway,{
     app_data$update_pathway = 1
   })
   observeEvent(input$return_preselected,{
@@ -508,186 +348,143 @@ multipartite_network_Server = function(input,output,session,current_description,
   #=======================================================================shared info module=========================================================================#
   #==================================================================================================================================================================#
   #==================================================================================================================================================================#
-  shared_nodes_first = reactiveValues(tab_dat=data.frame(ID=c(),type=c()))
-  shared_nodes_second = reactiveValues(tab_dat=data.frame(ID=c(),type=c()))
+  # shared_nodes_second = reactiveValues(tab_dat=data.frame(ID=c(),type=c()))
   
-  ##1st layer connected nodes information
-  output$conn_first_table <- renderDT({
-    datatable(shared_nodes_first$tab_dat,
-              rownames = FALSE,
-              #options = list(displayStart = start_index - 2),
-              options = list(
-                scrollX = "300px",
-                scrollY = "300px",
-                pageLength = 30, lengthChange = FALSE
-              ),
-              selection = list(mode = "single")
-    )
-  },server = FALSE)
-  
-  ##2nd layer connected nodes information
-  output$conn_second_table <- renderDT({
-    datatable(shared_nodes_second$tab_dat,
-              rownames = FALSE,
-              #options = list(displayStart = start_index - 2),
-              options = list(
-                scrollX = "300px",
-                scrollY = "300px",
-                pageLength = 30, lengthChange = FALSE
-              ),
-              selection = list(mode = "single")
-    )
-  },server = FALSE)
-  
-  observeEvent(clicked_nodes(),{
-    
+  observeEvent(input$sharedtab,{
+    isolate({
+    clicked_node_ids <- clicked_nodes()
+    # isolate({
+    if(!is.null(clicked_node_ids)){
     ##1st layer connected nodes
-    conn_nodes = purrr::map(str_split(clicked_nodes(),","),function(x){
+    conn_nodes = purrr::map(str_split(clicked_node_ids,","),function(x){
       conn_first = tidy_connect %>%
         filter(institution == current_institution()) %>%
         filter(from %in% x) %>%
         dplyr::select(node = to) %>%
         bind_rows(tidy_connect %>%
-                    filter(institution == current_institution()) %>%
-                    filter(to %in% x) %>%
+                    dplyr::filter(institution == current_institution()) %>%
+                    dplyr::filter(to %in% x) %>%
                     dplyr::select(node = from)) %>%
         distinct(node) %>%
         pull(node)
       conn_first
     })
-    shared_nodes_first_tab = data.frame(ID=Reduce(intersect,conn_nodes)) 
-    if(nrow(shared_nodes_first_tab)!=0){
-      shared_nodes_first_tab = shared_nodes_first_tab %>% left_join(.,nodes %>% dplyr::rename(ID=node),by="ID") %>% filter(institution == current_institution())
+    shared_tab = data.frame(ID=Reduce(intersect,conn_nodes))
+    if(nrow(shared_tab)!=0){
+      shared_tab = shared_tab %>% left_join(.,nodes %>% dplyr::rename(ID=node),by="ID") %>% dplyr::filter(institution == current_institution())
     } else{
-      shared_nodes_first_tab = shared_nodes_first_tab
+      shared_tab = shared_tab
     }
-      
-    ##second layer connection nodes
-    shared_nodes_second_tab = tidy_connect %>%
-      filter(institution == current_institution()) %>%
-      filter(from %in% shared_nodes_first$ID) %>%
-      dplyr::select(node = to,connection_type) %>%
-      bind_rows(tidy_connect %>%
-                  filter(institution == current_institution()) %>%
-                  filter(to %in% shared_nodes_first$ID) %>%
-                  dplyr::select(node = from,connection_type)) %>%
-      distinct(node,.keep_all = T) %>%
-      dplyr::rename(ID=node,type=connection_type) %>%
-      mutate(type = ifelse(ID %in% phecode_def$description,"phenotype",type))
-    
+
     ## add pvalue, etc.
-    shared_nodes_first_tab = shared_nodes_first_tab %>%
-      left_join(., tidy_connect %>% filter((from %in% clicked_nodes() & to %in% shared_nodes_first_tab$ID) | 
-                                             (to %in% clicked_nodes() & from %in% shared_nodes_first_tab$ID)) %>%
+    shared_tabb = shared_tab %>%
+      left_join(., tidy_connect %>% dplyr::filter((from %in% clicked_node_ids & to %in% shared_tab$ID) |
+                                             (to %in% clicked_node_ids & from %in% shared_tab$ID)) %>%
                   dplyr::select(from,to,hazard_ratio,pvalue,phecode_category) %>%
                   bind_rows(
-                    tidy_connect %>% filter((from %in% clicked_nodes() & to %in% shared_nodes_first_tab$ID) | 
-                                              (to %in% clicked_nodes() & from %in% shared_nodes_first_tab$ID)) %>%
+                    tidy_connect %>% filter((from %in% clicked_node_ids & to %in% shared_tab$ID) |
+                                              (to %in% clicked_node_ids & from %in% shared_tab$ID)) %>%
                       dplyr::select(to,from,hazard_ratio,pvalue)
                   ) %>%
                   dplyr::select(ID=from,hazard_ratio,pvalue),by="ID") %>%
       distinct(.,.keep_all = T) %>%
       group_by(ID) %>%
-      mutate(hazard_ratio_mean = mean(hazard_ratio),
-             pvalue_mean = mean(pvalue)) %>%
+      mutate(hazard_ratio_mean = round(mean(hazard_ratio),2),
+             pvalue_mean = round(mean(pvalue),2)) %>%
       ungroup() %>%
       distinct(ID,.keep_all = T) %>%
-      dplyr::select(-hazard_ratio,-pvalue)
-    
-    
-    shared_nodes_second_tab = shared_nodes_second_tab %>%
-      left_join(., tidy_connect %>% filter((from %in% clicked_nodes() & to %in% shared_nodes_first_tab$ID) | 
-                                             (to %in% clicked_nodes() & from %in% shared_nodes_first_tab$ID)) %>%
-                  dplyr::select(from,to,hazard_ratio,pvalue,phecode_category) %>%
-                  bind_rows(
-                    tidy_connect %>% filter((from %in% clicked_nodes() & to %in% shared_nodes_first_tab$ID) | 
-                                              (to %in% clicked_nodes() & from %in% shared_nodes_first_tab$ID)) %>%
-                      dplyr::select(to,from,hazard_ratio,pvalue)
-                  ) %>%
-                  dplyr::select(ID=from,hazard_ratio,pvalue),by="ID") %>%
-      distinct(.,.keep_all = T) %>%
-      group_by(ID) %>%
-      mutate(hazard_ratio_mean = mean(hazard_ratio),
-             pvalue_mean = mean(pvalue)) %>%
-      ungroup() %>%
-      distinct(ID,.keep_all = T) %>%
-      dplyr::select(-hazard_ratio,-pvalue)
-    
-    ##selected node ID
-    code_id <- reactiveVal(glue("{clicked_nodes()};"))
-    output$node_info <- renderText(glue("{code_id()}"))
-    
-    shared_nodes_first$tab_dat = shared_nodes_first_tab
-    shared_nodes_second$tab_dat = shared_nodes_second_tab
-    
-    ##1st layer connected nodes information
-    output$conn_first_table <- renderDT({
-      datatable(shared_nodes_first$tab_dat,
-                rownames = FALSE,
-                #options = list(displayStart = start_index - 2),
-                options = list(
-                  scrollX = "300px",
-                  scrollY = "300px",
-                  pageLength = 30, lengthChange = FALSE
-                ),
-                selection = list(mode = "single")
-      )
-    },server = FALSE)
-    
-    ##2nd layer connected nodes information
-    output$conn_second_table <- renderDT({
-      datatable(shared_nodes_second$tab_dat,
-                rownames = FALSE,
-                #options = list(displayStart = start_index - 2),
-                options = list(
-                  scrollX = "300px",
-                  scrollY = "300px",
-                  pageLength = 30, lengthChange = FALSE
-                ),
-                selection = list(mode = "single")
-      )
-    },server = FALSE)
-    
-    ## user select node from the table of shared nodes among selected nodes
-    current_shared_first <- reactiveVal(NULL)
-    observeEvent(input$conn_first_table_rows_selected,{
-      current_shared_first(shared_nodes_first$tab_dat$ID[input$conn_first_table_rows_selected])
+      dplyr::select(-hazard_ratio,-pvalue,-institution) %>%
+      dplyr::rename(hr=hazard_ratio_mean,pval=pvalue_mean)
+
+    # ##selected node ID
+    # code_id <- reactiveVal(glue("{clicked_nodes()};"))
+    # output$node_info <- renderText(glue("{code_id()}"))
+    ## table info
+    output$table_info <- renderText("Shared Nodes Connected to All Selected Nodes")
+    sharednodes(shared_tabb)
+    # shared_button(FALSE)  # Hide the button after it's clicked
+    }
     })
-    
-    observeEvent(input$close,{removeModal()})
-    
-    download_nodes_first <- reactive(shared_nodes_first$tab_dat)
-    download_nodes_second <- reactive(shared_nodes_second$tab_dat)
-    output$download_table1 <- downloadHandler(
-      filename = function() {
-        paste0("associated_mechanism",Sys.time(),".csv")
-      },
-      content = function(file) {
-        write.csv(download_nodes_first(), file, row.names = FALSE,
-                  col.names = T,quote = F)
-      }
-    )
-    
-    output$download_table2 <- downloadHandler(
-      filename = function() {
-        paste0("shared_mechanism",Sys.time(),".csv")
-      },
-      content = function(file) {
-        write.csv(download_nodes_second(), file, row.names = FALSE,
-                  col.names = T,quote = F)
-      }
-    )
-    
   })
+    
+  observeEvent(input$exclusivetab,{
+    updated_ids <- update_clicked_id()
+    if(!is.null(updated_ids)){
+    shared_nodes_id_unique_ids <- shared_nodes_id_unique()
+    shared_tab = data.frame(ID=shared_nodes_id_unique_ids)
+    if(nrow(shared_tab)!=0){
+      shared_tab = shared_tab %>% left_join(.,nodes %>% dplyr::rename(ID=node),by="ID") %>% filter(institution == current_institution())
+    } else{
+      shared_tab = shared_tab
+    }
+
+    ## add pvalue, etc.
+    # updated_ids <- update_clicked_id()
+    shared_tab = shared_tab %>%
+      left_join(., tidy_connect %>% filter((from %in% updated_ids & to %in% shared_tab$ID) |
+                                             (to %in% updated_ids & from %in% shared_tab$ID)) %>%
+                  dplyr::select(from,to,hazard_ratio,pvalue,phecode_category) %>%
+                  bind_rows(
+                    tidy_connect %>% filter((from %in% updated_ids & to %in% shared_tab$ID) |
+                                              (to %in% updated_ids & from %in% shared_tab$ID)) %>%
+                      dplyr::select(to,from,hazard_ratio,pvalue)
+                  ) %>%
+                  dplyr::select(ID=from,hazard_ratio,pvalue),by="ID") %>%
+      distinct(.,.keep_all = T) %>%
+      group_by(ID) %>%
+      mutate(hazard_ratio_mean = mean(hazard_ratio),
+             pvalue_mean = mean(pvalue)) %>%
+      ungroup() %>%
+      distinct(ID,.keep_all = T) %>%
+      dplyr::select(-hazard_ratio,-pvalue)
+
+    # ##selected node ID
+    # code_id <- reactiveVal(glue("{clicked_nodes()};"))
+    # output$node_info <- renderText(glue("{code_id()}"))
+
+    sharednodes(shared_tab)
+    ## table info
+    output$table_info <- renderText("Exclusively Shared Nodes Among Selected Nodes")
+    }
+  
+  })
+  ##1st layer connected nodes information
+  output$conn_table <- renderDT({
+    datatable(sharednodes(),
+              rownames = FALSE,
+              #options = list(displayStart = start_index - 2),
+              options = list(
+                scrollX = TRUE,
+                scrollY = TRUE,
+                pageLength = 10,
+                lengthChange = FALSE,
+                # Enable deferred rendering for large datasets
+                deferRender = TRUE,
+                # Only show the first page and load more when needed
+                dom = 'tp'
+              ),
+              selection = list(mode = "single")
+    )
+  },server = FALSE)
+  
+  # output$download_table <- downloadHandler(
+  #   filename = function() {
+  #     paste0("associated_mechanism",Sys.time(),".csv")
+  #   },
+  #   content = function(file) {
+  #     write.csv(shared_table(), file, row.names = FALSE,
+  #               col.names = T,quote = F)
+  #   }
+  # )
   
   return(
     reactive({
       list(
         clicked_node_id = clicked_nodes(),
         preselected_node_id = input$preselected_node_id,
-        update_upset = input$update_upset,
+        update_upset = input$updateupset,
         return_preselected = input$return,
-        update_pathway = input$update_pathway
+        update_pathway = input$updatepathway
       )
     })
   )

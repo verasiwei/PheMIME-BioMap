@@ -18,17 +18,22 @@ shared_pathways_UI = function(id,app_ns){
                  ),
                  column(12,div(class = "subtitle","Selected Nodes:",style="font-size: 1.5rem;color:black;padding-left: 5px;padding-top:8px;")),
                  column(12,textOutput(ns("node_info"))),
-                 column(5,
+                 column(3,
                         sliderInput(ns("hclust_cutoff"), "Select Dendrogram Cut-off Height:",
                                       min = 0, 
                                       max = 10, 
                                       value = 0.2, 
-                                      step = 0.1),
-                        withSpinner(plotOutput(ns("dendrogram_plot"))),
-                        div(class = "subtitle","Clustering Measurements",style="font-size: 1.2rem;color:black;padding-left: 5px;padding-top:8px;"),
+                                      step = 0.1)
+                        # withSpinner(plotOutput(ns("dendrogram_plot"))),
+                        # div(class = "subtitle","Clustering Measurements",style="font-size: 1.2rem;color:black;padding-left: 5px;padding-top:8px;"),
+                        # withSpinner(textOutput(ns("cor_phecoef"))),
+                        # withSpinner(plotOutput(ns("silhouette_plot")))),
+                 ),
+                 column(5,withSpinner(plotOutput(ns("dendrogram_plot")))),
+                 column(4,div(class = "subtitle","Clustering Measurements",style="font-size: 1.2rem;color:black;padding-left: 5px;padding-top:8px;"),
                         withSpinner(textOutput(ns("cor_phecoef"))),
                         withSpinner(plotOutput(ns("silhouette_plot")))),
-                 column(7,
+                 column(12,
                         downloadButton(class="buttonstyle",ns("download_table"), "Download Results"),
                         # actionButton(ns("update_pathway"), "Update pathway analysis",class="buttonstyle"),
                         withSpinner(r2d3::d3Output(ns("pathway_network"),width = "100%",height="70vh")),
@@ -184,7 +189,7 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
             axis.text.x = element_text(size = 7,angle = 20))
     }
   # })
-    }, height = 400,width = 500)
+    }, height = 400,width = 400)
 
   
   ## dendrogram tree
@@ -223,7 +228,7 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
       theme(legend.position = "bottom", axis.text.y = element_blank(), axis.title.y = element_blank(), axis.ticks.y = element_blank())
     }
       # })
-  }, height = 400,width = 500)
+  }, height = 400,width = 400)
   
   ## pathway network
   output$pathway_network = r2d3::renderD3({

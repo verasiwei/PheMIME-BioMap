@@ -32,7 +32,7 @@ main_app_UI = function(id){
     ),
     
     titlePanel(
-      div(h2("PheBioNet",style='padding-top:0px;padding-bottom:0px;padding-left:10px'),style='margin-top:-15px;margin-bottom:-5px'),
+      div(h2("PheMIME-BioNet",style='padding-top:0px;padding-bottom:0px;padding-left:10px'),style='margin-top:-15px;margin-bottom:-5px'),
       windowTitle = "Network Analysis and Visualization of Shared Biomolecular Mechanisms in Disease Multimorbidity"
     ),
     fluidRow(
@@ -73,13 +73,13 @@ main_app_UI = function(id){
 }
 
 
-main_app_Server = function(input,output,session,current_phecode,current_description,current_institution,visualize_network){
+main_app_Server = function(input,output,session,current_phecode,current_description,current_institution,current_row, visualize_network){
   ns <- session$ns
   app_data <- reactiveValues(
     current_phecode = NULL,
     current_description = NULL,
     current_institution = NULL,
-    # current_data = NULL,
+    current_row = NULL,
     visualize_network = FALSE,
     clicked_node_id = NULL,
     preselected_node_id = NULL,
@@ -88,22 +88,24 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
     update_network = NULL,
     update_clicked_id = NULL,
     update_pathway = NULL,
-    update_info_all = NULL
+    update_info_all = NULL,
+    upset_data = NULL
   )
   
   current_description_react <- reactiveValues(val=current_description)
   current_institution_react <- reactiveValues(val=current_institution)
   current_phecode_react <- reactiveValues(val=current_phecode)
+  current_row_react <- reactiveValues(val=current_row)
   
   
   ##info
   observe({
     info <- callModule(
       info_panel_Server, "info_panel",
-      current_phecode = current_phecode,
-      current_description = current_description,
-      current_institution = current_institution,
-      # current_data = all_data$current_data,
+      current_phecode = reactive(current_phecode_react$val),
+      current_description = reactive(current_description_react$val),
+      current_institution = reactive(current_institution_react$val),
+      current_row = reactive(current_row_react$val),
       visualize_network = visualize_network
     )
     
@@ -112,6 +114,7 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
       current_description_react$val <- info()$current_description
       current_institution_react$val <- info()$current_institution
       current_phecode_react$val <- info()$current_phecode
+      current_row_react$val <- info()$current_row
       app_data$visualize_network <- info()$visualize_network
       app_data$update_info_all <- info()$update_info_all
     })
@@ -138,6 +141,7 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
       app_data$update_network <- upset_plot()$update_network
       app_data$update_clicked_id <- upset_plot()$update_clicked_node
       app_data$shared_nodes_id_unique <- upset_plot()$shared_nodes_id_unique
+      app_data$upset_data <- upset_plot()$upset_data
     })
   })
   
@@ -153,7 +157,8 @@ main_app_Server = function(input,output,session,current_phecode,current_descript
       update_network = reactive(app_data$update_network),
       update_clicked_id = reactive(app_data$update_clicked_id),
       update_info_all = reactive(app_data$update_info_all),
-      shared_nodes_id_unique = reactive(app_data$shared_nodes_id_unique)
+      shared_nodes_id_unique = reactive(app_data$shared_nodes_id_unique),
+      upset_data = reactive(app_data$upset_data)
       
     )
     

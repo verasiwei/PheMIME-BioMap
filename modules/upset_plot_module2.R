@@ -60,7 +60,7 @@ upset_plot_Server <- function(input,output,session,current_phecode,current_descr
       clicked_nodes_list = c(clicked_nodes_list, update_click)
       shared_nodes_unique_list = c(shared_nodes_unique_list, shared_nodes_unique)
     }
-    update_click_id(clicked_nodes_list)
+    update_click_id(unique(clicked_nodes_list))
     shared_nodes_unique_react(shared_nodes_unique_list)
     
     # if(!is.null(input$clickedPattern)){
@@ -318,7 +318,8 @@ upset_plot_Server <- function(input,output,session,current_phecode,current_descr
       list(
         update_network = input$highlight_network,
         update_clicked_node = update_click_id(),
-        shared_nodes_id_unique = shared_nodes_unique_react()
+        shared_nodes_id_unique = shared_nodes_unique_react(),
+        upset_data = upset_data_react()
       )
     })
   )

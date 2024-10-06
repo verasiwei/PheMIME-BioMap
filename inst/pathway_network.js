@@ -1,6 +1,6 @@
 if (!data || data.length === 0) {
   // Data is empty or condition is met - display message
-  //svg.selectAll('*').remove(); // Clear the SVG in case it was previously used
+  svg.selectAll('*').remove(); // Clear the SVG in case it was previously used
   svg.append('text')
     .attr('x', 50) // Adjust x position as needed
     .attr('y', 50) // Adjust y position as needed
@@ -43,7 +43,7 @@ if (!data || data.length === 0) {
   }
 
   function dynamicLinkDistance(link) {
-    return link.source.cluster === link.target.cluster ? 100 : 150;
+    return link.source.cluster === link.target.cluster ? 100 : 200;
   }
 
   // Force-directed simulation

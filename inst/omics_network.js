@@ -1,4 +1,4 @@
-//svg.selectAll("*").remove();
+svg.selectAll("*").remove();
 //svg.style('background-color', "#F2F3F6");
 const padding = 20;
 const X = d3.scaleLinear()

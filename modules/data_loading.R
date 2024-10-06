@@ -5,13 +5,14 @@ load("data/phecode_descriptions.rda")
 load("data/default_sel.rda")
 
 all_id = readRDS("data/all_id.rds")
-tidy_connect = readRDS("data/all_res_vumc_original_p_0.05.rds")
+# tidy_connect = readRDS("data/all_res_vumc_original_p_0.05.rds")
+tidy_connect = readRDS("data/all_res_ukb_vumc_original.rds")
 tidy_connect$from = str_replace_all(tidy_connect$from,", ","_")
 tidy_connect$to = str_replace_all(tidy_connect$to,", ","_")
 all_dat = readRDS("data/all_dat.rds")
 phecodes = readRDS("data/phecodes.rds")
 nodes = readRDS("data/nodes.rds")
-# vumc_res = readRDS("data/vumc_phewas_res_original_p_0.05.rds")
+# vumc_res = readRDS("data/vumc_phewas_res.rds")
 # ukbb_res = readRDS("data/omicspred_phewas_res.rds")
 
 
@@ -20,8 +21,14 @@ upset_results_initial = readRDS("data/upset_results_initial.rds")
 marginalData_initial = readRDS("data/marginalData_initial.rds")
 enrichment_network_initial = readRDS("data/enrichment_network_initial_update.rds")
 enrichment_network_all_initial = readRDS("data/enrichment_network_all_initial.rds")
-shared_phe = readRDS("data/shared_phe.rds")
+shared_phe = readRDS("data/shared_phe.rds") 
 sil_dat = readRDS("data/sil_dat.rds")
+phecode_in_ukb = unique(c(tidy_connect$from[tidy_connect$institution=="ukb"],tidy_connect$to[tidy_connect$institution=="ukb"]))
+phecode_in_ukb = phecode_in_ukb[phecode_in_ukb %in% phecode_def$description]
+phecode_in_vumc = unique(c(tidy_connect$from[tidy_connect$institution=="vumc"],tidy_connect$to[tidy_connect$institution=="vumc"]))
+phecode_in_vumc = phecode_in_vumc[phecode_in_vumc %in% phecode_def$description]
+# shared_phe = shared_phe %>% dplyr::filter((shared_phe$institution=="ukb"&shared_phe$sel_phenotype %in% phecode_in_ukb&shared_phe$co_phenotype %in% phecode_in_ukb) | 
+#                                           (shared_phe$institution=="vumc"&shared_phe$sel_phenotype %in% phecode_in_vumc&shared_phe$co_phenotype %in% phecode_in_vumc))
 # data_network_initial$nodes$id = str_replace(data_network_initial$nodes$id,"-",".")
 # data_network_initial$edges$source = str_replace(data_network_initial$edges$source,"-",".")
 # data_network_initial$edges$target = str_replace(data_network_initial$edges$target,"-",".")
@@ -39,8 +46,8 @@ sil_dat = readRDS("data/sil_dat.rds")
   # data.table::fread()
 
 # phecode_in = data.frame(phecode=unique(normalize_phecodes(ukbb_res$Phenotype)),institution="ukb") %>%
-#   bind_rows(data.frame(phecode=unique(normalize_phecodes(vumc_res$phecode)),institution="vumc"))
-#   # unique(c(normalize_phecodes(ukbb_res$Phenotype),vumc_res$phecode))
+  # bind_rows(data.frame(phecode=unique(normalize_phecodes(vumc_res$phecode)),institution="vumc"))
+  # unique(c(normalize_phecodes(ukbb_res$Phenotype),vumc_res$phecode))
 # phecodes <- phecode_def %>% dplyr::select(phecode,description) %>%
 #   dplyr::select(phecode) %>%
 #   join_phecode_info(cols_to_join = c("description", "category")) %>%
@@ -177,10 +184,10 @@ sil_dat = readRDS("data/sil_dat.rds")
 # 
 
 
-# ### extract disease phenotypes that having shared/co-occurred biomoleculars nodes with the input disease phenotypes
+# ### extract disease phenotypes that having shared/co-occurred biomolecules nodes with the input disease phenotypes
 # ##  biomolecular nodes that connected to the input phenotypes
 # shared_bio = tidy_connect %>% dplyr::filter(from %in% test| to %in% test) %>%
-#   filter(pvalue<0.05/10000) %>%
+#   # filter(pvalue<0.05/10000) %>%
 #   filter(institution == "ukb") %>%
 #   dplyr::select(from,to) %>%
 #   graph_from_data_frame(., directed=FALSE) %>%
@@ -189,9 +196,10 @@ sil_dat = readRDS("data/sil_dat.rds")
 #   mutate(biomolecular = ifelse(from %in% test,to,from),
 #          select_phenotype = ifelse(from %in% test,from,to)) %>%
 #   dplyr::select(select_phenotype,biomolecular)
+# 
 # ##phenotypes shared the common biomolecular nodes with the input phenotypes
 # shared_phe = tidy_connect %>%
-#   filter(pvalue<0.05/10000) %>%
+#   # filter(pvalue<0.05/10000) %>%
 #   filter(institution == "ukb") %>%
 #   dplyr::select(from,to) %>%
 #   graph_from_data_frame(., directed=FALSE) %>%
@@ -215,19 +223,5 @@ sil_dat = readRDS("data/sil_dat.rds")
 #   left_join(.,phecode_def %>% dplyr::select(phecode,description) %>% dplyr::rename(co_phenotype=description),by="co_phenotype") %>%
 #   dplyr::rename(co_phecode=phecode) %>%
 #   mutate(institution="ukb")
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
+
+

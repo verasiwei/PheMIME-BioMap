@@ -47,8 +47,8 @@ enrichment_analysis = function(dat){
      ## go enrichment analysis 
      res = gseGO(geneList   = gene_list,
                  OrgDb        = org.Hs.eg.db,
-                 ont          = "CC",
-                 minGSSize    = 100,
+                 ont          = "BP",
+                 minGSSize    = 10,
                  # maxGSSize    = 500,
                  pvalueCutoff = 1,
                  verbose      = FALSE)
@@ -57,7 +57,7 @@ enrichment_analysis = function(dat){
      ## kegg enrichment analysis
      res = gseKEGG(geneList     = gene_list,
                    organism     = 'hsa',
-                   minGSSize    = 100,
+                   minGSSize    = 10,
                    pvalueCutoff = 1,
                    verbose      = FALSE)
      res_kegg = res@result
@@ -72,7 +72,7 @@ enrichment_analysis = function(dat){
      # 
      ## reactome pathway
      res <- gsePathway(gene_list,
-                     minGSSize    = 100,
+                     minGSSize    = 10,
                      pvalueCutoff = 1,
                      pAdjustMethod = "BH",
                      verbose = FALSE)
@@ -80,7 +80,7 @@ enrichment_analysis = function(dat){
      
      ## disease
      res <- gseDO(gene_list,
-                minGSSize     = 100,
+                minGSSize     = 10,
                 pvalueCutoff  = 1,
                 pAdjustMethod = "BH",
                 verbose       = FALSE)

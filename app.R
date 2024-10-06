@@ -58,7 +58,7 @@ server <- function(input, output, session) {
       current_phecode = all_data$current_phecode,
       current_description = all_data$current_description, 
       current_institution = all_data$current_institution,
-      # current_data = all_data$current_data,
+      current_row = all_data$current_row,
       visualize_network = all_data$visualize_network
     )
   })
