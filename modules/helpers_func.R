@@ -136,7 +136,9 @@ enrichment_analysis = function(dat){
       ## Could I add the cluster analysis based on the similarity of phenotypes? which is to say according to the similarity among phenotype proportions for each biological term
       data_wide <- res_table %>%
         dplyr::select(Description, phenotype, freq) %>%
-        pivot_wider(names_from = phenotype, values_from = freq, values_fill = list(freq = 0))
+        distinct(Description,phenotype,.keep_all = T) %>%
+        # tidyr::spread(key = phenotype, value = freq,fill=0)
+        tidyr::pivot_wider(names_from = phenotype, values_from = freq, values_fill = list(freq = 0))
       data_matrix <- as.matrix(data_wide[, -1])
       rownames(data_matrix) <- data_wide$Description
 
