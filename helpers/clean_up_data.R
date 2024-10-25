@@ -17,27 +17,27 @@ vumc_res = bind_rows(transcriptomics_dat %>% mutate(group="gene"),
                      metabolomics_dat %>% mutate(group="metabolite")) %>%
            mutate(p_adjust = p.adjust(pvalue,"fdr")) %>%
            filter(p_adjust < 0.99) %>%
-           # filter(pvalue < 0.05) %>% ### less strict rule
+           # filter(p_adjust < 0.05) %>% ### less strict rule
            mutate(variable = str_remove_all(variable,"`")) %>%
            dplyr::select(-pvalue) %>%
            mutate(pvalue = p_adjust)
           
 # saveRDS(vumc_res, file="data/vumc_phewas_res_original_p_0.05.rds")
-saveRDS(vumc_res, file="data/vumc_phewas_res_original.rds")
+# saveRDS(vumc_res, file="data/vumc_phewas_res_original_logistic.rds")
 vumc_res_connect = vumc_res %>%
   mutate(phenotype=normalize_phecodes(phecode),hr=round(as.numeric(hr),2)) %>%
+  # mutate(phenotype=normalize_phecodes(phecode),or=round(exp(as.numeric(beta)),2)) %>%
   left_join(., phecodes %>% dplyr::rename(phenotype=phecode),by="phenotype") %>%
   dplyr::select(variable,phenotype,connection_type=group,hr,pvalue,p_adjust,phecode_description=Description,phecode_category=category) %>%
   dplyr::rename(from = variable,to = phecode_description) %>%
   bind_rows(vumc_res %>%
-              mutate(phenotype=normalize_phecodes(phecode)) %>%
+              mutate(phenotype=normalize_phecodes(phecode),hr=round(as.numeric(hr),2)) %>%
               left_join(., phecodes %>% dplyr::rename(phenotype=phecode),by="phenotype") %>%
               dplyr::select(variable,phenotype,connection_type=group,hr,pvalue,p_adjust,phecode_description=Description,phecode_category=category) %>%
               dplyr::rename(from = phecode_description,to = variable)) %>%
-  # mutate(hazard_ratio = str_extract(hr,"[^()]+",group=NULL)) %>%
+  mutate(hazard_ratio = str_extract(hr,"[^()]+",group=NULL)) %>%
   dplyr::select(from,to,phecode=phenotype,connection_type,hazard_ratio=hr,pvalue,phecode_category) %>%
-  filter(!is.na(from) & !is.na(to)) %>%
-  mutate(hazard_ratio=as.numeric(hazard_ratio))
+  filter(!is.na(from) & !is.na(to)) 
 
 res = readRDS("data/omicspred_phewas_res.rds")
 omicspred_res_connect = res %>%
@@ -56,18 +56,17 @@ omicspred_res_connect = res %>%
               left_join(., phecodes %>% dplyr::rename(phenotype=phecode),by="phenotype") %>%
               dplyr::select(variable,phenotype,connection_type,hr,pvalue,phecode_description=Description,phecode_category=category) %>%
               dplyr::rename(from = phecode_description,to = variable)) %>%
-  mutate(hazard_ratio = str_extract(hr,"[^ ()]+",group=NULL)) %>%
-  dplyr::select(from,to,phecode=phenotype,connection_type,hazard_ratio,hr,pvalue,phecode_category) %>%
+  mutate(hr = str_extract(hr,"[^ ()]+",group=NULL)) %>%
+  dplyr::select(from,to,phecode=phenotype,connection_type,hr,pvalue,phecode_category) %>%
   filter(!is.na(from) & !is.na(to)) %>%
   mutate(connection_type=case_when(connection_type=="Gene expression"~"gene",
                                    connection_type=="Protein"~"protein",
                                    connection_type=="Metabolite"~"metabolite"),
-         hazard_ratio=as.numeric(hazard_ratio)) %>%
-  dplyr::select(-hr)
+         hr=as.numeric(hr))
 
 all_res = bind_rows(omicspred_res_connect %>% mutate(institution="ukb"),
                     vumc_res_connect %>% mutate(institution="vumc"))
-saveRDS(all_res, file="data/all_res_ukb_vumc_original.rds")
+saveRDS(all_res, file="data/all_res_ukb_vumc_original_logistic.rds")
 # nodes = all_res %>%
 #   dplyr::select(node = Description,type=Type) %>%
 #   distinct(node,.keep_all = T) %>%
@@ -276,7 +275,7 @@ write.table(shared_phe_ad_lung,file = "data/shared_phenotype_AD_Lung.txt",sep = 
 
 ##========================================================================================================
 ##========================================================================================================
-## the shared biomolecules between each disease pair
+## the exact shared biomolecules list between each disease pair for ad (sent results to Wei Zong)
 phenotype = phecodes$Description
 shared_phe_ad = shared_phe %>%
   filter(sel_phenotype == "Alzheimer's disease")
@@ -333,7 +332,7 @@ shared_sig_bio_ad = shared_sig_bio_ad %>%
   filter(!is.na(`# of shared significant biomolecules (adjusted)`))
 ##========================================================================================================
 ##========================================================================================================
-## permutation test
+## permutation test add pvalues
 tidy_connect_simple_vumc= tidy_connect %>%
   filter(institution == "vumc") %>%
   filter(pvalue<0.05) %>%
@@ -376,12 +375,15 @@ observed_counts <- count_shared_biomolecules(tidy_connect_simple,"from")
 
 set.seed(123)
 # Step 2: Create a function to shuffle biomolecule associations within each institution
-permute_biomolecules <- function(data, n_permutations = 1000,from) {
-  perm_results <- purrr::map(1:n_permutations, function(x) {
+
+# plan(multisession,workers=7)
+plan(multicore, workers = 20)
+n_permutations = 1000
+  perm_results <- furrr::future_map(1:n_permutations, function(x) {
     # Shuffle the biomolecule-to-phenotype association within each institution
-    permuted_data <- data %>%
+    permuted_data <- tidy_connect_simple %>%
       group_by(institution) %>%
-      mutate(shuffled_from = sample(from))  # Shuffle the 'from' column (biomolecules) within each institution
+      mutate(shuffled_from = sample(from)) # Shuffle the 'from' column (biomolecules) within each institution
     
     permuted_data = count_shared_biomolecules(permuted_data,"shuffled_from")
     permuted_data = observed_counts %>%
@@ -393,20 +395,19 @@ permute_biomolecules <- function(data, n_permutations = 1000,from) {
   
   # Bind results from permutations
   perm_counts_df <- do.call(cbind,perm_results)
-  
-  # Step 3: Calculate p-values
   p_values <- apply(perm_counts_df, 1, function(perm_counts) {
     mean(perm_counts < observed_counts$shared_biomolecules)
   })
   
   observed_counts$p_value <- p_values
-  observed_counts
-}
 
-test = shared_sig_bio_ad %>% 
-  left_join(.,observed_counts %>% dplyr::filter(sel_phenotype=="Alzheimer's disease"), by=c("institution","sel_phenotype","co_phenotype"))
-write.table(test, file="data/shared_sig_biomolecule_pvalue.txt",col.names = T,row.names = F,sep = "\t",quote = F)
+saveRDS(observed_counts,file="data/shared_phe_biomolecule_pvalue_logistic.rds")
+# test = shared_sig_bio_ad %>% 
+#   left_join(.,observed_counts %>% dplyr::filter(sel_phenotype=="Alzheimer's disease"), by=c("institution","sel_phenotype","co_phenotype"))
+# write.table(test, file="data/shared_sig_biomolecule_pvalue.txt",col.names = T,row.names = F,sep = "\t",quote = F)
 
+## AD
+observed_counts = readRDS("data/shared_phe_biomolecule_pvalue_logistic.rds")
 
 
 

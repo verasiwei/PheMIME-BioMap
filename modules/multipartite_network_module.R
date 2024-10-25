@@ -69,6 +69,7 @@ multipartite_network_UI = function(id,app_ns){
                  tags$br(),
                  column(12,
                         div(class = "subtitle","Biomolecules Table"),
+                        column(12,downloadButton(class="buttonstyle",ns("download_shared"), "Download Table")),
                         # div(
                         # column(5,actionButton(ns("showsharedtab"),"Shared Biomolecules Table",class="buttonstyle")),
                         # column(7,conditionalPanel(
@@ -378,23 +379,26 @@ multipartite_network_Server = function(input,output,session,current_description,
 
     ## add pvalue, etc.
     shared_tabb = shared_tab %>%
-      left_join(., tidy_connect %>% dplyr::filter((from %in% clicked_node_ids & to %in% shared_tab$ID) |
+      left_join(., tidy_connect %>% group_by(institution) %>%
+                  dplyr::filter((from %in% clicked_node_ids & to %in% shared_tab$ID) |
                                              (to %in% clicked_node_ids & from %in% shared_tab$ID)) %>%
-                  dplyr::select(from,to,hazard_ratio,pvalue,phecode_category) %>%
-                  bind_rows(
-                    tidy_connect %>% filter((from %in% clicked_node_ids & to %in% shared_tab$ID) |
-                                              (to %in% clicked_node_ids & from %in% shared_tab$ID)) %>%
-                      dplyr::select(to,from,hazard_ratio,pvalue)
-                  ) %>%
-                  dplyr::select(ID=from,hazard_ratio,pvalue),by="ID") %>%
-      distinct(.,.keep_all = T) %>%
-      group_by(ID) %>%
-      mutate(hazard_ratio_mean = round(mean(hazard_ratio),2),
-             pvalue_mean = round(mean(pvalue),2)) %>%
-      ungroup() %>%
-      distinct(ID,.keep_all = T) %>%
-      dplyr::select(-hazard_ratio,-pvalue,-institution) %>%
-      dplyr::rename(hr=hazard_ratio_mean,pval=pvalue_mean)
+                  dplyr::select(from,to,hazard_ratio,pvalue,phecode_category,institution) %>%
+                  ungroup() %>%
+                  # bind_rows(
+                  #   tidy_connect %>% filter((from %in% clicked_node_ids & to %in% shared_tab$ID) |
+                  #                             (to %in% clicked_node_ids & from %in% shared_tab$ID)) %>%
+                  #     dplyr::select(to,from,hazard_ratio,pvalue)
+                  # ) %>%
+                  dplyr::select(ID=from,phenotype=to,hazard_ratio,pvalue,institution),by=c("institution","ID")) %>%
+      # distinct(.,.keep_all = T) %>%
+      # group_by(ID) %>%
+      # mutate(hazard_ratio_mean = round(mean(hazard_ratio),2),
+             # pvalue_mean = round(mean(pvalue),2)) %>%
+      # ungroup() %>%
+      # distinct(ID,.keep_all = T) %>%
+      # dplyr::select(-hazard_ratio,-pvalue,-institution) %>%
+      dplyr::rename(hr=hazard_ratio,pval=pvalue) %>%
+      mutate(pval = round(pval,3))
 
     # ##selected node ID
     # code_id <- reactiveVal(glue("{clicked_nodes()};"))
@@ -406,43 +410,48 @@ multipartite_network_Server = function(input,output,session,current_description,
     }
     })
   })
-    
+  
+  ### exclusively shared biomolecules table
   observeEvent(input$exclusivetab,{
     updated_ids <- update_clicked_id()
     if(!is.null(updated_ids)){
     shared_nodes_id_unique_ids <- shared_nodes_id_unique()
-    shared_tab = data.frame(ID=shared_nodes_id_unique_ids)
-    if(nrow(shared_tab)!=0){
-      shared_tab = shared_tab %>% left_join(.,nodes %>% dplyr::rename(ID=node),by="ID") %>% filter(institution == current_institution())
+    exclusive_tab = data.frame(ID=shared_nodes_id_unique_ids)
+    if(nrow(exclusive_tab)!=0){
+      exclusive_tab = exclusive_tab %>% left_join(.,nodes %>% dplyr::rename(ID=node),by="ID") %>% filter(institution == current_institution())
     } else{
-      shared_tab = shared_tab
+      exclusive_tab = exclusive_tab
     }
 
     ## add pvalue, etc.
     # updated_ids <- update_clicked_id()
-    shared_tab = shared_tab %>%
-      left_join(., tidy_connect %>% filter((from %in% updated_ids & to %in% shared_tab$ID) |
-                                             (to %in% updated_ids & from %in% shared_tab$ID)) %>%
-                  dplyr::select(from,to,hazard_ratio,pvalue,phecode_category) %>%
-                  bind_rows(
-                    tidy_connect %>% filter((from %in% updated_ids & to %in% shared_tab$ID) |
-                                              (to %in% updated_ids & from %in% shared_tab$ID)) %>%
-                      dplyr::select(to,from,hazard_ratio,pvalue)
-                  ) %>%
-                  dplyr::select(ID=from,hazard_ratio,pvalue),by="ID") %>%
-      distinct(.,.keep_all = T) %>%
-      group_by(ID) %>%
-      mutate(hazard_ratio_mean = mean(hazard_ratio),
-             pvalue_mean = mean(pvalue)) %>%
-      ungroup() %>%
-      distinct(ID,.keep_all = T) %>%
-      dplyr::select(-hazard_ratio,-pvalue)
+    exclusive_tabb = exclusive_tab %>%
+      left_join(., tidy_connect %>% group_by(institution) %>% 
+                  filter((from %in% updated_ids & to %in% exclusive_tab$ID) |
+                                             (to %in% updated_ids & from %in% exclusive_tab$ID)) %>%
+                  dplyr::select(from,to,hazard_ratio,pvalue,phecode_category,institution) %>%
+                  ungroup() %>%
+                  # bind_rows(
+                  #   tidy_connect %>% filter((from %in% updated_ids & to %in% shared_tab$ID) |
+                  #                             (to %in% updated_ids & from %in% shared_tab$ID)) %>%
+                  #     dplyr::select(to,from,hazard_ratio,pvalue)
+                  # ) %>%
+                  dplyr::select(ID=from,phenotype=to,hazard_ratio,pvalue,institution),by=c("institution","ID")) %>%
+      # distinct(.,.keep_all = T) %>%
+      # group_by(ID) %>%
+      # mutate(hazard_ratio_mean = mean(hazard_ratio),
+             # pvalue_mean = mean(pvalue)) %>%
+      # ungroup() %>%
+      # distinct(ID,.keep_all = T) %>%
+      # dplyr::select(-hazard_ratio,-pvalue)
+      dplyr::rename(hr=hazard_ratio,pval=pvalue) %>%
+      mutate(pval = round(pval,3))
 
     # ##selected node ID
     # code_id <- reactiveVal(glue("{clicked_nodes()};"))
     # output$node_info <- renderText(glue("{code_id()}"))
 
-    sharednodes(shared_tab)
+    sharednodes(exclusive_tabb)
     ## table info
     output$table_info <- renderText("Exclusively Shared Nodes Among Selected Nodes")
     }
@@ -467,15 +476,15 @@ multipartite_network_Server = function(input,output,session,current_description,
     )
   },server = FALSE)
   
-  # output$download_table <- downloadHandler(
-  #   filename = function() {
-  #     paste0("associated_mechanism",Sys.time(),".csv")
-  #   },
-  #   content = function(file) {
-  #     write.csv(shared_table(), file, row.names = FALSE,
-  #               col.names = T,quote = F)
-  #   }
-  # )
+  output$download_shared <- downloadHandler(
+    filename = function() {
+      paste0("biomolecules_table",Sys.time(),".csv")
+    },
+    content = function(file) {
+      write.csv(sharednodes(), file, row.names = FALSE,
+                col.names = T,quote = F)
+    }
+  )
   
   return(
     reactive({

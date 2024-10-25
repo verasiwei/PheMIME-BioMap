@@ -86,7 +86,7 @@ enrichment_analysis = function(dat){
                 verbose       = FALSE)
      res_disease = res@result
      
-     bind_rows(res_go,res_kegg,res_reactome,res_disease) %>%
+     final_res = bind_rows(res_go,res_kegg,res_reactome,res_disease) %>%
        mutate(pvalue = round(pvalue,2),
               p.adjust = round(p.adjust,2),
               qvalue = round(qvalue,2),
@@ -96,20 +96,27 @@ enrichment_analysis = function(dat){
     }) 
    # %>%
      # distinct(Description,.keep_all = T) 
-  
-    if(nrow(res)!=0){
+   return(res)
+  } else {
+    NULL
+  }
+}
+
+enrichment_res_clean = function(res,datt,pval_cut){
+    # if(nrow(res)!=0){
       
       ## percentage of genes under that pathway that originally from each disease phenotype
       res_freq = res %>% 
         # distinct(Description,.keep_all = T) %>%
         # filter(Description %in% unique(res$Description)) %>%
+        filter(p.adjust<pval_cut) %>%
         group_by(phenotype) %>%
         dplyr::select(Description,core_enrichment) %>%
         mutate(core_enrichment = str_split(core_enrichment,"/")) %>%
         unnest(core_enrichment) %>%
         dplyr::rename(ENTREZID = core_enrichment) %>%
         ungroup() %>%
-        left_join(.,dat %>% dplyr::select(phenotype,ENTREZID),by=c("phenotype","ENTREZID")) %>%
+        left_join(.,datt %>% dplyr::select(phenotype,ENTREZID),by=c("phenotype","ENTREZID")) %>%
         filter(!is.na(phenotype))
       res_freq_list = res_freq %>%
         mutate(Description = factor(Description,levels = unique(Description))) %>%
@@ -126,12 +133,14 @@ enrichment_analysis = function(dat){
         })
       ##table data
       res_table = res %>%
+        filter(p.adjust<pval_cut) %>%
         left_join(.,res_freq %>%
                     group_by(Description,phenotype) %>%
                     summarise(n = n()) %>%
                     mutate(freq = round(n / sum(n),2)) %>%
                     dplyr::select(Description,freq,phenotype), by=c("phenotype","Description")) %>%
-        dplyr::select(ID,Description,freq,phenotype,enrichmentScore,pvalue,p.adjust,qvalue)
+        left_join(.,res_freq %>% left_join(.,datt %>% dplyr::select(phenotype,node,ENTREZID),by=c("phenotype","ENTREZID")),by=c("phenotype","Description")) %>%
+        dplyr::select(ID,Description,freq,biomolecule=node,phenotype,enrichmentScore,pvalue,p.adjust,qvalue)
       
       ## Could I add the cluster analysis based on the similarity of phenotypes? which is to say according to the similarity among phenotype proportions for each biological term
       data_wide <- res_table %>%
@@ -154,9 +163,9 @@ enrichment_analysis = function(dat){
     # generate edges
       if(ncol(data_matrix)>1){
       g <- graph_from_adjacency_matrix(dist_matrix, mode = "undirected", weighted = TRUE)
-      res_network <- as_data_frame(g, what = "edges") %>% filter(weight != 0) %>% dplyr::select(-weight) %>% filter(from!=to)
+      res_network <- as_data_frame(g, what = "edges") %>% filter(weight != 0) %>% filter(from!=to)
       } else {
-        res_network <- expand_grid(rownames(data_matrix),rownames(data_matrix)) 
+        res_network <- expand_grid(rownames(data_matrix),rownames(data_matrix)) %>% mutate(weight=0)
         colnames(res_network) = c("from","to")
       }
       
@@ -184,14 +193,10 @@ enrichment_analysis = function(dat){
       sil_dat = data.frame(cutoffs, sil_scores)
     
       return(list(hclust_result,res_network,res_freq,res_freq_list,res_table,dist_matrix,cor_coef,sil_dat))
-    } else{
-      NULL
-    }
-  } else {
-    NULL
-  }
+    # } else{
+    #   NULL
+    # }
 }
-
 
 join_phecode_info = function (data_w_phecode, phecode_column = phecode, cols_to_join = c("description",
                                                                                          "category", "category_number", "phecode_index"))

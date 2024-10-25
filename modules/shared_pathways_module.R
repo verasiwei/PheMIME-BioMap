@@ -18,6 +18,13 @@ shared_pathways_UI = function(id,app_ns){
                  ),
                  column(12,div(class = "subtitle","Selected Nodes:",style="font-size: 1.5rem;color:black;padding-left: 5px;padding-top:8px;")),
                  column(12,textOutput(ns("node_info"))),
+                 column(12,div(class = "subtitle","Enrichment Analysis p-value cutoff: ",style="font-size: 1.5rem;color:black;padding-left: 5px;padding-top:8px;")),
+                 column(3,sliderInput(ns("pval_cut"),"Select p-value cutoff",
+                                      min = 0, 
+                                      max = 1, 
+                                      value = 0.05, 
+                                      step = 0.01)),
+                 column(12,div(class = "subtitle","Selected Clustering Cut-off",style="font-size: 1.5rem;color:black;padding-left: 5px;padding-top:8px;")),
                  column(3,
                         sliderInput(ns("hclust_cutoff"), "Select Dendrogram Cut-off Height:",
                                       min = 0, 
@@ -54,6 +61,7 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
   cor_coef_react = reactiveVal(0.9326)
   sil_dat_react = reactiveVal(sil_dat)
   enrichment_res_all_react = reactiveVal(enrichment_network_all_initial)
+  enrichment_datt = reactiveVal(enrichment_datt)
   # update_pathway_react = reactiveVal(input$update_pathway)
 
   ##selected node ID
@@ -66,7 +74,7 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
 
   observeEvent(update_pathway_react(),{
     # Save selected nodes before update
-  selected_nodes_backup <- clicked_node_id()
+      selected_nodes_backup <- clicked_node_id()
     # if(!is.null(clicked_node_id())) {
       # withProgress(
       #   message = "It is running, please wait...",
@@ -100,9 +108,83 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
       # Example progress step
       shinyWidgets::updateProgressBar(session, id = "pathwayProgress", value = 30)
       # isolate({incProgress(amount=1/10)})
-      enrichment_res = enrichment_analysis(datt)
-      # Example progress step
-      shinyWidgets::updateProgressBar(session, id = "pathwayProgress", value = 100)
+      # if(nrow(datt)!=0){
+      res = enrichment_analysis(datt)
+      enrichment_res = enrichment_res_clean(res,datt,input$pval_cut)
+        # Example progress step
+        shinyWidgets::updateProgressBar(session, id = "pathwayProgress", value = 100)
+        ##dendrogram data
+        dendrogram_dat = enrichment_res[[1]]
+        ##network data
+        clusters <- data.frame(node = unique(enrichment_res[[3]]$Description),cluster=cutree(dendrogram_dat, h = input$hclust_cutoff))
+        ##cophenetic coefficient
+        cor_coef = enrichment_res[[7]]
+        ##silhouette
+        sil_dat = enrichment_res[[8]]
+        vertices = data.frame(node = unique(enrichment_res[[3]]$Description))
+        vertices = vertices %>%
+          left_join(.,clusters,by="node")
+        
+        network_dat = list(
+          nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% enrichment_res[[3]]$Description),
+          edges = enrichment_res[[2]] %>% dplyr::rename(source = from, target = to) %>% 
+            filter(source %in% enrichment_res[[3]]$Description & target %in% enrichment_res[[3]]$Description),
+          freq = enrichment_res[[4]],
+          res_table = enrichment_res[[5]],
+          res_freq = enrichment_res[[3]],
+          res_network = enrichment_res[[2]],
+          extra = data.frame(nothing=Sys.time())
+        )
+        # })
+        
+        enrichment_res_all_react(res)
+        enrichment_datt(datt)
+        enrichment_res_react(network_dat)
+        res_table(network_dat$res_table)
+        dendrogram(dendrogram_dat)
+        cor_coef_react(cor_coef)
+        sil_dat_react(sil_dat)
+        # }
+      # }
+
+  })
+  
+  observeEvent(input$pval_cut,{
+    enrichment_res = enrichment_res_clean(enrichment_res_all_react(),enrichment_datt(),input$pval_cut)
+    ##dendrogram data
+    dendrogram_dat = enrichment_res[[1]]
+    ##network data
+    clusters <- data.frame(node = unique(enrichment_res[[3]]$Description),cluster=cutree(dendrogram_dat, h = input$hclust_cutoff))
+    ##cophenetic coefficient
+    cor_coef = enrichment_res[[7]]
+    ##silhouette
+    sil_dat = enrichment_res[[8]]
+    vertices = data.frame(node = unique(enrichment_res[[3]]$Description))
+    vertices = vertices %>%
+      left_join(.,clusters,by="node")
+
+    network_dat = list(
+      nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% enrichment_res[[3]]$Description),
+      edges = enrichment_res[[2]] %>% dplyr::rename(source = from, target = to) %>% 
+        filter(source %in% enrichment_res[[3]]$Description & target %in% enrichment_res[[3]]$Description),
+      freq = enrichment_res[[4]],
+      res_table = enrichment_res[[5]],
+      res_freq = enrichment_res[[3]],
+      res_network = enrichment_res[[2]],
+      extra = data.frame(nothing=Sys.time())
+    )
+    # })
+
+    # enrichment_res_all_react(enrichment_res)
+    enrichment_res_react(network_dat)
+    res_table(network_dat$res_table)
+    dendrogram(dendrogram_dat)
+    cor_coef_react(cor_coef)
+    sil_dat_react(sil_dat)
+  })
+  
+  observeEvent(input$hclust_cutoff,{
+      enrichment_res = enrichment_res_clean(enrichment_res_all_react(),enrichment_datt(),input$pval_cut)
       ##dendrogram data
       dendrogram_dat = enrichment_res[[1]]
       ##network data
@@ -114,47 +196,15 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
       vertices = data.frame(node = unique(enrichment_res[[3]]$Description))
       vertices = vertices %>%
         left_join(.,clusters,by="node")
-      
-      network_dat = list(
-        nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% enrichment_res[[3]]$Description),
-        edges = enrichment_res[[2]] %>% dplyr::rename(source = from, target = to) %>% filter(source %in% enrichment_res[[3]]$Description & target %in% enrichment_res[[3]]$Description),
-        freq = enrichment_res[[4]],
-        res_table = enrichment_res[[5]],
-        res_freq = enrichment_res[[3]],
-        res_network = enrichment_res[[2]],
-        extra = data.frame(nothing=Sys.time())
-      )
-    # })
-      
-      enrichment_res_all_react(enrichment_res)
-      enrichment_res_react(network_dat)
-      res_table(network_dat$res_table)
-      dendrogram(dendrogram_dat)
-      cor_coef_react(cor_coef)
-      sil_dat_react(sil_dat)
-    # }
-  })
-  
-  observeEvent(input$hclust_cutoff,{
-      ##dendrogram data
-      dendrogram_dat = enrichment_res_all_react()[[1]]
-      ##network data
-      clusters <- data.frame(node = unique(enrichment_res_all_react()[[3]]$Description),cluster=cutree(dendrogram_dat, h = input$hclust_cutoff))
-      ##cophenetic coefficient
-      cor_coef = enrichment_res_all_react()[[7]]
-      ##silhouette
-      sil_dat = enrichment_res_all_react()[[8]]
-      vertices = data.frame(node = unique(enrichment_res_all_react()[[3]]$Description))
-      vertices = vertices %>%
-        left_join(.,clusters,by="node")
 
     network_dat = list(
-      nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% enrichment_res_all_react()[[3]]$Description),
-      edges = enrichment_res_all_react()[[2]] %>% dplyr::rename(source = from, target = to) %>% filter(source %in% enrichment_res_all_react()[[3]]$Description & target %in% enrichment_res_all_react()[[3]]$Description),
-      freq = enrichment_res_all_react()[[4]],
-      res_table = enrichment_res_all_react()[[5]],
-      res_freq = enrichment_res_all_react()[[3]],
-      res_network = enrichment_res_all_react()[[2]],
+      nodes = vertices %>% dplyr::rename(id = node) %>% filter(id %in% enrichment_res[[3]]$Description),
+      edges = enrichment_res[[2]] %>% dplyr::rename(source = from, target = to) %>% 
+        filter(source %in% enrichment_res[[3]]$Description & target %in% enrichment_res[[3]]$Description),
+      freq = enrichment_res[[4]],
+      res_table = enrichment_res[[5]],
+      res_freq = enrichment_res[[3]],
+      res_network = enrichment_res[[2]],
       extra = data.frame(nothing=Sys.time())
     )
 
@@ -164,7 +214,7 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
     cor_coef_react(cor_coef)
     sil_dat_react(sil_dat)
   })
-  
+
   ## cophenetic coefficient
   output$cor_phecoef <- renderText(glue("Cophenetic Correlation:","{cor_coef_react()}"))
   
@@ -253,6 +303,16 @@ shared_pathways_Server <- function(input,output,session,current_phecode,current_
               )
     )
   },server = FALSE)
+  
+  output$download_table <- downloadHandler(
+    filename = function() {
+      paste0("pathways_table",Sys.time(),".csv")
+    },
+    content = function(file) {
+      write.csv(res_table(), file, row.names = FALSE,
+                col.names = T,quote = F)
+    }
+  )
 
   
 }
