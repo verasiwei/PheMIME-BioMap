@@ -14,3 +14,5 @@ PheMIME-BioNet enables researchers to select disease phenotypes of interest, and
 
 
 The current version is accessible at: [application](https://prod.tbilab.org/content/99395bec-6a59-4526-b1cf-e973e774626), which is still under development.
+
+![Figure 1: Overview of PheMIME-BioMap](./www/Figure1.png)
